@@ -6,12 +6,12 @@ export default defineComponent({
   name: "Button",
   props: {
     type: {
-      type: String as PropType<"text" | "outlined">,
+      type: String as PropType<"text" | "outlined" | "contained">,
       default: "text",
     },
   },
   emits: ["click"],
-  setup(props, { slots, emit, attrs }) {
+  setup(props, { slots, emit }) {
     const button = ref<HTMLButtonElement>();
     let ripples: HTMLDivElement[] = [];
 
@@ -50,13 +50,17 @@ export default defineComponent({
         ref={button}
         class={[
           styles.button,
+          { [styles.text]: props.type === "text" },
           { [styles.outlined]: props.type === "outlined" },
+          { [styles.contained]: props.type === "contained" },
         ]}
         onClick={handleClick}
         onMousedown={handleCreateRipples}
         onMouseup={handleMouseUp}
       >
-        <span class={styles.text}>{slots.default ? slots.default() : ""}</span>
+        <span class={styles.buttonText}>
+          {slots.default ? slots.default() : ""}
+        </span>
       </button>
     );
   },

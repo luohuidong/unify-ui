@@ -2,6 +2,28 @@
 @use "@/styles/color";
 @use "@/styles/type";
 
+@mixin ripple($backgroundColor) {
+  box-sizing: border-box;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background-color: $backgroundColor;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: rippleAnimate 400ms linear forwards;
+}
+
+@keyframes rippleAnimate {
+  0% {
+    width: 0px;
+    padding-bottom: 0;
+  }
+
+  100% {
+    width: 250%;
+    padding-bottom: 250%;
+  }
+}
+
 .button {
   box-sizing: border-box;
   position: relative;
@@ -16,38 +38,46 @@
 
   cursor: pointer;
 
-  &:hover {
-    background-color: map.get(color.$primary, "50");
+  &.text {
+    &:hover {
+      background-color: map.get(color.$primary, "50");
+    }
+
+    &:active .ripple {
+      @include ripple(map.get(color.$primary, "100"));
+    }
   }
 
   &.outlined {
     border: 1px solid map.get(color.$primary, "500");
+
+    &:hover {
+      background-color: map.get(color.$primary, "50");
+    }
+
+    &:active .ripple {
+      @include ripple(map.get(color.$primary, "100"));
+    }
+  }
+
+  &.contained {
+    color: color.$font-light;
+    background-color: map.get(color.$primary, "600");
+
+    &:hover {
+      background-color: map.get(color.$primary, "500");
+      box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
+        0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
+      transition: box-shadow 300ms;
+    }
+
+    &:active .ripple {
+      @include ripple(map.get(color.$primary, "300"));
+    }
   }
 }
 
-button:active .ripple {
-  box-sizing: border-box;
-  position: absolute;
-  transform: translate(-50%, -50%);
-  background: map.get(color.$primary, "100");
-  border-radius: 50%;
-  pointer-events: none;
-  animation: ripple-animate 200ms linear forwards;
-}
-
-@keyframes ripple-animate {
-  0% {
-    width: 0px;
-    padding-bottom: 0;
-  }
-
-  100% {
-    width: 250%;
-    padding-bottom: 250%;
-  }
-}
-
-.text {
+.buttonText {
   box-sizing: border-box;
   z-index: 1;
   position: relative;

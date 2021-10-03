@@ -1,14 +1,11 @@
 <script setup lang="ts">
 import Button from "./components/Button";
-
-function handleClick(event: MouseEvent) {
-  console.log("🚀 ~ file: App.vue ~ line 5 ~ handleClick ~ event", event);
-}
 </script>
 
 <template>
-  <Button @click="handleClick">text button</Button>
+  <Button>text button</Button>
   <Button type="outlined">outlined button</Button>
+  <Button type="contained">outlined button</Button>
 </template>
 
 <style>
