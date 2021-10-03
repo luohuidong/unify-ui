@@ -1,32 +1,36 @@
-import { defineComponent, ref } from "vue";
+import { defineComponent, PropType, ref } from "vue";
 
 import styles from "./index.module.scss";
 
 export default defineComponent({
   name: "Button",
+  props: {
+    type: {
+      type: String as PropType<"text" | "outlined">,
+      default: "text",
+    },
+  },
   emits: ["click"],
-  setup(props, { slots, emit }) {
+  setup(props, { slots, emit, attrs }) {
+    const button = ref<HTMLButtonElement>();
     let ripples: HTMLDivElement[] = [];
 
     function handleCreateRipples(e: MouseEvent) {
-      if (!e.target) {
-        return;
-      }
-
-      const target = e.target as HTMLButtonElement;
       const x = e.offsetX;
       const y = e.offsetY;
 
-      const ripple = document.createElement("div");
-      ripple.style.left = x + "px";
-      ripple.style.top = y + "px";
-      ripple.className = styles.ripple;
-      target.appendChild(ripple);
+      if (button.value) {
+        const ripple = document.createElement("div");
+        ripple.style.left = x + "px";
+        ripple.style.top = y + "px";
+        ripple.className = styles.ripple;
+        button.value.appendChild(ripple);
 
-      ripples.push(ripple);
+        ripples.push(ripple);
+      }
     }
 
-    function handleMouseUp(e: MouseEvent) {
+    function handleMouseUp() {
       const tmp = ripples;
       ripples = [];
 
@@ -40,9 +44,14 @@ export default defineComponent({
     function handleClick(e: MouseEvent) {
       emit("click", e);
     }
+
     return () => (
       <button
-        class={styles.button}
+        ref={button}
+        class={[
+          styles.button,
+          { [styles.outlined]: props.type === "outlined" },
+        ]}
         onClick={handleClick}
         onMousedown={handleCreateRipples}
         onMouseup={handleMouseUp}

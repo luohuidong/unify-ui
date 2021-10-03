@@ -7,7 +7,8 @@ function handleClick(event: MouseEvent) {
 </script>
 
 <template>
-  <Button @click="handleClick">button</Button>
+  <Button @click="handleClick">text button</Button>
+  <Button type="outlined">outlined button</Button>
 </template>
 
 <style>

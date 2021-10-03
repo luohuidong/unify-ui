@@ -19,20 +19,23 @@
   &:hover {
     background-color: map.get(color.$primary, "50");
   }
+
+  &.outlined {
+    border: 1px solid map.get(color.$primary, "500");
+  }
 }
 
-.ripple {
+button:active .ripple {
   box-sizing: border-box;
   position: absolute;
   transform: translate(-50%, -50%);
-  background: map.get(color.$primary, "200");
+  background: map.get(color.$primary, "100");
   border-radius: 50%;
   pointer-events: none;
-  opacity: 0.5;
-  animation: animate 200ms linear forwards;
+  animation: ripple-animate 200ms linear forwards;
 }
 
-@keyframes animate {
+@keyframes ripple-animate {
   0% {
     width: 0px;
     padding-bottom: 0;
