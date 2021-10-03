@@ -1,0 +1,51 @@
+@use "sass:map";
+@use "@/styles/color";
+@use "@/styles/type";
+
+.button {
+  box-sizing: border-box;
+  position: relative;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  overflow: hidden;
+
+  @include type.button;
+  color: map.get(color.$primary, "500");
+
+  cursor: pointer;
+
+  &:hover {
+    background-color: map.get(color.$primary, "50");
+  }
+}
+
+.ripple {
+  box-sizing: border-box;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  background: map.get(color.$primary, "200");
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 0.5;
+  animation: animate 200ms linear forwards;
+}
+
+@keyframes animate {
+  0% {
+    width: 0px;
+    padding-bottom: 0;
+  }
+
+  100% {
+    width: 250%;
+    padding-bottom: 250%;
+  }
+}
+
+.text {
+  box-sizing: border-box;
+  z-index: 1;
+  position: relative;
+}

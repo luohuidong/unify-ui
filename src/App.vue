@@ -1,12 +1,13 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import Button from "./components/Button";
+
+function handleClick(event: MouseEvent) {
+  console.log("🚀 ~ file: App.vue ~ line 5 ~ handleClick ~ event", event);
+}
 </script>
 
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <Button @click="handleClick">button</Button>
 </template>
 
 <style>
@@ -14,5 +15,8 @@ import HelloWorld from './components/HelloWorld.vue'
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  display: flex;
+  justify-content: center;
 }
 </style>
