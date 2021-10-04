@@ -2,6 +2,13 @@
 @use "@/styles/color";
 @use "@/styles/type";
 
+$animation-time: 300ms;
+
+@mixin active($backgroundColor) {
+  background-color: $backgroundColor;
+  transition: background-color 0.1ms $animation-time - 1ms;
+}
+
 @mixin ripple($backgroundColor) {
   box-sizing: border-box;
   position: absolute;
@@ -9,7 +16,7 @@
   background-color: $backgroundColor;
   border-radius: 50%;
   pointer-events: none;
-  animation: rippleAnimate 400ms linear forwards;
+  animation: rippleAnimate $animation-time linear forwards;
 }
 
 @keyframes rippleAnimate {
@@ -19,8 +26,8 @@
   }
 
   100% {
-    width: 250%;
-    padding-bottom: 250%;
+    width: 200%;
+    padding-bottom: 200%;
   }
 }
 
@@ -42,8 +49,10 @@
     &:hover {
       background-color: map.get(color.$primary, "50");
     }
-
-    &:active .ripple {
+    &:active {
+      @include active(map.get(color.$primary, "100"));
+    }
+    .ripple {
       @include ripple(map.get(color.$primary, "100"));
     }
   }
@@ -54,8 +63,10 @@
     &:hover {
       background-color: map.get(color.$primary, "50");
     }
-
-    &:active .ripple {
+    &:active {
+      @include active(map.get(color.$primary, "100"));
+    }
+    .ripple {
       @include ripple(map.get(color.$primary, "100"));
     }
   }
@@ -63,15 +74,16 @@
   &.contained {
     color: color.$font-light;
     background-color: map.get(color.$primary, "600");
-
     &:hover {
       background-color: map.get(color.$primary, "500");
       box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%),
         0px 4px 5px 0px rgb(0 0 0 / 14%), 0px 1px 10px 0px rgb(0 0 0 / 12%);
-      transition: box-shadow 300ms;
+      transition: box-shadow $animation-time;
     }
-
-    &:active .ripple {
+    &:active {
+      @include active(map.get(color.$primary, "300"));
+    }
+    .ripple {
       @include ripple(map.get(color.$primary, "300"));
     }
   }

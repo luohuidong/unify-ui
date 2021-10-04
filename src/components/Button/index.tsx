@@ -13,7 +13,6 @@ export default defineComponent({
   emits: ["click"],
   setup(props, { slots, emit }) {
     const button = ref<HTMLButtonElement>();
-    let ripples: HTMLDivElement[] = [];
 
     function handleCreateRipples(e: MouseEvent) {
       const x = e.offsetX;
@@ -26,19 +25,10 @@ export default defineComponent({
         ripple.className = styles.ripple;
         button.value.appendChild(ripple);
 
-        ripples.push(ripple);
-      }
-    }
-
-    function handleMouseUp() {
-      const tmp = ripples;
-      ripples = [];
-
-      setTimeout(() => {
-        tmp.forEach((ripple) => {
+        setTimeout(() => {
           ripple.remove();
-        });
-      }, 200);
+        }, 300);
+      }
     }
 
     function handleClick(e: MouseEvent) {
@@ -56,7 +46,6 @@ export default defineComponent({
         ]}
         onClick={handleClick}
         onMousedown={handleCreateRipples}
-        onMouseup={handleMouseUp}
       >
         <span class={styles.buttonText}>
           {slots.default ? slots.default() : ""}
