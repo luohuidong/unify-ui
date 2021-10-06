@@ -1,11 +1,7 @@
-<script setup lang="ts">
-import Button from "./components/Button";
-</script>
+<script setup lang="ts"></script>
 
 <template>
-  <Button>text button</Button>
-  <Button type="outlined">outlined button</Button>
-  <Button type="contained">outlined button</Button>
+  <router-view></router-view>
 </template>
 
 <style>
