@@ -1,4 +1,6 @@
-import { defineComponent, PropType, ref } from "vue";
+import { defineComponent, PropType, ref, computed } from "vue";
+
+import useRipples, { RippleSiblingNode } from "@/use/useRipples";
 
 import styles from "./index.module.scss";
 
@@ -9,30 +11,44 @@ export default defineComponent({
       type: String as PropType<"text" | "outlined" | "contained">,
       default: "text",
     },
+    text: {
+      type: String,
+      required: true,
+    },
   },
   emits: ["click"],
-  setup(props, { slots, emit }) {
-    const button = ref<HTMLButtonElement>();
-
-    function handleCreateRipples(e: MouseEvent) {
-      const x = e.offsetX;
-      const y = e.offsetY;
-
-      if (button.value) {
-        const ripple = document.createElement("div");
-        ripple.style.left = x + "px";
-        ripple.style.top = y + "px";
-        ripple.className = styles.ripple;
-        button.value.appendChild(ripple);
-
-        setTimeout(() => {
-          ripple.remove();
-        }, 300);
+  setup(props, { emit }) {
+    const rippleColor = computed(() => {
+      let color = "#d4bff9";
+      switch (props.type) {
+        case "text":
+          color = "#d4bff9";
+          break;
+        case "contained":
+          color = "#9965f4";
+          break;
+        case "outlined":
+          color = "#d4bff9";
+          break;
+        default:
+          break;
       }
-    }
+      return color;
+    });
+    const button = ref<HTMLButtonElement>();
+    const { createRipples } = useRipples();
 
     function handleClick(e: MouseEvent) {
       emit("click", e);
+    }
+
+    function handleMousedown(e: MouseEvent) {
+      if (e.currentTarget) {
+        createRipples(e, {
+          container: e.currentTarget as HTMLButtonElement,
+          rippleColor: rippleColor.value,
+        });
+      }
     }
 
     return () => (
@@ -45,11 +61,11 @@ export default defineComponent({
           { [styles.contained]: props.type === "contained" },
         ]}
         onClick={handleClick}
-        onMousedown={handleCreateRipples}
+        onMousedown={handleMousedown}
       >
-        <span class={styles.buttonText}>
-          {slots.default ? slots.default() : ""}
-        </span>
+        <RippleSiblingNode>
+          <span class={styles.buttonText}>{props.text}</span>
+        </RippleSiblingNode>
       </button>
     );
   },
