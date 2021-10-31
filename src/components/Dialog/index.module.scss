@@ -1,0 +1,49 @@
+@import "@/styles/color";
+@import "@/styles/type";
+
+.scrim {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  left: 0px;
+  bottom: 0px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 10;
+
+  background-color: rgba($background-dark, 0.7);
+
+  &.hidden {
+    display: none;
+  }
+}
+
+.container {
+  min-height: 180px;
+  min-width: 400px;
+
+  display: flex;
+  flex-direction: column;
+
+  padding: 20px;
+  padding-bottom: 5px;
+  background-color: $background;
+}
+
+.textContainer {
+  flex: 1;
+
+  .title {
+    @include headline6;
+    margin-bottom: 10px;
+  }
+}
+
+.buttonContainer {
+  height: 40px;
+  display: flex;
+  justify-content: end;
+  align-items: center;
+}
