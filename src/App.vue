@@ -1,7 +1,15 @@
 <script setup lang="ts"></script>
 
 <template>
-  <router-view></router-view>
+  <div :class="$style.container">
+    <div>
+      <router-link to="/button">Button</router-link>
+      <router-link to="/dialog">Dialog</router-link>
+    </div>
+    <div :class="$style.main">
+      <router-view></router-view>
+    </div>
+  </div>
 </template>
 
 <style>
@@ -12,5 +20,13 @@
 
   display: flex;
   justify-content: center;
+}
+</style>
+
+<style module>
+.container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 </style>
