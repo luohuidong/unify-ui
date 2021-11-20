@@ -1,12 +1,13 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import Dialog from "@/components/Dialog";
+
+import { ConfirmationDialog, useAlertDialog } from "@/components/Dialog";
 import Button from "@/components/Button";
 
+const { confirm } = useAlertDialog();
 const visible = ref(false);
 
 function handleButtonClick() {
-  console.log("test");
   visible.value = true;
 }
 
@@ -21,18 +22,33 @@ function handleCancel() {
 function handleKeyboardEscapeKey() {
   visible.value = false;
 }
+
+function handleConfirmDialogButton() {
+  confirm({
+    title: "测试",
+    supportingText: "哈哈",
+    onConfirm: () => {},
+    onCancel: () => {},
+  });
+}
 </script>
 
 <template>
   <div>
     <Button text="打开 Dialog" @click="handleButtonClick"></Button>
-    <Dialog
+    <ConfirmationDialog
       :visible="visible"
       title="提示"
       supporting-text="是否确定删除该记录？"
       @click:confirm-button="handleConfirm"
       @click:cancel-button="handleCancel"
       @press:keyboard-escape-key="handleKeyboardEscapeKey"
-    ></Dialog>
+    ></ConfirmationDialog>
+
+    <Button
+      type="contained"
+      text="confirm Dialog"
+      @click="handleConfirmDialogButton"
+    ></Button>
   </div>
 </template>

@@ -1,5 +1,6 @@
-@import "@/styles/color";
-@import "@/styles/type";
+@use "sass:map";
+@use "@/styles/color";
+@use "@/styles/type";
 
 .scrim {
   position: absolute;
@@ -13,7 +14,7 @@
   align-items: center;
   z-index: 10;
 
-  background-color: rgba($background-dark, 0.7);
+  background-color: rgba(color.$background-dark, 0.7);
 
   &.hidden {
     display: none;
@@ -21,27 +22,35 @@
 }
 
 .container {
-  min-height: 180px;
-  min-width: 400px;
+  width: 450px;
+  max-height: 650px;
 
   display: flex;
   flex-direction: column;
 
   padding: 20px;
-  padding-bottom: 5px;
-  background-color: $background;
+  padding-bottom: 8px;
+
+  border-radius: 8px;
+  background-color: color.$background;
 }
 
 .textContainer {
   flex: 1;
 
   .title {
-    @include headline6;
-    margin-bottom: 10px;
+    @include type.headline6;
+    margin-bottom: 12px;
+  }
+
+  .supportText {
+    @include type.body1;
+    color: map.get(color.$grey, "700");
   }
 }
 
 .buttonContainer {
+  margin-top: 28px;
   height: 40px;
   display: flex;
   justify-content: end;

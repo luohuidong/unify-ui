@@ -1,8 +1,6 @@
 import { defineComponent, Teleport, onMounted, onUnmounted } from "vue";
-import classnames from "classnames";
 
-import Button from "../Button";
-import styles from "./index.module.scss";
+import BaseDialog from "./BaseDialog";
 
 export default defineComponent({
   name: "Dialog",
@@ -17,6 +15,14 @@ export default defineComponent({
     visible: {
       type: Boolean,
       required: true,
+    },
+    confirmText: {
+      type: String,
+      default: "确定",
+    },
+    cancelText: {
+      type: String,
+      default: "取消",
     },
   },
   emits: [
@@ -47,21 +53,13 @@ export default defineComponent({
 
     return () => (
       <Teleport to="body">
-        <div
-          class={classnames(styles.scrim, { [styles.hidden]: !props.visible })}
-        >
-          <div class={styles.container}>
-            <div class={styles.textContainer}>
-              {props.title && <div class={styles.title}>{props.title}</div>}
-              <div>{props.supportingText}</div>
-            </div>
-
-            <div class={styles.buttonContainer}>
-              <Button text="取消" onClick={handleCancelButtonClick}></Button>
-              <Button text="确定" onClick={handleConfirmButtonClick}></Button>
-            </div>
-          </div>
-        </div>
+        <BaseDialog
+          title={props.title}
+          supportingText={props.supportingText}
+          visible={props.visible}
+          onClick:confirm-button={handleConfirmButtonClick}
+          onClick:cancel-button={handleCancelButtonClick}
+        />
       </Teleport>
     );
   },
