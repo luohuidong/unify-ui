@@ -14,22 +14,37 @@ interface ReturnData {
 }
 
 export default function useConfirm(): ReturnData {
-  const containerRef = ref<HTMLElement>();
-  const appRef = ref<App>();
+  const containers = ref<HTMLElement[]>([]);
+  const apps = ref<App[]>([]);
 
   function destoryDialog() {
-    if (appRef.value) {
-      appRef.value.unmount();
-    }
+    apps.value.forEach((app) => {
+      app.unmount();
+    });
+    apps.value = [];
 
-    if (containerRef.value) {
-      containerRef.value.remove();
-    }
+    containers.value.forEach((container) => {
+      container.remove();
+    });
+    containers.value = [];
+  }
+
+  function createContainer() {
+    const container = document.createElement("div");
+    document.body.appendChild(container);
+    containers.value.push(container);
+
+    return container;
+  }
+
+  function mountComponent(container: HTMLElement, component: JSX.Element) {
+    const app = createApp(component);
+    app.mount(container);
+    apps.value.push(app);
   }
 
   function confirm(options: ConfirmOptions) {
-    containerRef.value = document.createElement("div");
-    document.body.appendChild(containerRef.value);
+    const container = createContainer();
 
     async function handleConfirm() {
       await options.onConfirm();
@@ -51,8 +66,7 @@ export default function useConfirm(): ReturnData {
       />
     );
 
-    appRef.value = createApp(Dialog);
-    appRef.value.mount(containerRef.value);
+    mountComponent(container, Dialog);
   }
 
   return {
