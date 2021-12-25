@@ -1,8 +1,8 @@
 import { defineComponent } from "vue";
-import classnames from "classnames";
 
 import styles from "./BaseDialog.module.scss";
 import Button from "../Button";
+import Scrim from "../Scrim";
 
 export default defineComponent({
   props: {
@@ -39,9 +39,7 @@ export default defineComponent({
     }
 
     return () => (
-      <div
-        class={classnames([styles.scrim, { [styles.hidden]: !props.visible }])}
-      >
+      <Scrim visible={props.visible}>
         <div class={styles.container}>
           <div class={styles.textContainer}>
             {props.title && <div class={styles.title}>{props.title}</div>}
@@ -58,7 +56,7 @@ export default defineComponent({
             />
           </div>
         </div>
-      </div>
+      </Scrim>
     );
   },
 });

@@ -2,25 +2,6 @@
 @use "@/styles/color";
 @use "@/styles/type";
 
-.scrim {
-  position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  bottom: 0px;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 10;
-
-  background-color: rgba(color.$background-dark, 0.7);
-
-  &.hidden {
-    display: none;
-  }
-}
-
 .container {
   width: 450px;
   max-height: 650px;
