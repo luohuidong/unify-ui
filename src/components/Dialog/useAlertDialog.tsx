@@ -1,6 +1,7 @@
 import { createApp, ref } from "vue";
 import type { App } from "vue";
-import BaseDialog from "./BaseDialog";
+
+import BaseDialog from "./BaseDialog.vue";
 
 interface ConfirmOptions {
   title: string;

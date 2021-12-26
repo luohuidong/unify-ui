@@ -1,6 +1,6 @@
 import { defineComponent, Teleport, onMounted, onUnmounted } from "vue";
 
-import BaseDialog from "./BaseDialog";
+import BaseDialog from "./BaseDialog.vue";
 
 export default defineComponent({
   name: "Dialog",
