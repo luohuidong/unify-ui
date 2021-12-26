@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import Button from "../Button";
-import Scrim from "../Scrim";
+import Scrim from "../Scrim.vue";
 
 withDefaults(
   defineProps<{
@@ -29,7 +29,7 @@ function handleCancelButtonClick() {
 </script>
 
 <template>
-  <Scrim :visible="visible">
+  <Scrim v-show="visible">
     <div :class="$style.container">
       <div :class="$style.textContainer">
         <div v-if="title" :class="$style.title">{{ title }}</div>
