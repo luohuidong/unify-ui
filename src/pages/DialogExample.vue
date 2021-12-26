@@ -25,8 +25,8 @@ function handleKeyboardEscapeKey() {
 
 function handleConfirmDialogButton() {
   confirm({
-    title: "测试",
-    supportingText: "哈哈",
+    title: "提示",
+    supportingText: "是否确定删除该记录",
     onConfirm: () => {},
     onCancel: () => {},
   });
