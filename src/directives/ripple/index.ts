@@ -1,0 +1,1 @@
+export { vRipple } from "./rippleDirective";

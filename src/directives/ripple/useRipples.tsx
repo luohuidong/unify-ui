@@ -1,7 +1,6 @@
 import { onMounted, onUnmounted } from "vue";
-export { default as RippleSiblingNode } from "./RippleSiblingNode";
 
-import styles from "./ripple.module.scss";
+import Ripple from "./Ripple.vue";
 
 export default function useRipples() {
   let ripples: {
@@ -22,9 +21,11 @@ export default function useRipples() {
       options.container.style.position = "relative";
     }
 
+    // 获取鼠标在容器中的坐标
     const x = e.offsetX;
     const y = e.offsetY;
 
+    // 计算水波半径
     const { top, bottom, left, right } =
       options.container.getBoundingClientRect();
     const containerHeight = bottom - top;
@@ -33,13 +34,8 @@ export default function useRipples() {
       Math.pow(containerHeight, 2) + Math.pow(containerWidht, 2)
     );
 
-    const ripple = document.createElement("div");
-    ripple.style.left = x + "px";
-    ripple.style.top = y + "px";
-    ripple.style.width = 2 * radius + "px";
-    ripple.style.height = 2 * radius + "px";
-    ripple.style.backgroundColor = options.rippleColor;
-    ripple.className = styles.ripple;
+    // 创建水波元素
+    const ripple = new Ripple();
     options.container.appendChild(ripple);
 
     ripples.push({
