@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
+import { vRipple } from "@/directives/ripple";
 import useRipples from "@/use/useRipples";
 import TextButton from "./TextButton.vue";
 import ContainedButton from "./ContainedButton.vue";
@@ -55,6 +56,7 @@ const buttonComponent = {
 <template>
   <component
     :is="buttonComponent[type]"
+    v-ripple="{ rippleColor }"
     @click="handleClick"
     @mousedown="handleMousedown"
   >
