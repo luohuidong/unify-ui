@@ -25,6 +25,11 @@ const router = createRouter({
       name: "NavigationDrawer",
       component: () => import("./NavigationDrawer.vue"),
     },
+    {
+      path: "/message",
+      name: "Message",
+      component: () => import("./MessageExample.vue"),
+    },
   ],
 });
 
