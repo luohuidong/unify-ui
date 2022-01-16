@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Button from "../Button";
+import { Button } from "../";
 import Scrim from "../Scrim.vue";
 
 withDefaults(
@@ -37,8 +37,17 @@ function handleCancelButtonClick() {
       </div>
 
       <div :class="$style.buttonContainer">
-        <Button :text="cancelText" @click="handleCancelButtonClick" />
-        <Button :text="confirmText" @click="handleConfirmButtonClick" />
+        <Button
+          type="contained"
+          :text="cancelText"
+          @click="handleCancelButtonClick"
+        />
+
+        <Button
+          type="contained"
+          :text="confirmText"
+          @click="handleConfirmButtonClick"
+        />
       </div>
     </div>
   </Scrim>
