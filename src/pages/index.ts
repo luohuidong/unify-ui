@@ -20,6 +20,11 @@ const router = createRouter({
       name: "Dialog",
       component: () => import("./DialogExample.vue"),
     },
+    {
+      path: "/navigation_drawer",
+      name: "NavigationDrawer",
+      component: () => import("./NavigationDrawer.vue"),
+    },
   ],
 });
 
