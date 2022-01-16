@@ -3,8 +3,10 @@
 <template>
   <div :class="$style.container">
     <div>
-      <router-link to="/button">Button</router-link>
-      <router-link to="/dialog">Dialog</router-link>
+      <router-link to="/button">Button</router-link> |
+      <router-link to="/dialog">Dialog</router-link> |
+      <router-link to="/navigation_drawer">NavigationDrawer</router-link> |
+      <router-link to="/message">Message</router-link> |
     </div>
     <div :class="$style.main">
       <router-view></router-view>
