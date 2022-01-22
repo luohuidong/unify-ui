@@ -38,13 +38,13 @@ function handleCancelButtonClick() {
 
       <div :class="$style.buttonContainer">
         <Button
-          type="contained"
+          type="text"
           :text="cancelText"
           @click="handleCancelButtonClick"
         />
 
         <Button
-          type="contained"
+          type="text"
           :text="confirmText"
           @click="handleConfirmButtonClick"
         />
