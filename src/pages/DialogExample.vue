@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import { ConfirmationDialog, useAlertDialog } from "@/components/Dialog";
-import Button from "@/components/Button";
+import { ConfirmationDialog, useAlertDialog, Button } from "@/components";
 
 const { confirm } = useAlertDialog();
 const visible = ref(false);
@@ -35,7 +34,7 @@ function handleConfirmDialogButton() {
 
 <template>
   <div>
-    <Button text="打开 Dialog" @click="handleButtonClick"></Button>
+    <Button type="text" text="打开 Dialog" @click="handleButtonClick"></Button>
     <ConfirmationDialog
       :visible="visible"
       title="提示"
