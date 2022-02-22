@@ -1,5 +1,9 @@
 import { createApp } from "vue";
-import App from "./App.vue";
-import router from "./pages";
+import { createRouter, createWebHistory } from "vue-router";
+import routes from "~pages";
 
-createApp(App).use(router).mount("#app");
+import App from "./App.vue";
+
+createApp(App)
+  .use(createRouter({ history: createWebHistory(), routes }))
+  .mount("#app");

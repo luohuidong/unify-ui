@@ -1,3 +1,9 @@
+<route lang="yaml">
+name: Button
+meta:
+  title: 按钮 (Button)
+</route>
+
 <script setup lang="ts">
 import { Button } from "@/components/Button";
 </script>

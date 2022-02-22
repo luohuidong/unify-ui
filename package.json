@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "devDependencies": {
-    "@types/node": "^16.11.24",
+    "@types/node": "^16.11.25",
     "cz-conventional-changelog": "^3.3.0"
   },
   "scripts": {},
