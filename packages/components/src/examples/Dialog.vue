@@ -1,3 +1,9 @@
+<route lang="yaml">
+name: Dialog
+meta:
+  title: 对话框 (Dialog)
+</route>
+
 <script setup lang="ts">
 import { ref } from "vue";
 

@@ -1,3 +1,9 @@
+<route lang="yaml">
+name: Message
+meta:
+  title: 消息提示 (Message)
+</route>
+
 <script setup lang="ts">
 import { Button, useMessage } from "../components";
 
