@@ -13,6 +13,7 @@ const route = useRoute();
           v-if="item.path !== '/'"
           :to="item.path"
           :class="$style.link"
+          :active-class="$style.active"
         >
           {{ item.name }}
         </router-link>
@@ -60,6 +61,11 @@ body {
 
     .link {
       margin: 10px 0;
+      color: grey;
+
+      &.active {
+        color: rgb(92, 204, 142);
+      }
     }
   }
 
