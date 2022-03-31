@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { Transition } from "vue";
+
 import { Button } from "../";
 import Scrim from "../Scrim.vue";
 
@@ -29,34 +31,51 @@ function handleCancelButtonClick() {
 </script>
 
 <template>
-  <Scrim v-show="visible">
-    <div :class="$style.container">
-      <div :class="$style.textContainer">
-        <div v-if="title" :class="$style.title">{{ title }}</div>
-        <div :class="$style.supportText">{{ supportingText }}</div>
-      </div>
+  <Transition
+    :enter-active-class="$style.enterActive"
+    :enter-from-class="$style.enterFrom"
+    :leave-active-class="$style.leaveActive"
+    :leave-to-class="$style.leaveTo"
+  >
+    <Scrim v-show="visible">
+      <div :class="$style.container">
+        <div :class="$style.textContainer">
+          <div v-if="title" :class="$style.title">{{ title }}</div>
+          <div :class="$style.supportText">{{ supportingText }}</div>
+        </div>
 
-      <div :class="$style.buttonContainer">
-        <Button
-          type="text"
-          :text="cancelText"
-          @click="handleCancelButtonClick"
-        />
+        <div :class="$style.buttonContainer">
+          <Button
+            type="text"
+            :text="cancelText"
+            @click="handleCancelButtonClick"
+          />
 
-        <Button
-          type="text"
-          :text="confirmText"
-          @click="handleConfirmButtonClick"
-        />
+          <Button
+            type="text"
+            :text="confirmText"
+            @click="handleConfirmButtonClick"
+          />
+        </div>
       </div>
-    </div>
-  </Scrim>
+    </Scrim>
+  </Transition>
 </template>
 
 <style lang="scss" module>
 @use "sass:map";
 @use "@/styles/color";
 @use "@/styles/type";
+
+.enterActive,
+.leaveActive {
+  transition: opacity 0.5s ease;
+}
+
+.enterFrom,
+.leaveTo {
+  opacity: 0;
+}
 
 .container {
   width: 450px;
