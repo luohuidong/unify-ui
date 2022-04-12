@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { h } from "vue";
 import { VmTable } from "@/components/Table";
-import data from "./data.ts";
+import data from "./data.json";
 
 type Data = InstanceType<typeof VmTable>["$props"]["data"];
 
@@ -54,7 +54,7 @@ const rowExpand: InstanceType<typeof VmTable>["$props"]["rowExpand"] = {
     </template>
 
     <template #rowExpand="{ rowData }">
-      {{ `${rowData.name}: ${rowData.age} 岁` }}
+      {{ `展开行 ${rowData.name}: ${rowData.age} 岁` }}
     </template>
   </VmTable>
 </template>
