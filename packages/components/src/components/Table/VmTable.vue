@@ -9,10 +9,12 @@ const props = defineProps<{
     key: string;
     title: string;
     render?: (rowData: Record<string, unknown>) => VNode | null;
+    slotName?: string;
   }[];
   rowExpand?: {
     expandCondition: (rowData: Record<string, unknown>) => boolean;
-    expandRowRender: (rowData: Record<string, unknown>) => VNode | null;
+    expandRowRender?: (rowData: Record<string, unknown>) => VNode | null;
+    expandSlotName?: string;
   };
   data: Record<string, unknown>[];
 }>();
@@ -42,6 +44,10 @@ const columnCount = computed(() => {
               />
             </td>
 
+            <td v-else-if="col.slotName">
+              <slot :name="col.slotName" :row-data="rowData"></slot>
+            </td>
+
             <td v-else>
               {{ rowData[col.key] }}
             </td>
@@ -51,11 +57,18 @@ const columnCount = computed(() => {
         <!-- 渲染扩展行 -->
         <tr v-if="rowExpand && rowExpand.expandCondition(rowData)">
           <td :colspan="columnCount">
-            <TableCellRender
-              :v-node="
-                () => (rowExpand && rowExpand.expandRowRender(rowData)) || null
-              "
-            ></TableCellRender>
+            <template v-if="rowExpand.expandRowRender">
+              <TableCellRender
+                :v-node="
+                  () =>
+                    (rowExpand && rowExpand.expandRowRender(rowData)) || null
+                "
+              ></TableCellRender>
+            </template>
+
+            <template v-else-if="rowExpand.expandSlotName">
+              <slot :name="rowExpand.expandSlotName" :rowData="rowData"></slot>
+            </template>
           </td>
         </tr>
       </template>
