@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { h } from "vue";
 import { VmTable } from "@/components/Table";
-import data from "./data.ts";
+import data from "./data.json";
 
 type Data = InstanceType<typeof VmTable>["$props"]["data"];
 
@@ -29,7 +29,7 @@ const rowExpand: InstanceType<typeof VmTable>["$props"]["rowExpand"] = {
   expandCondition: (row: Data[number]) =>
     (row.files && [row.files as Array<number>].length) as boolean,
   expandRowRender: (row: Data[number]) =>
-    h("div", (row.files as Array<number>).join(",")),
+    h("div", "展开行数据" + (row.files as Array<number>).join(",")),
 };
 </script>
 
