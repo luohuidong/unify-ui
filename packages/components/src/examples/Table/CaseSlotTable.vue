@@ -36,12 +36,7 @@ const rowExpand: InstanceType<typeof VmTable>["$props"]["rowExpand"] = {
 </script>
 
 <template>
-  <VmTable
-    unique-key="id"
-    :columns="columns"
-    :data="data"
-    :row-expand="rowExpand"
-  >
+  <VmTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
     <template #name="{ rowData }">
       {{ rowData.name }}
     </template>

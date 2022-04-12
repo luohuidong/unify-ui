@@ -4,7 +4,8 @@ import { type VNode, computed } from "vue";
 import TableCellRender from "./VmTableCellRender";
 
 const props = defineProps<{
-  uniqueKey: string;
+  /** 数据唯一索引 */
+  rowKey: string;
   columns: {
     key: string;
     title: string;
@@ -34,7 +35,7 @@ const columnCount = computed(() => {
 
     <tbody :class="$style.tbody">
       <!-- 渲染 data 数据 -->
-      <template v-for="rowData in data" :key="(rowData[uniqueKey] as string)">
+      <template v-for="rowData in data" :key="(rowData[rowKey] as string)">
         <!-- 渲染普通行 -->
         <tr>
           <template v-for="col in columns" :key="col.key">
