@@ -1,30 +1,26 @@
 <script setup lang="ts">
-import { h } from "vue";
 import { VmTable } from "@/components/Table";
-import data from "./data.json";
+import useFetchData from "./useFetchData";
 
+const { data } = useFetchData();
 type Data = InstanceType<typeof VmTable>["$props"]["data"];
 
 const columns: InstanceType<typeof VmTable>["$props"]["columns"] = [
   {
-    title: "姓名",
-    key: "name",
-    slotName: "name",
+    title: "id",
+    key: "id",
   },
   {
-    title: "年龄",
-    key: "age",
-    slotName: "age",
+    title: "用户 id",
+    key: "userId",
   },
   {
-    title: "出生日期",
-    key: "birthday",
-    slotName: "birthday",
+    title: "标题",
+    key: "title",
   },
   {
-    title: "地址",
-    key: "address",
-    slotName: "address",
+    title: "是否完成",
+    key: "completed",
   },
 ];
 
@@ -37,14 +33,6 @@ const rowExpand: InstanceType<typeof VmTable>["$props"]["rowExpand"] = {
 
 <template>
   <VmTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
-    <template #name="{ rowData }">
-      {{ rowData.name }}
-    </template>
-
-    <template #age="{ rowData }">
-      {{ rowData.age + "岁" }}
-    </template>
-
     <template #birthday="{ rowData }">
       {{ rowData.birthday }}
     </template>
