@@ -5,7 +5,7 @@ meta:
 </route>
 
 <script setup lang="ts">
-import { Button } from "@/components/Button";
+import { Button } from "@/components";
 </script>
 
 <template>
