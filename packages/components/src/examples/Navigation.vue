@@ -1,7 +1,7 @@
 <route lang="yaml">
-name: Navigation
+name: NavigationDrawer
 meta:
-  title: 导航侧边栏 (Navigation)
+  title: 导航侧边栏 (NavigationDrawer)
 </route>
 
 <script setup lang="ts">
