@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { Transition } from "vue";
 
-import { Button } from "../";
+import { Button } from "@/components";
 import Scrim from "../Scrim.vue";
 
 withDefaults(
