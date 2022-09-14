@@ -12,7 +12,7 @@ export default defineConfig({
     Pages({
       dirs: "src/examples",
       importMode: "sync",
-      exclude: ["**/Case*.vue"],
+      exclude: ["**/Case*.vue", "**/use*.ts"],
     }),
   ],
   resolve: {
