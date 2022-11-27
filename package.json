@@ -9,23 +9,23 @@
   },
   "dependencies": {
     "classnames": "^2.3.2",
-    "vue": "^3.2.37"
+    "vue": "^3.2.45"
   },
   "devDependencies": {
     "@types/node": "^18.11.9",
-    "@typescript-eslint/parser": "^5.42.1",
+    "@typescript-eslint/parser": "^5.44.0",
     "@vitejs/plugin-vue": "^3.2.0",
     "@vitejs/plugin-vue-jsx": "^2.1.1",
     "commitizen": "^4.2.5",
     "cz-conventional-changelog": "^3.3.0",
-    "eslint": "^8.27.0",
+    "eslint": "^8.28.0",
     "eslint-config-prettier": "^8.5.0",
-    "eslint-plugin-vue": "^9.7.0",
+    "eslint-plugin-vue": "^9.8.0",
     "sass": "^1.56.1",
-    "typescript": "^4.8.4",
-    "vite": "^3.2.3",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.4",
     "vite-plugin-pages": "^0.27.1",
-    "vitest": "^0.25.1",
+    "vitest": "^0.25.3",
     "vue-router": "^4.1.6",
     "vue-tsc": "^1.0.9"
   },
