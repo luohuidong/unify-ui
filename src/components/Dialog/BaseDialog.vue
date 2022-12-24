@@ -109,7 +109,7 @@ function handleCancelButtonClick() {
   margin-top: 28px;
   height: 40px;
   display: flex;
-  justify-content: end;
+  justify-content: flex-end;
   align-items: center;
 }
 </style>
