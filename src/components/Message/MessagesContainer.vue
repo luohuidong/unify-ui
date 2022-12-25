@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "VMMessagesContainer",
+});
+</script>
+
 <script setup lang="ts">
 defineProps<{
   id: string;

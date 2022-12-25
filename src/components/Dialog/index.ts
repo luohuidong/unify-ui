@@ -1,2 +1,2 @@
 export { default as useAlertDialog } from "./useAlertDialog";
-export { default as ConfirmationDialog } from "./ConfirmationDialog.vue";
+export { default as ConfirmDialog } from "./ConfirmDialog.vue";
