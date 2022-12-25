@@ -1,5 +1,5 @@
 export { default as Button } from "./Button/index.vue";
-export { useAlertDialog, ConfirmationDialog } from "./Dialog";
+export { useAlertDialog, ConfirmDialog } from "./Dialog";
 export {
   StandardDrawer,
   ModalDrawer,

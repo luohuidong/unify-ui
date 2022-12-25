@@ -21,7 +21,7 @@ function handleClick(event: MouseEvent) {
 </template>
 
 <style lang="scss" module>
-@use "@/styles/color";
+@use "@/lib/styles/color";
 
 .scrim {
   position: absolute;

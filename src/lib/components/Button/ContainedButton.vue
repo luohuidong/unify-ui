@@ -18,7 +18,7 @@ import BaseButton from "./BaseButton.vue";
 
 <style lang="scss" module>
 @use "sass:map";
-@use "@/styles/color";
+@use "@/lib/styles/color";
 
 .containedButton {
   color: color.$font-light;

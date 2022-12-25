@@ -9,7 +9,7 @@ export default defineComponent({
 <script setup lang="ts">
 import { Transition } from "vue";
 
-import { Button } from "@/components";
+import { Button } from "@/lib/components";
 import Scrim from "../Scrim.vue";
 
 withDefaults(
@@ -72,8 +72,8 @@ function handleCancelButtonClick() {
 
 <style lang="scss" module>
 @use "sass:map";
-@use "@/styles/color";
-@use "@/styles/type";
+@use "@/lib/styles/color";
+@use "@/lib/styles/type";
 
 .enterActive,
 .leaveActive {

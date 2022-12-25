@@ -9,8 +9,8 @@ export default defineComponent({
 <script setup lang="ts">
 import { computed } from "vue";
 
-import { vRipple } from "@/directives/ripple";
-import useRipples from "@/use/useRipples";
+import { vRipple } from "@/lib/directives/ripple";
+import useRipples from "@/lib/use/useRipples";
 import TextButton from "./TextButton.vue";
 import ContainedButton from "./ContainedButton.vue";
 import OutlinedButton from "./OutlinedButton.vue";
