@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "VMConfirmDialog",
+});
+</script>
+
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
 

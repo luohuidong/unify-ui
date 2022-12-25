@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "VMContainedButton",
+});
+</script>
+
 <script lang="ts" setup>
 import BaseButton from "./BaseButton.vue";
 </script>

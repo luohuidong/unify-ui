@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "VMTable",
+});
+</script>
+
 <script setup lang="ts">
 import { type VNode, computed } from "vue";
 
