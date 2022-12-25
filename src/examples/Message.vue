@@ -5,7 +5,7 @@ meta:
 </route>
 
 <script setup lang="ts">
-import { Button, useMessage } from "../components";
+import { Button, useMessage } from "@/lib/components";
 
 const { message } = useMessage();
 

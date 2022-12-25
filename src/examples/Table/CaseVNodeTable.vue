@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { h } from "vue";
-import { VmTable } from "@/components/Table";
+import { VmTable } from "@/lib/components/Table";
 import data from "./data.json";
 
 type Data = InstanceType<typeof VmTable>["$props"]["data"];

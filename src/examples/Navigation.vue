@@ -7,7 +7,7 @@ meta:
 <script setup lang="ts">
 import { ref } from "vue";
 
-import { ModalDrawer, Button } from "../components";
+import { ModalDrawer, Button } from "@/lib/components";
 
 const visible = ref(false);
 function handleClick() {

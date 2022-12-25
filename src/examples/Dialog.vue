@@ -7,7 +7,7 @@ meta:
 <script setup lang="ts">
 import { ref } from "vue";
 
-import { ConfirmationDialog, useAlertDialog, Button } from "@/components";
+import { ConfirmDialog, useAlertDialog, Button } from "@/lib/components";
 
 const { confirm } = useAlertDialog();
 const visible = ref(false);
@@ -41,14 +41,14 @@ function handleConfirmDialogButton() {
 <template>
   <div>
     <Button type="text" text="打开 Dialog" @click="handleButtonClick"></Button>
-    <ConfirmationDialog
+    <ConfirmDialog
       :visible="visible"
       title="提示"
       supporting-text="是否确定删除该记录？"
       @click:confirm-button="handleConfirm"
       @click:cancel-button="handleCancel"
       @press:keyboard-escape-key="handleKeyboardEscapeKey"
-    ></ConfirmationDialog>
+    ></ConfirmDialog>
 
     <Button
       type="contained"

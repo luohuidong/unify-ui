@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { VmTable } from "@/components/Table";
+import { VmTable } from "@/lib/components/Table";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();

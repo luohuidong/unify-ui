@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "VMOutlineButton",
+  name: "VMTextButton",
 });
 </script>
 
@@ -11,18 +11,16 @@ import BaseButton from "./BaseButton.vue";
 </script>
 
 <template>
-  <BaseButton :class="$style.outlinedButton">
+  <BaseButton :class="$style.textButton">
     <slot></slot>
   </BaseButton>
 </template>
 
 <style lang="scss" module>
 @use "sass:map";
-@use "@/styles/color";
+@use "@/lib/styles/color";
 
-.outlinedButton {
-  border: 1px solid map.get(color.$primary, "500");
-
+.textButton {
   &:hover {
     background-color: map.get(color.$primary, "50");
   }

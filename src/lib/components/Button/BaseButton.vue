@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { RippleSiblingNode } from "@/use/useRipples";
+import { RippleSiblingNode } from "@/lib/use/useRipples";
 </script>
 
 <template>
@@ -20,8 +20,8 @@ import { RippleSiblingNode } from "@/use/useRipples";
 
 <style lang="scss" module>
 @use "sass:map";
-@use "@/styles/color";
-@use "@/styles/type";
+@use "@/lib/styles/color";
+@use "@/lib/styles/type";
 
 .button {
   box-sizing: border-box;
