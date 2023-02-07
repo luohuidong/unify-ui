@@ -53,13 +53,19 @@ defineProps<{
 }
 
 // On mouse-over, add a grey background color
-.container:hover > .checkmark {
-  background-color: #ccc;
+.container:hover {
+  > .input:not(:checked) ~ .checkmark {
+    background-color: #ccc;
+  }
+
+  > .input:checked ~ .checkmark {
+    background-color: #0261cc;
+  }
 }
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .container > .checkmark::after {
-  display: none;
+  opacity: 0;
   content: "";
   width: 2px;
   height: 6px;
@@ -70,6 +76,6 @@ defineProps<{
 
 /* Show the checkmark when checked */
 .container > input:checked ~ .checkmark::after {
-  display: block;
+  opacity: 1;
 }
 </style>
