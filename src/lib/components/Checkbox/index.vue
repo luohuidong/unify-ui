@@ -9,12 +9,22 @@ export default defineComponent({
 <script setup lang="ts">
 defineProps<{
   label: string;
+  modelValue: boolean;
 }>();
+
+const emit = defineEmits<{
+  (e: "update:modelValue", checked: boolean): void;
+}>();
+
+function handleChange(e: Event) {
+  const checked = (e.target as HTMLInputElement).checked;
+  emit("update:modelValue", checked);
+}
 </script>
 
 <template>
   <label :class="$style.container">
-    <input :class="$style.input" type="checkbox" checked />
+    <input :class="$style.input" type="checkbox" :checked="modelValue" @change="handleChange" />
     <span :class="$style.checkmark"></span>
     {{ label }}
   </label>
