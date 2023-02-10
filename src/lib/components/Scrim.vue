@@ -25,10 +25,10 @@ function handleClick(event: MouseEvent) {
 
 .scrim {
   position: absolute;
-  top: 0px;
-  right: 0px;
-  left: 0px;
-  bottom: 0px;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
 
   display: flex;
   justify-content: center;
