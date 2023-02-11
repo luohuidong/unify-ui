@@ -11,7 +11,7 @@ function handleClick() {
 </script>
 
 <template>
-  <Story title="Message">
+  <Story title="Feedback/Message">
     <Button type="contained" text="添加 message" @click="handleClick"></Button>
   </Story>
 </template>
