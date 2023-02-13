@@ -8,6 +8,7 @@ specifiers:
   '@vitejs/plugin-vue': ^4.0.0
   '@vitejs/plugin-vue-jsx': ^3.0.0
   '@vitest/coverage-c8': ^0.28.4
+  '@vitest/ui': ^0.28.4
   autoprefixer: ^10.4.13
   classnames: ^2.3.2
   commitizen: ^4.3.0
@@ -39,7 +40,8 @@ devDependencies:
   '@typescript-eslint/parser': 5.51.0_7kw3g6rralp5ps6mg3uyzz6azm
   '@vitejs/plugin-vue': 4.0.0_vite@4.1.1+vue@3.2.47
   '@vitejs/plugin-vue-jsx': 3.0.0_vite@4.1.1+vue@3.2.47
-  '@vitest/coverage-c8': 0.28.4_s2uor4qvq5q3lpewexu62z34mu
+  '@vitest/coverage-c8': 0.28.4_qhbasczjd2frnrg6fbvpils3zm
+  '@vitest/ui': 0.28.4
   autoprefixer: 10.4.13_postcss@8.4.21
   commitizen: 4.3.0
   cz-conventional-changelog: 3.3.0
@@ -54,7 +56,7 @@ devDependencies:
   vite: 4.1.1_gyrp4zacqcjjrmgvdzgac5epyy
   vite-plugin-pages: 0.28.0_jcsmkydzzmiirbz2fx6lklq7mq
   vitepress: 1.0.0-alpha.46_uixm474zlnj3ysee7xi2x2uppa
-  vitest: 0.28.4_s2uor4qvq5q3lpewexu62z34mu
+  vitest: 0.28.4_qhbasczjd2frnrg6fbvpils3zm
   vue-router: 4.1.6_vue@3.2.47
   vue-tsc: 1.0.24_typescript@4.9.5
 
@@ -1243,13 +1245,13 @@ packages:
       vue: 3.2.47
     dev: true
 
-  /@vitest/coverage-c8/0.28.4_s2uor4qvq5q3lpewexu62z34mu:
+  /@vitest/coverage-c8/0.28.4_qhbasczjd2frnrg6fbvpils3zm:
     resolution: {integrity: sha512-btelLBxaWhHnywXRQxDlrvPhGdnuIaD3XulsxcZRIcnpLPbFu39dNTT0IYu2QWP2ZZrV0AmNtdLIfD4c77zMAg==}
     dependencies:
       c8: 7.12.0
       picocolors: 1.0.0
       std-env: 3.3.2
-      vitest: 0.28.4_s2uor4qvq5q3lpewexu62z34mu
+      vitest: 0.28.4_qhbasczjd2frnrg6fbvpils3zm
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -1284,6 +1286,16 @@ packages:
     resolution: {integrity: sha512-8WuhfXLlvCXpNXEGJW6Gc+IKWI32435fQJLh43u70HnZ1otJOa2Cmg2Wy2Aym47ZnNCP4NolF+8cUPwd0MigKQ==}
     dependencies:
       tinyspy: 1.1.1
+    dev: true
+
+  /@vitest/ui/0.28.4:
+    resolution: {integrity: sha512-LQfCCFc17n49mwtraV9/NAWl2DUqJS/9ZEa3fqJjoYO+HowdseQ5jvWflpzliCyfrIAh6cXVo1bNzHnDXe0cbw==}
+    dependencies:
+      fast-glob: 3.2.12
+      flatted: 3.2.7
+      pathe: 1.1.0
+      picocolors: 1.0.0
+      sirv: 2.0.2
     dev: true
 
   /@vitest/utils/0.28.4:
@@ -4868,7 +4880,7 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.28.4_s2uor4qvq5q3lpewexu62z34mu:
+  /vitest/0.28.4_qhbasczjd2frnrg6fbvpils3zm:
     resolution: {integrity: sha512-sfWIy0AdlbyGRhunm+TLQEJrFH9XuRPdApfubsyLcDbCRrUX717BRQKInTgzEfyl2Ipi1HWoHB84Nqtcwxogcg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
@@ -4896,6 +4908,7 @@ packages:
       '@vitest/expect': 0.28.4
       '@vitest/runner': 0.28.4
       '@vitest/spy': 0.28.4
+      '@vitest/ui': 0.28.4
       '@vitest/utils': 0.28.4
       acorn: 8.8.2
       acorn-walk: 8.2.0
