@@ -6,15 +6,11 @@ export default defineComponent({
 });
 </script>
 
-<script setup lang="ts">
-import { RippleSiblingNode } from "@/lib/use/useRipples";
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <button ref="button" :class="$style.button">
-    <RippleSiblingNode>
-      <slot> </slot>
-    </RippleSiblingNode>
+    <slot> </slot>
   </button>
 </template>
 
