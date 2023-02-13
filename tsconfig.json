@@ -15,7 +15,8 @@
       "@/*": ["src/*"]
     },
     "declaration": true,
-    "declarationDir": "types"
+    "declarationDir": "types",
+    "types": ["vitest/globals"]
   },
   "include": ["src/**/*.ts", "src/**/*.d.ts", "src/**/*.tsx", "src/**/*.vue"]
 }
