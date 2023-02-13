@@ -13,7 +13,8 @@
     "story:build": "histoire build",
     "story:preview": "histoire preview",
     "test": "vitest",
-    "coverage": "vitest run --coverage"
+    "test:ui": "vitest --ui",
+    "test:coverage": "vitest run --coverage"
   },
   "dependencies": {
     "classnames": "^2.3.2",
@@ -27,6 +28,7 @@
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vitest/coverage-c8": "^0.28.4",
+    "@vitest/ui": "^0.28.4",
     "autoprefixer": "^10.4.13",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
