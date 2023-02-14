@@ -2,9 +2,8 @@
   "name": "vue-material",
   "version": "0.0.0",
   "scripts": {
-    "dev": "vite",
+    "dev": "histoire dev",
     "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly ",
-    "serve": "vite preview",
     "commit": "cz",
     "docs:dev": "vitepress dev docs",
     "docs:build": "vitepress build docs",
