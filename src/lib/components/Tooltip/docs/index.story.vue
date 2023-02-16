@@ -4,7 +4,7 @@ import STooltip from "../index.vue";
 
 <template>
   <Story title="Date Display/Tooltip">
-    <STooltip v-slot="{ setRef }" title="Tooltip text" placement="top">
+    <STooltip v-slot="{ setRef }" title="Tooltip text" placement="bottom-end">
       <button :ref="(el) => setRef(el as Element)" class="button">Hover over me!</button>
     </STooltip>
 
