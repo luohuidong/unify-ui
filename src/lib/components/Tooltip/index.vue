@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { Propup } from "@/lib/components";
+import { Popup } from "@/lib/components";
 
 defineProps<{
   title: string;
@@ -17,11 +17,11 @@ defineProps<{
 </script>
 
 <template>
-  <Propup :overlay-append-to-body="appendToBody" :overlay-placement="placement">
+  <Popup :overlay-append-to-body="appendToBody" :overlay-placement="placement">
     <slot></slot>
 
     <template #content>
       {{ title }}
     </template>
-  </Propup>
+  </Popup>
 </template>
