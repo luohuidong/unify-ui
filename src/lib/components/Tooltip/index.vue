@@ -20,17 +20,13 @@ import {
 
 const props = defineProps<{
   title: string;
-  placement: Placement;
+  placement: "top" | "bottom" | "left" | "right";
   appendToBody?: boolean;
 }>();
 
 const referenceRef = ref<Element | null>(null);
 const floatingRef = ref<HTMLElement | null>(null);
 const floatingArrowRef = ref<HTMLElement | null>(null);
-
-function setRef(el: Element | null) {
-  referenceRef.value = el;
-}
 
 function updatePosition() {
   const reference = referenceRef.value;
@@ -115,22 +111,28 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <slot :set-ref="setRef"></slot>
+  <div ref="referenceRef" :class="$style.container">
+    <slot></slot>
 
-  <Teleport v-if="appendToBody" to="body">
-    <div ref="floatingRef" class="tooltip">
+    <Teleport v-if="appendToBody" to="body">
+      <div ref="floatingRef" :class="$style.tooltip">
+        {{ title }}
+        <div ref="floatingArrowRef" :class="$style.arrow"></div>
+      </div>
+    </Teleport>
+
+    <div v-else ref="floatingRef" :class="$style.tooltip">
       {{ title }}
-      <div ref="floatingArrowRef" class="arrow"></div>
+      <div ref="floatingArrowRef" :class="$style.arrow"></div>
     </div>
-  </Teleport>
-
-  <div v-else ref="floatingRef" class="tooltip">
-    {{ title }}
-    <div ref="floatingArrowRef" class="arrow"></div>
   </div>
 </template>
 
-<style scoped>
+<style module>
+.container {
+  display: inline-block;
+}
+
 .tooltip {
   display: none;
   width: max-content;

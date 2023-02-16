@@ -1,35 +1,44 @@
 <script setup lang="ts">
+import { Button } from "@/lib/components";
 import STooltip from "../index.vue";
 </script>
 
 <template>
   <Story title="Date Display/Tooltip">
-    <STooltip v-slot="{ setRef }" title="Tooltip text" placement="bottom-end">
-      <button :ref="(el) => setRef(el as Element)" class="button">Hover over me!</button>
-    </STooltip>
+    <div class="container">
+      <div>
+        <STooltip title="Tooltip text" placement="top">
+          <Button type="text" text="Hover over me!" />
+        </STooltip>
+      </div>
 
-    <STooltip v-slot="{ setRef }" title="Tooltip text" placement="top" append-to-body>
-      <button :ref="(el) => setRef(el as Element)" class="button">Tooltip append to body</button>
-    </STooltip>
+      <div>
+        <STooltip title="Tooltip text" placement="bottom" append-to-body>
+          <Button type="outlined" text="Tooltip append to body" />
+        </STooltip>
+      </div>
+
+      <div>
+        <STooltip title="Tooltip text" placement="left">
+          <Button type="text" text="Hover over me!" />
+        </STooltip>
+      </div>
+
+      <div>
+        <STooltip title="Tooltip text" placement="right" append-to-body>
+          <Button type="outlined" text="Tooltip append to body" />
+        </STooltip>
+      </div>
+    </div>
   </Story>
 </template>
 
 <style scoped>
 .container {
-  margin: 50px;
-  height: 400px;
-  border: 1px solid grey;
-  overflow: scroll;
-}
-
-.inner-container {
-  height: 800px;
-}
-
-.button {
-  background: gainsboro;
-  border: none;
-  padding: 20px;
-  margin: 10px;
+  display: grid;
+  grid-template-columns: 400px 400px;
+  grid-template-rows: 400px;
+  align-items: center;
+  justify-items: center;
 }
 </style>
