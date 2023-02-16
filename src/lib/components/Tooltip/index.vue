@@ -18,7 +18,7 @@ import {
   type Placement,
 } from "@floating-ui/dom";
 
-defineProps<{
+const props = defineProps<{
   title: string;
   placement: Placement;
   appendToBody?: boolean;
@@ -39,7 +39,7 @@ function updatePosition() {
 
   if (reference && floating && floatingArrow) {
     computePosition(reference, floating, {
-      placement: "top",
+      placement: props.placement,
       middleware: [offset(6), flip(), shift({ padding: 5 }), arrow({ element: floatingArrow })],
     }).then(({ x, y, middlewareData, placement }) => {
       Object.assign(floating.style, {
