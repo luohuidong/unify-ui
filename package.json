@@ -21,7 +21,7 @@
     "vue": "^3.2.47"
   },
   "devDependencies": {
-    "@histoire/plugin-vue": "^0.15.3",
+    "@histoire/plugin-vue": "^0.15.4",
     "@testing-library/vue": "^6.6.1",
     "@types/node": "^18.13.0",
     "@typescript-eslint/parser": "^5.52.0",
@@ -36,7 +36,7 @@
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-vue": "^9.9.0",
     "happy-dom": "^8.4.2",
-    "histoire": "^0.15.3",
+    "histoire": "^0.15.4",
     "prettier": "^2.8.4",
     "sass": "^1.58.1",
     "typescript": "^4.9.5",
