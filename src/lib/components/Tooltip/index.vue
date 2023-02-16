@@ -8,25 +8,26 @@ export default defineComponent({
 
 <script lang="ts" setup>
 import { ref, onMounted, onUnmounted } from "vue";
-import {
-  computePosition,
-  flip,
-  shift,
-  offset,
-  arrow,
-  autoUpdate,
-  type Placement,
-} from "@floating-ui/dom";
+import { computePosition, flip, shift, offset, arrow, autoUpdate } from "@floating-ui/dom";
+
+import FloatingElement from "./FloatingElement.vue";
 
 const props = defineProps<{
   title: string;
   placement: "top" | "bottom" | "left" | "right";
   appendToBody?: boolean;
+  overlayClassName?: string;
 }>();
 
 const referenceRef = ref<Element | null>(null);
 const floatingRef = ref<HTMLElement | null>(null);
+function setFloatingRef(e: HTMLElement) {
+  floatingRef.value = e;
+}
 const floatingArrowRef = ref<HTMLElement | null>(null);
+function setFloatingArrowRef(e: HTMLElement) {
+  floatingArrowRef.value = e;
+}
 
 function updatePosition() {
   const reference = referenceRef.value;
@@ -115,16 +116,21 @@ onUnmounted(() => {
     <slot></slot>
 
     <Teleport v-if="appendToBody" to="body">
-      <div ref="floatingRef" :class="$style.tooltip">
-        {{ title }}
-        <div ref="floatingArrowRef" :class="$style.arrow"></div>
-      </div>
+      <FloatingElement
+        :set-floating-ref="setFloatingRef"
+        :set-floating-arrow-ref="setFloatingArrowRef"
+        :title="title"
+        :overlay-class-name="overlayClassName"
+      ></FloatingElement>
     </Teleport>
 
-    <div v-else ref="floatingRef" :class="$style.tooltip">
-      {{ title }}
-      <div ref="floatingArrowRef" :class="$style.arrow"></div>
-    </div>
+    <FloatingElement
+      v-else
+      :set-floating-ref="setFloatingRef"
+      :set-floating-arrow-ref="setFloatingArrowRef"
+      :title="title"
+      :overlay-class-name="overlayClassName"
+    ></FloatingElement>
   </div>
 </template>
 
