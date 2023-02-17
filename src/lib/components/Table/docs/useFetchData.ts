@@ -14,10 +14,6 @@ export default function useFetchData() {
     fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((json) => {
-        console.log(
-          "🚀 ~ file: useFetchData.ts ~ line 17 ~ .then ~ json",
-          json
-        );
         data.value = json;
       });
   });
