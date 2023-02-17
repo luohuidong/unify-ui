@@ -15,7 +15,7 @@ export default defineComponent({
 </template>
 
 <style lang="scss" module>
-@use "@/lib/styles/color";
+@use "@/styles/color";
 
 .container {
   width: 400px;

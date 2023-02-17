@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button, useMessage } from "@/lib/components";
+import { Button, useMessage } from "@/components";
 
 const { message } = useMessage();
 
