@@ -21,6 +21,7 @@ const props = withDefaults(
     fontColor?: string;
     backgroundColor?: string;
     showArrow?: boolean;
+    trigger?: "hover" | "click";
   }>(),
   {
     appendToBody: false,
@@ -28,6 +29,7 @@ const props = withDefaults(
     fontColor: void 0,
     backgroundColor: void 0,
     showArrow: true,
+    trigger: "hover",
   }
 );
 provide(provideKeys.rootPropsKey, props);
@@ -116,23 +118,49 @@ function hideTooltip() {
   }
 }
 
+function handleBodyClick(e: MouseEvent) {
+  const path = e.composedPath();
+
+  const reference = referenceRef.value;
+  if (!reference) return;
+  if (!path.includes(reference)) {
+    hideTooltip();
+  }
+}
+
 onMounted(() => {
   const reference = referenceRef.value;
-  if (reference) {
+  if (!reference) return;
+
+  reference.addEventListener("focus", showTooltip);
+  reference.addEventListener("blur", hideTooltip);
+
+  if (props.trigger === "hover") {
     reference.addEventListener("mouseenter", showTooltip);
     reference.addEventListener("mouseleave", hideTooltip);
-    reference.addEventListener("focus", showTooltip);
-    reference.addEventListener("blur", hideTooltip);
+  }
+
+  if (props.trigger === "click") {
+    reference.addEventListener("click", showTooltip);
+    document.body.addEventListener("click", handleBodyClick);
   }
 });
 
 onUnmounted(() => {
   const reference = referenceRef.value;
-  if (reference) {
+  if (!reference) return;
+
+  reference.removeEventListener("focus", showTooltip);
+  reference.removeEventListener("blur", hideTooltip);
+
+  if (props.trigger === "hover") {
     reference.removeEventListener("mouseenter", showTooltip);
     reference.removeEventListener("mouseleave", hideTooltip);
-    reference.removeEventListener("focus", showTooltip);
-    reference.removeEventListener("blur", hideTooltip);
+  }
+
+  if (props.trigger === "click") {
+    reference.removeEventListener("click", showTooltip);
+    document.body.removeEventListener("click", handleBodyClick);
   }
 });
 </script>

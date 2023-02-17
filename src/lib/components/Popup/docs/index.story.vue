@@ -6,47 +6,73 @@ import Popup from "../index.vue";
 
 <template>
   <Story title="Date Display/Popup">
-    <div class="container">
-      <div>
-        <Popup placement="top">
-          <Button type="text" text="top black" />
+    <Variant title="default">
+      <div class="container">
+        <div>
+          <Popup placement="top">
+            <Button type="text" text="top black" />
 
-          <template #content>
-            <div class="box">top</div>
-          </template>
-        </Popup>
+            <template #content>
+              <div class="box">top</div>
+            </template>
+          </Popup>
+        </div>
+
+        <div>
+          <Popup placement="bottom" append-to-body background-color="green">
+            <Button type="text" text="bottom green" />
+
+            <template #content>
+              <div class="box">bottom</div>
+            </template>
+          </Popup>
+        </div>
+
+        <div>
+          <Popup placement="left" background-color="red">
+            <Button type="text" text="left red" />
+
+            <template #content>
+              <div class="box">bottom</div>
+            </template>
+          </Popup>
+        </div>
+
+        <div>
+          <Popup placement="right" background-color="blue">
+            <Button type="text" text="right blue" />
+
+            <template #content>
+              <div class="box">right</div>
+            </template>
+          </Popup>
+        </div>
       </div>
+    </Variant>
 
-      <div>
-        <Popup placement="bottom" append-to-body background-color="green">
-          <Button type="text" text="bottom green" />
+    <Variant title="Trigger method">
+      <div :style="{ height: '100vh' }">
+        <div :style="{ marginBottom: '100px' }">
+          <Popup placement="bottom" trigger="click" append-to-body>
+            <Button type="outlined" text="Trigger: click"></Button>
 
-          <template #content>
-            <div class="box">bottom</div>
-          </template>
-        </Popup>
+            <template #content>
+              <div class="box">bottom</div>
+            </template>
+          </Popup>
+        </div>
+
+        <div>
+          <Popup placement="bottom" append-to-body>
+            <Button type="outlined" text="Trigger: hover"></Button>
+
+            <template #content>
+              <div class="box">bottom</div>
+            </template>
+          </Popup>
+        </div>
       </div>
-
-      <div>
-        <Popup placement="left" background-color="red">
-          <Button type="text" text="left red" />
-
-          <template #content>
-            <div class="box">bottom</div>
-          </template>
-        </Popup>
-      </div>
-
-      <div>
-        <Popup placement="right" background-color="blue">
-          <Button type="text" text="right blue" />
-
-          <template #content>
-            <div class="box">right</div>
-          </template>
-        </Popup>
-      </div>
-    </div>
+    </Variant>
   </Story>
 </template>
 
