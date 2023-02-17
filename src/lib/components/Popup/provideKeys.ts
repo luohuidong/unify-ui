@@ -7,6 +7,7 @@ export const rootPropsKey = Symbol() as InjectionKey<{
   fontColor?: string;
   backgroundColor?: string;
   showArrow?: boolean;
+  trigger?: "hover" | "click";
 }>;
 
 export const referenceRefKey = Symbol() as InjectionKey<{
