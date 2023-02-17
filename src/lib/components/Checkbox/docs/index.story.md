@@ -18,3 +18,9 @@ const checked = ref(true);
 | modelValue | 绑定值   | boolean | -      |
 | label      | 标题     | string  |        |
 | disabled   | 是否禁用 | boolean | -      |
+
+### 事件
+
+| 事件   | 说明             |
+| ------ | ---------------- |
+| change | 值变更的时候触发 |
