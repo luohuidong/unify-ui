@@ -16,8 +16,8 @@ export default defineComponent({
 
 <style lang="scss" module>
 @use "sass:map";
-@use "@/lib/styles/color";
-@use "@/lib/styles/type";
+@use "@/styles/color";
+@use "@/styles/type";
 
 .button {
   box-sizing: border-box;

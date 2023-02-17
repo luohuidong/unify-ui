@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { Button, ConfirmDialog } from "@/lib/components";
+import { Button, ConfirmDialog } from "@/components";
 
 const visible = ref(false);
 
@@ -23,11 +23,7 @@ function handleKeyboardEscapeKey() {
 
 <template>
   <Story title="Feedback/Dialog/ConfirmDialog">
-    <Button
-      type="contained"
-      text="打开 Dialog"
-      @click="handleButtonClick"
-    ></Button>
+    <Button type="contained" text="打开 Dialog" @click="handleButtonClick"></Button>
 
     <ConfirmDialog
       :visible="visible"

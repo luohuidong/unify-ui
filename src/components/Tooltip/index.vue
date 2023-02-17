@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { Popup } from "@/lib/components";
+import { Popup } from "@/components";
 
 defineProps<{
   title: string;
