@@ -23,6 +23,7 @@ const props = withDefaults(
     overlayBackgroundShowArrow?: boolean;
   }>(),
   {
+    overlayAppendToBody: false,
     overlayClassName: void 0,
     overlayFontColor: void 0,
     overlayBackgroundColor: void 0,
