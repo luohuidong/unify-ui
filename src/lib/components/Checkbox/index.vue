@@ -7,10 +7,16 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-defineProps<{
-  label: string;
-  modelValue: boolean;
-}>();
+const props = withDefaults(
+  defineProps<{
+    label: string;
+    modelValue: boolean;
+    disabled?: boolean;
+  }>(),
+  {
+    disabled: false,
+  }
+);
 
 const emit = defineEmits<{
   (e: "update:modelValue", checked: boolean): void;
@@ -18,13 +24,21 @@ const emit = defineEmits<{
 
 function handleChange(e: Event) {
   const checked = (e.target as HTMLInputElement).checked;
-  emit("update:modelValue", checked);
+  if (props.disabled === false) {
+    emit("update:modelValue", checked);
+  }
 }
 </script>
 
 <template>
   <label :class="$style.container">
-    <input :class="$style.input" type="checkbox" :checked="modelValue" @change="handleChange" />
+    <input
+      :class="$style.input"
+      type="checkbox"
+      :checked="modelValue"
+      :disabled="disabled"
+      @change="handleChange"
+    />
     <span :class="$style.checkmark"></span>
     {{ label }}
   </label>
@@ -61,6 +75,13 @@ function handleChange(e: Event) {
 .input:checked ~ .checkmark {
   background-color: #037aff;
 }
+.input:checked:disabled ~ .checkmark {
+  background-color: #f4f4f4;
+}
+.input:disabled ~ .checkmark {
+  cursor: not-allowed;
+  background-color: #f4f4f4;
+}
 
 // On mouse-over, add a grey background color
 .container:hover {
@@ -70,6 +91,9 @@ function handleChange(e: Event) {
 
   > .input:checked ~ .checkmark {
     background-color: #0261cc;
+  }
+  > .input:disabled ~ .checkmark {
+    background-color: #f4f4f4;
   }
 }
 
@@ -87,5 +111,9 @@ function handleChange(e: Event) {
 /* Show the checkmark when checked */
 .container > input:checked ~ .checkmark::after {
   opacity: 1;
+}
+.container > input:checked:disabled ~ .checkmark::after {
+  opacity: 1;
+  border-color: #dcdcdc;
 }
 </style>

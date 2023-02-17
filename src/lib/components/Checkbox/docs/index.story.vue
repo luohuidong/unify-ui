@@ -12,6 +12,7 @@ const checked2 = ref(false);
     <div class="container">
       <s-checkbox v-model="checked1" label="One"></s-checkbox>
       <s-checkbox v-model="checked2" label="Two"></s-checkbox>
+      <s-checkbox v-model="checked2" label="Two" disabled></s-checkbox>
     </div>
   </Story>
 </template>
