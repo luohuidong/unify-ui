@@ -7,6 +7,8 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+import { computed } from "vue";
+
 const props = withDefaults(
   defineProps<{
     label: string;
@@ -30,6 +32,8 @@ function handleChange(e: Event) {
     emit("change", checked);
   }
 }
+
+const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 </script>
 
 <template>
@@ -52,7 +56,7 @@ function handleChange(e: Event) {
   display: inline-flex;
   align-items: center;
   margin-right: 30px;
-  cursor: pointer;
+  cursor: v-bind(cursor);
   font-size: 14px;
   user-select: none;
 }
@@ -77,25 +81,23 @@ function handleChange(e: Event) {
 .input:checked ~ .checkmark {
   background-color: #037aff;
 }
-.input:checked:disabled ~ .checkmark {
-  background-color: #f4f4f4;
-}
+
+// When the checkbox is disabled, add grey background color
 .input:disabled ~ .checkmark {
   cursor: not-allowed;
   background-color: #f4f4f4;
 }
 
-// On mouse-over, add a grey background color
-.container:hover {
-  > .input:not(:checked) ~ .checkmark {
-    background-color: #ccc;
-  }
-
-  > .input:checked ~ .checkmark {
+// On mouse-over, add a background color
+.container:hover > .input:not(:disabled) {
+  // When the checkbox is checked, add a blue background
+  &:checked ~ .checkmark {
     background-color: #0261cc;
   }
-  > .input:disabled ~ .checkmark {
-    background-color: #f4f4f4;
+
+  // When the checkbox is not checked, add a grey background
+  &:not(:checked) ~ .checkmark {
+    background-color: #ccc;
   }
 }
 
