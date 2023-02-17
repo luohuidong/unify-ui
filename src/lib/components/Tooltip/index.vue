@@ -17,7 +17,7 @@ defineProps<{
 </script>
 
 <template>
-  <Popup :overlay-append-to-body="appendToBody" :overlay-placement="placement">
+  <Popup :append-to-body="appendToBody" :placement="placement">
     <slot></slot>
 
     <template #content>

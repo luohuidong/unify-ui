@@ -6,8 +6,8 @@ import * as provideKeys from "./provideKeys";
 const rootPropsKey = inject(provideKeys.rootPropsKey);
 const floatingRef = inject(provideKeys.floatingRefKey);
 const floatingArrowRef = inject(provideKeys.floatingArrowRefKey);
-const background = computed(() => rootPropsKey?.overlayBackgroundColor || "#222");
-const color = computed(() => rootPropsKey?.overlayFontColor || "white");
+const background = computed(() => rootPropsKey?.backgroundColor || "#222");
+const color = computed(() => rootPropsKey?.fontColor || "white");
 </script>
 
 <template>
@@ -18,7 +18,7 @@ const color = computed(() => rootPropsKey?.overlayFontColor || "white");
     <slot></slot>
 
     <div
-      v-if="rootPropsKey?.overlayBackgroundShowArrow"
+      v-if="rootPropsKey?.showArrow"
       :ref="(e)=> floatingArrowRef?.setFloatingArrowRef(e as HTMLDivElement)"
       :class="$style.arrow"
     ></div>

@@ -8,7 +8,7 @@ import Popup from "../index.vue";
   <Story title="Date Display/Popup">
     <div class="container">
       <div>
-        <Popup overlay-placement="top">
+        <Popup placement="top">
           <Button type="text" text="top black" />
 
           <template #content>
@@ -18,7 +18,7 @@ import Popup from "../index.vue";
       </div>
 
       <div>
-        <Popup overlay-placement="bottom" overlay-append-to-body overlay-background-color="green">
+        <Popup placement="bottom" append-to-body background-color="green">
           <Button type="text" text="bottom green" />
 
           <template #content>
@@ -28,7 +28,7 @@ import Popup from "../index.vue";
       </div>
 
       <div>
-        <Popup overlay-placement="left" overlay-background-color="red">
+        <Popup placement="left" background-color="red">
           <Button type="text" text="left red" />
 
           <template #content>
@@ -38,7 +38,7 @@ import Popup from "../index.vue";
       </div>
 
       <div>
-        <Popup overlay-placement="right" overlay-background-color="blue">
+        <Popup placement="right" background-color="blue">
           <Button type="text" text="right blue" />
 
           <template #content>

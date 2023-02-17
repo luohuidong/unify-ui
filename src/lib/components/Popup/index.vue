@@ -15,19 +15,19 @@ import FloatingElement from "./FloatingElement.vue";
 
 const props = withDefaults(
   defineProps<{
-    overlayPlacement: "top" | "bottom" | "left" | "right";
-    overlayAppendToBody?: boolean;
+    placement: "top" | "bottom" | "left" | "right";
+    appendToBody?: boolean;
     overlayClassName?: string;
-    overlayFontColor?: string;
-    overlayBackgroundColor?: string;
-    overlayBackgroundShowArrow?: boolean;
+    fontColor?: string;
+    backgroundColor?: string;
+    showArrow?: boolean;
   }>(),
   {
-    overlayAppendToBody: false,
+    appendToBody: false,
     overlayClassName: void 0,
-    overlayFontColor: void 0,
-    overlayBackgroundColor: void 0,
-    overlayBackgroundShowArrow: true,
+    fontColor: void 0,
+    backgroundColor: void 0,
+    showArrow: true,
   }
 );
 provide(provideKeys.rootPropsKey, props);
@@ -62,7 +62,7 @@ function updatePosition() {
 
   if (reference && floating && floatingArrow) {
     computePosition(reference, floating, {
-      placement: props.overlayPlacement,
+      placement: props.placement,
       middleware: [offset(6), flip(), shift({ padding: 5 }), arrow({ element: floatingArrow })],
     }).then(({ x, y, middlewareData, placement }) => {
       Object.assign(floating.style, {
@@ -142,7 +142,7 @@ onUnmounted(() => {
     <slot></slot>
   </div>
 
-  <template v-if="overlayAppendToBody">
+  <template v-if="appendToBody">
     <Teleport to="body">
       <FloatingElement>
         <slot name="content"></slot>
