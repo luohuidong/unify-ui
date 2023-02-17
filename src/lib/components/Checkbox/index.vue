@@ -20,12 +20,14 @@ const props = withDefaults(
 
 const emit = defineEmits<{
   (e: "update:modelValue", checked: boolean): void;
+  (e: "change", checked: boolean): void;
 }>();
 
 function handleChange(e: Event) {
   const checked = (e.target as HTMLInputElement).checked;
   if (props.disabled === false) {
     emit("update:modelValue", checked);
+    emit("change", checked);
   }
 }
 </script>
