@@ -1,12 +1,12 @@
 import type { InjectionKey, Ref } from "vue";
 
 export const rootPropsKey = Symbol() as InjectionKey<{
-  overlayPlacement: "top" | "bottom" | "left" | "right";
-  overlayAppendToBody?: boolean;
+  placement: "top" | "bottom" | "left" | "right";
+  appendToBody?: boolean;
   overlayClassName?: string;
-  overlayFontColor?: string;
-  overlayBackgroundColor?: string;
-  overlayBackgroundShowArrow?: boolean;
+  fontColor?: string;
+  backgroundColor?: string;
+  showArrow?: boolean;
 }>;
 
 export const referenceRefKey = Symbol() as InjectionKey<{
