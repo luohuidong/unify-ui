@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { VmTable } from "@/components/Table";
+import { EzTable } from "@/components/Table";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
-type Data = InstanceType<typeof VmTable>["$props"]["data"];
+type Data = InstanceType<typeof EzTable>["$props"]["data"];
 
-const columns: InstanceType<typeof VmTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
     title: "id",
     key: "id",
@@ -24,7 +24,7 @@ const columns: InstanceType<typeof VmTable>["$props"]["columns"] = [
   },
 ];
 
-const rowExpand: InstanceType<typeof VmTable>["$props"]["rowExpand"] = {
+const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
   expandCondition: (row: Data[number]) =>
     (row.files && [row.files as Array<number>].length) as boolean,
   expandSlotName: "rowExpand",
@@ -32,7 +32,7 @@ const rowExpand: InstanceType<typeof VmTable>["$props"]["rowExpand"] = {
 </script>
 
 <template>
-  <VmTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
+  <EzTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
     <template #birthday="{ rowData }">
       {{ rowData.birthday }}
     </template>
@@ -44,7 +44,7 @@ const rowExpand: InstanceType<typeof VmTable>["$props"]["rowExpand"] = {
     <template #rowExpand="{ rowData }">
       {{ `展开行 ${rowData.name}: ${rowData.age} 岁` }}
     </template>
-  </VmTable>
+  </EzTable>
 </template>
 
 <style lang="less" scoped></style>

@@ -2,12 +2,12 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "SToolTip",
+  name: "EzToolTip",
 });
 </script>
 
 <script lang="ts" setup>
-import { Popup } from "@/components";
+import { EzPopup } from "@/components";
 
 defineProps<{
   title: string;
@@ -17,11 +17,11 @@ defineProps<{
 </script>
 
 <template>
-  <Popup :append-to-body="appendToBody" :placement="placement">
+  <EzPopup :append-to-body="appendToBody" :placement="placement">
     <slot></slot>
 
     <template #content>
       {{ title }}
     </template>
-  </Popup>
+  </EzPopup>
 </template>

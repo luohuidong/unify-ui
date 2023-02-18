@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useAlertDialog, Button } from "@/components";
+import { useAlertDialog, EzButton } from "@/components";
 
 const { confirm } = useAlertDialog();
 
@@ -15,6 +15,6 @@ function handleConfirmDialogButton() {
 
 <template>
   <Story title="Feedback/Dialog/AlertDialog">
-    <Button type="contained" text="confirm Dialog" @click="handleConfirmDialogButton"></Button>
+    <EzButton type="contained" text="confirm Dialog" @click="handleConfirmDialogButton"></EzButton>
   </Story>
 </template>

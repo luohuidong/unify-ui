@@ -1,11 +1,11 @@
 <script setup lang="ts">
 import { h } from "vue";
-import { VmTable } from "@/components/Table";
+import { EzTable } from "@/components/Table";
 import data from "./data.json";
 
-type Data = InstanceType<typeof VmTable>["$props"]["data"];
+type Data = InstanceType<typeof EzTable>["$props"]["data"];
 
-const columns: InstanceType<typeof VmTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
     title: "姓名",
     key: "name",
@@ -25,7 +25,7 @@ const columns: InstanceType<typeof VmTable>["$props"]["columns"] = [
   },
 ];
 
-const rowExpand: InstanceType<typeof VmTable>["$props"]["rowExpand"] = {
+const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
   expandCondition: (row: Data[number]) =>
     (row.files && [row.files as Array<number>].length) as boolean,
   expandRowRender: (row: Data[number]) =>
@@ -34,7 +34,7 @@ const rowExpand: InstanceType<typeof VmTable>["$props"]["rowExpand"] = {
 </script>
 
 <template>
-  <VmTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand" />
+  <EzTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand" />
 </template>
 
 <style lang="less" scoped></style>
