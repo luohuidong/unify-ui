@@ -1,7 +1,7 @@
 import { defineComponent, type PropType, type VNode } from "vue";
 
 export default defineComponent({
-  name: "VmTableCellRender",
+  name: "STableCellRender",
   props: {
     vNode: {
       type: Function as PropType<() => VNode | null>,

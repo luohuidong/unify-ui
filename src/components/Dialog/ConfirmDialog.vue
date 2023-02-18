@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "VMConfirmDialog",
+  name: "SConfirmDialog",
 });
 </script>
 
