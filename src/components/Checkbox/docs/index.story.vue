@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import SCheckbox from "../Checkbox.vue";
+import { EzCheckbox } from "@/components";
 
 const checked1 = ref(true);
 const checked2 = ref(false);
@@ -10,9 +10,9 @@ const checked2 = ref(false);
 <template>
   <Story title="Data Entry/Checkbox">
     <div class="container">
-      <s-checkbox v-model="checked1" label="One"></s-checkbox>
-      <s-checkbox v-model="checked2" label="Two"></s-checkbox>
-      <s-checkbox v-model="checked2" label="Two" disabled></s-checkbox>
+      <EzCheckbox v-model="checked1" label="One"></EzCheckbox>
+      <EzCheckbox v-model="checked2" label="Two"></EzCheckbox>
+      <EzCheckbox v-model="checked2" label="Two" disabled></EzCheckbox>
     </div>
   </Story>
 </template>

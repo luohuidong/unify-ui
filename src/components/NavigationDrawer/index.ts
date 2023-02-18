@@ -1,4 +1,4 @@
-export { default as StandardDrawer } from "./StandardDrawer.vue";
-export { default as NavigationList } from "./NavigationList.vue";
-export { default as NavigationListItem } from "./NavigationListItem.vue";
-export { default as ModalDrawer } from "./ModalDrawer.vue";
+export { default as EzStandardDrawer } from "./StandardDrawer.vue";
+export { default as EzNavigationList } from "./NavigationList.vue";
+export { default as EzNavigationListItem } from "./NavigationListItem.vue";
+export { default as EzModalDrawer } from "./ModalDrawer.vue";

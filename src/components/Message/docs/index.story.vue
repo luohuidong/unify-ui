@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button, useMessage } from "@/components";
+import { EzButton, useMessage } from "@/components";
 
 const { message } = useMessage();
 
@@ -12,6 +12,6 @@ function handleClick() {
 
 <template>
   <Story title="Feedback/Message">
-    <Button type="contained" text="添加 message" @click="handleClick"></Button>
+    <EzButton type="contained" text="添加 message" @click="handleClick"></EzButton>
   </Story>
 </template>

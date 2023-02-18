@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from "@/components";
+import { EzButton } from "@/components";
 
 import Popup from "../index.vue";
 </script>
@@ -10,7 +10,7 @@ import Popup from "../index.vue";
       <div class="container">
         <div>
           <Popup placement="top">
-            <Button type="text" text="top black" />
+            <EzButton type="text" text="top black" />
 
             <template #content>
               <div class="box">top</div>
@@ -20,7 +20,7 @@ import Popup from "../index.vue";
 
         <div>
           <Popup placement="bottom" append-to-body background-color="green">
-            <Button type="text" text="bottom green" />
+            <EzButton type="text" text="bottom green" />
 
             <template #content>
               <div class="box">bottom</div>
@@ -30,7 +30,7 @@ import Popup from "../index.vue";
 
         <div>
           <Popup placement="left" background-color="red">
-            <Button type="text" text="left red" />
+            <EzButton type="text" text="left red" />
 
             <template #content>
               <div class="box">bottom</div>
@@ -40,7 +40,7 @@ import Popup from "../index.vue";
 
         <div>
           <Popup placement="right" background-color="blue">
-            <Button type="text" text="right blue" />
+            <EzButton type="text" text="right blue" />
 
             <template #content>
               <div class="box">right</div>
@@ -54,7 +54,7 @@ import Popup from "../index.vue";
       <div :style="{ height: '100vh' }">
         <div :style="{ marginBottom: '100px' }">
           <Popup placement="bottom" trigger="click" append-to-body>
-            <Button type="outlined" text="Trigger: click"></Button>
+            <EzButton type="outlined" text="Trigger: click"></EzButton>
 
             <template #content>
               <div class="box">bottom</div>
@@ -64,7 +64,7 @@ import Popup from "../index.vue";
 
         <div>
           <Popup placement="bottom" append-to-body>
-            <Button type="outlined" text="Trigger: hover"></Button>
+            <EzButton type="outlined" text="Trigger: hover"></EzButton>
 
             <template #content>
               <div class="box">bottom</div>

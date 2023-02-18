@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { Button } from "@/components";
+import { EzButton } from "@/components";
 import STooltip from "../index.vue";
 </script>
 
@@ -8,25 +8,25 @@ import STooltip from "../index.vue";
     <div class="container">
       <div>
         <STooltip title="Tooltip text" placement="top">
-          <Button type="text" text="Hover over me!" />
+          <EzButton type="text" text="Hover over me!" />
         </STooltip>
       </div>
 
       <div>
         <STooltip title="Tooltip text" placement="bottom" append-to-body>
-          <Button type="outlined" text="Tooltip append to body" />
+          <EzButton type="outlined" text="Tooltip append to body" />
         </STooltip>
       </div>
 
       <div>
         <STooltip title="Tooltip text" placement="left">
-          <Button type="text" text="Hover over me!" />
+          <EzButton type="text" text="Hover over me!" />
         </STooltip>
       </div>
 
       <div>
         <STooltip title="Tooltip text" placement="right" append-to-body>
-          <Button type="outlined" text="Tooltip append to body" />
+          <EzButton type="outlined" text="Tooltip append to body" />
         </STooltip>
       </div>
     </div>

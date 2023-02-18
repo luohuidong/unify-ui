@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { Button } from "@/components";
+import { EzButton } from "@/components";
 </script>
 
 <template>
   <Story title="Generel/Button">
-    <Button type="text" text="text button"></Button>
-    <Button type="outlined" text="outlined button"></Button>
-    <Button type="contained" text="contained button"></Button>
+    <EzButton type="text" text="text button"></EzButton>
+    <EzButton type="outlined" text="outlined button"></EzButton>
+    <EzButton type="contained" text="contained button"></EzButton>
   </Story>
 </template>

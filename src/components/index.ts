@@ -1,12 +1,12 @@
-export { default as Button } from "./Button/index.vue";
+export { default as EzButton } from "./Button/index.vue";
 export { useAlertDialog, ConfirmDialog } from "./Dialog";
 export {
-  StandardDrawer,
-  ModalDrawer,
-  NavigationList,
-  NavigationListItem,
+  EzStandardDrawer,
+  EzModalDrawer,
+  EzNavigationList,
+  EzNavigationListItem,
 } from "./NavigationDrawer";
 export { useMessage } from "./Message";
-export { Checkbox } from "./Checkbox";
-export { default as Popup } from "./Popup/index.vue";
-export { default as Tooltip } from "./Tooltip/index.vue";
+export { EzCheckbox } from "./Checkbox";
+export { default as EzPopup } from "./Popup/index.vue";
+export { default as EzTooltip } from "./Tooltip/index.vue";

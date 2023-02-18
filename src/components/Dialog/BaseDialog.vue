@@ -2,14 +2,14 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "SBaseDialog",
+  name: "EzBaseDialog",
 });
 </script>
 
 <script setup lang="ts">
 import { Transition } from "vue";
 
-import { Button } from "@/components";
+import { EzButton } from "@/components";
 import Scrim from "../Scrim.vue";
 
 withDefaults(
@@ -53,9 +53,9 @@ function handleCancelButtonClick() {
         </div>
 
         <div :class="$style.buttonContainer">
-          <Button type="text" :text="cancelText" @click="handleCancelButtonClick" />
+          <EzButton type="text" :text="cancelText" @click="handleCancelButtonClick" />
 
-          <Button type="text" :text="confirmText" @click="handleConfirmButtonClick" />
+          <EzButton type="text" :text="confirmText" @click="handleConfirmButtonClick" />
         </div>
       </div>
     </Scrim>

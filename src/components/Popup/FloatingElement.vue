@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "EzFloatingElement",
+});
+</script>
+
 <script setup lang="ts">
 import { inject, computed } from "vue";
 
