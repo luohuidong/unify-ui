@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "VMMessagesContainer",
+  name: "SMessagesContainer",
 });
 </script>
 

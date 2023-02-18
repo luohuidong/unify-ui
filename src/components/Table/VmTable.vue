@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "VMTable",
+  name: "STable",
 });
 </script>
 
@@ -48,9 +48,7 @@ const columnCount = computed(() => {
         <tr>
           <template v-for="col in columns" :key="col.key">
             <td v-if="col.render">
-              <TableCellRender
-                :v-node="() => (col.render && col.render(rowData)) || null"
-              />
+              <TableCellRender :v-node="() => (col.render && col.render(rowData)) || null" />
             </td>
 
             <td v-else-if="col.slotName">
@@ -68,10 +66,7 @@ const columnCount = computed(() => {
           <td :colspan="columnCount">
             <template v-if="rowExpand.expandRowRender">
               <TableCellRender
-                :v-node="
-                  () =>
-                    (rowExpand && rowExpand.expandRowRender(rowData)) || null
-                "
+                :v-node="() => (rowExpand && rowExpand.expandRowRender(rowData)) || null"
               ></TableCellRender>
             </template>
 
