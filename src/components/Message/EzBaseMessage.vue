@@ -1,11 +1,3 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "EzBaseMessage",
-});
-</script>
-
 <script setup lang="ts">
 defineProps<{
   text: string;

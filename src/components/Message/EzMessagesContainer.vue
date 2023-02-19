@@ -1,11 +1,3 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "EzMessagesContainer",
-});
-</script>
-
 <script setup lang="ts">
 defineProps<{
   id: string;

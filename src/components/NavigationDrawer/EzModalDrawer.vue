@@ -1,16 +1,8 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "EzModalDrawer",
-});
-</script>
-
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
 
 import Scrim from "../Scrim.vue";
-import BaseDrawer from "./BaseDrawer.vue";
+import BaseDrawer from "./EzBaseDrawer.vue";
 
 defineProps<{
   visible: boolean;

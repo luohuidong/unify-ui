@@ -7,9 +7,9 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import TextButton from "./TextButton.vue";
-import ContainedButton from "./ContainedButton.vue";
-import OutlinedButton from "./OutlinedButton.vue";
+import TextButton from "./EzTextButton.vue";
+import ContainedButton from "./EzContainedButton.vue";
+import OutlinedButton from "./EzOutlinedButton.vue";
 
 const props = defineProps<{
   type: "text" | "outlined" | "contained";

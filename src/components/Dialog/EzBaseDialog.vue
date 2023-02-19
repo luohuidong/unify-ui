@@ -1,11 +1,3 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "EzBaseDialog",
-});
-</script>
-
 <script setup lang="ts">
 import { Transition } from "vue";
 

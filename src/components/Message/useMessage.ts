@@ -1,7 +1,7 @@
 import { createVNode, render } from "vue";
 
-import MessagesContainer from "./MessagesContainer.vue";
-import BaseMessage from "./BaseMessage.vue";
+import MessagesContainer from "./EzMessagesContainer.vue";
+import BaseMessage from "./EzBaseMessage.vue";
 
 export default function useMessage() {
   function createMessagesContainer(): HTMLDivElement {

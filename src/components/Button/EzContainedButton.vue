@@ -1,13 +1,5 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "EzContainedButton",
-});
-</script>
-
 <script lang="ts" setup>
-import BaseButton from "./BaseButton.vue";
+import BaseButton from "./EzBaseButton.vue";
 </script>
 
 <template>
