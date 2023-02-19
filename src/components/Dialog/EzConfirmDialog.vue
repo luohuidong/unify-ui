@@ -1,15 +1,7 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "EzConfirmDialog",
-});
-</script>
-
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
 
-import BaseDialog from "./BaseDialog.vue";
+import BaseDialog from "./EzBaseDialog.vue";
 
 withDefaults(
   defineProps<{
