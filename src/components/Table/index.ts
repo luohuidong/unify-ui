@@ -1,1 +1,1 @@
-export { default as EzTable } from "./Table.vue";
+export { default as EzTable } from "./EzTable.vue";
