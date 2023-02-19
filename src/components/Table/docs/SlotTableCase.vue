@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzTable } from "@/components/Table";
+import { EzTable } from "@/components";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
@@ -7,11 +7,11 @@ type Data = InstanceType<typeof EzTable>["$props"]["data"];
 
 const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
-    title: "id",
+    title: "标识",
     key: "id",
   },
   {
-    title: "用户 id",
+    title: "用户标识",
     key: "userId",
   },
   {
@@ -25,24 +25,16 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 ];
 
 const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
-  expandCondition: (row: Data[number]) =>
-    (row.files && [row.files as Array<number>].length) as boolean,
-  expandSlotName: "rowExpand",
+  expandCondition: (row) => row.completed as boolean,
 };
 </script>
 
 <template>
   <EzTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
-    <template #birthday="{ rowData }">
-      {{ rowData.birthday }}
-    </template>
+    <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
 
-    <template #address="{ rowData }">
-      {{ rowData.address }}
-    </template>
-
-    <template #rowExpand="{ rowData }">
-      {{ `展开行 ${rowData.name}: ${rowData.age} 岁` }}
+    <template #rowExpand="{ record }">
+      {{ `【展开行】标题： ${record.title}，完成状态： ${record.completed}` }}
     </template>
   </EzTable>
 </template>
