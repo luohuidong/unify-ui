@@ -26,6 +26,7 @@ const props = defineProps<{
     columnKey: string;
     order: "ascending" | "descending";
   };
+  showFoot?: boolean;
 }>();
 
 const columnCount = computed(() => {
@@ -70,7 +71,13 @@ Reflect.ownKeys(slots).forEach((key) => slotKeys.add(key));
       </template>
     </EzTbody>
 
-    <EzTfoot></EzTfoot>
+    <EzTfoot v-if="showFoot">
+      <EzTr>
+        <EzTd :colspan="columnCount">
+          <slot name="foot"> </slot>
+        </EzTd>
+      </EzTr>
+    </EzTfoot>
   </table>
 
   <slot></slot>
