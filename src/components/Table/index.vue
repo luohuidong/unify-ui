@@ -87,15 +87,6 @@ Reflect.ownKeys(slots).forEach((key) => slotKeys.add(key));
 .table {
   width: 100%;
   background: white;
-  border: 1px solid rgba(0, 0, 0, 0.12);
   border-collapse: collapse;
-}
-
-.tbody {
-  td {
-    border-top: 1px solid rgba(0, 0, 0, 0.12);
-    font-size: 14px;
-    font-weight: 400;
-  }
 }
 </style>

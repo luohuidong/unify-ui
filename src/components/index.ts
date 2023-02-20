@@ -10,4 +10,4 @@ export { useMessage } from "./Message";
 export { EzCheckbox } from "./Checkbox";
 export { default as EzPopup } from "./Popup/index.vue";
 export { default as EzTooltip } from "./Tooltip/index.vue";
-export { EzTable } from "./Table";
+export { default as EzTable } from "./Table/index.vue";
