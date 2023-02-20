@@ -26,5 +26,6 @@ const { rootProps } = useInject();
   text-align: left;
   font-size: 14px;
   font-weight: 500;
+  border-bottom: 1px solid #f0f0f0;
 }
 </style>
