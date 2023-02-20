@@ -1,11 +1,15 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "EzTable",
+});
+</script>
+
 <script setup lang="ts">
 import { computed, useSlots, provide } from "vue";
 
 import EzThead from "./EzThead.vue";
-import EzTbody from "./EzTbody.vue";
-import EzTfoot from "./EzTfoot.vue";
-import EzTr from "./EzTr.vue";
-import EzTd from "./EzTd.vue";
 
 import * as injectKeys from "./injectKeys";
 
@@ -44,47 +48,63 @@ Reflect.ownKeys(slots).forEach((key) => slotKeys.add(key));
   <table :class="$style.table">
     <EzThead> </EzThead>
 
-    <EzTbody :class="$style.tbody">
+    <tbody :class="$style.tableBody">
       <!-- 渲染 data 数据 -->
       <template v-for="record in data" :key="(record[rowKey] as string)">
         <!-- 渲染普通行 -->
-        <EzTr>
+        <tr :class="$style.normalRow">
           <template v-for="col in columns" :key="col.key">
-            <EzTd v-if="slotKeys.has(col.key)">
+            <td v-if="slotKeys.has(col.key)">
               <slot :name="col.key" :record="record"></slot>
-            </EzTd>
+            </td>
 
-            <EzTd v-else>
+            <td v-else>
               {{ record[col.key] }}
-            </EzTd>
+            </td>
           </template>
-        </EzTr>
+        </tr>
 
         <!-- 渲染扩展行 -->
-        <EzTr v-if="rowExpand && rowExpand.expandCondition(record)">
-          <EzTd :colspan="columnCount">
+        <tr v-if="rowExpand && rowExpand.expandCondition(record)">
+          <td :colspan="columnCount">
             <slot name="rowExpand" :record="record"></slot>
-          </EzTd>
-        </EzTr>
+          </td>
+        </tr>
       </template>
-    </EzTbody>
+    </tbody>
 
-    <EzTfoot v-if="showFoot">
-      <EzTr>
-        <EzTd :colspan="columnCount">
+    <tfoot v-if="showFoot">
+      <tr>
+        <td :colspan="columnCount">
           <slot name="foot"> </slot>
-        </EzTd>
-      </EzTr>
-    </EzTfoot>
+        </td>
+      </tr>
+    </tfoot>
   </table>
 
   <slot></slot>
 </template>
 
-<style lang="scss" module>
+<style module lang="scss">
 .table {
   width: 100%;
   background: white;
   border-collapse: collapse;
+}
+
+.tableBody {
+  .normalRow {
+    white-space: nowrap;
+    text-align: left;
+    font-size: 14px;
+
+    &:hover {
+      background-color: #fafbfd;
+    }
+
+    > td {
+      padding: 16px;
+    }
+  }
 }
 </style>
