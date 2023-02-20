@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import { computed, useSlots } from "vue";
+import { computed, useSlots, provide } from "vue";
 
 import EzThead from "./EzThead.vue";
 import EzTbody from "./EzTbody.vue";
 import EzTfoot from "./EzTfoot.vue";
 import EzTr from "./EzTr.vue";
-import EzTh from "./EzTh.vue";
 import EzTd from "./EzTd.vue";
+
+import * as injectKeys from "./injectKeys";
 
 type Record = any;
 
@@ -28,6 +29,7 @@ const props = defineProps<{
   };
   showFoot?: boolean;
 }>();
+provide(injectKeys.rootPropsKey, props);
 
 const columnCount = computed(() => {
   return props.columns.length;
@@ -40,11 +42,7 @@ Reflect.ownKeys(slots).forEach((key) => slotKeys.add(key));
 
 <template>
   <table :class="$style.table">
-    <EzThead>
-      <EzTr>
-        <EzTh v-for="col in columns" :key="col.key" scoop="column">{{ col.title }}</EzTh>
-      </EzTr>
-    </EzThead>
+    <EzThead> </EzThead>
 
     <EzTbody :class="$style.tbody">
       <!-- 渲染 data 数据 -->
