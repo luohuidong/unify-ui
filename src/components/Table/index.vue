@@ -81,8 +81,6 @@ Reflect.ownKeys(slots).forEach((key) => slotKeys.add(key));
       </tr>
     </tfoot>
   </table>
-
-  <slot></slot>
 </template>
 
 <style module lang="scss">
@@ -101,10 +99,11 @@ Reflect.ownKeys(slots).forEach((key) => slotKeys.add(key));
     &:hover {
       background-color: #fafbfd;
     }
+  }
 
-    > td {
-      padding: 16px;
-    }
+  tr > td {
+    padding: 16px;
+    border-bottom: 1px solid #f0f0f0;
   }
 }
 </style>
