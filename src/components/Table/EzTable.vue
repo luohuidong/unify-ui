@@ -42,7 +42,7 @@ Reflect.ownKeys(slots).forEach((key) => slotKeys.add(key));
   <table :class="$style.table">
     <EzThead>
       <EzTr>
-        <EzTh v-for="col in columns" :key="col.key">{{ col.title }}</EzTh>
+        <EzTh v-for="col in columns" :key="col.key" scoop="column">{{ col.title }}</EzTh>
       </EzTr>
     </EzThead>
 
