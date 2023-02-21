@@ -122,8 +122,9 @@ function handleBodyClick(e: MouseEvent) {
   const path = e.composedPath();
 
   const reference = referenceRef.value;
-  if (!reference) return;
-  if (!path.includes(reference)) {
+  const floating = floatingRef.value;
+  if (!reference || !floating) return;
+  if (!path.includes(reference) && !path.includes(floating)) {
     hideTooltip();
   }
 }
