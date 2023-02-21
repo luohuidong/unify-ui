@@ -3,7 +3,6 @@ import { EzTable } from "@/components";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
-type Data = InstanceType<typeof EzTable>["$props"]["data"];
 
 const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
@@ -39,4 +38,4 @@ const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
   </EzTable>
 </template>
 
-<style lang="less" scoped></style>
+<style scoped></style>
