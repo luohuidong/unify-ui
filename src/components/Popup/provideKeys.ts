@@ -4,10 +4,10 @@ export const rootPropsKey = Symbol() as InjectionKey<{
   placement: "top" | "bottom" | "left" | "right";
   appendToBody?: boolean;
   overlayClassName?: string;
-  fontColor?: string;
   backgroundColor?: string;
   showArrow?: boolean;
-  trigger?: "hover" | "click";
+  trigger?: "hover" | "click" | "focus" | "controlled";
+  visible?: boolean;
 }>;
 
 export const referenceRefKey = Symbol() as InjectionKey<{
