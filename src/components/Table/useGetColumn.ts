@@ -1,36 +1,33 @@
-import { computed } from "vue";
-import type { RootProps } from "./types";
+import { computed, provide } from "vue";
 
-export function useGetColumn(columns: RootProps["columns"]) {
-  const rightFixedColumns = computed(() => {
-    const tmpColumns: (RootProps["columns"][number] & { right: number })[] = [];
+import type { RootProps, ColumnData } from "./types";
+import * as injectKeys from "./injectKeys";
+
+export function useGetColumnsData(columns: RootProps["columns"]) {
+  const columnsData = computed(() => {
+    const leftFixedColumns: ColumnData[] = [];
+    let left = 0;
+
+    const normalColumns: ColumnData[] = [];
+
+    const rightFixedColumns: ColumnData[] = [];
     let right = 0;
+
     columns.forEach((item) => {
       if (item.fixed === "right") {
-        tmpColumns.push({ ...item, right });
+        rightFixedColumns.push({ ...item, right });
         right = right + (item.width ?? 0);
+      } else if (item.fixed === "left") {
+        leftFixedColumns.push({ ...item, left });
+      } else {
+        normalColumns.push(item);
       }
     });
-    return rightFixedColumns;
+
+    return [...leftFixedColumns, ...normalColumns, ...rightFixedColumns];
   });
 
-  const leftFixedColumns = computed(() => {
-    const tmpColumns: (RootProps["columns"][number] & { left: number })[] = [];
-    let left = 0;
-    columns.forEach((item) => {
-      if (item.fixed === "left") {
-        tmpColumns.push({ ...item, left });
-        left = left + (item.width ?? 0);
-      }
-    });
-    return tmpColumns;
-  });
+  provide(injectKeys.columnsDataKey, columnsData);
 
-  const normalColumns = computed(() => columns.filter((item) => !item.fixed));
-
-  return {
-    rightFixedColumns,
-    leftFixedColumns,
-    normalColumns,
-  };
+  return columnsData;
 }
