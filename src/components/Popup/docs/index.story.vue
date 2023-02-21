@@ -2,6 +2,7 @@
 import { EzButton } from "@/components";
 
 import Popup from "../index.vue";
+import VisibleCase from "./VisibleCase.vue";
 </script>
 
 <template>
@@ -71,6 +72,12 @@ import Popup from "../index.vue";
             </template>
           </Popup>
         </div>
+      </div>
+    </Variant>
+
+    <Variant title="Controlled Mode">
+      <div :style="{ height: '100vh' }">
+        <VisibleCase></VisibleCase>
       </div>
     </Variant>
   </Story>

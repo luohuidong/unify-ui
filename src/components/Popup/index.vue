@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { ref, onMounted, onUnmounted, provide } from "vue";
+import { ref, onMounted, onUnmounted, provide, watch } from "vue";
 import { computePosition, flip, shift, offset, arrow, autoUpdate } from "@floating-ui/dom";
 
 import * as provideKeys from "./provideKeys";
@@ -18,15 +18,14 @@ const props = withDefaults(
     placement: "top" | "bottom" | "left" | "right";
     appendToBody?: boolean;
     overlayClassName?: string;
-    fontColor?: string;
     backgroundColor?: string;
     showArrow?: boolean;
-    trigger?: "hover" | "click";
+    trigger?: "hover" | "click" | "focus" | "controlled";
+    visible?: boolean;
   }>(),
   {
     appendToBody: false,
     overlayClassName: void 0,
-    fontColor: void 0,
     backgroundColor: void 0,
     showArrow: true,
     trigger: "hover",
@@ -118,6 +117,29 @@ function hideTooltip() {
   }
 }
 
+onMounted(() => {
+  if (props.trigger !== "controlled") return;
+
+  if (props.visible) {
+    showTooltip();
+  } else {
+    hideTooltip();
+  }
+});
+
+watch(
+  () => props.visible,
+  (visible) => {
+    if (props.trigger !== "controlled") return;
+
+    if (visible) {
+      showTooltip();
+    } else {
+      hideTooltip();
+    }
+  }
+);
+
 function handleBodyClick(e: MouseEvent) {
   const path = e.composedPath();
 
@@ -133,8 +155,10 @@ onMounted(() => {
   const reference = referenceRef.value;
   if (!reference) return;
 
-  reference.addEventListener("focus", showTooltip);
-  reference.addEventListener("blur", hideTooltip);
+  if (props.trigger === "focus") {
+    reference.addEventListener("focus", showTooltip);
+    reference.addEventListener("blur", hideTooltip);
+  }
 
   if (props.trigger === "hover") {
     reference.addEventListener("mouseenter", showTooltip);
