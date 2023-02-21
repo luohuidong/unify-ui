@@ -7,11 +7,13 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { computed, useSlots, provide } from "vue";
-
-import EzThead from "./EzThead.vue";
+import { computed, useSlots, provide, ref, watchEffect } from "vue";
 
 import * as injectKeys from "./injectKeys";
+import { useGetColumnsData } from "./useGetColumn";
+
+import EzThead from "./EzThead.vue";
+import EzTbody from "./EzTbody.vue";
 
 type Record = any;
 
@@ -22,6 +24,8 @@ const props = defineProps<{
   columns: {
     key: string;
     title: string;
+    width?: number;
+    fixed?: "left" | "right";
     sortable?: boolean;
   }[];
   rowExpand?: {
@@ -38,72 +42,54 @@ provide(injectKeys.rootPropsKey, props);
 const columnCount = computed(() => {
   return props.columns.length;
 });
+provide(injectKeys.columnCount, columnCount);
 
 const slots = useSlots();
-const slotKeys = new Set<string | Symbol>();
-Reflect.ownKeys(slots).forEach((key) => slotKeys.add(key));
+const slotKeys = ref(new Set<string>());
+provide(injectKeys.slotKeysKey, slotKeys);
+watchEffect(() => {
+  slotKeys.value.clear();
+  Reflect.ownKeys(slots).forEach((key) => slotKeys.value.add(key as string));
+});
+
+useGetColumnsData(props.columns);
 </script>
 
 <template>
-  <table :class="$style.table">
-    <EzThead> </EzThead>
+  <div :class="$style.container">
+    <table :class="$style.table">
+      <EzThead></EzThead>
 
-    <tbody :class="$style.tableBody">
-      <!-- 渲染 data 数据 -->
-      <template v-for="record in data" :key="(record[rowKey] as string)">
-        <!-- 渲染普通行 -->
-        <tr :class="$style.normalRow">
-          <template v-for="col in columns" :key="col.key">
-            <td v-if="slotKeys.has(col.key)">
-              <slot :name="col.key" :record="record"></slot>
-            </td>
+      <EzTbody>
+        <template #rowCell="{ columnKey, record }">
+          <slot :name="columnKey" :record="record"></slot>
+        </template>
 
-            <td v-else>
-              {{ record[col.key] }}
-            </td>
-          </template>
-        </tr>
+        <template #rowExpand="{ record }">
+          <slot name="rowExpand" :record="record"></slot>
+        </template>
+      </EzTbody>
 
-        <!-- 渲染扩展行 -->
-        <tr v-if="rowExpand && rowExpand.expandCondition(record)">
+      <tfoot v-if="showFoot">
+        <tr>
           <td :colspan="columnCount">
-            <slot name="rowExpand" :record="record"></slot>
+            <slot name="foot"> </slot>
           </td>
         </tr>
-      </template>
-    </tbody>
-
-    <tfoot v-if="showFoot">
-      <tr>
-        <td :colspan="columnCount">
-          <slot name="foot"> </slot>
-        </td>
-      </tr>
-    </tfoot>
-  </table>
+      </tfoot>
+    </table>
+  </div>
 </template>
 
-<style module lang="scss">
+<style lang="scss" module>
+.container {
+  overflow: auto;
+}
+
 .table {
   width: 100%;
   background: white;
   border-collapse: collapse;
-}
-
-.tableBody {
-  .normalRow {
-    white-space: nowrap;
-    text-align: left;
-    font-size: 14px;
-
-    &:hover {
-      background-color: #fafbfd;
-    }
-  }
-
-  tr > td {
-    padding: 16px;
-    border-bottom: 1px solid #f0f0f0;
-  }
+  table-layout: fixed;
 }
 </style>

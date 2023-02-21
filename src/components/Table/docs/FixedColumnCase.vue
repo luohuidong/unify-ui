@@ -8,34 +8,42 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
     title: "标识",
     key: "id",
+    fixed: "left",
+    width: 100,
   },
   {
     title: "用户标识",
     key: "userId",
+    width: 100,
   },
   {
     title: "标题",
     key: "title",
+    width: 100,
   },
   {
     title: "是否完成",
     key: "completed",
   },
+  {
+    title: "操作",
+    key: "actions",
+    fixed: "right",
+    width: 100,
+  },
 ];
-
-const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
-  expandCondition: (row) => row.completed as boolean,
-};
 </script>
 
 <template>
-  <EzTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
+  <EzTable row-key="id" class="container" :columns="columns" :data="data">
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
-
-    <template #rowExpand="{ record }">
-      {{ `【展开行】标题： ${record.title}，完成状态： ${record.completed}` }}
-    </template>
+    <template #actions>213412</template>
   </EzTable>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+  width: 400px;
+  height: 500px;
+}
+</style>
