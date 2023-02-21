@@ -14,7 +14,7 @@ export default function useFetchData() {
     fetch("https://jsonplaceholder.typicode.com/todos")
       .then((response) => response.json())
       .then((json) => {
-        data.value = json;
+        data.value = json.splice(0, 10);
       });
   });
 

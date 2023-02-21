@@ -7,6 +7,8 @@ export interface RootProps {
   columns: {
     key: string;
     title: string;
+    width?: number;
+    fixed?: "left" | "right";
     sortable?: boolean;
   }[];
   rowExpand?: {

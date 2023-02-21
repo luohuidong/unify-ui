@@ -1,18 +1,12 @@
 <script setup lang="ts">
 import { useInject } from "./useInject";
+import { useGetColumn } from "./useGetColumn";
 
 const { rootProps } = useInject();
+const { rightFixedColumns, leftFixedColumns, normalColumns } = useGetColumn(rootProps.columns);
 </script>
 
-<template>
-  <thead :class="$style.thead">
-    <tr>
-      <th v-for="col in rootProps.columns" :key="col.key" scoop="column" :class="$style.th">
-        {{ col.title }}
-      </th>
-    </tr>
-  </thead>
-</template>
+<template></template>
 
 <style lang="scss" module>
 .thead {
@@ -21,6 +15,9 @@ const { rootProps } = useInject();
 }
 
 .th {
+  position: sticky;
+  top: 0;
+
   white-space: nowrap;
   padding: 16px;
   text-align: left;
