@@ -27,3 +27,8 @@ export interface ColumnData extends Column {
   right?: number;
   left?: number;
 }
+
+export interface ShowShadow {
+  showLeft: boolean;
+  showRight: boolean;
+}

@@ -17,11 +17,13 @@
   },
   "dependencies": {
     "@floating-ui/dom": "^1.2.1",
+    "lodash-es": "^4.17.21",
     "vue": "^3.2.47"
   },
   "devDependencies": {
     "@histoire/plugin-vue": "^0.15.8",
     "@testing-library/vue": "^6.6.1",
+    "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.14.0",
     "@typescript-eslint/parser": "^5.52.0",
     "@vitejs/plugin-vue": "^4.0.0",
