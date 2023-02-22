@@ -25,7 +25,7 @@
     "@testing-library/vue": "^6.6.1",
     "@types/lodash-es": "^4.17.6",
     "@types/node": "^18.14.0",
-    "@typescript-eslint/parser": "^5.52.0",
+    "@typescript-eslint/parser": "^5.53.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
     "@vitest/coverage-c8": "^0.28.5",
@@ -36,17 +36,17 @@
     "eslint": "^8.34.0",
     "eslint-config-prettier": "^8.6.0",
     "eslint-plugin-vue": "^9.9.0",
-    "happy-dom": "^8.6.0",
+    "happy-dom": "^8.7.1",
     "histoire": "^0.15.8",
     "prettier": "^2.8.4",
     "sass": "^1.58.3",
     "typescript": "^4.9.5",
-    "vite": "^4.1.2",
+    "vite": "^4.1.4",
     "vite-plugin-pages": "^0.28.0",
-    "vitepress": "1.0.0-alpha.46",
+    "vitepress": "1.0.0-alpha.47",
     "vitest": "^0.28.5",
     "vue-router": "^4.1.6",
-    "vue-tsc": "^1.1.4"
+    "vue-tsc": "^1.1.7"
   },
   "config": {
     "commitizen": {
