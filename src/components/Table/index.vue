@@ -11,6 +11,7 @@ import { computed, useSlots, provide, ref, watchEffect } from "vue";
 
 import * as injectKeys from "./injectKeys";
 import { useGetColumnsData } from "./useGetColumn";
+import { useShowShadow } from "./useShowShadow";
 
 import EzThead from "./EzThead.vue";
 import EzTbody from "./EzTbody.vue";
@@ -53,11 +54,15 @@ watchEffect(() => {
 });
 
 useGetColumnsData(props.columns);
+
+const containerRef = ref<HTMLDivElement>();
+const tableRef = ref<HTMLTableElement>();
+useShowShadow(containerRef, tableRef);
 </script>
 
 <template>
-  <div :class="$style.container">
-    <table :class="$style.table">
+  <div ref="containerRef" :class="$style.container">
+    <table ref="tableRef" :class="$style.table">
       <EzThead></EzThead>
 
       <EzTbody>
