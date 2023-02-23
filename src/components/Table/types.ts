@@ -1,5 +1,7 @@
 export type Record = any;
 
+export type Key = string | number;
+
 export interface Column {
   key: string;
   title: string;
@@ -10,17 +12,20 @@ export interface Column {
 
 export interface RootProps {
   /** 数据唯一索引 */
-  rowKey: string;
+  rowKey: Key;
   data: Record[];
   columns: Column[];
   rowExpand?: {
     expandCondition: (Record: Record) => boolean;
   };
   sort?: {
-    columnKey: string;
+    columnKey: Key;
     order: "ascending" | "descending";
   };
   showFoot?: boolean;
+  selection?: "multiple" | "single";
+  selectionKeys?: Key[];
+  selectionRecordsMap?: Map<string, Record>;
 }
 
 export interface ColumnData extends Column {

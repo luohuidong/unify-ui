@@ -19,6 +19,9 @@ const checked2 = ref(false);
       <EzCheckbox v-model="checked2"></EzCheckbox>
     </Variant>
 
+    <Variant title="Partial Selection">
+      <EzCheckbox partial-selection></EzCheckbox>
+    </Variant>
   </Story>
 </template>
 

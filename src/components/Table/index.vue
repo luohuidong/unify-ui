@@ -12,31 +12,27 @@ import { computed, useSlots, provide, ref, watchEffect } from "vue";
 import * as injectKeys from "./injectKeys";
 import { useGetColumnsData } from "./useGetColumn";
 import { useShowShadow } from "./useShowShadow";
+import type { Key, Record, Column } from "./types";
 
 import EzThead from "./EzThead.vue";
 import EzTbody from "./EzTbody.vue";
 
-type Record = any;
-
 const props = defineProps<{
   /** 数据唯一索引 */
-  rowKey: string;
+  rowKey: Key;
   data: Record[];
-  columns: {
-    key: string;
-    title: string;
-    width?: number;
-    fixed?: "left" | "right";
-    sortable?: boolean;
-  }[];
+  columns: Column[];
   rowExpand?: {
     expandCondition: (Record: Record) => boolean;
   };
   sort?: {
-    columnKey: string;
+    columnKey: Key;
     order: "ascending" | "descending";
   };
   showFoot?: boolean;
+  selection?: "multiple" | "single";
+  selectionKeys?: Key[];
+  selectionRecordsMap?: Map<string, Record>;
 }>();
 provide(injectKeys.rootPropsKey, props);
 

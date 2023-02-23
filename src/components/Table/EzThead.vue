@@ -1,6 +1,8 @@
 <script setup lang="ts">
+import { EzCheckbox } from "@/components";
 import { useInject } from "./useInject";
 import commonStyle from "./commonStyle.module.scss";
+import { checkboxColumnWidth } from "./constant";
 
 const { columnsData, showShadow } = useInject();
 </script>
@@ -8,6 +10,9 @@ const { columnsData, showShadow } = useInject();
 <template>
   <thead :class="$style.tableHead">
     <tr>
+      <th :style="{ width: `${checkboxColumnWidth}px` }">
+        <EzCheckbox :model-value="true"></EzCheckbox>
+      </th>
       <th
         v-for="col in columnsData"
         :key="col.key"
