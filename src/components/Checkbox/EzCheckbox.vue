@@ -3,11 +3,12 @@ import { computed } from "vue";
 
 const props = withDefaults(
   defineProps<{
-    label: string;
-    modelValue: boolean;
+    label?: string;
+    modelValue?: boolean;
     disabled?: boolean;
   }>(),
   {
+    label: "",
     disabled: false,
   }
 );
@@ -38,7 +39,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
       @change="handleChange"
     />
     <span :class="$style.checkmark"></span>
-    {{ label }}
+    <span v-if="label" :class="$style.label">{{ label }}</span>
   </label>
 </template>
 
@@ -47,7 +48,6 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
   height: 26px;
   display: inline-flex;
   align-items: center;
-  margin-right: 30px;
   cursor: v-bind(cursor);
   font-size: 14px;
   user-select: none;
@@ -64,14 +64,14 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
   align-items: center;
   height: 14px;
   width: 14px;
-  margin-right: 8px;
-  background-color: #eee;
+  border: 1px solid rgba(206, 206, 206, 1);
   border-radius: 2px;
 }
 
 // When the checkbox is checked, add a blue background
-.input:checked ~ .checkmark {
+.input:not(:disabled):checked ~ .checkmark {
   background-color: #037aff;
+  border: 1px solid #037aff;
 }
 
 // When the checkbox is disabled, add grey background color
@@ -89,7 +89,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 
   // When the checkbox is not checked, add a grey background
   &:not(:checked) ~ .checkmark {
-    background-color: #ccc;
+    border: 1px solid #037aff;
   }
 }
 
@@ -112,4 +112,9 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
   opacity: 1;
   border-color: #dcdcdc;
 }
+
+.label {
+  padding: 0 8px;
+}
+
 </style>
