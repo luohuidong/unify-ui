@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useInject } from "./useInject";
 
-const { columnsData } = useInject();
+const { columnsData, showShadow } = useInject();
 </script>
 
 <template>
@@ -13,9 +13,13 @@ const { columnsData } = useInject();
         scoop="column"
         :style="{
           width: col.width && `${col.width}px`,
-          left: col.left && `${col.left}px`,
-          right: col.right && `${col.right}px`,
+          left: col.leftOffset && `${col.leftOffset}px`,
+          right: col.rightOffset && `${col.rightOffset}px`,
           zIndex: col.fixed ? 2 : 1,
+        }"
+        :class="{
+          [$style.showLeftColumnShadow]:
+            col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
         }"
       >
         {{ col.title }}
@@ -39,5 +43,15 @@ const { columnsData } = useInject();
     background: #f5f6fa;
     color: #666666;
   }
+}
+
+.showLeftColumnShadow:after {
+  box-shadow: 15px 0 15px -15px inset rgba($color: #000000, $alpha: 0.3);
+  content: " ";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: -15px;
+  width: 15px;
 }
 </style>

@@ -9,8 +9,8 @@ export function useShowShadow(
   tableRef: Ref<HTMLTableElement | undefined>
 ) {
   const state: ShowShadow = reactive({
-    showLeft: false,
-    showRight: false,
+    showLeftFixedColumnShadow: false,
+    showRightFixedColumnShadow: false,
   });
 
   provide(injectKeys.shadowShow, state);
@@ -25,8 +25,8 @@ export function useShowShadow(
     const scrollLeft = target.scrollLeft;
 
     const maxScrollLeft = table.clientWidth - container.clientWidth;
-    state.showRight = maxScrollLeft > scrollLeft;
-    state.showLeft = scrollLeft === 0;
+    state.showRightFixedColumnShadow = maxScrollLeft > scrollLeft;
+    state.showLeftFixedColumnShadow = maxScrollLeft > 0 && scrollLeft !== 0;
   }
   const throttleHandleContainerScroll = throttle(handleContainerScroll, 300);
 

@@ -24,11 +24,13 @@ export interface RootProps {
 }
 
 export interface ColumnData extends Column {
-  right?: number;
-  left?: number;
+  rightOffset?: number;
+  rightFirstFixedColumn?: boolean;
+  leftOffset?: number;
+  leftLastFixedColumn?: boolean;
 }
 
 export interface ShowShadow {
-  showLeft: boolean;
-  showRight: boolean;
+  showLeftFixedColumnShadow: boolean;
+  showRightFixedColumnShadow: boolean;
 }
