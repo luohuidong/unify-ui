@@ -15,6 +15,16 @@ export function useShowShadow(
 
   provide(injectKeys.shadowShow, state);
 
+  onMounted(() => {
+    const container = containerRef.value;
+    const table = tableRef.value;
+    if (!container || !table) return;
+
+    const scrollLeft = container.scrollLeft;
+    const maxScrollLeft = table.clientWidth - container.clientWidth;
+    state.showRightFixedColumnShadow = maxScrollLeft > scrollLeft;
+  });
+
   function handleContainerScroll(e: Event) {
     const container = containerRef.value;
     const table = tableRef.value;
