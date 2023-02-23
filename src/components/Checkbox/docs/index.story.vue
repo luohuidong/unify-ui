@@ -5,6 +5,7 @@ import EzCheckbox from "../EzCheckbox.vue";
 
 const checked1 = ref(true);
 const checked2 = ref(false);
+const checked3 = ref(false);
 </script>
 
 <template>
@@ -19,8 +20,8 @@ const checked2 = ref(false);
       <EzCheckbox v-model="checked2"></EzCheckbox>
     </Variant>
 
-    <Variant title="Partial Selection">
-      <EzCheckbox partial-selection></EzCheckbox>
+    <Variant title="Indeterminate">
+      <EzCheckbox v-model="checked3" indeterminate></EzCheckbox>
     </Variant>
   </Story>
 </template>
