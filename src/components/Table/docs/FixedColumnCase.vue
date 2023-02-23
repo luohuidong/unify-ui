@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzTable } from "@/components";
+import EzTable from "../index.vue";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();

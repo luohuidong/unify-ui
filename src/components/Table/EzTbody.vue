@@ -25,6 +25,8 @@ const { columnsData, rootProps, slotKeys, columnCount, showShadow } = useInject(
             {
               [$style.showLeftColumnShadow]:
                 col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
+              [$style.showRightColumnShadow]:
+                col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
             },
           ]"
         >
@@ -67,12 +69,22 @@ const { columnsData, rootProps, slotKeys, columnCount, showShadow } = useInject(
 }
 
 .showLeftColumnShadow:after {
-  box-shadow: 15px 0 15px -15px inset rgba($color: #000000, $alpha: 0.3);
+  box-shadow: inset 15px 0 15px -15px rgba($color: #000000, $alpha: 0.2);
   content: " ";
   height: 100%;
   position: absolute;
   top: 0;
   right: -15px;
+  width: 15px;
+}
+
+.showRightColumnShadow:before {
+  box-shadow: inset -15px 0 15px -15px rgba($color: #000000, $alpha: 0.2);
+  content: " ";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 100%;
   width: 15px;
 }
 </style>

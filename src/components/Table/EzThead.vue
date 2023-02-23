@@ -15,11 +15,13 @@ const { columnsData, showShadow } = useInject();
           width: col.width && `${col.width}px`,
           left: col.leftOffset && `${col.leftOffset}px`,
           right: col.rightOffset && `${col.rightOffset}px`,
-          zIndex: col.fixed ? 2 : 1,
+          zIndex: col.fixed ? 3 : 2,
         }"
         :class="{
           [$style.showLeftColumnShadow]:
             col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
+          [$style.showRightColumnShadow]:
+            col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
         }"
       >
         {{ col.title }}
@@ -46,12 +48,22 @@ const { columnsData, showShadow } = useInject();
 }
 
 .showLeftColumnShadow:after {
-  box-shadow: 15px 0 15px -15px inset rgba($color: #000000, $alpha: 0.3);
+  box-shadow: inset 15px 0 15px -15px rgba($color: #000000, $alpha: 0.2);
   content: " ";
   height: 100%;
   position: absolute;
   top: 0;
   right: -15px;
+  width: 15px;
+}
+
+.showRightColumnShadow:before {
+  box-shadow: inset -15px 0 15px -15px rgba($color: #000000, $alpha: 0.2);
+  content: " ";
+  height: 100%;
+  position: absolute;
+  top: 0;
+  right: 100%;
   width: 15px;
 }
 </style>
