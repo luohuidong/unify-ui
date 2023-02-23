@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useInject } from "./useInject";
+import commonStyle from "./commonStyle.module.scss";
 
 const { columnsData, rootProps, slotKeys, columnCount, showShadow } = useInject();
 </script>
@@ -21,30 +22,31 @@ const { columnsData, rootProps, slotKeys, columnCount, showShadow } = useInject(
             width: col.width && `${col.width}px`,
           }"
           :class="[
-            $style.tableData,
+            $style.cell,
             {
-              [$style.showLeftColumnShadow]:
+              [commonStyle.showLeftColumnShadow]:
                 col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-              [$style.showRightColumnShadow]:
+              [commonStyle.showRightColumnShadow]:
                 col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
+              [commonStyle.ellipsis]: !col.fixed,
             },
           ]"
         >
-          <template v-if="slotKeys.has(col.key)">
-            <div>
+          <div :class="[commonStyle.cellContent, commonStyle.ellipsis]">
+            <template v-if="slotKeys.has(col.key)">
               <slot name="rowCell" :column-key="col.key" :record="record"></slot>
-            </div>
-          </template>
+            </template>
 
-          <template v-else>
-            {{ record[col.key] }}
-          </template>
+            <template v-else>
+              {{ record[col.key] }}
+            </template>
+          </div>
         </td>
       </tr>
 
       <!-- 渲染扩展行 -->
       <tr v-if="rootProps.rowExpand && rootProps.rowExpand.expandCondition(record)">
-        <td :colspan="columnCount" :class="$style.tableData">
+        <td :colspan="columnCount" :class="$style.expandRowCell" :style="{ padding: '16px' }">
           <slot name="rowExpand" :record="record"></slot>
         </td>
       </tr>
@@ -61,30 +63,18 @@ const { columnsData, rootProps, slotKeys, columnCount, showShadow } = useInject(
   &:hover {
     background-color: #fafbfd;
   }
+
+  .cell {
+    position: relative;
+    height: 50px;
+    border-bottom: 1px solid #f0f0f0;
+    background: white;
+  }
 }
-.tableData {
+
+.expandRowCell {
   padding: 16px;
   border-bottom: 1px solid #f0f0f0;
   background: white;
-}
-
-.showLeftColumnShadow:after {
-  box-shadow: inset 15px 0 15px -15px rgba($color: #000000, $alpha: 0.2);
-  content: " ";
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: -15px;
-  width: 15px;
-}
-
-.showRightColumnShadow:before {
-  box-shadow: inset -15px 0 15px -15px rgba($color: #000000, $alpha: 0.2);
-  content: " ";
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 100%;
-  width: 15px;
 }
 </style>
