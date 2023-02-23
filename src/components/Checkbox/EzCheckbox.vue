@@ -6,6 +6,7 @@ const props = withDefaults(
     label?: string;
     modelValue?: boolean;
     disabled?: boolean;
+    partialSelection?: boolean;
   }>(),
   {
     label: "",
@@ -38,7 +39,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
       :disabled="disabled"
       @change="handleChange"
     />
-    <span :class="$style.checkmark"></span>
+    <span :class="[$style.checkmark, { [$style.partialSelection]: partialSelection }]"></span>
     <span v-if="label" :class="$style.label">{{ label }}</span>
   </label>
 </template>
@@ -96,7 +97,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 /* Create the checkmark/indicator (hidden when not checked) */
 .container > .checkmark::after {
   opacity: 0;
-  content: "";
+  content: " ";
   width: 2px;
   height: 6px;
   border: solid white;
@@ -117,4 +118,25 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
   padding: 0 8px;
 }
 
+.partialSelection::after {
+  opacity: 0;
+  content: " ";
+  width: 2px;
+  height: 1px;
+  background: white;
+  transform: rotate(45deg);
+}
+
+input:not(:checked) ~ .partialSelection {
+  background-color: #0261cc;
+  border: 1px solid #037aff;
+
+  &::after {
+    content: " ";
+    width: 2px;
+    height: 1px;
+    background: white;
+    transform: rotate(45deg);
+  }
+}
 </style>
