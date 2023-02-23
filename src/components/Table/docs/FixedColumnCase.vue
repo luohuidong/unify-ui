@@ -19,11 +19,12 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
     title: "标题",
     key: "title",
-    width: 100,
+    width: 400,
   },
   {
     title: "是否完成",
     key: "completed",
+    width: 100,
   },
   {
     title: "操作",
@@ -43,7 +44,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 
 <style scoped>
 .container {
-  width: 400px;
+  width: 600px;
   height: 500px;
 }
 </style>

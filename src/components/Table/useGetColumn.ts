@@ -15,14 +15,21 @@ export function useGetColumnsData(columns: RootProps["columns"]) {
 
     columns.forEach((item) => {
       if (item.fixed === "right") {
-        rightFixedColumns.push({ ...item, right });
+        rightFixedColumns.push({ ...item, rightOffset: right });
         right = right + (item.width ?? 0);
       } else if (item.fixed === "left") {
-        leftFixedColumns.push({ ...item, left });
+        leftFixedColumns.push({ ...item, leftOffset: left });
       } else {
         normalColumns.push(item);
       }
     });
+
+    if (leftFixedColumns.length > 0) {
+      leftFixedColumns[leftFixedColumns.length - 1].leftLastFixedColumn = true;
+    }
+    if (rightFixedColumns.length > 0) {
+      rightFixedColumns[0].rightFirstFixedColumn = true;
+    }
 
     return [...leftFixedColumns, ...normalColumns, ...rightFixedColumns];
   });
