@@ -3,7 +3,7 @@ import { computed, provide } from "vue";
 import type { RootProps, ColumnData } from "./types";
 import * as injectKeys from "./injectKeys";
 
-export function useGetColumnsData(columns: RootProps["columns"]) {
+export function useGetColumnsData(props: RootProps) {
   const columnsData = computed(() => {
     const leftFixedColumns: ColumnData[] = [];
     let left = 0;
@@ -13,7 +13,7 @@ export function useGetColumnsData(columns: RootProps["columns"]) {
     const rightFixedColumns: ColumnData[] = [];
     let right = 0;
 
-    columns.forEach((item) => {
+    props.columns.forEach((item) => {
       if (item.fixed === "right") {
         rightFixedColumns.push({ ...item, rightOffset: right });
         right = right + (item.width ?? 0);
