@@ -53,7 +53,7 @@ watchEffect(() => {
   Reflect.ownKeys(slots).forEach((key) => slotKeys.value.add(key as string));
 });
 
-useGetColumnsData(props.columns);
+useGetColumnsData(props);
 
 const containerRef = ref<HTMLDivElement>();
 const tableRef = ref<HTMLTableElement>();
