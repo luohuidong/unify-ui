@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useInject } from "./useInject";
+import commonStyle from "./commonStyle.module.scss";
 
 const { columnsData, showShadow } = useInject();
 </script>
@@ -18,13 +19,15 @@ const { columnsData, showShadow } = useInject();
           zIndex: col.fixed ? 3 : 2,
         }"
         :class="{
-          [$style.showLeftColumnShadow]:
+          [commonStyle.showLeftColumnShadow]:
             col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-          [$style.showRightColumnShadow]:
+          [commonStyle.showRightColumnShadow]:
             col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
         }"
       >
-        {{ col.title }}
+        <div :class="[commonStyle.cellContent, commonStyle.ellipsis]">
+          {{ col.title }}
+        </div>
       </th>
     </tr>
   </thead>
@@ -36,8 +39,9 @@ const { columnsData, showShadow } = useInject();
     position: sticky;
     top: 0;
 
+    height: 50px;
+
     white-space: nowrap;
-    padding: 16px;
     text-align: left;
     font-size: 14px;
     font-weight: 500;
@@ -45,25 +49,5 @@ const { columnsData, showShadow } = useInject();
     background: #f5f6fa;
     color: #666666;
   }
-}
-
-.showLeftColumnShadow:after {
-  box-shadow: inset 15px 0 15px -15px rgba($color: #000000, $alpha: 0.2);
-  content: " ";
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: -15px;
-  width: 15px;
-}
-
-.showRightColumnShadow:before {
-  box-shadow: inset -15px 0 15px -15px rgba($color: #000000, $alpha: 0.2);
-  content: " ";
-  height: 100%;
-  position: absolute;
-  top: 0;
-  right: 100%;
-  width: 15px;
 }
 </style>

@@ -14,12 +14,12 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
     title: "用户标识",
     key: "userId",
-    width: 100,
+    width: 150,
   },
   {
     title: "标题",
     key: "title",
-    width: 400,
+    width: 300,
   },
   {
     title: "是否完成",
@@ -30,7 +30,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
     title: "操作",
     key: "actions",
     fixed: "right",
-    width: 100,
+    width: 60,
   },
 ];
 </script>
@@ -38,7 +38,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 <template>
   <EzTable row-key="id" class="container" :columns="columns" :data="data">
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
-    <template #actions>213412</template>
+    <template #actions>删除</template>
   </EzTable>
 </template>
 
