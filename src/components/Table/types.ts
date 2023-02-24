@@ -23,9 +23,10 @@ export interface RootProps {
     order: "ascending" | "descending";
   };
   showFoot?: boolean;
-  selection?: "multiple" | "single";
-  selectionKeys?: Key[];
-  selectionRecordsMap?: Map<string, Record>;
+
+  selectionType?: "multiple" | "single";
+  selectedRowKeys?: Set<Key>;
+  selectedRows?: Map<string, Record>;
 }
 
 export interface ColumnData extends Column {
@@ -38,4 +39,9 @@ export interface ColumnData extends Column {
 export interface ShowShadow {
   showLeftFixedColumnShadow: boolean;
   showRightFixedColumnShadow: boolean;
+}
+
+export interface RootState {
+  selectedRowKeys: Set<Key>;
+  selectedRows: Map<Key, Record>;
 }
