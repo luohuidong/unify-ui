@@ -30,11 +30,18 @@ const props = defineProps<{
     order: "ascending" | "descending";
   };
   showFoot?: boolean;
-  selection?: "multiple" | "single";
-  selectionKeys?: Key[];
-  selectionRecordsMap?: Map<string, Record>;
+
+  selectionType?: "multiple" | "single";
+  selectionRowKeys?: Key[];
+  selectionsMap?: Map<string, Record>;
 }>();
 provide(injectKeys.rootPropsKey, props);
+
+defineEmits<{
+  // callback executed when select/deselect one row
+  (e: "select", selected: Record): void;
+  //
+}>();
 
 const columnCount = computed(() => {
   return props.columns.length;
