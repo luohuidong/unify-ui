@@ -13,6 +13,7 @@ import * as injectKeys from "./injectKeys";
 import { useGetColumnsData } from "./useGetColumn";
 import { useShowShadow } from "./useShowShadow";
 import type { Key, Record, Column } from "./types";
+import { useState } from "./useState";
 
 import EzThead from "./EzThead.vue";
 import EzTbody from "./EzTbody.vue";
@@ -32,16 +33,28 @@ const props = defineProps<{
   showFoot?: boolean;
 
   selectionType?: "multiple" | "single";
-  selectionRowKeys?: Key[];
-  selectionsMap?: Map<string, Record>;
+  selectedRowKeys?: Set<Key>;
+  selectedRows?: Map<string, Record>;
 }>();
 provide(injectKeys.rootPropsKey, props);
 
 defineEmits<{
-  // callback executed when select/deselect one row
-  (e: "select", selected: Record): void;
-  //
+  (e: "update:selectedRowKeys"): void;
+  /** executed when select/deselect one row */
+  (
+    e: "select",
+    params: { record: Record; selected: boolean; selectedRow: Map<string, Record> }
+  ): void;
+  /** executed when selected rows change */
+  (
+    e: "selectChange",
+    params: { selectedRowKeys: Set<Key>; selectedRows: Map<string, Record> }
+  ): void;
+  /** executed when select/deselect all rows */
+  (e: "selectAll", params: { selectedRowKeys: Set<Key>; selectedRows: Map<string, Record> }): void;
 }>();
+
+useState();
 
 const columnCount = computed(() => {
   return props.columns.length;
