@@ -2,7 +2,7 @@
 import { EzCheckbox } from "@/components";
 import { useInject } from "./useInject";
 import commonStyle from "./commonStyle.module.scss";
-import { checkboxColumnWidth } from "./constant";
+import { selectionColumnWidth } from "./constant";
 
 const { columnsData, showShadow } = useInject();
 </script>
@@ -10,7 +10,7 @@ const { columnsData, showShadow } = useInject();
 <template>
   <thead :class="$style.tableHead">
     <tr>
-      <th :style="{ width: `${checkboxColumnWidth}px` }">
+      <th :style="{ width: `${selectionColumnWidth}px` }">
         <EzCheckbox :model-value="true"></EzCheckbox>
       </th>
       <th

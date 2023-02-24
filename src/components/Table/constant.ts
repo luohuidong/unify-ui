@@ -1,1 +1,1 @@
-export const checkboxColumnWidth = 40;
+export const selectionColumnWidth = 40;
