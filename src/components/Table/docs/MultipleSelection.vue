@@ -30,13 +30,19 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
     title: "操作",
     key: "actions",
     fixed: "right",
-    width: 60,
+    width: 80,
   },
 ];
 </script>
 
 <template>
-  <EzTable row-key="id" class="container" :columns="columns" :data="data">
+  <EzTable
+    row-key="id"
+    class="container"
+    :columns="columns"
+    :data="data"
+    :selection="{ type: 'multiple' }"
+  >
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
     <template #actions>删除</template>
   </EzTable>
