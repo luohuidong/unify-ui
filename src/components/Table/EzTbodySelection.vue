@@ -17,6 +17,14 @@ function handleCheckboxChange(record: Record, checked: boolean) {
   rootEmit("update:selectedRowKeys", rootState.selectedRowKeys);
   rootEmit("select", { record, selected: checked });
 }
+
+function handleRadioClick(record: Record) {
+  rootState.selectedRowKeys.clear();
+  rootState.selectedRowKeys.add(record[rootProps.rowKey]);
+
+  rootEmit("update:selectedRowKeys", rootState.selectedRowKeys);
+  rootEmit("select", { record, selected: true });
+}
 </script>
 
 <template>
@@ -26,6 +34,13 @@ function handleCheckboxChange(record: Record, checked: boolean) {
         :model-value="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
         @change="(checked) => handleCheckboxChange(record, checked)"
       ></EzCheckbox>
+    </div>
+    <div v-else>
+      <input
+        type="radio"
+        :checked="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
+        @change="() => handleRadioClick(record)"
+      />
     </div>
   </td>
 </template>
