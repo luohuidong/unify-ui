@@ -1,1 +1,1 @@
-export const selectionColumnWidth = 40;
+export const selectionColumnWidth = 56;
