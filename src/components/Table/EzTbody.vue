@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import EzTbodySelection from "./EzTbodySelection.vue";
 import { useInject } from "./useInject";
 import commonStyle from "./commonStyle.module.scss";
 
@@ -11,6 +12,10 @@ const { columnsData, rootProps, slotKeys, columnCount, showShadow } = useInject(
     <template v-for="record in rootProps.data" :key="(record[rootProps.rowKey] as string)">
       <!-- 渲染普通行 -->
       <tr :class="$style.normalRow">
+        <template v-if="rootProps.selection?.type">
+          <EzTbodySelection :record="record"></EzTbodySelection>
+        </template>
+
         <td
           v-for="col in columnsData"
           :key="col.key"
