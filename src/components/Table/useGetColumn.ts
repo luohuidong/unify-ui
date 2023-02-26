@@ -2,11 +2,12 @@ import { computed, provide } from "vue";
 
 import type { RootProps, ColumnData } from "./types";
 import * as injectKeys from "./injectKeys";
+import { selectionColumnWidth } from "./constant";
 
 export function useGetColumnsData(props: RootProps) {
   const columnsData = computed(() => {
     const leftFixedColumns: ColumnData[] = [];
-    let left = 0;
+    let left = props.selection ? selectionColumnWidth : 0;
 
     const normalColumns: ColumnData[] = [];
 

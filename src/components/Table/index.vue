@@ -33,7 +33,7 @@ const props = defineProps<{
   showFoot?: boolean;
 
   selection?: {
-    type?: "multiple" | "single";
+    type: "multiple" | "single";
     disabledCondition: (record: Record) => boolean;
   };
   selectedRowKeys?: Set<Key>;
