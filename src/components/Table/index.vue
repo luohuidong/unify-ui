@@ -24,7 +24,7 @@ const props = defineProps<{
   data: Record[];
   columns: Column[];
   rowExpand?: {
-    expandCondition: (Record: Record) => boolean;
+    expandCondition: (record: Record) => boolean;
   };
   sort?: {
     columnKey: Key;
@@ -32,27 +32,22 @@ const props = defineProps<{
   };
   showFoot?: boolean;
 
-  selectionType?: "multiple" | "single";
+  selection?: {
+    type?: "multiple" | "single";
+    disabledCondition: (record: Record) => boolean;
+  };
   selectedRowKeys?: Set<Key>;
-  selectedRows?: Map<string, Record>;
 }>();
 provide(injectKeys.rootPropsKey, props);
 
-defineEmits<{
+const emit = defineEmits<{
   (e: "update:selectedRowKeys"): void;
   /** executed when select/deselect one row */
-  (
-    e: "select",
-    params: { record: Record; selected: boolean; selectedRow: Map<string, Record> }
-  ): void;
+  (e: "select", params: { record: Record; selected: boolean }): void;
   /** executed when selected rows change */
-  (
-    e: "selectChange",
-    params: { selectedRowKeys: Set<Key>; selectedRows: Map<string, Record> }
-  ): void;
-  /** executed when select/deselect all rows */
-  (e: "selectAll", params: { selectedRowKeys: Set<Key>; selectedRows: Map<string, Record> }): void;
+  (e: "selectChange", params: { newSelectedRowKeys: Set<Key> }): void;
 }>();
+provide(injectKeys.rootEmitKey, emit);
 
 useState();
 
