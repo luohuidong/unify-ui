@@ -16,7 +16,7 @@ export interface RootProps {
   data: Record[];
   columns: Column[];
   rowExpand?: {
-    expandCondition: (Record: Record) => boolean;
+    expandCondition: (record: Record) => boolean;
   };
   sort?: {
     columnKey: Key;
