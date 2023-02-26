@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { EzCheckbox } from "@/components";
 import { useInject } from "./useInject";
 import commonStyle from "./commonStyle.module.scss";
-import { selectionColumnWidth } from "./constant";
+
+import EzTheadSelection from "./EzTheadSelection.vue";
 
 const { columnsData, showShadow } = useInject();
 </script>
@@ -10,9 +10,8 @@ const { columnsData, showShadow } = useInject();
 <template>
   <thead :class="$style.tableHead">
     <tr>
-      <th :style="{ width: `${selectionColumnWidth}px` }">
-        <EzCheckbox :model-value="true"></EzCheckbox>
-      </th>
+      <EzTheadSelection></EzTheadSelection>
+
       <th
         v-for="col in columnsData"
         :key="col.key"
@@ -41,6 +40,8 @@ const { columnsData, showShadow } = useInject();
 <style lang="scss" module>
 .tableHead {
   > tr > th {
+    box-sizing: border-box;
+
     position: sticky;
     top: 0;
 

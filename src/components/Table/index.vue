@@ -34,18 +34,18 @@ const props = defineProps<{
 
   selection?: {
     type: "multiple" | "single";
-    disabledCondition: (record: Record) => boolean;
+    disabledCondition?: (record: Record) => boolean;
   };
   selectedRowKeys?: Set<Key>;
 }>();
 provide(injectKeys.rootPropsKey, props);
 
 const emit = defineEmits<{
-  (e: "update:selectedRowKeys"): void;
-  /** executed when select/deselect one row */
-  (e: "select", params: { record: Record; selected: boolean }): void;
-  /** executed when selected rows change */
-  (e: "selectChange", params: { newSelectedRowKeys: Set<Key> }): void;
+  (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
+  /** emit when select/deselect one row */
+  (e: "select", params: { selected: boolean; record: Record }): void;
+  /** emit when select/deselect all rows */
+  (e: "selectAll", params: { selected: boolean }): void;
 }>();
 provide(injectKeys.rootEmitKey, emit);
 
