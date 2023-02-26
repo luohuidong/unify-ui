@@ -24,9 +24,23 @@ export interface RootProps {
   };
   showFoot?: boolean;
 
-  selectionType?: "multiple" | "single";
+  selection?: {
+    type?: "multiple" | "single";
+    disabledCondition: (record: Record) => boolean;
+  };
   selectedRowKeys?: Set<Key>;
-  selectedRows?: Map<string, Record>;
+}
+
+export interface RootState {
+  selectedRowKeys: Set<Key>;
+}
+
+export interface RootEmit {
+  (e: "update:selectedRowKeys"): void;
+  /** executed when select/deselect one row */
+  (e: "select", params: { record: Record; selected: boolean }): void;
+  /** executed when selected rows change */
+  (e: "selectChange", params: { newSelectedRowKeys: Set<Key> }): void;
 }
 
 export interface ColumnData extends Column {
@@ -39,9 +53,4 @@ export interface ColumnData extends Column {
 export interface ShowShadow {
   showLeftFixedColumnShadow: boolean;
   showRightFixedColumnShadow: boolean;
-}
-
-export interface RootState {
-  selectedRowKeys: Set<Key>;
-  selectedRows: Map<Key, Record>;
 }
