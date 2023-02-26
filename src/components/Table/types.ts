@@ -25,7 +25,7 @@ export interface RootProps {
   showFoot?: boolean;
 
   selection?: {
-    type?: "multiple" | "single";
+    type: "multiple" | "single";
     disabledCondition: (record: Record) => boolean;
   };
   selectedRowKeys?: Set<Key>;
