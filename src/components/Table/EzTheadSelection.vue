@@ -15,6 +15,10 @@ const state = reactive({
 });
 
 watchEffect(() => {
+  if (rootProps.selection?.type !== "multiple") {
+    return;
+  }
+
   const dataKeys = new Set<string | number>();
 
   if (rootProps.data.length === 0) {

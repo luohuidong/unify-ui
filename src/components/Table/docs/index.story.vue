@@ -2,6 +2,7 @@
 import SlotTableCase from "./SlotTableCase.vue";
 import FixedColumnCase from "./FixedColumnCase.vue";
 import MultipleSelection from "./MultipleSelection.vue";
+import SingleSelection from "./SingleSelection.vue";
 </script>
 
 <template>
@@ -16,6 +17,10 @@ import MultipleSelection from "./MultipleSelection.vue";
 
     <Variant title="Multiple Selection">
       <MultipleSelection></MultipleSelection>
+    </Variant>
+
+    <Variant title="Single Selection">
+      <SingleSelection></SingleSelection>
     </Variant>
   </Story>
 </template>
