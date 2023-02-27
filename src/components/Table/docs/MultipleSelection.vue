@@ -33,6 +33,10 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
     width: 80,
   },
 ];
+
+function disabledCondition(record: any) {
+  return record.id === 1;
+}
 </script>
 
 <template>
@@ -41,7 +45,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
     class="container"
     :columns="columns"
     :data="data"
-    :selection="{ type: 'multiple' }"
+    :selection="{ type: 'multiple', disabledCondition }"
   >
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
     <template #actions>删除</template>

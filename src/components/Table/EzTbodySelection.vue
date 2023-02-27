@@ -32,6 +32,7 @@ function handleRadioClick(record: Record) {
     <div v-if="rootProps.selection?.type === 'multiple'">
       <EzCheckbox
         :model-value="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
+        :disabled="rootProps.selection?.disabledCondition?.(record)"
         @change="(checked) => handleCheckboxChange(record, checked)"
       ></EzCheckbox>
     </div>
@@ -39,6 +40,7 @@ function handleRadioClick(record: Record) {
       <input
         type="radio"
         :checked="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
+        :disabled="rootProps.selection?.disabledCondition?.(record)"
         @change="() => handleRadioClick(record)"
       />
     </div>
