@@ -43,10 +43,10 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
       @change="handleChange"
     />
     <div v-if="indeterminate" :class="$style.indeterminate">
-      <IndeterminateIcon></IndeterminateIcon>
+      <IndeterminateIcon :width="14" :height="14"></IndeterminateIcon>
     </div>
     <div v-else :class="$style.checkmark">
-      <Tick></Tick>
+      <Tick v-if="modelValue"></Tick>
     </div>
 
     <span v-if="label" :class="$style.label">{{ label }}</span>
@@ -59,6 +59,8 @@ $hover-color: #0261cc;
 %square {
   height: 14px;
   width: 14px;
+
+  overflow: hidden;
 
   display: flex;
   justify-content: center;
