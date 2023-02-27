@@ -4,7 +4,7 @@ import { watchEffect, reactive } from "vue";
 import { EzCheckbox } from "@/components";
 import { selectionColumnWidth } from "./constant";
 import { useInject } from "./useInject";
-import { intersection } from "./utils";
+import { SetUtils } from "./utils";
 import type { Record } from "./types";
 
 const { rootProps, rootState, rootEmit } = useInject();
@@ -32,7 +32,7 @@ watchEffect(() => {
     dataKeys.add(item[rootProps.rowKey]);
   });
 
-  const result = intersection(dataKeys, rootState.selectedRowKeys);
+  const result = SetUtils.intersection(dataKeys, rootState.selectedRowKeys);
   if (result.size === dataKeys.size) {
     // if all table data is selected, set checkbox value to true, and indeterminate state is false.
     state.checkboxValue = true;
