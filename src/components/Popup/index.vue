@@ -19,6 +19,7 @@ const props = withDefaults(
     appendToBody?: boolean;
     overlayClassName?: string;
     backgroundColor?: string;
+    fontColor?: string;
     showArrow?: boolean;
     trigger?: "hover" | "click" | "focus" | "controlled";
     visible?: boolean;
@@ -27,6 +28,7 @@ const props = withDefaults(
     appendToBody: false,
     overlayClassName: void 0,
     backgroundColor: void 0,
+    fontColor: void 0,
     showArrow: true,
     trigger: "hover",
   }

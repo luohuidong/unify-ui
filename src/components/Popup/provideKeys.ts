@@ -5,6 +5,7 @@ export const rootPropsKey = Symbol() as InjectionKey<{
   appendToBody?: boolean;
   overlayClassName?: string;
   backgroundColor?: string;
+  fontColor?: string;
   showArrow?: boolean;
   trigger?: "hover" | "click" | "focus" | "controlled";
   visible?: boolean;
