@@ -7,13 +7,14 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { computed, useSlots, provide, ref, watchEffect } from "vue";
+import { computed, useSlots, provide, ref, watchEffect, watch } from "vue";
 
 import * as injectKeys from "./injectKeys";
 import { useGetColumnsData } from "./useGetColumn";
 import { useShowShadow } from "./useShowShadow";
 import type { Key, Record, Column } from "./types";
 import { useState } from "./useState";
+import { SetUtils } from "./utils";
 
 import EzThead from "./EzThead.vue";
 import EzTbody from "./EzTbody.vue";
@@ -49,7 +50,23 @@ const emit = defineEmits<{
 }>();
 provide(injectKeys.rootEmitKey, emit);
 
-useState();
+const { state } = useState();
+
+watch(
+  () => props.selectedRowKeys,
+  (value) => {
+    // clear state selectedRowKeys if props.selectedRowKeys is undefined
+    if (!value) {
+      state.selectedRowKeys.clear();
+      return;
+    }
+
+    // set props.selectedRowKeys to state.selectedRowKeys if they are not equal.
+    if (!SetUtils.equal(value, state.selectedRowKeys)) {
+      state.selectedRowKeys = value;
+    }
+  }
+);
 
 const columnCount = computed(() => {
   return props.columns.length;
