@@ -22,5 +22,7 @@ import SingleSelection from "./SingleSelection.vue";
     <Variant title="Single Selection">
       <SingleSelection></SingleSelection>
     </Variant>
+
+    <Variant title="ExpandableRow"></Variant>
   </Story>
 </template>

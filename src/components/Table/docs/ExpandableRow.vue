@@ -31,6 +31,10 @@ const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
 <template>
   <EzTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
+
+    <template #rowExpand="{ record }">
+      {{ `【展开行】标题： ${record.title}，完成状态： ${record.completed}` }}
+    </template>
   </EzTable>
 </template>
 
