@@ -3,6 +3,7 @@ import SlotTableCase from "./SlotTableCase.vue";
 import FixedColumnCase from "./FixedColumnCase.vue";
 import MultipleSelection from "./MultipleSelection.vue";
 import SingleSelection from "./SingleSelection.vue";
+import ExpandableRow from "./ExpandableRow.vue";
 </script>
 
 <template>
@@ -23,6 +24,8 @@ import SingleSelection from "./SingleSelection.vue";
       <SingleSelection></SingleSelection>
     </Variant>
 
-    <Variant title="ExpandableRow"></Variant>
+    <Variant title="ExpandableRow">
+      <ExpandableRow></ExpandableRow>
+    </Variant>
   </Story>
 </template>
