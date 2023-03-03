@@ -7,7 +7,7 @@ const checked = ref(true);
 </script>
 
 <template>
-<s-checkbox v-model="checked1" label="One"></s-checkbox>
+<EzCheckbox v-model="checked1" label="One"></EzCheckbox>
 </template>
 ```
 
