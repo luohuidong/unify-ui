@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import SlotTableCase from "./SlotTableCase.vue";
+import NormalUse from "./NormalUse.vue";
 import FixedColumnCase from "./FixedColumnCase.vue";
 import MultipleSelection from "./MultipleSelection.vue";
 import SingleSelection from "./SingleSelection.vue";
@@ -9,7 +9,7 @@ import ExpandableRow from "./ExpandableRow.vue";
 <template>
   <Story title="Date Display/Table">
     <Variant title="Normal use">
-      <SlotTableCase></SlotTableCase>
+      <NormalUse></NormalUse>
     </Variant>
 
     <Variant title="Fixed Column">
