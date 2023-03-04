@@ -22,14 +22,10 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
     key: "completed",
   },
 ];
-
-const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
-  expandCondition: (row) => row.completed as boolean,
-};
 </script>
 
 <template>
-  <EzTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
+  <EzTable row-key="id" :columns="columns" :data="data">
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
   </EzTable>
 </template>
