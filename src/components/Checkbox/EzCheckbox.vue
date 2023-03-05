@@ -37,11 +37,21 @@ watch(
     immediate: true,
   }
 );
+
+// use this function when checkbox is inside checkbox group
+const handleChangeGroupValue = inject("handleChangeGroupValue", void 0) as
+  | ((checked: boolean, value: Value) => void)
+  | undefined;
+
 function handleChange(e: Event) {
   const checked = (e.target as HTMLInputElement).checked;
   if (props.disabled === false) {
     emit("update:modelValue", checked);
     emit("change", checked);
+
+    props.value !== undefined &&
+      handleChangeGroupValue &&
+      handleChangeGroupValue(checked, props.value);
   }
 }
 
