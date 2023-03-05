@@ -7,7 +7,7 @@ export {
   EzNavigationListItem,
 } from "./NavigationDrawer";
 export { useMessage } from "./Message";
-export { default as EzCheckbox } from "./Checkbox/index.vue";
+export { EzCheckbox } from "./Checkbox";
 export { default as EzPopup } from "./Popup/index.vue";
 export { default as EzTooltip } from "./Tooltip/index.vue";
 export { default as EzTable } from "./Table/index.vue";
