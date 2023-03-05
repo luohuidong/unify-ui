@@ -1,22 +1,15 @@
-<script lang="ts">
-import { defineComponent } from "vue";
-
-export default defineComponent({
-  name: "EzCheckbox",
-});
-</script>
-
 <script setup lang="ts">
-import { computed } from "vue";
+import { computed, inject, ref, watch } from "vue";
 
 import Tick from "./icons/TickIcon.vue";
 import IndeterminateIcon from "./icons/IndeterminateIcon.vue";
+import type { Value } from "./types";
 
 const props = withDefaults(
   defineProps<{
     label?: string;
-    modelValue: boolean;
-    value?: string | number | boolean;
+    modelValue?: boolean;
+    value?: Value;
     disabled?: boolean;
     indeterminate?: boolean;
   }>(),
@@ -32,6 +25,18 @@ const emit = defineEmits<{
   (e: "change", checked: boolean): void;
 }>();
 
+const checked = ref<boolean>(false);
+watch(
+  () => props.modelValue,
+  (value) => {
+    if (value !== undefined && value !== checked.value) {
+      checked.value = value;
+    }
+  },
+  {
+    immediate: true,
+  }
+);
 function handleChange(e: Event) {
   const checked = (e.target as HTMLInputElement).checked;
   if (props.disabled === false) {
@@ -46,9 +51,9 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 <template>
   <label :class="$style.container">
     <input
+      v-model="checked"
       :class="$style.input"
       type="checkbox"
-      :checked="modelValue"
       :value="value"
       :disabled="disabled"
       @change="handleChange"
@@ -57,7 +62,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
       <IndeterminateIcon :width="14" :height="14"></IndeterminateIcon>
     </div>
     <div v-else :class="$style.checkmark">
-      <Tick v-if="modelValue"></Tick>
+      <Tick v-if="checked"></Tick>
     </div>
 
     <span v-if="label" :class="$style.label">{{ label }}</span>
