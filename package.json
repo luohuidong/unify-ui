@@ -16,11 +16,11 @@
     "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
-    "@floating-ui/dom": "^1.2.1",
+    "@floating-ui/dom": "^1.2.3",
     "@histoire/plugin-vue": "^0.15.8",
     "@testing-library/vue": "^6.6.1",
     "@types/lodash-es": "^4.17.6",
-    "@types/node": "^18.14.2",
+    "@types/node": "^18.14.6",
     "@typescript-eslint/parser": "^5.54.0",
     "@vitejs/plugin-vue": "^4.0.0",
     "@vitejs/plugin-vue-jsx": "^3.0.0",
