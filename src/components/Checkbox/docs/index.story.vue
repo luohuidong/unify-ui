@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import EzCheckbox from "../EzCheckbox.vue";
+import EzCheckbox from "../index.vue";
 
 const checked1 = ref(true);
 const checked2 = ref(false);

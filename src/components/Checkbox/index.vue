@@ -1,3 +1,11 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "EzCheckbox",
+});
+</script>
+
 <script setup lang="ts">
 import { computed } from "vue";
 
@@ -8,11 +16,13 @@ const props = withDefaults(
   defineProps<{
     label?: string;
     modelValue: boolean;
+    value?: string | number | boolean;
     disabled?: boolean;
     indeterminate?: boolean;
   }>(),
   {
     label: "",
+    value: void 0,
     disabled: false,
   }
 );
@@ -39,6 +49,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
       :class="$style.input"
       type="checkbox"
       :checked="modelValue"
+      :value="value"
       :disabled="disabled"
       @change="handleChange"
     />
