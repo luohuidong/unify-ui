@@ -5,6 +5,7 @@ export type Key = string | number;
 export interface Column {
   key: string;
   title: string;
+  // should pass width if column is fixed.
   width?: number;
   fixed?: "left" | "right";
   sortable?: boolean;
@@ -17,6 +18,7 @@ export interface RootProps {
   columns: Column[];
   rowExpand?: {
     expandCondition: (record: Record) => boolean;
+    showExpandRowDefault?: boolean;
   };
   sort?: {
     columnKey: Key;

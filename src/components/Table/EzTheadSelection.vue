@@ -59,14 +59,10 @@ function handleChange(value: boolean) {
 </script>
 
 <template>
-  <th
-    v-if="rootProps.selection?.type"
-    :class="$style.selectionTh"
-    :style="{ width: `${selectionColumnWidth}px` }"
-  >
-    <div v-if="rootProps.selection.type === 'multiple'">
+  <th :class="$style.selectionTh" :style="{ width: `${selectionColumnWidth}px` }">
+    <div v-if="rootProps.selection?.type === 'multiple'">
       <EzCheckbox
-        v-model="state.checkboxValue"
+        checked="state.checkboxValue"
         :indeterminate="state.indeterminate"
         @change="handleChange"
       ></EzCheckbox>
