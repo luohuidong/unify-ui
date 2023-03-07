@@ -1,7 +1,7 @@
 import { inject, type ComputedRef, type Ref } from "vue";
 
-import * as injectKeys from "./injectKeys";
-import type { RootProps, ColumnData, ShowShadow, RootState, RootEmit } from "./types";
+import * as injectKeys from "../injectKeys";
+import type { RootProps, ColumnData, ShowShadow, RootState, RootEmit } from "../types";
 
 export function useInject() {
   const rootProps = inject(injectKeys.rootPropsKey) as RootProps;

@@ -1,11 +1,10 @@
 <script setup lang="ts">
 import { reactive } from "vue";
 
-import { useInject } from "./useInject";
+import { useInject, useSelection } from "./composable";
 import type { Record } from "./types";
 import commonStyle from "./commonStyle.module.scss";
 import { expandColumnWidth } from "./constant";
-import { useSelection } from "./useSelection";
 
 import { EzCheckbox } from "@/components";
 import Add from "./icons/Add.vue";
