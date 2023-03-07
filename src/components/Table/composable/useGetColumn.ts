@@ -1,8 +1,8 @@
 import { computed, provide, type ComputedRef } from "vue";
 
-import type { RootProps, ColumnData } from "./types";
-import * as injectKeys from "./injectKeys";
-import { selectionColumnWidth, expandColumnWidth } from "./constant";
+import type { RootProps, ColumnData } from "../types";
+import * as injectKeys from "../injectKeys";
+import { selectionColumnWidth, expandColumnWidth } from "../constant";
 
 export function useGetColumnsData(props: RootProps): ComputedRef<ColumnData[]> {
   const columnsData = computed(() => {

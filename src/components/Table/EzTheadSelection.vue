@@ -3,7 +3,7 @@ import { watchEffect, reactive } from "vue";
 
 import { EzCheckbox } from "@/components";
 import { selectionColumnWidth } from "./constant";
-import { useInject } from "./useInject";
+import { useInject } from "./composable";
 import { SetUtils } from "./utils";
 import type { Record } from "./types";
 

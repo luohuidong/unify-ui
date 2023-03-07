@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useInject } from "./useInject";
+import { useInject } from "./composable";
 import commonStyle from "./commonStyle.module.scss";
+import { expandColumnWidth } from "./constant";
 
 import EzTheadSelection from "./EzTheadSelection.vue";
-import EzTheadExpand from "./EzTheadExpand.vue";
 
 const { columnsData, showShadow, rootProps } = useInject();
 </script>
@@ -12,7 +12,7 @@ const { columnsData, showShadow, rootProps } = useInject();
   <thead :class="$style.tableHead">
     <tr>
       <template v-if="rootProps.rowExpand">
-        <EzTheadExpand></EzTheadExpand>
+        <th :style="{ width: expandColumnWidth + 'px' }"></th>
       </template>
 
       <template v-if="rootProps.selection?.type">

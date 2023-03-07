@@ -1,5 +1,5 @@
 import { useInject } from "./useInject";
-import type { Record } from "./types";
+import type { Record } from "../types";
 
 export function useSelection() {
   const { rootProps, rootState, rootEmit } = useInject();

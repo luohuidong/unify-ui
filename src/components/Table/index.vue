@@ -10,10 +10,8 @@ export default defineComponent({
 import { computed, useSlots, provide, ref, watchEffect, watch } from "vue";
 
 import * as injectKeys from "./injectKeys";
-import { useGetColumnsData } from "./useGetColumn";
-import { useShowShadow } from "./useShowShadow";
+import { useGetColumnsData, useShowShadow, useState } from "./composable";
 import type { Key, Record, Column } from "./types";
-import { useState } from "./useState";
 import { SetUtils } from "./utils";
 
 import EzThead from "./EzThead.vue";
