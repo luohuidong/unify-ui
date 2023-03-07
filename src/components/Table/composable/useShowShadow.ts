@@ -1,8 +1,8 @@
 import { onMounted, onUnmounted, reactive, provide, type Ref } from "vue";
 import { throttle } from "lodash-es";
 
-import * as injectKeys from "./injectKeys";
-import type { ShowShadow } from "./types";
+import * as injectKeys from "../injectKeys";
+import type { ShowShadow } from "../types";
 
 export function useShowShadow(
   containerRef: Ref<HTMLDivElement | undefined>,
