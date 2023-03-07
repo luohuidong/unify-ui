@@ -49,7 +49,8 @@ watchEffect(() => {
 function handleChange(value: boolean) {
   rootProps.data.forEach((item) => {
     value
-      ? rootState.selectedRowKeys.add(item[rootProps.rowKey])
+      ? rootProps.selection?.disabledCondition?.(item) ||
+        rootState.selectedRowKeys.add(item[rootProps.rowKey])
       : rootState.selectedRowKeys.delete(item[rootProps.rowKey]);
   });
 
