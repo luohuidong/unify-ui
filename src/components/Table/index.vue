@@ -17,7 +17,7 @@ import { useState } from "./useState";
 import { SetUtils } from "./utils";
 
 import EzThead from "./EzThead.vue";
-import EzTbody from "./EzTbody.vue";
+import EzTbodyRow from "./EzTbodyRow.vue";
 
 const props = defineProps<{
   /** 数据唯一索引 */
@@ -26,6 +26,7 @@ const props = defineProps<{
   columns: Column[];
   rowExpand?: {
     expandCondition: (record: Record) => boolean;
+    showExpandRowDefault?: boolean;
   };
   sort?: {
     columnKey: Key;
@@ -50,7 +51,7 @@ const emit = defineEmits<{
 }>();
 provide(injectKeys.rootEmitKey, emit);
 
-const { state } = useState();
+const { state } = useState(props);
 
 watch(
   () => props.selectedRowKeys,
@@ -93,15 +94,20 @@ useShowShadow(containerRef, tableRef);
     <table ref="tableRef" :class="$style.table">
       <EzThead></EzThead>
 
-      <EzTbody>
-        <template #rowCell="{ columnKey, record }">
-          <slot :name="columnKey" :record="record"></slot>
-        </template>
+      <tbody>
+        <!-- 渲染 data 数据 -->
+        <template v-for="record in props.data" :key="(record[props.rowKey] as string)">
+          <EzTbodyRow :record="record">
+            <template #rowCell="{ columnKey }">
+              <slot :name="columnKey" :record="record"></slot>
+            </template>
 
-        <template #rowExpand="{ record }">
-          <slot name="rowExpand" :record="record"></slot>
+            <template #rowExpand>
+              <slot name="rowExpand" :record="record"></slot>
+            </template>
+          </EzTbodyRow>
         </template>
-      </EzTbody>
+      </tbody>
 
       <tfoot v-if="showFoot">
         <tr>

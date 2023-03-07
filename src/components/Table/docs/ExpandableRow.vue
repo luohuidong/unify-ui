@@ -8,23 +8,29 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
     title: "标识",
     key: "id",
+    fixed: "left",
+    width: 120,
   },
   {
     title: "用户标识",
     key: "userId",
+    width: 200,
   },
   {
     title: "标题",
     key: "title",
+    width: 200,
   },
   {
     title: "是否完成",
     key: "completed",
+    width: 200,
   },
 ];
 
 const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
   expandCondition: (row) => row.completed as boolean,
+  showExpandRowDefault: true,
 };
 </script>
 
