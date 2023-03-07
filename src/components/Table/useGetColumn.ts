@@ -1,13 +1,15 @@
-import { computed, provide } from "vue";
+import { computed, provide, type ComputedRef } from "vue";
 
 import type { RootProps, ColumnData } from "./types";
 import * as injectKeys from "./injectKeys";
-import { selectionColumnWidth } from "./constant";
+import { selectionColumnWidth, expandColumnWidth } from "./constant";
 
-export function useGetColumnsData(props: RootProps) {
+export function useGetColumnsData(props: RootProps): ComputedRef<ColumnData[]> {
   const columnsData = computed(() => {
     const leftFixedColumns: ColumnData[] = [];
-    let left = props.selection ? selectionColumnWidth : 0;
+    let left = 0;
+    if (props.selection) left += selectionColumnWidth;
+    if (props.rowExpand) left += expandColumnWidth;
 
     const normalColumns: ColumnData[] = [];
 

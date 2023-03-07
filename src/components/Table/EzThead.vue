@@ -3,14 +3,21 @@ import { useInject } from "./useInject";
 import commonStyle from "./commonStyle.module.scss";
 
 import EzTheadSelection from "./EzTheadSelection.vue";
+import EzTheadExpand from "./EzTheadExpand.vue";
 
-const { columnsData, showShadow } = useInject();
+const { columnsData, showShadow, rootProps } = useInject();
 </script>
 
 <template>
   <thead :class="$style.tableHead">
     <tr>
-      <EzTheadSelection></EzTheadSelection>
+      <template v-if="rootProps.rowExpand">
+        <EzTheadExpand></EzTheadExpand>
+      </template>
+
+      <template v-if="rootProps.selection?.type">
+        <EzTheadSelection></EzTheadSelection>
+      </template>
 
       <th
         v-for="col in columnsData"
