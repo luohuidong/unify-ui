@@ -28,19 +28,19 @@ function toggleExpandRow() {
 
 <template>
   <!-- normal row -->
-  <tr :class="$style.normalRow">
+  <tr :class="$style['normal-row']">
     <!-- expand column cell -->
     <td
       v-if="rootProps.rowExpand"
       :style="{ width: expandColumnWidth + 'px' }"
-      :class="$style.expandColumnCell"
+      :class="$style['normal-row__expand-toggle-cell']"
     >
       <div v-if="rootProps.rowExpand?.expandCondition(record)">
         <Minus
           v-if="state.showExpandRow"
           :width="20"
           :height="20"
-          :class="$style.icon"
+          :class="$style['normal-row__expand-toggle-cell-icon']"
           @click="toggleExpandRow"
         ></Minus>
         <Add v-else :width="20" :height="20" :class="$style.icon" @click="toggleExpandRow"> </Add>
@@ -48,7 +48,7 @@ function toggleExpandRow() {
     </td>
 
     <!-- selection column cell -->
-    <td v-if="rootProps.selection?.type" :class="$style.selectionCell">
+    <td v-if="rootProps.selection?.type" :class="$style['normal-row__selection-toggle-cell']">
       <div v-if="rootProps.selection?.type === 'multiple'">
         <EzCheckbox
           :model-value="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
@@ -77,7 +77,7 @@ function toggleExpandRow() {
         width: col.width && `${col.width}px`,
       }"
       :class="[
-        $style.cell,
+        $style['normal-row__cell'],
         {
           [commonStyle.showLeftColumnShadow]:
             col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
@@ -108,19 +108,19 @@ function toggleExpandRow() {
 </template>
 
 <style lang="scss" module>
-.normalRow {
+.normal-row {
   white-space: nowrap;
   text-align: left;
   font-size: 14px;
 
-  .cell {
+  .normal-row__cell {
     position: relative;
     height: 50px;
     border-bottom: 1px solid #f0f0f0;
     background: white;
   }
 
-  .expandColumnCell {
+  .normal-row__expand-toggle-cell {
     position: sticky;
     top: 0;
     height: 50px;
@@ -142,7 +142,7 @@ function toggleExpandRow() {
       background-color: white;
     }
 
-    .icon {
+    .normal-row__expand-toggle-cell-icon {
       color: grey;
       cursor: pointer;
 
@@ -152,7 +152,7 @@ function toggleExpandRow() {
     }
   }
 
-  .selectionCell {
+  .normal-row__selection-toggle-cell {
     position: sticky;
     top: 0;
     height: 50px;
