@@ -35,7 +35,10 @@ function toggleExpandRow() {
       :style="{ width: expandColumnWidth + 'px' }"
       :class="$style['normal-row__expand-toggle-cell']"
     >
-      <div v-if="rootProps.rowExpand?.expandCondition(record)">
+      <div
+        v-if="rootProps.rowExpand?.expandCondition(record)"
+        :class="commonStyle['cell__inner-container']"
+      >
         <Minus
           v-if="state.showExpandRow"
           :width="20"
@@ -49,7 +52,7 @@ function toggleExpandRow() {
 
     <!-- selection column cell -->
     <td v-if="rootProps.selection?.type" :class="$style['normal-row__selection-toggle-cell']">
-      <div v-if="rootProps.selection?.type === 'multiple'">
+      <div v-if="rootProps.selection?.type === 'multiple'" :class="$style['cell__inner-container']">
         <EzCheckbox
           :model-value="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
           :disabled="rootProps.selection?.disabledCondition?.(record)"
@@ -128,20 +131,6 @@ function toggleExpandRow() {
     z-index: 1;
     border-bottom: 1px solid #f0f0f0;
 
-    > div {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      background-color: white;
-    }
-
     .normal-row__expand-toggle-cell-icon {
       color: grey;
       cursor: pointer;
@@ -158,20 +147,6 @@ function toggleExpandRow() {
     height: 50px;
     left: 0;
     z-index: 1;
-
-    > div {
-      position: absolute;
-      top: 0;
-      bottom: 0;
-      left: 0;
-      right: 0;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      background-color: white;
-    }
   }
 }
 
