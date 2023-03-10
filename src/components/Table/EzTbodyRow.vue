@@ -52,14 +52,14 @@ function toggleExpandRow() {
 
     <!-- selection column cell -->
     <td v-if="rootProps.selection?.type" :class="$style['normal-row__selection-toggle-cell']">
-      <div v-if="rootProps.selection?.type === 'multiple'" :class="$style['cell__inner-container']">
+      <div v-if="rootProps.selection?.type === 'multiple'" :class="commonStyle['cell__inner-container']">
         <EzCheckbox
           :model-value="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
           :disabled="rootProps.selection?.disabledCondition?.(record)"
           @change="(checked) => handleCheckboxChange(record, checked)"
         ></EzCheckbox>
       </div>
-      <div v-else>
+      <div v-else :class="commonStyle['cell__inner-container']">
         <input
           type="radio"
           :checked="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
