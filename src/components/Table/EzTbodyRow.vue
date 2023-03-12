@@ -33,7 +33,11 @@ function toggleExpandRow() {
     <td
       v-if="rootProps.rowExpand"
       :style="{ width: expandColumnWidth + 'px' }"
-      :class="$style['normal-row__expand-toggle-cell']"
+      :class="[
+        $style['normal-row__cell'],
+        $style['normal-row__cell--hover'],
+        $style['normal-row__expand-toggle-cell'],
+      ]"
     >
       <div
         v-if="rootProps.rowExpand?.expandCondition(record)"
@@ -51,8 +55,18 @@ function toggleExpandRow() {
     </td>
 
     <!-- selection column cell -->
-    <td v-if="rootProps.selection?.type" :class="$style['normal-row__selection-toggle-cell']">
-      <div v-if="rootProps.selection?.type === 'multiple'" :class="commonStyle['cell__inner-container']">
+    <td
+      v-if="rootProps.selection?.type"
+      :class="[
+        $style['normal-row__cell'],
+        $style['normal-row__cell--hover'],
+        $style['normal-row__selection-toggle-cell'],
+      ]"
+    >
+      <div
+        v-if="rootProps.selection?.type === 'multiple'"
+        :class="commonStyle['cell__inner-container']"
+      >
         <EzCheckbox
           :model-value="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
           :disabled="rootProps.selection?.disabledCondition?.(record)"
@@ -81,6 +95,7 @@ function toggleExpandRow() {
       }"
       :class="[
         $style['normal-row__cell'],
+        $style['normal-row__cell--hover'],
         {
           [commonStyle.showLeftColumnShadow]:
             col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
@@ -123,13 +138,15 @@ function toggleExpandRow() {
     background: white;
   }
 
+  &:hover .normal-row__cell--hover {
+    background: #fafafa;
+  }
+
   .normal-row__expand-toggle-cell {
     position: sticky;
     top: 0;
-    height: 50px;
     left: 0;
     z-index: 1;
-    border-bottom: 1px solid #f0f0f0;
 
     .normal-row__expand-toggle-cell-icon {
       color: grey;
@@ -144,7 +161,6 @@ function toggleExpandRow() {
   .normal-row__selection-toggle-cell {
     position: sticky;
     top: 0;
-    height: 50px;
     left: 0;
     z-index: 1;
   }
