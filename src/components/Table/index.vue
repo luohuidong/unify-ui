@@ -68,7 +68,10 @@ watch(
 );
 
 const columnCount = computed(() => {
-  return props.columns.length;
+  let count = props.columns.length;
+  if (props.selection) count++;
+  if (props.rowExpand) count++;
+  return count;
 });
 provide(injectKeys.columnCount, columnCount);
 
