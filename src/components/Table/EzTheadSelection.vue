@@ -6,6 +6,7 @@ import { selectionColumnWidth } from "./constant";
 import { useInject } from "./composable";
 import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
+import commonStyle from "./commonStyle.module.scss";
 
 const { rootProps, rootState, rootEmit } = useInject();
 
@@ -69,7 +70,13 @@ function SelectionAllToggle(value: boolean) {
 
 <template>
   <th :class="$style.selectionTh" :style="{ width: `${selectionColumnWidth}px` }">
-    <div v-if="rootProps.selection?.type === 'multiple'">
+    <div
+      v-if="rootProps.selection?.type === 'multiple'"
+      :class="[
+        commonStyle['cell__inner-container'],
+        commonStyle['cell__inner-container--horizontal-center'],
+      ]"
+    >
       <EzCheckbox
         v-model="state.checkboxValue"
         :indeterminate="state.indeterminate"
@@ -86,17 +93,5 @@ function SelectionAllToggle(value: boolean) {
   height: 50px;
   left: 0;
   z-index: 3;
-
-  > div {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
 }
 </style>

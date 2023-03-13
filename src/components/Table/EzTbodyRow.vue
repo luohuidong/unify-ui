@@ -41,7 +41,10 @@ function toggleExpandRow() {
     >
       <div
         v-if="rootProps.rowExpand?.expandCondition(record)"
-        :class="commonStyle['cell__inner-container']"
+        :class="[
+          commonStyle['cell__inner-container'],
+          commonStyle['cell__inner-container--horizontal-center'],
+        ]"
       >
         <Minus
           v-if="state.showExpandRow"
@@ -65,7 +68,10 @@ function toggleExpandRow() {
     >
       <div
         v-if="rootProps.selection?.type === 'multiple'"
-        :class="commonStyle['cell__inner-container']"
+        :class="[
+          commonStyle['cell__inner-container'],
+          commonStyle['cell__inner-container--horizontal-center'],
+        ]"
       >
         <EzCheckbox
           :model-value="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
@@ -105,7 +111,7 @@ function toggleExpandRow() {
         },
       ]"
     >
-      <div :class="[commonStyle.cellContent, commonStyle.ellipsis]">
+      <div :class="commonStyle['cell__inner-container']">
         <template v-if="slotKeys.has(col.key)">
           <slot name="rowCell" :column-key="col.key"></slot>
         </template>

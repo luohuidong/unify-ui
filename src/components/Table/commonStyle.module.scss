@@ -28,19 +28,9 @@
   text-overflow: ellipsis;
 }
 
-.cellContent {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
-
+.cell__inner-container {
   padding: 0 16px;
 
-  line-height: 50px;
-}
-
-.cell__inner-container {
   position: absolute;
   top: 0;
   bottom: 0;
@@ -48,6 +38,9 @@
   right: 0;
 
   display: flex;
-  justify-content: center;
   align-items: center;
+}
+
+.cell__inner-container--horizontal-center {
+  justify-content: center;
 }
