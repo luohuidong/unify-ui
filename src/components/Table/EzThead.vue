@@ -42,7 +42,7 @@ const { columnsData, showShadow, rootProps } = useInject();
           },
         ]"
       >
-        <div :class="[commonStyle.cellContent, commonStyle.ellipsis]">
+        <div :class="[commonStyle['cell__inner-container'], commonStyle.ellipsis]">
           {{ col.title }}
         </div>
       </th>
