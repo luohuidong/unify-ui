@@ -31,6 +31,7 @@ export interface RootProps {
     disabledCondition?: (record: Record) => boolean;
   };
   selectedRowKeys?: Set<Key>;
+  selectedRows?: Map<Key, Record>;
 }
 
 export interface RootState {
@@ -39,10 +40,12 @@ export interface RootState {
 
 export interface RootEmit {
   (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
+  (e: "update:selectedRows", selectedRows: Map<Key, Record>): void;
   /** emit when select/deselect one row */
   (e: "select", params: { selected: boolean; record: Record }): void;
   /** emit when select/deselect all rows */
   (e: "selectAll", params: { selected: boolean }): void;
+  (e: "selectedChange", params: { selectedRowKeys: Key[]; selectedRows: Record[] }): void;
 }
 
 export interface ColumnData extends Column {
