@@ -47,24 +47,39 @@ watchEffect(() => {
   }
 });
 
-function SelectionAllToggle(value: boolean) {
-  const rowKeys: Key[] = [];
-  const records: Record[] = [];
+function SelectionAllToggle(isSelectAll: boolean) {
+  const changedRowKeys: Key[] = [];
+  const changedRecords: Record[] = [];
 
   rootProps.data.forEach((item) => {
     const rowKey = item[rootProps.rowKey];
 
     // record must be selectable
-    if (!rootProps.selection?.disabledCondition?.(item)) {
-      value ? rootState.selectedRowKeys.add(rowKey) : rootState.selectedRowKeys.delete(rowKey);
-
-      rowKeys.push(rowKey);
-      records.push(item);
+    if (rootProps.selection?.disabledCondition?.(item)) {
+      return true;
     }
+
+    if (isSelectAll) {
+      // exclude the data which is already selected before user trigger select all data
+      if (rootState.selectedRowKeys.has(rowKey)) return;
+      changedRowKeys.push(rowKey);
+      changedRecords.push(item);
+    } else {
+      // data must be selected before user unselect all data
+      if (!rootState.selectedRowKeys.has(rowKey)) return;
+      changedRowKeys.push(rowKey);
+      changedRecords.push(item);
+    }
+
+    isSelectAll ? rootState.selectedRowKeys.add(rowKey) : rootState.selectedRowKeys.delete(rowKey);
   });
 
   rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
-  rootEmit("selectAll", { selected: value, rowKeys, records });
+  rootEmit("selectAll", {
+    selected: isSelectAll,
+    rowKeys: changedRowKeys,
+    records: changedRecords,
+  });
 }
 </script>
 
