@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { watchEffect, reactive } from "vue";
+
 import EzTable from "../index.vue";
 import useFetchData from "./useFetchData";
 
@@ -45,6 +47,18 @@ const state = reactive({
 watchEffect(() => {
   console.log("state.selectedRowKeys", state.selectedRowKeys);
 });
+
+function handleSelection(params: { selected: boolean; rowKey: string | number; record: any }) {
+  console.log("🚀 ~ file: MultipleSelection.vue:52 ~ handleSelection ~ params:", params);
+}
+
+function handleSelectAll(params: {
+  selected: boolean;
+  rowKeys: (string | number)[];
+  records: any[];
+}) {
+  console.log("🚀 ~ file: MultipleSelection.vue:56 ~ params:", params);
+}
 </script>
 
 <template>
@@ -55,6 +69,8 @@ watchEffect(() => {
     :columns="columns"
     :data="data"
     :selection="{ type: 'multiple', disabledCondition }"
+    @select="handleSelection"
+    @select-all="handleSelectAll"
   >
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
     <template #actions>删除</template>

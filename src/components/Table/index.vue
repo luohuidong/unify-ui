@@ -48,9 +48,9 @@ provide(injectKeys.rootPropsKey, props);
 const emit = defineEmits<{
   (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
   /** emit when select/deselect one row */
-  (e: "select", params: { selected: boolean; record: Record }): void;
+  (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
   /** emit when select/deselect all rows */
-  (e: "selectAll", params: { selected: boolean }): void;
+  (e: "selectAll", params: { selected: boolean; rowKeys: Key[]; records: Record[] }): void;
 }>();
 provide(injectKeys.rootEmitKey, emit);
 
