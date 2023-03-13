@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { reactive, watchEffect } from "vue";
-
 import EzTable from "../index.vue";
 import useFetchData from "./useFetchData";
 
@@ -42,35 +40,21 @@ function disabledCondition(record: any) {
 
 const state = reactive({
   selectedRowKeys: new Set<string>(),
-  selectedRows: new Map<string, unknown>(),
 });
 
 watchEffect(() => {
   console.log("state.selectedRowKeys", state.selectedRowKeys);
 });
-
-watchEffect(() => {
-  console.log("state.selectedRows", state.selectedRows);
-});
-
-function handleSelectedChange(params: {
-  selectedRowKeys: (string | number)[];
-  selectedRows: any[];
-}) {
-  console.log("params", params);
-}
 </script>
 
 <template>
   <EzTable
     v-model:selected-row-keys="state.selectedRowKeys"
-    v-model:selected-rows="state.selectedRows"
     row-key="id"
     class="container"
     :columns="columns"
     :data="data"
     :selection="{ type: 'multiple', disabledCondition }"
-    @selected-change="handleSelectedChange"
   >
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
     <template #actions>删除</template>
