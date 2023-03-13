@@ -9,7 +9,7 @@ export function useSelection() {
       ? rootState.selectedRowKeys.add(record[rootProps.rowKey])
       : rootState.selectedRowKeys.delete(record[rootProps.rowKey]);
 
-    rootEmit("update:selectedRowKeys", rootState.selectedRowKeys);
+    rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
     rootEmit("select", { record, selected: checked });
   }
 
@@ -17,7 +17,7 @@ export function useSelection() {
     rootState.selectedRowKeys.clear();
     rootState.selectedRowKeys.add(record[rootProps.rowKey]);
 
-    rootEmit("update:selectedRowKeys", rootState.selectedRowKeys);
+    rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
     rootEmit("select", { record, selected: true });
   }
 

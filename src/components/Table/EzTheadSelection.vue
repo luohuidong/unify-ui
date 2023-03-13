@@ -54,7 +54,7 @@ function SelectionAllToggle(value: boolean) {
       : rootState.selectedRowKeys.delete(item[rootProps.rowKey]);
   });
 
-  rootEmit("update:selectedRowKeys", rootState.selectedRowKeys);
+  rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
   rootEmit("selectAll", { selected: value });
 }
 </script>
