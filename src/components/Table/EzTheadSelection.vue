@@ -5,7 +5,7 @@ import { EzCheckbox } from "@/components";
 import { selectionColumnWidth } from "./constant";
 import { useInject } from "./composable";
 import { SetUtils } from "./utils";
-import type { Record } from "./types";
+import type { Record, Key } from "./types";
 
 const { rootProps, rootState, rootEmit } = useInject();
 
@@ -46,7 +46,7 @@ watchEffect(() => {
   }
 });
 
-function handleChange(value: boolean) {
+function SelectionAllToggle(value: boolean) {
   rootProps.data.forEach((item) => {
     value
       ? rootProps.selection?.disabledCondition?.(item) ||
@@ -65,7 +65,7 @@ function handleChange(value: boolean) {
       <EzCheckbox
         checked="state.checkboxValue"
         :indeterminate="state.indeterminate"
-        @change="handleChange"
+        @change="SelectionAllToggle"
       ></EzCheckbox>
     </div>
   </th>
