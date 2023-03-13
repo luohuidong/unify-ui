@@ -18,7 +18,7 @@ import {
   useGetColumnCount,
   useGetSlotKey,
 } from "./composable";
-import type { Key, Record, Column, RootEmit } from "./types";
+import type { Key, Record, Column } from "./types";
 
 import EzThead from "./EzThead.vue";
 import EzTbodyRow from "./EzTbodyRow.vue";
@@ -42,18 +42,15 @@ const props = defineProps<{
     disabledCondition?: (record: Record) => boolean;
   };
   selectedRowKeys?: Set<Key>;
-  selectedRows?: Map<Key, Record>;
 }>();
 provide(injectKeys.rootPropsKey, props);
 
-const emit: RootEmit = defineEmits<{
+const emit = defineEmits<{
   (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
-  (e: "update:selectedRows", selectedRows: Map<Key, Record>): void;
   /** emit when select/deselect one row */
   (e: "select", params: { selected: boolean; record: Record }): void;
   /** emit when select/deselect all rows */
   (e: "selectAll", params: { selected: boolean }): void;
-  (e: "selectedChange", params: { selectedRowKeys: Key[]; selectedRows: Record[] }): void;
 }>();
 provide(injectKeys.rootEmitKey, emit);
 

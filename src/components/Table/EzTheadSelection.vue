@@ -48,34 +48,14 @@ watchEffect(() => {
 
 function SelectionAllToggle(value: boolean) {
   rootProps.data.forEach((item) => {
-    const rowKey = item[rootProps.rowKey];
-    if (value) {
-      if (rootProps.selection?.disabledCondition?.(item)) return;
-      rootState.selectedRowKeys.add(rowKey);
-      rootProps.selectedRows?.set(rowKey, item);
-    } else {
-      rootState.selectedRowKeys.delete(rowKey);
-      rootProps.selectedRows?.delete(rowKey);
-    }
+    value
+      ? rootProps.selection?.disabledCondition?.(item) ||
+        rootState.selectedRowKeys.add(item[rootProps.rowKey])
+      : rootState.selectedRowKeys.delete(item[rootProps.rowKey]);
   });
 
   rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
   rootEmit("selectAll", { selected: value });
-
-  if (rootProps.selectedRows) {
-    const selectedRows: Map<Key, Record> = new Map();
-    const selectedRowsArr: Record[] = [];
-    for (let [key, value] of rootProps.selectedRows) {
-      selectedRows.set(key, value);
-      selectedRowsArr.push(value);
-    }
-
-    rootEmit("update:selectedRows", selectedRows);
-    rootEmit("selectedChange", {
-      selectedRowKeys: [...rootState.selectedRowKeys],
-      selectedRows: selectedRowsArr,
-    });
-  }
 }
 </script>
 
