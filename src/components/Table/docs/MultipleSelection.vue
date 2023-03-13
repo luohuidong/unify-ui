@@ -37,10 +37,19 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 function disabledCondition(record: any) {
   return record.id === 1;
 }
+
+const state = reactive({
+  selectedRowKeys: new Set<string>(),
+});
+
+watchEffect(() => {
+  console.log("state.selectedRowKeys", state.selectedRowKeys);
+});
 </script>
 
 <template>
   <EzTable
+    v-model:selected-row-keys="state.selectedRowKeys"
     row-key="id"
     class="container"
     :columns="columns"
