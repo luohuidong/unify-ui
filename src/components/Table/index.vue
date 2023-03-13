@@ -7,12 +7,18 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { computed, useSlots, provide, ref, watchEffect, watch } from "vue";
+import { useSlots, provide, ref } from "vue";
 
 import * as injectKeys from "./injectKeys";
-import { useGetColumnsData, useShowShadow, useState } from "./composable";
+import {
+  useGetColumnsData,
+  useShowShadow,
+  useState,
+  useWatchProps,
+  useGetColumnCount,
+  useGetSlotKey,
+} from "./composable";
 import type { Key, Record, Column } from "./types";
-import { SetUtils } from "./utils";
 
 import EzThead from "./EzThead.vue";
 import EzTbodyRow from "./EzTbodyRow.vue";
@@ -31,7 +37,6 @@ const props = defineProps<{
     order: "ascending" | "descending";
   };
   showFoot?: boolean;
-
   selection?: {
     type: "multiple" | "single";
     disabledCondition?: (record: Record) => boolean;
@@ -50,40 +55,12 @@ const emit = defineEmits<{
 provide(injectKeys.rootEmitKey, emit);
 
 const { state } = useState(props);
-
-watch(
-  () => props.selectedRowKeys,
-  (value) => {
-    // clear state selectedRowKeys if props.selectedRowKeys is undefined
-    if (!value) {
-      state.selectedRowKeys.clear();
-      return;
-    }
-
-    // set props.selectedRowKeys to state.selectedRowKeys if they are not equal.
-    if (!SetUtils.equal(value, state.selectedRowKeys)) {
-      state.selectedRowKeys = value;
-    }
-  }
-);
-
-const columnCount = computed(() => {
-  let count = props.columns.length;
-  if (props.selection) count++;
-  if (props.rowExpand) count++;
-  return count;
-});
-provide(injectKeys.columnCount, columnCount);
+useWatchProps(props, state);
+const columnCount = useGetColumnCount(props);
+useGetColumnsData(props);
 
 const slots = useSlots();
-const slotKeys = ref(new Set<string>());
-provide(injectKeys.slotKeysKey, slotKeys);
-watchEffect(() => {
-  slotKeys.value.clear();
-  Reflect.ownKeys(slots).forEach((key) => slotKeys.value.add(key as string));
-});
-
-useGetColumnsData(props);
+useGetSlotKey(slots);
 
 const containerRef = ref<HTMLDivElement>();
 const tableRef = ref<HTMLTableElement>();
