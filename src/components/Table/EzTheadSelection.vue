@@ -83,7 +83,7 @@ function SelectionAllToggle(value: boolean) {
   <th :class="$style.selectionTh" :style="{ width: `${selectionColumnWidth}px` }">
     <div v-if="rootProps.selection?.type === 'multiple'">
       <EzCheckbox
-        checked="state.checkboxValue"
+        v-model="state.checkboxValue"
         :indeterminate="state.indeterminate"
         @change="SelectionAllToggle"
       ></EzCheckbox>
