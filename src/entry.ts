@@ -1,10 +1,10 @@
 import type { Plugin } from "vue";
-import { Button } from "./components";
+import { EzButton } from "./components";
 
 const installAllComponents: Plugin = {
   install(app, options) {
-    app.component(Button.name, Button);
-    console.log("🚀 ~ file: entry.ts:7 ~ install ~ Button.name", Button.name);
+    app.component(EzButton.name, EzButton);
+    console.log("🚀 ~ file: entry.ts:7 ~ install ~ Button.name", EzButton.name);
   },
 };
 

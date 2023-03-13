@@ -41,7 +41,7 @@ export default function useConfirm(): ReturnData {
   function mountComponent(container: HTMLElement, component: JSX.Element) {
     const app = createApp(component);
     app.mount(container);
-    apps.value.push(app);
+    apps.value.push(app as any);
   }
 
   function confirm(options: ConfirmOptions) {
