@@ -5,20 +5,21 @@ export function useSelection() {
   const { rootProps, rootState, rootEmit } = useInject();
 
   function handleCheckboxChange(record: Record, checked: boolean) {
-    checked
-      ? rootState.selectedRowKeys.add(record[rootProps.rowKey])
-      : rootState.selectedRowKeys.delete(record[rootProps.rowKey]);
+    const rowKey = record[rootProps.rowKey];
+
+    checked ? rootState.selectedRowKeys.add(rowKey) : rootState.selectedRowKeys.delete(rowKey);
 
     rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
-    rootEmit("select", { record, selected: checked });
+    rootEmit("select", { selected: checked, rowKey, record });
   }
 
   function handleRadioClick(record: Record) {
+    const rowKey = record[rootProps.rowKey];
     rootState.selectedRowKeys.clear();
-    rootState.selectedRowKeys.add(record[rootProps.rowKey]);
+    rootState.selectedRowKeys.add(rowKey);
 
     rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
-    rootEmit("select", { record, selected: true });
+    rootEmit("select", { selected: true, rowKey, record });
   }
 
   return {

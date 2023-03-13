@@ -47,15 +47,23 @@ watchEffect(() => {
 });
 
 function SelectionAllToggle(value: boolean) {
+  const rowKeys: Key[] = [];
+  const records: Record[] = [];
+
   rootProps.data.forEach((item) => {
-    value
-      ? rootProps.selection?.disabledCondition?.(item) ||
-        rootState.selectedRowKeys.add(item[rootProps.rowKey])
-      : rootState.selectedRowKeys.delete(item[rootProps.rowKey]);
+    const rowKey = item[rootProps.rowKey];
+
+    // record must be selectable
+    if (!rootProps.selection?.disabledCondition?.(item)) {
+      value ? rootState.selectedRowKeys.add(rowKey) : rootState.selectedRowKeys.delete(rowKey);
+
+      rowKeys.push(rowKey);
+      records.push(item);
+    }
   });
 
   rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
-  rootEmit("selectAll", { selected: value });
+  rootEmit("selectAll", { selected: value, rowKeys, records });
 }
 </script>
 
