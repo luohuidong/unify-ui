@@ -13,38 +13,50 @@ const { rootProps, rootState, rootEmit } = useInject();
 const state = reactive({
   checkboxValue: false,
   indeterminate: false,
+  checkboxDisable: false,
 });
 
+// checkbox state
 watchEffect(() => {
   if (rootProps.selection?.type !== "multiple") {
     return;
   }
 
-  const dataKeys = new Set<string | number>();
+  const selectableRowKeys = new Set<string | number>();
+  let unselectableRowCount = 0;
+  rootProps.data.forEach((item) => {
+    if (rootProps.selection?.disabledCondition?.(item)) {
+      unselectableRowCount++;
+    } else {
+      selectableRowKeys.add(item[rootProps.rowKey]);
+    }
+  });
 
-  if (rootProps.data.length === 0) {
+  // if all data are unselectable, disable checkbox component
+  if (rootProps.data.length - unselectableRowCount === 0) {
     // set checkbox value to false and indeterminate state to false when there is no table data
     state.checkboxValue = false;
     state.indeterminate = false;
+    state.checkboxDisable = true;
     return;
   }
 
-  rootProps.data.forEach((item) => {
-    dataKeys.add(item[rootProps.rowKey]);
-  });
-
-  const result = SetUtils.intersection(dataKeys, rootState.selectedRowKeys);
-  if (result.size === dataKeys.size) {
+  // check if all selectable row are selected
+  const result = SetUtils.intersection(selectableRowKeys, rootState.selectedRowKeys);
+  if (result.size === selectableRowKeys.size) {
     // if all table data is selected, set checkbox value to true, and indeterminate state is false.
     state.checkboxValue = true;
     state.indeterminate = false;
-  } else if (result.size < dataKeys.size && result.size > 0) {
+  } else if (result.size < selectableRowKeys.size && result.size > 0) {
+    // selectable row are partialy selected
     state.checkboxValue = false;
     state.indeterminate = true;
   } else {
+    // all selectable row are unselected
     state.checkboxValue = false;
     state.indeterminate = false;
   }
+  state.checkboxDisable = false;
 });
 
 function SelectionAllToggle(isSelectAll: boolean) {
@@ -95,6 +107,7 @@ function SelectionAllToggle(isSelectAll: boolean) {
       <EzCheckbox
         v-model="state.checkboxValue"
         :indeterminate="state.indeterminate"
+        :disabled="state.checkboxDisable"
         @change="SelectionAllToggle"
       ></EzCheckbox>
     </div>
