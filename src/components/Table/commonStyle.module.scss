@@ -1,4 +1,4 @@
-.showLeftColumnShadow:after {
+.cell--shadow-right:after {
   content: " ";
   height: 100%;
 
@@ -10,7 +10,7 @@
   box-shadow: inset 15px 0 15px -15px rgba($color: #000000, $alpha: 0.2);
 }
 
-.showRightColumnShadow:before {
+.cell--shadow-left:before {
   content: " ";
   height: 100%;
 
