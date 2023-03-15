@@ -42,14 +42,25 @@ function disabledCondition(record: any) {
 
 const state = reactive({
   selectedRowKeys: new Set<string>(),
+  selectedRows: new Map<string, any>(),
 });
 
 watchEffect(() => {
   console.log("state.selectedRowKeys", state.selectedRowKeys);
 });
 
+function handleChangeSelectionRows(params: { selected: boolean; records: any[] }) {
+  params.records.forEach((item) => {
+    if (params.selected) {
+      state.selectedRows.set(item.id, item);
+    } else {
+      state.selectedRows.delete(item.id);
+    }
+  });
+}
+
 function handleSelection(params: { selected: boolean; rowKey: string | number; record: any }) {
-  console.log("🚀 ~ file: MultipleSelection.vue:52 ~ handleSelection ~ params:", params);
+  handleChangeSelectionRows({ selected: params.selected, records: [params.record] });
 }
 
 function handleSelectAll(params: {
@@ -57,7 +68,7 @@ function handleSelectAll(params: {
   rowKeys: (string | number)[];
   records: any[];
 }) {
-  console.log("🚀 ~ file: MultipleSelection.vue:56 ~ params:", params);
+  handleChangeSelectionRows({ selected: params.selected, records: params.records });
 }
 </script>
 
