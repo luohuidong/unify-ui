@@ -103,9 +103,9 @@ function toggleExpandRow() {
         $style['normal-row__cell'],
         $style['normal-row__cell--hover'],
         {
-          [commonStyle.showLeftColumnShadow]:
+          [commonStyle['cell--shadow-right']]:
             col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-          [commonStyle.showRightColumnShadow]:
+          [commonStyle['cell--shadow-left']]:
             col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
           [commonStyle.ellipsis]: !col.fixed,
         },

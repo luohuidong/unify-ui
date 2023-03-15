@@ -35,9 +35,9 @@ const { columnsData, showShadow, rootProps } = useInject();
         :class="[
           $style['cell'],
           {
-            [commonStyle.showLeftColumnShadow]:
+            [commonStyle['cell--shadow-right']]:
               col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-            [commonStyle.showRightColumnShadow]:
+            [commonStyle['cell--shadow-left']]:
               col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
           },
         ]"
