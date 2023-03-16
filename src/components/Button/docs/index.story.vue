@@ -4,8 +4,8 @@ import { EzButton } from "@/components";
 
 <template>
   <Story title="Generel/Button">
-    <EzButton type="text" text="text button"></EzButton>
-    <EzButton type="outlined" text="outlined button"></EzButton>
-    <EzButton type="contained" text="contained button"></EzButton>
+    <EzButton type="text">text button</EzButton>
+    <EzButton type="outlined">outlined button</EzButton>
+    <EzButton type="contained">contained button</EzButton>
   </Story>
 </template>

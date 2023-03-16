@@ -7,13 +7,8 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import TextButton from "./EzTextButton.vue";
-import ContainedButton from "./EzContainedButton.vue";
-import OutlinedButton from "./EzOutlinedButton.vue";
-
-const props = defineProps<{
+defineProps<{
   type: "text" | "outlined" | "contained";
-  text: string;
 }>();
 
 const emits = defineEmits(["click"]);
@@ -21,22 +16,77 @@ const emits = defineEmits(["click"]);
 function handleClick(e: MouseEvent) {
   emits("click", e);
 }
-
-const buttonComponent = {
-  text: TextButton,
-  contained: ContainedButton,
-  outlined: OutlinedButton,
-};
 </script>
 
 <template>
-  <component :is="buttonComponent[type]" @click="handleClick">
-    <span :class="$style.buttonText">{{ props.text }}</span>
-  </component>
+  <button
+    :class="[
+      $style.button,
+      {
+        [$style['button--contained']]: type === 'contained',
+        [$style['button--outlined']]: type === 'outlined',
+        [$style['button--text']]: type === 'text',
+      },
+    ]"
+    @click="handleClick"
+  >
+    <slot></slot>
+  </button>
 </template>
 
 <style lang="scss" module>
-.buttonText {
+@use "sass:map";
+@use "@/styles/color";
+@use "@/styles/type";
+
+.button {
   box-sizing: border-box;
+  position: relative;
+  padding: 8px;
+  border: none;
+  border-radius: 4px;
+  background: none;
+  overflow: hidden;
+  outline: none;
+
+  @include type.button;
+  color: map.get(color.$primary, "500");
+
+  cursor: pointer;
+}
+
+.button--contained {
+  color: color.$font-light;
+  background-color: map.get(color.$primary, "600");
+
+  &:hover {
+    background-color: map.get(color.$primary, "500");
+    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%),
+      0px 1px 10px 0px rgb(0 0 0 / 12%);
+    transition: box-shadow 300ms;
+  }
+  &:active {
+    background-color: map.get(color.$primary, "600");
+  }
+}
+
+.button--outlined {
+  border: 1px solid map.get(color.$primary, "500");
+
+  &:hover {
+    background-color: map.get(color.$primary, "50");
+  }
+  &:active {
+    background-color: map.get(color.$primary, "100");
+  }
+}
+
+.button--text {
+  &:hover {
+    background-color: map.get(color.$primary, "50");
+  }
+  &:active {
+    background-color: map.get(color.$primary, "100");
+  }
 }
 </style>
