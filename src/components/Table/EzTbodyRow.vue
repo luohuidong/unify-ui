@@ -119,7 +119,7 @@ function toggleExpandRow() {
 
   <!-- expand row -->
   <tr v-show="state.showExpandRow && rootProps.rowExpand?.expandCondition(record)">
-    <td :colspan="columnCount" :class="$style.expandRowCell" :style="{ padding: '16px' }">
+    <td :colspan="columnCount" :class="$style['expand-row__cell']" :style="{ padding: '16px' }">
       <slot name="rowExpand"></slot>
     </td>
   </tr>
@@ -166,9 +166,9 @@ function toggleExpandRow() {
   }
 }
 
-.expandRowCell {
+.expand-row__cell {
   padding: 16px;
   border-bottom: 1px solid #f0f0f0;
-  background: white;
+  background: rgba(0, 0, 0, 0.02);
 }
 </style>
