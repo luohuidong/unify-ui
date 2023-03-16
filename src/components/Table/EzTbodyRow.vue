@@ -41,10 +41,7 @@ function toggleExpandRow() {
     >
       <div
         v-if="rootProps.rowExpand?.expandCondition(record)"
-        :class="[
-          commonStyle['cell__inner-container'],
-          commonStyle['cell__inner-container--horizontal-center'],
-        ]"
+        :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
       >
         <Minus
           v-if="state.showExpandRow"
@@ -68,10 +65,7 @@ function toggleExpandRow() {
     >
       <div
         v-if="rootProps.selection?.type === 'multiple'"
-        :class="[
-          commonStyle['cell__inner-container'],
-          commonStyle['cell__inner-container--horizontal-center'],
-        ]"
+        :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
       >
         <EzCheckbox
           :model-value="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
@@ -79,7 +73,7 @@ function toggleExpandRow() {
           @change="(checked) => handleCheckboxChange(record, checked)"
         ></EzCheckbox>
       </div>
-      <div v-else :class="commonStyle['cell__inner-container']">
+      <div v-else :class="commonStyle['cell__inner']">
         <input
           type="radio"
           :checked="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
@@ -111,7 +105,7 @@ function toggleExpandRow() {
         },
       ]"
     >
-      <div :class="commonStyle['cell__inner-container']">
+      <div :class="commonStyle['cell__inner']">
         <template v-if="slotKeys.has(col.key)">
           <slot name="rowCell" :column-key="col.key"></slot>
         </template>
