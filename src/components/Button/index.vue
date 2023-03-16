@@ -7,9 +7,14 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-defineProps<{
-  type: "text" | "outlined" | "contained";
-}>();
+withDefaults(
+  defineProps<{
+    type: "text" | "outlined" | "contained";
+  }>(),
+  {
+    type: "outlined",
+  }
+);
 
 const emits = defineEmits(["click"]);
 
