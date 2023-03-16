@@ -28,7 +28,7 @@
   text-overflow: ellipsis;
 }
 
-.cell__inner-container {
+.cell__inner {
   padding: 0 16px;
 
   position: absolute;
@@ -41,6 +41,6 @@
   align-items: center;
 }
 
-.cell__inner-container--horizontal-center {
+.cell__inner--horizontal-center {
   justify-content: center;
 }

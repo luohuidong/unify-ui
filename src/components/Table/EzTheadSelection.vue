@@ -99,10 +99,7 @@ function SelectionAllToggle(isSelectAll: boolean) {
   <th :class="$style.selectionTh" :style="{ width: `${selectionColumnWidth}px` }">
     <div
       v-if="rootProps.selection?.type === 'multiple'"
-      :class="[
-        commonStyle['cell__inner-container'],
-        commonStyle['cell__inner-container--horizontal-center'],
-      ]"
+      :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
     >
       <EzCheckbox
         v-model="state.checkboxValue"
