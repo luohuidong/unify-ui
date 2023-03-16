@@ -13,7 +13,7 @@ function handleClick() {
     <div :class="$style.container">
       <div>
         <EzPopup placement="bottom" append-to-body trigger="controlled" :visible="visible">
-          <EzButton type="text" text="Controlled Mode" @click="handleClick"></EzButton>
+          <EzButton @click="handleClick">Controlled Mode</EzButton>
 
           <template #content>
             <div class="box">bottom</div>

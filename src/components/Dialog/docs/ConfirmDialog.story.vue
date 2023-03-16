@@ -23,7 +23,7 @@ function handleKeyboardEscapeKey() {
 
 <template>
   <Story title="Feedback/Dialog/ConfirmDialog">
-    <EzButton type="contained" text="打开 Dialog" @click="handleButtonClick"></EzButton>
+    <EzButton type="contained" @click="handleButtonClick">打开 Dialog</EzButton>
 
     <ConfirmDialog
       :visible="visible"

@@ -8,25 +8,25 @@ import STooltip from "../index.vue";
     <div class="container">
       <div>
         <STooltip title="Tooltip text" placement="top">
-          <EzButton type="text" text="Hover over me!" />
+          <EzButton>Hover over me!</EzButton>
         </STooltip>
       </div>
 
       <div>
         <STooltip title="Tooltip text" placement="bottom" append-to-body>
-          <EzButton type="outlined" text="Tooltip append to body" />
+          <EzButton>Tooltip append to body</EzButton>
         </STooltip>
       </div>
 
       <div>
         <STooltip title="Tooltip text" placement="left">
-          <EzButton type="text" text="Hover over me!" />
+          <EzButton>Hover over me!</EzButton>
         </STooltip>
       </div>
 
       <div>
         <STooltip title="Tooltip text" placement="right" append-to-body>
-          <EzButton type="outlined" text="Tooltip append to body" />
+          <EzButton>Tooltip append to body</EzButton>
         </STooltip>
       </div>
     </div>
