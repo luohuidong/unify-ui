@@ -15,6 +15,6 @@ function handleConfirmDialogButton() {
 
 <template>
   <Story title="Feedback/Dialog/AlertDialog">
-    <EzButton type="contained" text="confirm Dialog" @click="handleConfirmDialogButton"></EzButton>
+    <EzButton type="contained" @click="handleConfirmDialogButton">confirm Dialog</EzButton>
   </Story>
 </template>

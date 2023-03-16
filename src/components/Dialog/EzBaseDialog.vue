@@ -45,9 +45,8 @@ function handleCancelButtonClick() {
         </div>
 
         <div :class="$style.buttonContainer">
-          <EzButton type="text" :text="cancelText" @click="handleCancelButtonClick" />
-
-          <EzButton type="text" :text="confirmText" @click="handleConfirmButtonClick" />
+          <EzButton type="text" @click="handleCancelButtonClick"> {{ cancelText }}</EzButton>
+          <EzButton type="text" @click="handleConfirmButtonClick">{{ confirmText }}</EzButton>
         </div>
       </div>
     </Scrim>

@@ -12,6 +12,6 @@ function handleClick() {
 
 <template>
   <Story title="Feedback/Message">
-    <EzButton type="contained" text="添加 message" @click="handleClick"></EzButton>
+    <EzButton type="contained" @click="handleClick">添加 message</EzButton>
   </Story>
 </template>

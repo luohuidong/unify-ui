@@ -11,7 +11,7 @@ import VisibleCase from "./VisibleCase.vue";
       <div class="container">
         <div>
           <Popup placement="top">
-            <EzButton type="text" text="top black" />
+            <EzButton>top black</EzButton>
 
             <template #content>
               <div class="box">top</div>
@@ -21,7 +21,7 @@ import VisibleCase from "./VisibleCase.vue";
 
         <div>
           <Popup placement="bottom" append-to-body background-color="green">
-            <EzButton type="text" text="bottom green" />
+            <EzButton>bottom green</EzButton>
 
             <template #content>
               <div class="box">bottom</div>
@@ -31,7 +31,7 @@ import VisibleCase from "./VisibleCase.vue";
 
         <div>
           <Popup placement="left" background-color="red">
-            <EzButton type="text" text="left red" />
+            <EzButton>left red </EzButton>
 
             <template #content>
               <div class="box">bottom</div>
@@ -41,7 +41,7 @@ import VisibleCase from "./VisibleCase.vue";
 
         <div>
           <Popup placement="right" background-color="blue">
-            <EzButton type="text" text="right blue" />
+            <EzButton>right blue</EzButton>
 
             <template #content>
               <div class="box">right</div>
@@ -55,7 +55,7 @@ import VisibleCase from "./VisibleCase.vue";
       <div :style="{ height: '100vh' }">
         <div :style="{ marginBottom: '100px' }">
           <Popup placement="bottom" trigger="click" append-to-body>
-            <EzButton type="outlined" text="Trigger: click"></EzButton>
+            <EzButton>Trigger: click</EzButton>
 
             <template #content>
               <div class="box">bottom</div>
@@ -65,7 +65,7 @@ import VisibleCase from "./VisibleCase.vue";
 
         <div>
           <Popup placement="bottom" append-to-body>
-            <EzButton type="outlined" text="Trigger: hover"></EzButton>
+            <EzButton>Trigger: hover</EzButton>
 
             <template #content>
               <div class="box">bottom</div>
