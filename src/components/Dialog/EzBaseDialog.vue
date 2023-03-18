@@ -32,19 +32,19 @@ function handleCancelButtonClick() {
 
 <template>
   <Transition
-    :enter-active-class="$style.enterActive"
-    :enter-from-class="$style.enterFrom"
-    :leave-active-class="$style.leaveActive"
-    :leave-to-class="$style.leaveTo"
+    :enter-active-class="$style['transition--enter-active']"
+    :enter-from-class="$style['transition--enter-from']"
+    :leave-active-class="$style['transition--leave-active']"
+    :leave-to-class="$style['transition--leave-to']"
   >
     <Scrim v-show="visible">
-      <div :class="$style.container">
-        <div :class="$style.textContainer">
-          <div v-if="title" :class="$style.title">{{ title }}</div>
-          <div :class="$style.supportText">{{ supportingText }}</div>
+      <div :class="$style.dialog">
+        <div :class="$style.content">
+          <div v-if="title" :class="$style.content__title">{{ title }}</div>
+          <div :class="$style['content__support-tips']">{{ supportingText }}</div>
         </div>
 
-        <div :class="$style.buttonContainer">
+        <div :class="$style.actions">
           <EzButton type="text" @click="handleCancelButtonClick"> {{ cancelText }}</EzButton>
           <EzButton type="text" @click="handleConfirmButtonClick">{{ confirmText }}</EzButton>
         </div>
@@ -58,17 +58,17 @@ function handleCancelButtonClick() {
 @use "@/styles/color";
 @use "@/styles/type";
 
-.enterActive,
-.leaveActive {
+.transition--enter-active,
+.transition--leave-active {
   transition: opacity 0.5s ease;
 }
 
-.enterFrom,
-.leaveTo {
+.transition--enter-from,
+.transition--leave-to {
   opacity: 0;
 }
 
-.container {
+.dialog {
   width: 450px;
   max-height: 650px;
 
@@ -82,21 +82,21 @@ function handleCancelButtonClick() {
   background-color: color.$background;
 }
 
-.textContainer {
+.content {
   flex: 1;
-
-  .title {
-    @include type.headline6;
-    margin-bottom: 12px;
-  }
-
-  .supportText {
-    @include type.body1;
-    color: map.get(color.$grey, "700");
-  }
 }
 
-.buttonContainer {
+.content__title {
+  @include type.headline6;
+  margin-bottom: 12px;
+}
+
+.content__support-tips {
+  @include type.body1;
+  color: map.get(color.$grey, "700");
+}
+
+.actions {
   margin-top: 28px;
   height: 40px;
   display: flex;
