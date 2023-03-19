@@ -5,13 +5,13 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="$style.container">
-    <span :class="$style.text">{{ text }}</span>
+  <div :class="$style.message">
+    <span :class="$style.message__text">{{ text }}</span>
   </div>
 </template>
 
 <style lang="scss" module>
-.container {
+.message {
   height: 54px;
   width: 400px;
 
@@ -27,7 +27,7 @@ defineProps<{
     0 1px 18px 0 rgba(0, 0, 0, 0.12);
 }
 
-.text {
+.message__text {
   color: white;
   font-size: 14px;
 }
