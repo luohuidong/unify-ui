@@ -2,7 +2,10 @@
   "recommendations": [
     "dbaeumer.vscode-eslint",
     "esbenp.prettier-vscode",
-    "vue.vscode-typescript-vue-plugin",
-    "vue.volar"
+    "editorconfig.editorconfig",
+    "bradlc.vscode-tailwindcss",
+    "zixuanchen.vitest-explorer",
+    "vue.volar",
+    "vue.vscode-typescript-vue-plugin"
   ]
 }
