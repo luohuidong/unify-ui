@@ -46,14 +46,13 @@ function toggleExpandRow() {
         v-if="rootProps.rowExpand?.expandCondition(record)"
         :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
       >
-        <Minus
-          v-if="state.showExpandRow"
+        <component
+          :is="state.showExpandRow ? Minus : Add"
           :width="20"
           :height="20"
           :class="$style['normal-row__expand-toggle-cell-icon']"
           @click="toggleExpandRow"
-        ></Minus>
-        <Add v-else :width="20" :height="20" :class="$style.icon" @click="toggleExpandRow"> </Add>
+        ></component>
       </div>
     </td>
 
