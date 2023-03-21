@@ -28,16 +28,19 @@ function toggleExpandRow() {
 
 <template>
   <!-- normal row -->
-  <tr :class="$style['normal-row']">
+  <tr
+    :class="[
+      $style['normal-row'],
+      {
+        [$style['normal-row--selection']]: rootState.selectedRowKeys.has(record[rootProps.rowKey]),
+      },
+    ]"
+  >
     <!-- expand column cell -->
     <td
       v-if="rootProps.rowExpand"
       :style="{ width: expandColumnWidth + 'px' }"
-      :class="[
-        $style['normal-row__cell'],
-        $style['normal-row__cell--hover'],
-        $style['normal-row__expand-toggle-cell'],
-      ]"
+      :class="[$style['normal-row__cell'], $style['normal-row__expand-toggle-cell']]"
     >
       <div
         v-if="rootProps.rowExpand?.expandCondition(record)"
@@ -57,11 +60,7 @@ function toggleExpandRow() {
     <!-- selection column cell -->
     <td
       v-if="rootProps.selection?.type"
-      :class="[
-        $style['normal-row__cell'],
-        $style['normal-row__cell--hover'],
-        $style['normal-row__selection-toggle-cell'],
-      ]"
+      :class="[$style['normal-row__cell'], $style['normal-row__selection-toggle-cell']]"
     >
       <div
         v-if="rootProps.selection?.type === 'multiple'"
@@ -95,7 +94,6 @@ function toggleExpandRow() {
       }"
       :class="[
         $style['normal-row__cell'],
-        $style['normal-row__cell--hover'],
         {
           [commonStyle['cell--shadow-right']]:
             col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
@@ -130,16 +128,25 @@ function toggleExpandRow() {
   white-space: nowrap;
   text-align: left;
   font-size: 14px;
+  background-color: white;
+
+  &:hover {
+    background: #fafafa;
+  }
+
+  &.normal-row--selection {
+    background: #e6f4ff;
+
+    &:hover {
+      background: #bae0ff;
+    }
+  }
 
   .normal-row__cell {
     position: relative;
     height: 50px;
     border-bottom: 1px solid #f0f0f0;
-    background: white;
-  }
-
-  &:hover .normal-row__cell--hover {
-    background: #fafafa;
+    background: inherit;
   }
 
   .normal-row__expand-toggle-cell {
