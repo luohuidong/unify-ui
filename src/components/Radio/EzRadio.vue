@@ -6,14 +6,14 @@ defineProps<{
 </script>
 
 <template>
-  <label class="label">
-    <input type="radio" checked :name="name" />
-    <div class="checkmark"></div>
+  <label :class="$style.label">
+    <input :class="$style.input" type="radio" :name="name" />
+    <div :class="$style.checkmark"></div>
     {{ title }}
   </label>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 /* Customize the label (the container) */
 .label {
   display: inline-flex;
@@ -25,7 +25,7 @@ defineProps<{
 }
 
 /* Hide the browser's default radio button */
-.label input {
+.input {
   display: none;
 }
 
@@ -45,32 +45,28 @@ defineProps<{
 }
 
 /* On mouse-over, add a grey background color */
-.label:hover input ~ .checkmark {
+.label:hover .checkmark {
   background-color: #ccc;
 }
 
-/* When the radio button is checked, add a blue background */
-.label input:checked ~ .checkmark {
+/* When the radio button is checked, add a purple background */
+.input:checked ~ .checkmark {
   background-color: #4f46e5;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
 .checkmark:after {
   content: "";
-  position: absolute;
   display: none;
-}
 
-/* Show the indicator (dot/circle) when checked */
-.label input:checked ~ .checkmark:after {
-  display: block;
-}
-
-/* Style the indicator (dot/circle) */
-.label .checkmark:after {
   width: 6px;
   height: 6px;
   border-radius: 50%;
   background: white;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.input:checked ~ .checkmark:after {
+  display: block;
 }
 </style>
