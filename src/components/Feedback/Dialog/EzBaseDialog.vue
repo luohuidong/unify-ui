@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { Transition } from "vue";
 
-import { EzButton } from "@/components";
-import Scrim from "../Scrim.vue";
+import { EzButton, Scrim } from "@/components";
 
 withDefaults(
   defineProps<{

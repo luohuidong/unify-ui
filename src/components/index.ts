@@ -1,13 +1,17 @@
 export { default as EzButton } from "./Button/index.vue";
-export { useAlertDialog, ConfirmDialog } from "./Dialog";
 export {
   EzStandardDrawer,
   EzModalDrawer,
   EzNavigationList,
   EzNavigationListItem,
 } from "./NavigationDrawer";
-export { useMessage } from "./Message";
-export { EzCheckbox } from "./Checkbox";
-export { default as EzPopup } from "./Popup/index.vue";
-export { default as EzTooltip } from "./Tooltip/index.vue";
-export { default as EzTable } from "./Table/index.vue";
+export { default as Scrim } from "./Scrim.vue";
+
+export { EzCheckbox } from "./DataEntry/Checkbox";
+
+export { default as EzPopup } from "./DataDisplay/Popup/index.vue";
+export { default as EzTooltip } from "./DataDisplay/Tooltip/index.vue";
+export { default as EzTable } from "./DataDisplay/Table/index.vue";
+
+export { useAlertDialog, ConfirmDialog } from "./Feedback/Dialog";
+export { useMessage } from "./Feedback/Message";
