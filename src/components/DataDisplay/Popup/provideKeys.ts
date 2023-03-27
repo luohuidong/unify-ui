@@ -1,15 +1,7 @@
 import type { InjectionKey, Ref } from "vue";
+import type { RootProps, RootEmits } from "./types";
 
-export const rootPropsKey = Symbol() as InjectionKey<{
-  placement: "top" | "bottom" | "left" | "right";
-  appendToBody?: boolean;
-  overlayClassName?: string;
-  backgroundColor?: string;
-  fontColor?: string;
-  showArrow?: boolean;
-  trigger?: "hover" | "click" | "focus" | "controlled";
-  visible?: boolean;
-}>;
+export const rootPropsKey = Symbol() as InjectionKey<RootProps>;
 
 export const referenceRefKey = Symbol() as InjectionKey<{
   referenceRef: Ref<Element | null>;
@@ -24,3 +16,5 @@ export const floatingArrowRefKey = Symbol() as InjectionKey<{
   floatingArrowRef: Ref<HTMLElement | null>;
   setFloatingArrowRef: (e: HTMLElement) => void;
 }>;
+
+export const rootEmitsKey = Symbol() as InjectionKey<RootEmits>;
