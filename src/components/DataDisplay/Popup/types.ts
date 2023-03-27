@@ -1,4 +1,5 @@
 import type { Ref } from "vue";
+
 export interface RootProps {
   placement: "top" | "bottom" | "left" | "right";
   appendToBody?: boolean;
@@ -8,6 +9,7 @@ export interface RootProps {
   showArrow?: boolean;
   trigger?: "hover" | "click" | "focus" | "controlled";
   visible?: boolean;
+  disabled?: boolean;
 }
 
 export type RootEmits = (e: "update:visible", visible: boolean) => void;
