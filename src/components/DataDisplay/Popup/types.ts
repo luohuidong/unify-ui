@@ -1,3 +1,4 @@
+import type { Ref } from "vue";
 export interface RootProps {
   placement: "top" | "bottom" | "left" | "right";
   appendToBody?: boolean;
@@ -10,3 +11,5 @@ export interface RootProps {
 }
 
 export type RootEmits = (e: "update:visible", visible: boolean) => void;
+
+export type ElementRef = Ref<HTMLElement | null>;
