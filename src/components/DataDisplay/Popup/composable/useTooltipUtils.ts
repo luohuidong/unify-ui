@@ -1,15 +1,13 @@
 import { computePosition, flip, shift, offset, arrow, autoUpdate } from "@floating-ui/dom";
-import { inject, Ref } from "vue";
-import type { RootProps } from "../types";
+import { inject } from "vue";
+import type { RootProps, ElementRef } from "../types";
 import * as provideKeys from "../provideKeys";
-
-type ElementRef = Ref<HTMLElement | null>;
 
 export function useTooltipUtils({
   referenceRef,
   floatingRef,
   floatingArrowRef,
-  rootProps: props,
+  rootProps,
 }: {
   referenceRef: ElementRef;
   floatingRef: ElementRef;
@@ -26,7 +24,7 @@ export function useTooltipUtils({
 
     if (reference && floating && floatingArrow) {
       computePosition(reference, floating, {
-        placement: props.placement,
+        placement: rootProps.placement,
         middleware: [offset(6), flip(), shift({ padding: 5 }), arrow({ element: floatingArrow })],
       }).then(({ x, y, middlewareData, placement }) => {
         Object.assign(floating.style, {
@@ -59,6 +57,8 @@ export function useTooltipUtils({
   let cleanup: (() => void) | null = null;
 
   function showTooltip() {
+    if (rootProps.disabled) return;
+
     const reference = referenceRef.value;
     const floating = floatingRef.value;
 

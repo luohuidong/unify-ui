@@ -23,6 +23,7 @@ const props = withDefaults(
     showArrow?: boolean;
     trigger?: "hover" | "click" | "focus" | "controlled";
     visible?: boolean;
+    disabled?: boolean;
   }>(),
   {
     appendToBody: false,
