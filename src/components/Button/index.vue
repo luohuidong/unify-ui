@@ -9,7 +9,7 @@ export default defineComponent({
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    type: "text" | "outlined" | "contained";
+    type?: "text" | "outlined" | "contained";
   }>(),
   {
     type: "outlined",
