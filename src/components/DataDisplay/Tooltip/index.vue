@@ -13,11 +13,12 @@ defineProps<{
   title: string;
   placement: "top" | "bottom" | "left" | "right";
   appendToBody?: boolean;
+  disabled?: boolean;
 }>();
 </script>
 
 <template>
-  <EzPopup :append-to-body="appendToBody" :placement="placement">
+  <EzPopup :append-to-body="appendToBody" :placement="placement" :disabled="disabled">
     <slot></slot>
 
     <template #content>
