@@ -22,8 +22,10 @@ import CheckboxGroupCase from "./CheckboxGroupCase.vue";
       <ul>
         <li>check: <EzCheckbox :checked="true" indeterminate></EzCheckbox></li>
         <li>not checked:<EzCheckbox :checked="false" indeterminate></EzCheckbox></li>
-        <li>check & disabled <EzCheckbox :checked="true" indeterminate></EzCheckbox></li>
-        <li>not check & disabled <EzCheckbox :checked="false" indeterminate></EzCheckbox></li>
+        <li>check & disabled <EzCheckbox :checked="true" disabled indeterminate></EzCheckbox></li>
+        <li>
+          not check & disabled <EzCheckbox :checked="false" disabled indeterminate></EzCheckbox>
+        </li>
       </ul>
     </Variant>
 

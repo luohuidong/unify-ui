@@ -8,7 +8,7 @@ import type { Value } from "./types";
 const props = withDefaults(
   defineProps<{
     label?: string;
-    modelValue?: boolean;
+    checked?: boolean;
     value?: Value;
     disabled?: boolean;
     indeterminate?: boolean;
@@ -21,22 +21,9 @@ const props = withDefaults(
 );
 
 const emit = defineEmits<{
-  (e: "update:modelValue", checked: boolean): void;
+  (e: "update:checked", checked: boolean): void;
   (e: "change", checked: boolean): void;
 }>();
-
-const checked = ref<boolean>(false);
-watch(
-  () => props.modelValue,
-  (value) => {
-    if (value !== undefined && value !== checked.value) {
-      checked.value = value;
-    }
-  },
-  {
-    immediate: true,
-  }
-);
 
 // use this function when checkbox is inside checkbox group
 const handleChangeGroupValue = inject("handleChangeGroupValue", void 0) as
@@ -46,7 +33,7 @@ const handleChangeGroupValue = inject("handleChangeGroupValue", void 0) as
 function handleChange(e: Event) {
   const checked = (e.target as HTMLInputElement).checked;
   if (props.disabled === false) {
-    emit("update:modelValue", checked);
+    emit("update:checked", checked);
     emit("change", checked);
 
     props.value !== undefined &&
@@ -59,9 +46,9 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 </script>
 
 <template>
-  <label :class="$style.container">
+  <label :class="$style.label">
     <input
-      v-model="checked"
+      :checked="checked"
       :class="$style.input"
       type="checkbox"
       :value="value"
@@ -75,27 +62,33 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
       <Tick v-if="checked"></Tick>
     </div>
 
-    <span v-if="label" :class="$style.label">{{ label }}</span>
+    <span v-if="label" :class="[$style.label__text, $style['label__text--disabled']]">
+      {{ label }}
+    </span>
   </label>
 </template>
 
 <style lang="scss" module>
 $active-color: #037aff;
 $hover-color: #0261cc;
+
+$border-grey: rgba(206, 206, 206, 1);
+$background-grey: #f4f4f4;
+$font-grey: #a8abb2;
+
 %square {
   height: 14px;
   width: 14px;
-
-  overflow: hidden;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  overflow: hidden;
   border-radius: 2px;
 }
 
-.container {
+.label {
   height: 26px;
   display: inline-flex;
   align-items: center;
@@ -114,50 +107,83 @@ $hover-color: #0261cc;
   color: white;
   background: $active-color;
   border: 1px solid $active-color;
-
-  &:hover {
-    background-color: $hover-color;
-    border-color: $hover-color;
-  }
 }
 
-// custom checkbox
-.checkmark {
-  @extend %square;
-
-  color: white;
-  background: white;
-  border: 1px solid rgba(206, 206, 206, 1);
-}
-
-// When the checkbox is disabled, add grey background color
-.input:disabled ~ .checkmark {
-  color: #a8abb2;
-  background-color: #f4f4f4;
+.input:disabled ~ .indeterminate {
+  color: $font-grey;
+  background-color: $background-grey;
+  border-color: $border-grey;
   cursor: not-allowed;
 }
 
-// When the checkbox is checked, add a blue background and a white tick
-.input:not(:disabled):checked ~ .checkmark {
+// add icon color, checkmark background color, checkmark border color when checkbox is not hover, not checked, disabled
+// not hover - not checked - not disabled
+.checkmark {
+  @extend %square;
+
+  color: transparent;
+  background: white;
+  border: 1px solid $border-grey;
+}
+
+// not hover - not checked - disabled
+.input:disabled ~ .checkmark {
+  color: transparent;
+  background-color: $background-grey;
+  border-color: $border-grey;
+  cursor: not-allowed;
+}
+
+// not hover - checked - not disabled
+.input:checked ~ .checkmark {
   color: white;
-  background: $active-color;
-  border: 1px solid $active-color;
+  background-color: $active-color;
+  border-color: $active-color;
 }
 
-// On mouse-over, add a background color
-.container:hover > .input:not(:disabled) {
-  // When the checkbox is checked, add a blue background
-  &:checked ~ .checkmark {
-    background-color: $hover-color;
-  }
-
-  // When the checkbox is not checked, add a grey background
-  &:not(:checked) ~ .checkmark {
-    border: 1px solid $hover-color;
-  }
+// not hover - checked - disabled
+.input:checked:disabled ~ .checkmark {
+  color: $font-grey;
+  background-color: $background-grey;
+  border-color: $border-grey;
+  cursor: not-allowed;
 }
 
-.label {
+// hover - not checked - not disabled
+.label:hover > .checkmark {
+  color: transparent;
+  background-color: white;
+  border-color: $hover-color;
+}
+
+// hover - not checked - disabled
+.label:hover > .input:disabled ~ .checkmark {
+  color: transparent;
+  background-color: $background-grey;
+  border: 1px solid $border-grey;
+  cursor: not-allowed;
+}
+
+// hover - checked - not disabled
+.label:hover > .input:checked ~ .checkmark {
+  color: white;
+  background-color: $hover-color;
+  border-color: $hover-color;
+}
+
+// hover - checked - disabled
+.label:hover > .input:checked:disabled ~ .checkmark {
+  color: $font-grey;
+  background-color: $background-grey;
+  border-color: $border-grey;
+  cursor: not-allowed;
+}
+
+.label__text {
   padding: 0 8px;
+}
+
+.input:disabled ~ .label__text--disabled {
+  color: #a8abb2;
 }
 </style>
