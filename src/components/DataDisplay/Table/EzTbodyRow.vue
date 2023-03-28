@@ -66,7 +66,7 @@ function toggleExpandRow() {
         :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
       >
         <EzCheckbox
-          :model-value="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
+          :checked="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
           :disabled="rootProps.selection?.disabledCondition?.(record)"
           @change="(checked) => handleCheckboxChange(record, checked)"
         ></EzCheckbox>
