@@ -59,7 +59,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
       <IndeterminateIcon :width="14" :height="14"></IndeterminateIcon>
     </div>
     <div v-else :class="$style.checkmark">
-      <Tick v-if="checked"></Tick>
+      <Tick></Tick>
     </div>
 
     <span v-if="label" :class="[$style.label__text, $style['label__text--disabled']]">
