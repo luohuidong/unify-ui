@@ -47,6 +47,7 @@ provide("handleChangeGroupValue", handleChangeGroupValue);
     :key="item.label"
     :label="item.label"
     :value="item.value"
+    :checked="state.values.has(item.value)"
   ></EzCheckbox>
 </template>
 
