@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide, ref, watch, watchEffect, reactive } from "vue";
+import { provide, watch, reactive } from "vue";
 
 import EzCheckbox from "./EzCheckbox.vue";
 import type { Value } from "./types";
@@ -8,6 +8,7 @@ import { SetUtils } from "./utils";
 const props = defineProps<{
   options: { label: string; value: Value }[];
   modelValue: Set<Value>;
+  disabled?: boolean;
 }>();
 
 const emits = defineEmits<{
@@ -48,6 +49,7 @@ provide("handleChangeGroupValue", handleChangeGroupValue);
     :label="item.label"
     :value="item.value"
     :checked="state.values.has(item.value)"
+    :disabled="disabled"
   ></EzCheckbox>
 </template>
 
