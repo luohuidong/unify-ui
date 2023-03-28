@@ -102,7 +102,7 @@ function SelectionAllToggle(isSelectAll: boolean) {
       :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
     >
       <EzCheckbox
-        v-model="state.checkboxValue"
+        v-model:checked="state.checkboxValue"
         :indeterminate="state.indeterminate"
         :disabled="state.checkboxDisable"
         @change="SelectionAllToggle"
