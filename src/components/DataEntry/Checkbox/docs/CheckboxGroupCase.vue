@@ -26,22 +26,40 @@ const checkboxGroupValue2 = ref(new Set<string>(["test1", "test3"]));
   <ul>
     <li>
       normal checkbox group:
-      <EzCheckboxGroup v-model="checkboxGroupValue" :options="options"></EzCheckboxGroup>
+      <EzCheckboxGroup
+        v-model="checkboxGroupValue"
+        name="group1"
+        :options="options"
+      ></EzCheckboxGroup>
     </li>
 
     <li>
       with initial value:
-      <EzCheckboxGroup v-model="checkboxGroupValue2" :options="options"></EzCheckboxGroup>
+      <EzCheckboxGroup
+        v-model="checkboxGroupValue2"
+        name="group2"
+        :options="options"
+      ></EzCheckboxGroup>
     </li>
 
     <li>
       disabled checkbox group:
-      <EzCheckboxGroup v-model="checkboxGroupValue" :options="options" disabled></EzCheckboxGroup>
+      <EzCheckboxGroup
+        v-model="checkboxGroupValue"
+        name="group3"
+        :options="options"
+        disabled
+      ></EzCheckboxGroup>
     </li>
 
     <li>
       disabled checkbox group with initial value:
-      <EzCheckboxGroup v-model="checkboxGroupValue2" :options="options" disabled></EzCheckboxGroup>
+      <EzCheckboxGroup
+        v-model="checkboxGroupValue2"
+        name="group4"
+        :options="options"
+        disabled
+      ></EzCheckboxGroup>
     </li>
   </ul>
 </template>
