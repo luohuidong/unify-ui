@@ -22,6 +22,7 @@ import type { Key, Record, Column } from "./types";
 
 import EzThead from "./EzThead.vue";
 import EzTbodyRow from "./EzTbodyRow.vue";
+import EzTbodyEmptyRow from "./EzTbodyEmptyRow.vue";
 
 const props = defineProps<{
   /** 数据唯一索引 */
@@ -78,8 +79,12 @@ useShowShadow(containerRef, tableRef);
 
       <tbody>
         <!-- 渲染 data 数据 -->
-        <template v-for="record in props.data" :key="(record[props.rowKey] as string)">
-          <EzTbodyRow :record="record">
+        <template v-if="props.data.length > 0">
+          <EzTbodyRow
+            v-for="record in props.data"
+            :key="(record[props.rowKey] as string)"
+            :record="record"
+          >
             <template #rowCell="{ columnKey }">
               <slot :name="columnKey" :record="record"></slot>
             </template>
@@ -88,6 +93,11 @@ useShowShadow(containerRef, tableRef);
               <slot name="rowExpand" :record="record"></slot>
             </template>
           </EzTbodyRow>
+        </template>
+        <template v-else>
+          <EzTbodyEmptyRow>
+            <slot name="empty"></slot>
+          </EzTbodyEmptyRow>
         </template>
       </tbody>
 
@@ -114,4 +124,6 @@ useShowShadow(containerRef, tableRef);
   table-layout: fixed;
   overflow: hidden;
 }
+
+
 </style>
