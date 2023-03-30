@@ -8,6 +8,7 @@ import { SetUtils } from "./utils";
 const props = defineProps<{
   options: { label: string; value: Value }[];
   modelValue: Set<Value>;
+  name: string;
   disabled?: boolean;
 }>();
 
@@ -46,6 +47,7 @@ provide("handleChangeGroupValue", handleChangeGroupValue);
   <EzCheckbox
     v-for="item in options"
     :key="item.label"
+    :name="name"
     :label="item.label"
     :value="item.value"
     :checked="state.values.has(item.value)"
