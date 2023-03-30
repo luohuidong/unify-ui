@@ -5,7 +5,7 @@ import { expandColumnWidth } from "./constant";
 
 import EzTheadSelection from "./EzTheadSelection.vue";
 
-const { columnsData, showShadow, rootProps } = useInject();
+const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
 </script>
 
 <template>
@@ -42,8 +42,13 @@ const { columnsData, showShadow, rootProps } = useInject();
           },
         ]"
       >
-        <div :class="[commonStyle['cell__inner'], commonStyle.ellipsis]">
-          {{ col.title }}
+        <div :class="commonStyle['cell__inner']">
+          <template v-if="rootSlotKeys.has(`header-${col.key}`)">
+            <slot name="theadCell" :column-key="`header-${col.key}`"></slot>
+          </template>
+          <template v-else>
+            {{ col.title }}
+          </template>
         </div>
       </th>
     </tr>

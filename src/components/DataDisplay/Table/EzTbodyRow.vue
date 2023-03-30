@@ -14,7 +14,7 @@ defineProps<{
   record: Record;
 }>();
 
-const { rootProps, columnsData, slotKeys, columnCount, showShadow, rootState } = useInject();
+const { rootProps, columnsData, rootSlotKeys, columnCount, showShadow, rootState } = useInject();
 const { handleCheckboxChange, handleRadioClick } = useSelection();
 
 const state = reactive({
@@ -103,7 +103,7 @@ function toggleExpandRow() {
       ]"
     >
       <div :class="commonStyle['cell__inner']">
-        <template v-if="slotKeys.has(col.key)">
+        <template v-if="rootSlotKeys.has(col.key)">
           <slot name="rowCell" :column-key="col.key"></slot>
         </template>
 

@@ -70,7 +70,11 @@ useShowShadow(containerRef, tableRef);
 <template>
   <div ref="containerRef" :class="$style.container">
     <table ref="tableRef" :class="$style.table">
-      <EzThead></EzThead>
+      <EzThead>
+        <template #theadCell="{ columnKey }">
+          <slot :name="columnKey"></slot>
+        </template>
+      </EzThead>
 
       <tbody>
         <!-- 渲染 data 数据 -->
@@ -108,5 +112,6 @@ useShowShadow(containerRef, tableRef);
   background: white;
   border-collapse: collapse;
   table-layout: fixed;
+  overflow: hidden;
 }
 </style>
