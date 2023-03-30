@@ -5,6 +5,7 @@ import MultipleSelection from "./MultipleSelection.vue";
 import SingleSelection from "./SingleSelection.vue";
 import ExpandableRow from "./ExpandableRow.vue";
 import CustomHeaderCase from "./CustomHeaderCase.vue";
+import NodataCase from "./NodataCase.vue";
 </script>
 
 <template>
@@ -31,6 +32,10 @@ import CustomHeaderCase from "./CustomHeaderCase.vue";
 
     <Variant title="Custom Header">
       <CustomHeaderCase></CustomHeaderCase>
+    </Variant>
+
+    <Variant title="No Data">
+      <NodataCase></NodataCase>
     </Variant>
   </Story>
 </template>
