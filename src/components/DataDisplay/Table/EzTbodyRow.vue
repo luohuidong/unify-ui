@@ -98,7 +98,6 @@ function toggleExpandRow() {
             col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
           [commonStyle['cell--shadow-left']]:
             col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
-          [commonStyle.ellipsis]: !col.fixed,
         },
       ]"
     >
