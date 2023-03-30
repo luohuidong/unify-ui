@@ -4,6 +4,7 @@ import FixedColumnCase from "./FixedColumnCase.vue";
 import MultipleSelection from "./MultipleSelection.vue";
 import SingleSelection from "./SingleSelection.vue";
 import ExpandableRow from "./ExpandableRow.vue";
+import CustomHeaderCase from "./CustomHeaderCase.vue";
 </script>
 
 <template>
@@ -26,6 +27,10 @@ import ExpandableRow from "./ExpandableRow.vue";
 
     <Variant title="ExpandableRow">
       <ExpandableRow></ExpandableRow>
+    </Variant>
+
+    <Variant title="Custom Header">
+      <CustomHeaderCase></CustomHeaderCase>
     </Variant>
   </Story>
 </template>
