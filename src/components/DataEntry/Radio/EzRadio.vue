@@ -2,6 +2,7 @@
 defineProps<{
   name: string;
   title: string;
+  value: string | number;
 }>();
 </script>
 
