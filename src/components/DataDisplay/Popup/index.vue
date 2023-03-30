@@ -79,20 +79,20 @@ watch(
 <template>
   <div ref="referenceRef" :class="$style.container">
     <slot></slot>
-  </div>
 
-  <template v-if="appendToBody">
-    <Teleport to="body">
+    <template v-if="appendToBody">
+      <Teleport to="body">
+        <FloatingElement>
+          <slot name="content"></slot>
+        </FloatingElement>
+      </Teleport>
+    </template>
+    <template v-else>
       <FloatingElement>
         <slot name="content"></slot>
       </FloatingElement>
-    </Teleport>
-  </template>
-  <template v-else>
-    <FloatingElement>
-      <slot name="content"></slot>
-    </FloatingElement>
-  </template>
+    </template>
+  </div>
 </template>
 
 <style module>
