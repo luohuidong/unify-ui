@@ -43,6 +43,7 @@ const props = defineProps<{
     disabledCondition?: (record: Record) => boolean;
   };
   selectedRowKeys?: Set<Key>;
+  tbodyRowClass?: string;
 }>();
 provide(injectKeys.rootPropsKey, props);
 
@@ -124,6 +125,4 @@ useShowShadow(containerRef, tableRef);
   table-layout: fixed;
   overflow: hidden;
 }
-
-
 </style>
