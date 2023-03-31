@@ -34,6 +34,7 @@ function toggleExpandRow() {
       {
         [$style['normal-row--selection']]: rootState.selectedRowKeys.has(record[rootProps.rowKey]),
       },
+      rootProps.tbodyRowClass,
     ]"
   >
     <!-- expand column cell -->
