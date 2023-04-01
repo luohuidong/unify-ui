@@ -9,6 +9,7 @@ import { expandColumnWidth } from "./constant";
 import { EzCheckbox } from "@/components";
 import Add from "./icons/Add.vue";
 import Minus from "./icons/Minus.vue";
+import EzTbodyExpandRow from "./EzTbodyExpandRow.vue";
 
 defineProps<{
   record: Record;
@@ -113,11 +114,12 @@ function toggleExpandRow() {
   </tr>
 
   <!-- expand row -->
-  <tr v-if="state.showExpandRow && rootProps.rowExpand?.expandCondition(record)">
-    <td :colspan="columnCount" :class="$style['expand-row__cell']" :style="{ padding: '16px' }">
-      <slot name="rowExpand"></slot>
-    </td>
-  </tr>
+  <EzTbodyExpandRow
+    v-if="state.showExpandRow && rootProps.rowExpand?.expandCondition(record)"
+    :record="record"
+  >
+    <slot name="rowExpand"></slot>
+  </EzTbodyExpandRow>
 </template>
 
 <style lang="scss" module>
@@ -170,11 +172,5 @@ function toggleExpandRow() {
     left: 0;
     z-index: 1;
   }
-}
-
-.expand-row__cell {
-  padding: 16px;
-  border-bottom: 1px solid #f0f0f0;
-  background: rgba(0, 0, 0, 0.02);
 }
 </style>
