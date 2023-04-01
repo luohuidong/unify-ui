@@ -23,7 +23,7 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
       </template>
 
       <th
-        v-for="col in columnsData"
+        v-for="(col, index) in columnsData"
         :key="col.key"
         scoop="column"
         :style="{
@@ -48,12 +48,15 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
         <template v-else>
           {{ col.title }}
         </template>
+        <div v-if="index !== columnsData.length - 1" :class="$style.divider"></div>
       </th>
     </tr>
   </thead>
 </template>
 
 <style lang="scss" module>
+$border-color: #f0f0f0;
+
 .cell {
   box-sizing: border-box;
 
@@ -67,7 +70,7 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
   text-align: left;
   font-size: 14px;
   font-weight: 500;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid $border-color;
   background: #f5f6fa;
   color: #666666;
 }
@@ -76,5 +79,14 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
   position: sticky;
   left: 0;
   z-index: 3;
+}
+
+.divider {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  background: $border-color;
 }
 </style>
