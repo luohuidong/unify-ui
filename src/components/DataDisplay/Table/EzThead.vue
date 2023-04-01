@@ -9,7 +9,7 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
 </script>
 
 <template>
-  <thead :class="$style.tableHead">
+  <thead>
     <tr>
       <template v-if="rootProps.rowExpand">
         <th
@@ -42,14 +42,12 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
           },
         ]"
       >
-        <div :class="commonStyle['cell__inner']">
-          <template v-if="rootSlotKeys.has(`header-${col.key}`)">
-            <slot name="theadCell" :column-key="`header-${col.key}`"></slot>
-          </template>
-          <template v-else>
-            {{ col.title }}
-          </template>
-        </div>
+        <template v-if="rootSlotKeys.has(`header-${col.key}`)">
+          <slot name="theadCell" :column-key="`header-${col.key}`"></slot>
+        </template>
+        <template v-else>
+          {{ col.title }}
+        </template>
       </th>
     </tr>
   </thead>
@@ -63,8 +61,9 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
   top: 0;
 
   height: 50px;
+  padding: 16px;
 
-  white-space: nowrap;
+  word-wrap: break-word;
   text-align: left;
   font-size: 14px;
   font-weight: 500;

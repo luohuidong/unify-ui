@@ -102,15 +102,13 @@ function toggleExpandRow() {
         },
       ]"
     >
-      <div :class="commonStyle['cell__inner']">
-        <template v-if="rootSlotKeys.has(col.key)">
-          <slot name="rowCell" :column-key="col.key"></slot>
-        </template>
+      <template v-if="rootSlotKeys.has(col.key)">
+        <slot name="rowCell" :column-key="col.key"></slot>
+      </template>
 
-        <template v-else>
-          {{ record[col.key] }}
-        </template>
-      </div>
+      <template v-else>
+        {{ record[col.key] }}
+      </template>
     </td>
   </tr>
 
@@ -124,7 +122,6 @@ function toggleExpandRow() {
 
 <style lang="scss" module>
 .normal-row {
-  white-space: nowrap;
   text-align: left;
   font-size: 14px;
   background-color: white;
@@ -142,8 +139,11 @@ function toggleExpandRow() {
   }
 
   .normal-row__cell {
+    word-wrap: break-word;
+    box-sizing: border-box;
     position: relative;
     height: 50px;
+    padding: 16px;
     border-bottom: 1px solid #f0f0f0;
     background: inherit;
   }
