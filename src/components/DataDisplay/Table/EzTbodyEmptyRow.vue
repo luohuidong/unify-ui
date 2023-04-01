@@ -14,7 +14,7 @@ const { columnCount } = useInject();
 
 <style lang="scss" module>
 .empty-row__cell {
-  min-height: 50px;
+  height: 50px;
   text-align: center;
   font-size: 12px;
   color: #666666;
