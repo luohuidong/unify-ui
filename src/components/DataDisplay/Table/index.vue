@@ -123,6 +123,5 @@ useShowShadow(containerRef, tableRef);
   background: white;
   border-collapse: collapse;
   table-layout: fixed;
-  overflow: hidden;
 }
 </style>
