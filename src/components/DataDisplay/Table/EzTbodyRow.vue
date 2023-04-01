@@ -4,7 +4,6 @@ import { reactive } from "vue";
 import { useInject, useSelection } from "./composable";
 import type { Record } from "./types";
 import commonStyle from "./commonStyle.module.scss";
-import { expandColumnWidth } from "./constant";
 
 import { EzCheckbox } from "@/components";
 import Add from "./icons/Add.vue";
@@ -41,7 +40,6 @@ function toggleExpandRow() {
     <!-- expand column cell -->
     <td
       v-if="rootProps.rowExpand"
-      :style="{ width: expandColumnWidth + 'px' }"
       :class="[$style['normal-row__cell'], $style['normal-row__expand-toggle-cell']]"
     >
       <div
@@ -91,7 +89,6 @@ function toggleExpandRow() {
         left: col.leftOffset && `${col.leftOffset}px`,
         right: col.rightOffset && `${col.rightOffset}px`,
         zIndex: col.fixed ? 1 : 0,
-        width: col.width && `${col.width}px`,
       }"
       :class="[
         $style['normal-row__cell'],

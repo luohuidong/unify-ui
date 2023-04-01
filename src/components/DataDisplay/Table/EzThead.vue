@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useInject } from "./composable";
 import commonStyle from "./commonStyle.module.scss";
-import { expandColumnWidth } from "./constant";
 
 import EzTheadSelection from "./EzTheadSelection.vue";
 
@@ -12,10 +11,7 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
   <thead>
     <tr>
       <template v-if="rootProps.rowExpand">
-        <th
-          :class="[$style['cell'], $style['expand-column-cell']]"
-          :style="{ width: expandColumnWidth + 'px' }"
-        ></th>
+        <th :class="[$style['cell'], $style['expand-column-cell']]"></th>
       </template>
 
       <template v-if="rootProps.selection?.type">
@@ -27,7 +23,6 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
         :key="col.key"
         scoop="column"
         :style="{
-          width: col.width && `${col.width}px`,
           left: col.leftOffset && `${col.leftOffset}px`,
           right: col.rightOffset && `${col.rightOffset}px`,
           zIndex: col.fixed ? 3 : 2,

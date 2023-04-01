@@ -20,6 +20,7 @@ import {
 } from "./composable";
 import type { Key, Record, Column } from "./types";
 
+import EzColGroup from "./EzColGroup.vue";
 import EzThead from "./EzThead.vue";
 import EzTbodyRow from "./EzTbodyRow.vue";
 import EzTbodyEmptyRow from "./EzTbodyEmptyRow.vue";
@@ -72,6 +73,8 @@ useShowShadow(containerRef, tableRef);
 <template>
   <div ref="containerRef" :class="$style.container">
     <table ref="tableRef" :class="$style.table">
+      <EzColGroup></EzColGroup>
+
       <EzThead>
         <template #theadCell="{ columnKey }">
           <slot :name="columnKey"></slot>
