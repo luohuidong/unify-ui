@@ -115,7 +115,7 @@ function toggleExpandRow() {
   </tr>
 
   <!-- expand row -->
-  <tr v-show="state.showExpandRow && rootProps.rowExpand?.expandCondition(record)">
+  <tr v-if="state.showExpandRow && rootProps.rowExpand?.expandCondition(record)">
     <td :colspan="columnCount" :class="$style['expand-row__cell']" :style="{ padding: '16px' }">
       <slot name="rowExpand"></slot>
     </td>
