@@ -6,13 +6,13 @@ const { columnCount } = useInject();
 
 <template>
   <tr>
-    <td :class="$style['empty-row__cell']" :colspan="columnCount">
+    <td class="empty-row__cell" :colspan="columnCount">
       <slot> 暂无数据 </slot>
     </td>
   </tr>
 </template>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 .empty-row__cell {
   height: 50px;
   text-align: center;

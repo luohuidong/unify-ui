@@ -14,7 +14,7 @@ defineProps<{
   record: Record;
 }>();
 
-const { rootProps, columnsData, rootSlotKeys, columnCount, showShadow, rootState } = useInject();
+const { rootProps, columnsData, rootSlotKeys, showShadow, rootState } = useInject();
 const { handleCheckboxChange, handleRadioClick } = useSelection();
 
 const state = reactive({
@@ -29,38 +29,33 @@ function toggleExpandRow() {
 <template>
   <!-- normal row -->
   <tr
+    class="normal-row"
     :class="[
-      $style['normal-row'],
       {
-        [$style['normal-row--selection']]: rootState.selectedRowKeys.has(record[rootProps.rowKey]),
+        ['normal-row--selection']: rootState.selectedRowKeys.has(record[rootProps.rowKey]),
       },
       rootProps.tbodyRowClass,
     ]"
   >
     <!-- expand column cell -->
-    <td
-      v-if="rootProps.rowExpand"
-      :class="[$style['normal-row__cell'], $style['normal-row__expand-toggle-cell']]"
-    >
+    <td v-if="rootProps.rowExpand" class="normal-row__cell normal-row__expand-toggle-cell">
       <div
         v-if="rootProps.rowExpand?.expandCondition(record)"
-        :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
+        class="cell__inner"
+        :class="commonStyle['cell__inner--horizontal-center']"
       >
         <component
           :is="state.showExpandRow ? Minus : Add"
           :width="20"
           :height="20"
-          :class="$style['normal-row__expand-toggle-cell-icon']"
+          class="normal-row__expand-toggle-cell-icon"
           @click="toggleExpandRow"
         ></component>
       </div>
     </td>
 
     <!-- selection column cell -->
-    <td
-      v-if="rootProps.selection?.type"
-      :class="[$style['normal-row__cell'], $style['normal-row__selection-toggle-cell']]"
-    >
+    <td v-if="rootProps.selection?.type" class="normal-row__cell normal-row__selection-toggle-cell">
       <div
         v-if="rootProps.selection?.type === 'multiple'"
         :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
@@ -90,15 +85,13 @@ function toggleExpandRow() {
         right: col.rightOffset && `${col.rightOffset}px`,
         zIndex: col.fixed ? 1 : 0,
       }"
-      :class="[
-        $style['normal-row__cell'],
-        {
-          [commonStyle['cell--shadow-right']]:
-            col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-          [commonStyle['cell--shadow-left']]:
-            col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
-        },
-      ]"
+      class="normal-row__cell"
+      :class="{
+        [commonStyle['cell--shadow-right']]:
+          col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
+        [commonStyle['cell--shadow-left']]:
+          col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
+      }"
     >
       <template v-if="rootSlotKeys.has(col.key)">
         <slot name="rowCell" :column-key="col.key"></slot>
@@ -119,7 +112,7 @@ function toggleExpandRow() {
   </EzTbodyExpandRow>
 </template>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 .normal-row {
   text-align: left;
   font-size: 14px;
