@@ -1,21 +1,51 @@
 <script setup lang="ts">
-import { useInject } from "./composable";
+import { useInject, useSortEmit } from "./composable";
 import commonStyle from "./commonStyle.module.scss";
+import { ColumnData } from "./types";
 
 import EzTheadSelection from "./EzTheadSelection.vue";
+import EzTheadSort from "./EzTheadSort.vue";
 
-const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
+const { columnsData, showShadow, rootProps, rootSlotKeys, rootEmit } = useInject();
+const { handleSortEmit } = useSortEmit();
+
+function handleSort(column: ColumnData) {
+  if (!column.sortable) return;
+
+  const currentSort = rootProps.sort;
+
+  // if table is not sorted, current column will be sorted by ascending
+  if (!currentSort) {
+    handleSortEmit({ columnKey: column.key, order: "ascending" });
+    return;
+  }
+
+  // if current column is not sorted, sort by ascending
+  if (currentSort.columnKey !== column.key) {
+    handleSortEmit({ columnKey: column.key, order: "ascending" });
+    return;
+  }
+
+  // change current column sort order
+  const sortTypes = column.sortType || ["ascending", "descending"];
+  const index = sortTypes.findIndex((sortType) => sortType === currentSort.order);
+  if (index === sortTypes.length - 1) {
+    handleSortEmit(null);
+  } else {
+    handleSortEmit({ columnKey: column.key, order: sortTypes[index + 1] });
+  }
+}
 </script>
 
 <template>
   <thead>
     <tr>
       <template v-if="rootProps.rowExpand">
-        <th :class="[$style['cell'], $style['expand-column-cell']]"></th>
+        <th class="cell expand-column-cell"></th>
       </template>
 
       <template v-if="rootProps.selection?.type">
-        <EzTheadSelection :class="$style['cell']"></EzTheadSelection>
+        <EzTheadSelection class="cell"></EzTheadSelection>
       </template>
 
       <th
@@ -27,15 +57,15 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
           right: col.rightOffset && `${col.rightOffset}px`,
           zIndex: col.fixed ? 3 : 2,
         }"
-        :class="[
-          $style['cell'],
-          {
-            [commonStyle['cell--shadow-right']]:
-              col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-            [commonStyle['cell--shadow-left']]:
-              col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
-          },
-        ]"
+        class="cell"
+        :class="{
+          [commonStyle['cell--shadow-right']]:
+            col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
+          [commonStyle['cell--shadow-left']]:
+            col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
+          'cell--sortable': col.sortable,
+        }"
+        @click.stop="handleSort(col)"
       >
         <template v-if="rootSlotKeys.has(`header-${col.key}`)">
           <slot name="theadCell" :column-key="`header-${col.key}`"></slot>
@@ -43,13 +73,16 @@ const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
         <template v-else>
           {{ col.title }}
         </template>
-        <div v-if="index !== columnsData.length - 1" :class="$style.divider"></div>
+
+        <EzTheadSort v-if="col.sortable" :column-data="col"></EzTheadSort>
+
+        <div v-if="index !== columnsData.length - 1" class="divider"></div>
       </th>
     </tr>
   </thead>
 </template>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 $border-color: #f0f0f0;
 
 .cell {
@@ -68,6 +101,10 @@ $border-color: #f0f0f0;
   border-bottom: 1px solid $border-color;
   background: #f5f6fa;
   color: #666666;
+}
+
+.cell--sortable {
+  cursor: pointer;
 }
 
 .expand-column-cell {

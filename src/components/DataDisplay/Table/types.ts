@@ -2,6 +2,8 @@ export type Record = any;
 
 export type Key = string | number;
 
+export type SortType = "ascending" | "descending";
+
 export interface Column {
   key: string;
   title: string;
@@ -9,10 +11,10 @@ export interface Column {
   width?: number;
   fixed?: "left" | "right";
   sortable?: boolean;
+  sortType?: SortType[];
 }
 
 export interface RootProps {
-  /** 数据唯一索引 */
   rowKey: Key;
   data: Record[];
   columns: Column[];
@@ -22,10 +24,9 @@ export interface RootProps {
   };
   sort?: {
     columnKey: Key;
-    order: "ascending" | "descending";
-  };
+    order: SortType;
+  } | null;
   showFoot?: boolean;
-
   selection?: {
     type: "multiple" | "single";
     disabledCondition?: (record: Record) => boolean;
@@ -44,6 +45,10 @@ export interface RootEmit {
   (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
   /** emit when select/deselect all rows */
   (e: "selectAll", params: { selected: boolean; rowKeys: Key[]; records: Record[] }): void;
+  /** emit when click sortable column table header cell */
+  (e: "update:sort", params: { columnKey: Key; order: SortType } | null): void;
+  /** emit when click sortable column table header cell */
+  (e: "sortChange", params: { columnKey: Key; order: SortType } | null): void;
 }
 
 export interface ColumnData extends Column {

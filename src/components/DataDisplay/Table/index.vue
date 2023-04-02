@@ -18,7 +18,7 @@ import {
   useGetColumnCount,
   useGetSlotKey,
 } from "./composable";
-import type { Key, Record, Column } from "./types";
+import type { Key, Record, Column, SortType } from "./types";
 
 import EzColGroup from "./EzColGroup.vue";
 import EzThead from "./EzThead.vue";
@@ -26,7 +26,6 @@ import EzTbodyRow from "./EzTbodyRow.vue";
 import EzTbodyEmptyRow from "./EzTbodyEmptyRow.vue";
 
 const props = defineProps<{
-  /** 数据唯一索引 */
   rowKey: Key;
   data: Record[];
   columns: Column[];
@@ -36,8 +35,8 @@ const props = defineProps<{
   };
   sort?: {
     columnKey: Key;
-    order: "ascending" | "descending";
-  };
+    order: SortType;
+  } | null;
   showFoot?: boolean;
   selection?: {
     type: "multiple" | "single";
@@ -54,6 +53,10 @@ const emit = defineEmits<{
   (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
   /** emit when select/deselect all rows */
   (e: "selectAll", params: { selected: boolean; rowKeys: Key[]; records: Record[] }): void;
+  /** emit when click sortable column table header cell */
+  (e: "update:sort", params: { columnKey: Key; order: SortType } | null): void;
+  /** emit when click sortable column table header cell */
+  (e: "sortChange", params: { columnKey: Key; order: SortType } | null): void;
 }>();
 provide(injectKeys.rootEmitKey, emit);
 
@@ -71,8 +74,8 @@ useShowShadow(containerRef, tableRef);
 </script>
 
 <template>
-  <div ref="containerRef" :class="$style.container">
-    <table ref="tableRef" :class="$style.table">
+  <div ref="containerRef" class="scroll-container">
+    <table ref="tableRef" class="table">
       <EzColGroup></EzColGroup>
 
       <EzThead>
@@ -116,8 +119,8 @@ useShowShadow(containerRef, tableRef);
   </div>
 </template>
 
-<style lang="scss" module>
-.container {
+<style lang="scss" scoped>
+.scroll-container {
   overflow: auto;
 }
 

@@ -2,7 +2,6 @@
 import { watchEffect, reactive } from "vue";
 
 import { EzCheckbox } from "@/components";
-import { selectionColumnWidth } from "./constant";
 import { useInject } from "./composable";
 import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
@@ -96,7 +95,7 @@ function SelectionAllToggle(isSelectAll: boolean) {
 </script>
 
 <template>
-  <th :class="$style.selectionTh" :style="{ width: `${selectionColumnWidth}px` }">
+  <th class="th-selection-cell">
     <div
       v-if="rootProps.selection?.type === 'multiple'"
       :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
@@ -111,8 +110,8 @@ function SelectionAllToggle(isSelectAll: boolean) {
   </th>
 </template>
 
-<style lang="scss" module>
-.selectionTh {
+<style lang="scss" scoped>
+.th-selection-cell {
   position: sticky;
   top: 0;
   height: 50px;

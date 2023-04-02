@@ -6,6 +6,7 @@ import SingleSelection from "./SingleSelection.vue";
 import ExpandableRow from "./ExpandableRow.vue";
 import CustomHeaderCase from "./CustomHeaderCase.vue";
 import NodataCase from "./NodataCase.vue";
+import SortCase from "./SortCase.vue";
 </script>
 
 <template>
@@ -36,6 +37,10 @@ import NodataCase from "./NodataCase.vue";
 
     <Variant title="No Data">
       <NodataCase></NodataCase>
+    </Variant>
+
+    <Variant title="Sort Case">
+      <SortCase></SortCase>
     </Variant>
   </Story>
 </template>
