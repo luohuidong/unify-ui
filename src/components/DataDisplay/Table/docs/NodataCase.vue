@@ -3,20 +3,18 @@ import EzTable from "../index.vue";
 
 const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
-    title: "标识",
-    key: "id",
-  },
-  {
-    title: "用户标识",
-    key: "userId",
-  },
-  {
-    title: "标题",
+    title: "Title",
     key: "title",
+    width: 120,
   },
   {
-    title: "是否完成",
-    key: "completed",
+    title: "Author",
+    key: "author",
+    width: 200,
+  },
+  {
+    title: "Post",
+    key: "post",
   },
 ];
 </script>
@@ -41,7 +39,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
             />
           </svg>
 
-          <span>No Data</span>
+          <span>自定义暂无数据</span>
         </div>
       </template>
     </EzTable>

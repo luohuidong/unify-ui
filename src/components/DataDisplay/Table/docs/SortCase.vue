@@ -12,26 +12,24 @@ const sort = ref<TableType["sort"]>(null);
 
 const columns: TableType["$props"]["columns"] = [
   {
-    title: "标识",
-    key: "id",
-    sortable: true,
-    sortType: ["ascending", "descending"],
-  },
-  {
-    title: "用户标识",
-    key: "userId",
-    sortable: true,
-    sortType: ["ascending"],
-  },
-  {
-    title: "标题",
+    title: "Title",
     key: "title",
     sortable: true,
     sortType: ["ascending", "descending"],
+    width: 200,
   },
   {
-    title: "是否完成",
-    key: "completed",
+    title: "Author",
+    key: "author",
+    sortable: true,
+    sortType: ["ascending"],
+    width: 200,
+  },
+  {
+    title: "Post",
+    key: "post",
+    sortable: true,
+    sortType: ["ascending", "descending"],
   },
 ];
 

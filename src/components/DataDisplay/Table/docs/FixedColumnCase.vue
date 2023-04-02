@@ -6,28 +6,23 @@ const { data } = useFetchData();
 
 const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
-    title: "标识",
-    key: "id",
+    title: "Title",
+    key: "title",
     fixed: "left",
     width: 100,
   },
   {
-    title: "用户标识",
-    key: "userId",
+    title: "Author",
+    key: "author",
     width: 150,
   },
   {
-    title: "标题",
-    key: "title",
-    width: 300,
+    title: "Post",
+    key: "post",
+    width: 600,
   },
   {
-    title: "是否完成",
-    key: "completed",
-    width: 100,
-  },
-  {
-    title: "操作",
+    title: "Actions",
     key: "actions",
     fixed: "right",
     width: 60,
@@ -44,7 +39,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 
 <style scoped>
 .container {
-  width: 600px;
+  width: 100%;
   height: 500px;
 }
 </style>

@@ -1,22 +1,21 @@
 import { onMounted, ref } from "vue";
+import { faker } from "@faker-js/faker";
 
 type Posts = {
-  userId: number;
-  id: number;
+  id: string;
   title: string;
-  completed: boolean;
+  author: string;
+  post: string;
 }[];
 
 export default function useFetchData() {
-  const data = ref<Posts>([]);
-
-  onMounted(() => {
-    fetch("https://jsonplaceholder.typicode.com/todos")
-      .then((response) => response.json())
-      .then((json) => {
-        data.value = json.splice(0, 10);
-      });
-  });
+  const data: Posts = new Array(10).fill(0).map(() => ({
+    id: faker.datatype.uuid(),
+    title: faker.lorem.word(),
+    author: faker.name.fullName(),
+    post: faker.lorem.paragraph(),
+    description: Math.random() > 0.7 ? faker.lorem.paragraph() : "",
+  }));
 
   return {
     data,

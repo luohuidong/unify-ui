@@ -6,27 +6,25 @@ const { data } = useFetchData();
 
 const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
-    title: "标识",
-    key: "id",
-  },
-  {
-    title: "用户标识",
-    key: "userId",
-  },
-  {
-    title: "标题",
+    title: "Title",
     key: "title",
+    width: 150,
   },
   {
-    title: "是否完成",
-    key: "completed",
+    title: "Author",
+    key: "userId",
+    width: 150,
+  },
+  {
+    title: "Post",
+    key: "post",
   },
 ];
 </script>
 
 <template>
   <EzTable row-key="id" :columns="columns" :data="data">
-    <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
+    <template #userId="{ record }"> Author is {{ record.author }} </template>
   </EzTable>
 </template>
 

@@ -6,30 +6,23 @@ const { data } = useFetchData();
 
 const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
-    title: "标识",
-    key: "id",
-    fixed: "left",
+    title: "Title",
+    key: "title",
     width: 120,
   },
   {
-    title: "用户标识",
-    key: "userId",
+    title: "Author",
+    key: "author",
     width: 200,
   },
   {
-    title: "标题",
-    key: "title",
-    width: 200,
-  },
-  {
-    title: "是否完成",
-    key: "completed",
-    width: 200,
+    title: "Post",
+    key: "post",
   },
 ];
 
 const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
-  expandCondition: (row) => row.completed as boolean,
+  expandCondition: (row) => row.description as boolean,
   showExpandRowDefault: true,
 };
 </script>
@@ -39,7 +32,7 @@ const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
 
     <template #rowExpand="{ record }">
-      {{ `【展开行】标题： ${record.title}，完成状态： ${record.completed}` }}
+      {{ `Expand row： ${record.description}` }}
     </template>
   </EzTable>
 </template>
