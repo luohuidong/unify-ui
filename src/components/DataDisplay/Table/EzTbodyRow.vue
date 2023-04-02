@@ -91,6 +91,7 @@ function toggleExpandRow() {
           col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
         [commonStyle['cell--shadow-left']]:
           col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
+        ['normal-row__cell--text-ellipsis']: col.ellipsis,
       }"
     >
       <template v-if="rootSlotKeys.has(col.key)">
@@ -98,7 +99,7 @@ function toggleExpandRow() {
       </template>
 
       <template v-else>
-        {{ record[col.key] }}
+        <span :title="col.ellipsis && record[col.key]">{{ record[col.key] }}</span>
       </template>
     </td>
   </tr>
@@ -138,6 +139,12 @@ function toggleExpandRow() {
     padding: 16px;
     border-bottom: 1px solid #f0f0f0;
     background: inherit;
+  }
+
+  .normal-row__cell--text-ellipsis {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   .normal-row__expand-toggle-cell {

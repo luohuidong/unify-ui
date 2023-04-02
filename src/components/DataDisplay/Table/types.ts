@@ -7,11 +7,13 @@ export type SortType = "ascending" | "descending";
 export interface Column {
   key: string;
   title: string;
-  // should pass width if column is fixed.
+  /** should pass width if column is fixed. */
   width?: number;
   fixed?: "left" | "right";
   sortable?: boolean;
   sortType?: SortType[];
+  /** ellipsis cell content via setting column.ellipsis. ellipsis only valid the column not use the slot  */
+  ellipsis?: boolean;
 }
 
 export interface RootProps {

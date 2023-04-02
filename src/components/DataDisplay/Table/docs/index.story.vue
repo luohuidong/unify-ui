@@ -7,6 +7,7 @@ import ExpandableRow from "./ExpandableRow.vue";
 import CustomHeaderCase from "./CustomHeaderCase.vue";
 import NodataCase from "./NodataCase.vue";
 import SortCase from "./SortCase.vue";
+import TextEllipsis from "./TextEllipsis.vue";
 </script>
 
 <template>
@@ -41,6 +42,10 @@ import SortCase from "./SortCase.vue";
 
     <Variant title="Sort Case">
       <SortCase></SortCase>
+    </Variant>
+
+    <Variant title="Text Ellipsis">
+      <TextEllipsis></TextEllipsis>
     </Variant>
   </Story>
 </template>
