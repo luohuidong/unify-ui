@@ -70,6 +70,8 @@ useGetSlotKey(slots);
 
 const containerRef = ref<HTMLDivElement>();
 const tableRef = ref<HTMLTableElement>();
+provide(injectKeys.containerRefKey, containerRef);
+provide(injectKeys.tableRefKey, tableRef);
 useShowShadow(containerRef, tableRef);
 </script>
 

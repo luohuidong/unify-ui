@@ -12,6 +12,9 @@ export function useInject() {
   const columnsData = inject(injectKeys.columnsDataKey) as ComputedRef<ColumnData[]>;
   const showShadow = inject(injectKeys.shadowShow) as ShowShadow;
 
+  const rootContainerRef = inject(injectKeys.containerRefKey) as Ref<HTMLElement | undefined>;
+  const tableRefKey = inject(injectKeys.tableRefKey) as Ref<HTMLElement | undefined>;
+
   return {
     rootProps,
     rootState,
@@ -20,5 +23,7 @@ export function useInject() {
     columnCount,
     columnsData,
     showShadow,
+    rootContainerRef,
+    tableRefKey,
   };
 }
