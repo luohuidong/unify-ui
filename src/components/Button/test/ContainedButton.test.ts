@@ -5,7 +5,9 @@ test("it should work", async () => {
   const { getByText } = render(Button, {
     props: {
       type: "contained",
-      text: "test button",
+    },
+    slots: {
+      default: "test button",
     },
   });
 
