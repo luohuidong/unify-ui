@@ -1,11 +1,13 @@
 {
   "name": "@luohuidong/easy-ui",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "type": "module",
   "files": [
-    "dist"
+    "dist",
+    "types"
   ],
-  "main": "./dist/easy-ui.js",
+  "main": "dist/easy-ui.js",
+  "types": "types/index.d.ts",
   "scripts": {
     "dev": "histoire dev",
     "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly ",
