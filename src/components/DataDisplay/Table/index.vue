@@ -64,7 +64,7 @@ provide(injectKeys.rootEmitKey, emit);
 const { state } = useState(props);
 useWatchProps(props, state);
 const columnCount = useGetColumnCount(props);
-useGetColumnsInfo(props);
+const { columnsData } = useGetColumnsInfo(props);
 
 const slots = useSlots();
 useGetSlotKey(slots);
@@ -73,7 +73,7 @@ const containerRef = ref<HTMLDivElement>();
 const tableRef = ref<HTMLTableElement>();
 provide(injectKeys.containerRefKey, containerRef);
 provide(injectKeys.tableRefKey, tableRef);
-useShowShadow(containerRef, tableRef);
+useShowShadow({ containerRef, tableRef, columnsData, rootProps: props });
 </script>
 
 <template>

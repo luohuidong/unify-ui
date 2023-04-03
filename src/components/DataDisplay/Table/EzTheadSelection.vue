@@ -7,7 +7,7 @@ import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
 import commonStyle from "./commonStyle.module.scss";
 
-const { rootProps, rootState, rootEmit } = useInject();
+const { rootProps, rootState, rootEmit, showShadow } = useInject();
 
 const state = reactive({
   checkboxValue: false,
@@ -98,7 +98,11 @@ function SelectionAllToggle(isSelectAll: boolean) {
   <th class="th-selection-cell">
     <div
       v-if="rootProps.selection?.type === 'multiple'"
-      :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
+      :class="[
+        commonStyle['cell__inner'],
+        commonStyle['cell__inner--horizontal-center'],
+        { [commonStyle['cell--shadow-right']]: showShadow.selectionColumnShadowVisible },
+      ]"
     >
       <EzCheckbox
         v-model:checked="state.checkboxValue"

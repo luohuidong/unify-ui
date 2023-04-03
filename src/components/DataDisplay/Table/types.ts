@@ -64,4 +64,6 @@ export interface ColumnData extends Column {
 export interface ShowShadow {
   showLeftFixedColumnShadow: boolean;
   showRightFixedColumnShadow: boolean;
+  selectionColumnShadowVisible: boolean;
+  expandColumnShadowVisible: boolean;
 }

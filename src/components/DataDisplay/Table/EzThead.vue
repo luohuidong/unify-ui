@@ -41,7 +41,10 @@ function handleSort(column: ColumnData) {
   <thead>
     <tr>
       <template v-if="rootProps.rowExpand">
-        <th class="cell expand-column-cell"></th>
+        <th
+          class="cell expand-column-cell"
+          :class="{ [commonStyle['cell--shadow-right']]: showShadow.expandColumnShadowVisible }"
+        ></th>
       </template>
 
       <template v-if="rootProps.selection?.type">
