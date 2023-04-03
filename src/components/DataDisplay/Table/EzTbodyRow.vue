@@ -38,7 +38,11 @@ function toggleExpandRow() {
     ]"
   >
     <!-- expand column cell -->
-    <td v-if="rootProps.rowExpand" class="normal-row__cell normal-row__expand-toggle-cell">
+    <td
+      v-if="rootProps.rowExpand"
+      class="normal-row__cell normal-row__expand-toggle-cell"
+      :class="rootProps.tbodyCellClass"
+    >
       <div
         v-if="rootProps.rowExpand?.expandCondition(record)"
         class="cell__inner"
@@ -55,7 +59,11 @@ function toggleExpandRow() {
     </td>
 
     <!-- selection column cell -->
-    <td v-if="rootProps.selection?.type" class="normal-row__cell normal-row__selection-toggle-cell">
+    <td
+      v-if="rootProps.selection?.type"
+      class="normal-row__cell normal-row__selection-toggle-cell"
+      :class="rootProps.tbodyCellClass"
+    >
       <div
         v-if="rootProps.selection?.type === 'multiple'"
         :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]"
@@ -86,13 +94,16 @@ function toggleExpandRow() {
         zIndex: col.fixed ? 1 : 0,
       }"
       class="normal-row__cell"
-      :class="{
-        [commonStyle['cell--shadow-right']]:
-          col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-        [commonStyle['cell--shadow-left']]:
-          col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
-        ['normal-row__cell--text-ellipsis']: col.ellipsis,
-      }"
+      :class="[
+        {
+          [commonStyle['cell--shadow-right']]:
+            col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
+          [commonStyle['cell--shadow-left']]:
+            col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
+          ['normal-row__cell--text-ellipsis']: col.ellipsis,
+        },
+        rootProps.tbodyCellClass,
+      ]"
     >
       <template v-if="rootSlotKeys.has(col.key)">
         <slot name="rowCell" :column-key="col.key"></slot>

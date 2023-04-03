@@ -34,7 +34,8 @@ export interface RootProps {
     disabledCondition?: (record: Record) => boolean;
   };
   selectedRowKeys?: Set<Key>;
-  tbodyRowClass?: string;
+  tbodyRowClass?: string | ((record: Record) => string);
+  tbodyCellClass?: string;
 }
 
 export interface RootState {

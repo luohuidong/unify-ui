@@ -43,7 +43,8 @@ const props = defineProps<{
     disabledCondition?: (record: Record) => boolean;
   };
   selectedRowKeys?: Set<Key>;
-  tbodyRowClass?: string;
+  tbodyRowClass?: string | ((record: Record) => string);
+  tbodyCellClass?: string;
 }>();
 provide(injectKeys.rootPropsKey, props);
 
