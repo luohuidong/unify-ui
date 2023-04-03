@@ -6,7 +6,7 @@ import { ColumnData } from "./types";
 import EzTheadSelection from "./EzTheadSelection.vue";
 import EzTheadSort from "./EzTheadSort.vue";
 
-const { columnsData, showShadow, rootProps, rootSlotKeys, rootEmit } = useInject();
+const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
 const { handleSortEmit } = useSortEmit();
 
 function handleSort(column: ColumnData) {

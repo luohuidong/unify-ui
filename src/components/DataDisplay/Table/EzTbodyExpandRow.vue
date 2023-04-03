@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { useInject, useGetColumnCount } from "./composable";
+import { useInject } from "./composable";
 import type { Record } from "./types";
 
-const { rootProps, columnCount } = useInject();
+const { columnCount } = useInject();
 
 defineProps<{
   record: Record;
