@@ -25,7 +25,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
     title: "Actions",
     key: "actions",
     fixed: "right",
-    width: 60,
+    width: 100,
   },
 ];
 </script>
