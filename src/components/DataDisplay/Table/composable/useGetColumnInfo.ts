@@ -4,7 +4,7 @@ import type { RootProps, ColumnData } from "../types";
 import * as injectKeys from "../injectKeys";
 import { selectionColumnWidth, expandColumnWidth } from "../constant";
 
-export function useGetColumnsData(props: RootProps): ComputedRef<ColumnData[]> {
+export function useGetColumnsInfo(props: RootProps): { columnsData: ComputedRef<ColumnData[]> } {
   const columnsData = computed(() => {
     const leftFixedColumns: ColumnData[] = [];
     let left = 0;
@@ -39,5 +39,7 @@ export function useGetColumnsData(props: RootProps): ComputedRef<ColumnData[]> {
 
   provide(injectKeys.columnsDataKey, columnsData);
 
-  return columnsData;
+  return {
+    columnsData,
+  };
 }

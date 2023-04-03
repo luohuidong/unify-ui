@@ -1,4 +1,4 @@
-export { useGetColumnsData } from "./useGetColumn";
+export { useGetColumnsInfo } from "./useGetColumnInfo";
 export { useInject } from "./useInject";
 export { useSelection } from "./useSelection";
 export { useShowShadow } from "./useShowShadow";

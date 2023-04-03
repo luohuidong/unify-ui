@@ -11,7 +11,7 @@ import { useSlots, provide, ref } from "vue";
 
 import * as injectKeys from "./injectKeys";
 import {
-  useGetColumnsData,
+  useGetColumnsInfo,
   useShowShadow,
   useState,
   useWatchProps,
@@ -64,7 +64,7 @@ provide(injectKeys.rootEmitKey, emit);
 const { state } = useState(props);
 useWatchProps(props, state);
 const columnCount = useGetColumnCount(props);
-useGetColumnsData(props);
+useGetColumnsInfo(props);
 
 const slots = useSlots();
 useGetSlotKey(slots);
