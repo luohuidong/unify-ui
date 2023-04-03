@@ -90,16 +90,16 @@ useShowShadow(containerRef, tableRef);
         <!-- 渲染 data 数据 -->
         <template v-if="props.data.length > 0">
           <EzTbodyRow
-            v-for="record in props.data"
+            v-for="(record, index) in props.data"
             :key="(record[props.rowKey] as string)"
             :record="record"
           >
             <template #rowCell="{ columnKey }">
-              <slot :name="columnKey" :record="record"></slot>
+              <slot :name="columnKey" :record="record" :index="index"></slot>
             </template>
 
             <template #rowExpand>
-              <slot name="rowExpand" :record="record"></slot>
+              <slot name="rowExpand" :record="record" :index="index"></slot>
             </template>
           </EzTbodyRow>
         </template>
