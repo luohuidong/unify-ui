@@ -77,7 +77,7 @@ watch(
 </script>
 
 <template>
-  <div ref="referenceRef" :class="$style.container">
+  <div ref="referenceRef" class="container">
     <slot></slot>
 
     <template v-if="appendToBody">
@@ -95,7 +95,7 @@ watch(
   </div>
 </template>
 
-<style module>
+<style scoped>
 .container {
   display: inline-block;
 }

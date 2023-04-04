@@ -21,19 +21,22 @@ const color = computed(() => rootPropsKey?.fontColor || "white");
 <template>
   <div
     :ref="(e) => floatingRef?.setFloatingRef(e as HTMLDivElement)"
-    :class="[$style.tooltip, rootPropsKey?.overlayClassName]"
+    class="tooltip"
+    :class="[rootPropsKey?.overlayClassName]"
   >
     <slot></slot>
 
     <div
       v-if="rootPropsKey?.showArrow"
       :ref="(e)=> floatingArrowRef?.setFloatingArrowRef(e as HTMLDivElement)"
-      :class="$style.arrow"
+      class="arrow"
     ></div>
   </div>
 </template>
 
-<style module>
+<style lang="scss" scoped>
+@use "@/styles/zindex";
+
 .tooltip {
   display: none;
   width: max-content;
@@ -46,6 +49,7 @@ const color = computed(() => rootPropsKey?.fontColor || "white");
   padding: 5px;
   border-radius: 4px;
   font-size: 90%;
+  z-index: zindex.$popover;
 }
 
 .arrow {
