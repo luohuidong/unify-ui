@@ -5,12 +5,12 @@ defineProps<{
 </script>
 
 <template>
-  <div :class="$style.message">
-    <span :class="$style.message__text">{{ text }}</span>
+  <div class="message">
+    <span class="message__text">{{ text }}</span>
   </div>
 </template>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 .message {
   height: 54px;
   width: 400px;

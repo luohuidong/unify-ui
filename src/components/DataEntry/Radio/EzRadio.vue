@@ -7,14 +7,14 @@ defineProps<{
 </script>
 
 <template>
-  <label :class="$style.label">
-    <input :class="$style.input" type="radio" :name="name" />
-    <div :class="$style.checkmark"></div>
+  <label class="label">
+    <input class="input" type="radio" :name="name" />
+    <div class="checkmark"></div>
     {{ title }}
   </label>
 </template>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 /* Customize the label (the container) */
 .label {
   display: inline-flex;

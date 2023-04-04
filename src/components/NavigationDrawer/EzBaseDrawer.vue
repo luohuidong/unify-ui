@@ -1,12 +1,12 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div :class="$style.container">
+  <div class="container">
     <slot></slot>
   </div>
 </template>
 
-<style lang="scss" module>
+<style lang="scss" scoped>
 @use "@/styles/color";
 
 .container {

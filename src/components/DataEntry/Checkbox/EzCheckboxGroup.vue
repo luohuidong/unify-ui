@@ -54,5 +54,3 @@ provide("handleChangeGroupValue", handleChangeGroupValue);
     :disabled="disabled"
   ></EzCheckbox>
 </template>
-
-<style lang="scss" module></style>
