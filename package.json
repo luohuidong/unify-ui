@@ -23,6 +23,7 @@
     "test:coverage": "vitest run --coverage"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.1",
     "@faker-js/faker": "^7.6.0",
     "@floating-ui/dom": "^1.2.5",
     "@histoire/plugin-vue": "^0.15.8",
