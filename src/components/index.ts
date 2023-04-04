@@ -7,7 +7,7 @@ export {
 } from "./NavigationDrawer";
 export { default as Scrim } from "./Scrim.vue";
 
-export { EzCheckbox } from "./DataEntry/Checkbox";
+export { EzCheckbox, EzCheckboxGroup } from "./DataEntry/Checkbox";
 
 export { default as EzPopup } from "./DataDisplay/Popup/index.vue";
 export { default as EzTooltip } from "./DataDisplay/Tooltip/index.vue";
