@@ -1,21 +1,19 @@
 import { computePosition, flip, shift, offset, arrow, autoUpdate } from "@floating-ui/dom";
-import { inject } from "vue";
-import type { RootProps, ElementRef } from "../types";
-import * as provideKeys from "../provideKeys";
+import type { RootProps, ElementRef, RootEmits } from "../types";
 
 export function useTooltipUtils({
   referenceRef,
   floatingRef,
   floatingArrowRef,
   rootProps,
+  rootEmits,
 }: {
   referenceRef: ElementRef;
   floatingRef: ElementRef;
   floatingArrowRef: ElementRef;
   rootProps: RootProps;
+  rootEmits: RootEmits;
 }) {
-  const rootEmits = inject(provideKeys.rootEmitsKey);
-
   // upadte floating element's position and arrow's position
   function updatePosition() {
     const reference = referenceRef.value;

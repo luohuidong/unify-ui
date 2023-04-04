@@ -4,7 +4,6 @@ import type { RootProps, RootEmits } from "../types";
 
 export function useProvide(rootProps: RootProps, rootEmits: RootEmits) {
   provide(provideKeys.rootPropsKey, rootProps);
-  provide(provideKeys.rootEmitsKey, rootEmits);
 
   // trigger element container reference
   const referenceRef = ref<HTMLElement | null>(null);

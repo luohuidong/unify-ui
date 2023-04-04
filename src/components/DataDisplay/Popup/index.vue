@@ -46,6 +46,7 @@ const { showTooltip, hideTooltip } = useTooltipUtils({
   floatingRef,
   floatingArrowRef,
   rootProps: props,
+  rootEmits: emits,
 });
 
 useAddEventListener({
