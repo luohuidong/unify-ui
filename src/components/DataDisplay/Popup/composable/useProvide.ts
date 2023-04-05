@@ -1,8 +1,8 @@
 import { ref, provide } from "vue";
 import * as provideKeys from "../provideKeys";
-import type { RootProps, RootEmits } from "../types";
+import type { RootProps } from "../types";
 
-export function useProvide(rootProps: RootProps, rootEmits: RootEmits) {
+export function useProvide(rootProps: RootProps) {
   provide(provideKeys.rootPropsKey, rootProps);
 
   // trigger element container reference

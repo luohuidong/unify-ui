@@ -10,6 +10,7 @@ export interface RootProps {
   trigger?: "hover" | "click" | "focus" | "controlled";
   visible?: boolean;
   disabled?: boolean;
+  offset?: number;
 }
 
 export type RootEmits = (e: "update:visible", visible: boolean) => void;

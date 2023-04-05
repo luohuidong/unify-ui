@@ -23,7 +23,12 @@ export function useTooltipUtils({
     if (reference && floating && floatingArrow) {
       computePosition(reference, floating, {
         placement: rootProps.placement,
-        middleware: [offset(6), flip(), shift({ padding: 5 }), arrow({ element: floatingArrow })],
+        middleware: [
+          offset(rootProps.offset),
+          flip(),
+          shift({ padding: 5 }),
+          arrow({ element: floatingArrow }),
+        ],
       }).then(({ x, y, middlewareData, placement }) => {
         Object.assign(floating.style, {
           left: `${x}px`,

@@ -1,5 +1,5 @@
 import type { InjectionKey, Ref } from "vue";
-import type { RootProps, RootEmits } from "./types";
+import type { RootProps } from "./types";
 
 export const rootPropsKey = Symbol("rootPropsKey") as InjectionKey<RootProps>;
 

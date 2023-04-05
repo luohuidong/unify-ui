@@ -24,6 +24,7 @@ const props = withDefaults(
     trigger?: "hover" | "click" | "focus" | "controlled";
     visible?: boolean;
     disabled?: boolean;
+    offset?: number;
   }>(),
   {
     appendToBody: false,
@@ -32,6 +33,7 @@ const props = withDefaults(
     fontColor: void 0,
     showArrow: true,
     trigger: "hover",
+    offset: 6,
   }
 );
 
