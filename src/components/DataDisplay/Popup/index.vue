@@ -78,7 +78,7 @@ watch(
 </script>
 
 <template>
-  <div ref="referenceRef" class="container">
+  <div ref="referenceRef" class="popup">
     <slot></slot>
 
     <template v-if="appendToBody">
@@ -97,7 +97,7 @@ watch(
 </template>
 
 <style scoped>
-.container {
+.popup {
   display: inline-block;
 }
 </style>

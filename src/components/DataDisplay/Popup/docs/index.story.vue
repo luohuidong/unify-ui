@@ -1,16 +1,21 @@
 <script setup lang="ts">
-import CommonUseCase from "./CommonUseCase.vue";
-import TriggerMethod from "./TriggerMethodCase.vue";
+import CaseBaseUsage from "./CaseBaseUsage.vue";
+import CaseTriggerMethod from "./CaseTriggerMethod.vue";
+import CaseVisible from "./CaseVisible.vue";
 </script>
 
 <template>
   <Story title="Date Display/Popup">
-    <Variant title="default">
-      <CommonUseCase></CommonUseCase>
+    <Variant title="Base usage">
+      <CaseBaseUsage></CaseBaseUsage>
     </Variant>
 
     <Variant title="Trigger method">
-      <TriggerMethod></TriggerMethod>
+      <CaseTriggerMethod></CaseTriggerMethod>
+    </Variant>
+
+    <Variant title="Visible">
+      <div>test</div>
     </Variant>
   </Story>
 </template>
