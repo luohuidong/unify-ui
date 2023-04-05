@@ -1,3 +1,3 @@
 export default {
-  title: "Vue Material",
+  title: "Easy UI",
 };
