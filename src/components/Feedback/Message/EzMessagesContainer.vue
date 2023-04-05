@@ -5,11 +5,11 @@ defineProps<{
 </script>
 
 <template>
-  <div :id="id" class="container"></div>
+  <div :id="id" class="messages"></div>
 </template>
 
 <style lang="scss" scoped>
-.container {
+.messages {
   position: absolute;
   top: 0;
   right: 0;

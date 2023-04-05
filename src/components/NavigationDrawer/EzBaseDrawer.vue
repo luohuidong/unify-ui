@@ -1,7 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <div class="container">
+  <div class="base-drawer">
     <slot></slot>
   </div>
 </template>
@@ -9,7 +9,7 @@
 <style lang="scss" scoped>
 @use "@/styles/color";
 
-.container {
+.base-drawer {
   width: 400px;
   height: 100%;
 
