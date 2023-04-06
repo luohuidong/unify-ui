@@ -44,13 +44,27 @@ provide("handleChangeGroupValue", handleChangeGroupValue);
 </script>
 
 <template>
-  <EzCheckbox
-    v-for="item in options"
-    :key="item.label"
-    :name="name"
-    :label="item.label"
-    :value="item.value"
-    :checked="state.values.has(item.value)"
-    :disabled="disabled"
-  ></EzCheckbox>
+  <fieldset class="fieldset">
+    <EzCheckbox
+      v-for="item in options"
+      :key="item.label"
+      :name="name"
+      :label="item.label"
+      :value="item.value"
+      :checked="state.values.has(item.value)"
+      :disabled="disabled"
+    ></EzCheckbox>
+  </fieldset>
 </template>
+
+<style lang="scss" scoped>
+.fieldset {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+</style>
