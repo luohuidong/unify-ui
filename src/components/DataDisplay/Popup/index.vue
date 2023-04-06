@@ -41,7 +41,7 @@ const emits: RootEmits = defineEmits<{
   (e: "update:visible", visible: boolean): void;
 }>();
 
-const { referenceRef, floatingRef, floatingArrowRef } = useProvide(props, emits);
+const { referenceRef, floatingRef, floatingArrowRef } = useProvide(props);
 
 const { showTooltip, hideTooltip } = useTooltipUtils({
   referenceRef,
