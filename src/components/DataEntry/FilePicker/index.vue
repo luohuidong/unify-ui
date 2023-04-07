@@ -1,0 +1,84 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "EzFilePicker",
+});
+</script>
+
+<script setup lang="ts">
+import PhotoIcon from "./icons/PhotoIcon.vue";
+</script>
+
+<template>
+  <div class="drop-area">
+    <PhotoIcon class="icon" />
+
+    <div class="tips">
+      <span class="tips__first-line">
+        <label class="file-picker">
+          <span>Upload a file </span>
+          <input class="file-picker__input" />
+        </label>
+        <span>or drag and drop</span>
+      </span>
+
+      <span class="tips__second-line">PNG, JPG, GIF up to 10MB</span>
+    </div>
+  </div>
+</template>
+
+<style lang="scss" scoped>
+.drop-area {
+  box-sizing: border-box;
+
+  height: 190px;
+  width: 670px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  border: 1px dashed rgb(17 24 39 / 0.25);
+  border-radius: 8px;
+}
+
+.icon {
+  height: 48px;
+  width: 48px;
+  color: rgb(209 213 219);
+}
+
+.tips {
+  margin-top: 16px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tips__first-line {
+  margin: 0px;
+  color: rgb(75 85 99);
+  line-height: 24px;
+  font-size: 14px;
+}
+
+.file-picker {
+  color: rgb(79 70 229);
+  font-weight: 600;
+  cursor: pointer;
+
+  .file-picker__input {
+    display: none;
+  }
+}
+
+.tips__second-line {
+  margin: 0px;
+  color: rgb(75 85 99);
+  line-height: 20px;
+  font-size: 12px;
+}
+</style>
