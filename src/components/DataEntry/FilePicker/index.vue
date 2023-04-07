@@ -8,6 +8,31 @@ export default defineComponent({
 
 <script setup lang="ts">
 import PhotoIcon from "./icons/PhotoIcon.vue";
+
+defineProps<{
+  multiple?: boolean; 
+}>()
+
+const emits = defineEmits<{
+  (e: "file-change", files: File[]): void;
+}>();
+
+function handleFileChange(event: Event) {
+  const input = event.target as HTMLInputElement;
+
+  const files = input.files;
+  if (files) {
+    const tmpFiles: File[] = [];
+
+    for (let i = 0; i < files.length; i++) {
+      tmpFiles.push(files[i]);
+    }
+
+    emits("file-change", tmpFiles);
+  }
+
+  input.value = "";
+}
 </script>
 
 <template>
@@ -18,7 +43,7 @@ import PhotoIcon from "./icons/PhotoIcon.vue";
       <span class="tips__first-line">
         <label class="file-picker">
           <span>Upload a file </span>
-          <input class="file-picker__input" />
+          <input class="file-picker__input" :multiple="multiple" type="file" @change="handleFileChange" />
         </label>
         <span>or drag and drop</span>
       </span>
