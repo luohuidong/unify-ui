@@ -11,7 +11,7 @@ import { ref } from "vue";
 
 import PhotoIcon from "./icons/PhotoIcon.vue";
 
-defineProps<{
+const props = defineProps<{
   multiple?: boolean;
 }>();
 
@@ -26,7 +26,7 @@ function handleEmitFileChange(files: FileList) {
     tmpFiles.push(files[i]);
   }
 
-  emits("file-change", tmpFiles);
+  emits("file-change", props.multiple ? tmpFiles : [tmpFiles[0]]);
 }
 
 function handleFileChange(event: Event) {
