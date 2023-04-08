@@ -7,43 +7,71 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+import { ref } from "vue";
+
 import PhotoIcon from "./icons/PhotoIcon.vue";
 
 defineProps<{
-  multiple?: boolean; 
-}>()
+  multiple?: boolean;
+}>();
 
 const emits = defineEmits<{
   (e: "file-change", files: File[]): void;
 }>();
+
+function handleEmitFileChange(files: FileList) {
+  const tmpFiles: File[] = [];
+
+  for (let i = 0; i < files.length; i++) {
+    tmpFiles.push(files[i]);
+  }
+
+  emits("file-change", tmpFiles);
+}
 
 function handleFileChange(event: Event) {
   const input = event.target as HTMLInputElement;
 
   const files = input.files;
   if (files) {
-    const tmpFiles: File[] = [];
-
-    for (let i = 0; i < files.length; i++) {
-      tmpFiles.push(files[i]);
-    }
-
-    emits("file-change", tmpFiles);
+    handleEmitFileChange(files);
   }
 
   input.value = "";
 }
+
+function handleDrop(e: DragEvent) {
+  const files = e.dataTransfer?.files;
+  if (files) {
+    handleEmitFileChange(files);
+  }
+  isDragOver.value = false;
+}
+
+const isDragOver = ref(false);
 </script>
 
 <template>
-  <div class="drop-area">
+  <div
+    class="drop-area"
+    :class="{ 'drop-area--drag-over': isDragOver }"
+    @dragenter.stop.prevent="isDragOver = true"
+    @dragover.stop.prevent="isDragOver = true"
+    @dragleave.stop.prevent="isDragOver = false"
+    @drop.stop.prevent="handleDrop"
+  >
     <PhotoIcon class="icon" />
 
     <div class="tips">
       <span class="tips__first-line">
         <label class="file-picker">
           <span>Upload a file </span>
-          <input class="file-picker__input" :multiple="multiple" type="file" @change="handleFileChange" />
+          <input
+            class="file-picker__input"
+            :multiple="multiple"
+            type="file"
+            @change="handleFileChange"
+          />
         </label>
         <span>or drag and drop</span>
       </span>
@@ -54,6 +82,8 @@ function handleFileChange(event: Event) {
 </template>
 
 <style lang="scss" scoped>
+$purple: rgb(79 70 229);
+
 .drop-area {
   box-sizing: border-box;
 
@@ -65,8 +95,14 @@ function handleFileChange(event: Event) {
   justify-content: center;
   align-items: center;
 
-  border: 1px dashed rgb(17 24 39 / 0.25);
+  border-width: 1px;
+  border-style: dashed;
+  border-color: rgb(17 24 39 / 0.25);
   border-radius: 8px;
+}
+
+.drop-area--drag-over {
+  border-color: $purple;
 }
 
 .icon {
@@ -91,7 +127,7 @@ function handleFileChange(event: Event) {
 }
 
 .file-picker {
-  color: rgb(79 70 229);
+  color: $purple;
   font-weight: 600;
   cursor: pointer;
 
