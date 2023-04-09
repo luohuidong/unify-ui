@@ -9,10 +9,12 @@ export default defineComponent({
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    type?: "text" | "outlined" | "contained";
+    type?: "secondary" | "primary";
+    size?: "xs" | "s" | "m" | "l" | "xl";
   }>(),
   {
-    type: "outlined",
+    type: "secondary",
+    size: "m",
   }
 );
 
@@ -25,73 +27,77 @@ function handleClick(e: MouseEvent) {
 
 <template>
   <button
-    :class="[
-      $style.button,
-      {
-        [$style['button--contained']]: type === 'contained',
-        [$style['button--outlined']]: type === 'outlined',
-        [$style['button--text']]: type === 'text',
-      },
-    ]"
+    class="button"
+    :class="{
+      'button--size-xs': size === 'xs',
+      'button--size-s': size === 's',
+      'button--size-m': size === 'm',
+      'button--size-l': size === 'l',
+      'button--size-xl': size === 'xl',
+      'button--primary': type === 'primary',
+      'button--secondary': type === 'secondary',
+    }"
     @click="handleClick"
   >
     <slot></slot>
   </button>
 </template>
 
-<style lang="scss" module>
-@use "sass:map";
-@use "@/styles/color";
-@use "@/styles/type";
+<style lang="scss" scoped>
+$primary-color: rgb(79 70 229);
 
 .button {
-  box-sizing: border-box;
-  position: relative;
-  padding: 8px;
+  font-weight: 600;
+
   border: none;
-  border-radius: 4px;
-  background: none;
-  overflow: hidden;
   outline: none;
 
-  @include type.button;
-  color: map.get(color.$primary, "500");
-
+  background: none;
   cursor: pointer;
 }
 
-.button--contained {
-  color: color.$font-light;
-  background-color: map.get(color.$primary, "600");
-
-  &:hover {
-    background-color: map.get(color.$primary, "500");
-    box-shadow: 0px 2px 4px -1px rgb(0 0 0 / 20%), 0px 4px 5px 0px rgb(0 0 0 / 14%),
-      0px 1px 10px 0px rgb(0 0 0 / 12%);
-    transition: box-shadow 300ms;
-  }
-  &:active {
-    background-color: map.get(color.$primary, "600");
-  }
+.button--size-xs {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 12px;
+  line-height: 16px;
 }
 
-.button--outlined {
-  border: 1px solid map.get(color.$primary, "500");
-
-  &:hover {
-    background-color: map.get(color.$primary, "50");
-  }
-  &:active {
-    background-color: map.get(color.$primary, "100");
-  }
+.button--size-s {
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  line-height: 20px;
 }
 
-.button--text {
-  &:hover {
-    background-color: map.get(color.$primary, "50");
-  }
+.button--size-m {
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.button--size-l {
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.button--size-xl {
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.button--primary {
+  color: white;
+  background-color: $primary-color;
+
+  &:hover,
   &:active {
-    background-color: map.get(color.$primary, "100");
+    background-color: rgb(99 102 241);
   }
 }
 </style>

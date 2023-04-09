@@ -4,8 +4,38 @@ import { EzButton } from "@/components";
 
 <template>
   <Story title="Generel/Button">
-    <EzButton type="text">text button</EzButton>
-    <EzButton type="outlined">outlined button</EzButton>
-    <EzButton type="contained">contained button</EzButton>
+    <Variant title="Primary Buttons">
+      <div class="container">
+        <div>
+          <EzButton type="primary" size="xs">Button size: xs</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="primary" size="s">Button size: s</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="primary" size="m">Button size: m</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="primary" size="l"> Button size: l </EzButton>
+        </div>
+
+        <div>
+          <EzButton type="primary" size="xl">Button size: xl</EzButton>
+        </div>
+      </div>
+    </Variant>
+
+    <EzButton>contained button</EzButton>
   </Story>
 </template>
+
+<style scoped>
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-end;
+}
+</style>
