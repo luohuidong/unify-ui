@@ -1,5 +1,12 @@
 # @luohuidong/easy-ui
 
+## 0.3.0
+
+### Minor Changes
+
+- change the type of button
+- add the size prop which can change button size.
+
 ## 0.2.0
 
 ### Minor Changes
