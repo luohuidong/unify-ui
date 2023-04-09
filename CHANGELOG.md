@@ -1,5 +1,11 @@
 # @luohuidong/easy-ui
 
+## 0.2.0
+
+### Minor Changes
+
+- 21535b9: add FilePicker
+
 ## 0.1.0
 
 ### Minor Changes
