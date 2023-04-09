@@ -44,8 +44,14 @@ function handleCancelButtonClick() {
         </div>
 
         <div :class="$style.actions">
-          <EzButton type="text" @click="handleCancelButtonClick"> {{ cancelText }}</EzButton>
-          <EzButton type="text" @click="handleConfirmButtonClick">{{ confirmText }}</EzButton>
+          <EzButton
+            type="secondary"
+            :class="$style['cancel-button']"
+            @click="handleCancelButtonClick"
+          >
+            {{ cancelText }}
+          </EzButton>
+          <EzButton type="primary" @click="handleConfirmButtonClick">{{ confirmText }}</EzButton>
         </div>
       </div>
     </Scrim>
@@ -101,5 +107,9 @@ function handleCancelButtonClick() {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+}
+
+.cancel-button {
+  margin-right: 8px;
 }
 </style>

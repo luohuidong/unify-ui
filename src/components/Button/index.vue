@@ -9,7 +9,7 @@ export default defineComponent({
 <script setup lang="ts">
 withDefaults(
   defineProps<{
-    type?: "secondary" | "primary";
+    type?: "secondary" | "primary" | "soft";
     size?: "xs" | "s" | "m" | "l" | "xl";
   }>(),
   {
@@ -34,8 +34,9 @@ function handleClick(e: MouseEvent) {
       'button--size-m': size === 'm',
       'button--size-l': size === 'l',
       'button--size-xl': size === 'xl',
-      'button--primary': type === 'primary',
-      'button--secondary': type === 'secondary',
+      'button--type-primary': type === 'primary',
+      'button--type-secondary': type === 'secondary',
+      'button--type-soft': type === 'soft',
     }"
     @click="handleClick"
   >
@@ -91,13 +92,42 @@ $primary-color: rgb(79 70 229);
   line-height: 20px;
 }
 
-.button--primary {
+.button--type-primary {
   color: white;
   background-color: $primary-color;
+  border: 1px solid $primary-color;
 
   &:hover,
   &:active {
     background-color: rgb(99 102 241);
+  }
+}
+
+.button--type-secondary {
+  color: rgb(17 24 39);
+  background-color: white;
+  border: 1px solid #e5e7eb;
+
+  &:hover,
+  &:active {
+    background-color: rgb(249 250 251);
+  }
+}
+
+.button--type-soft {
+  $normal-color: rgb(238 242 255);
+  $active-color: rgb(224 231 255);
+
+  color: $primary-color;
+  background-color: $normal-color;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $normal-color;
+
+  &:hover,
+  &:active {
+    background-color: $active-color;
+    border-color: $active-color;
   }
 }
 </style>

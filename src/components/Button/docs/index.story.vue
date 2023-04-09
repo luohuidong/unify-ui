@@ -28,7 +28,53 @@ import { EzButton } from "@/components";
       </div>
     </Variant>
 
-    <EzButton>contained button</EzButton>
+    <Variant title="Secondary Buttons">
+      <div class="container">
+        <div>
+          <EzButton type="secondary" size="xs">Button size: xs</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="secondary" size="s">Button size: s</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="secondary" size="m">Button size: m</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="secondary" size="l"> Button size: l </EzButton>
+        </div>
+
+        <div>
+          <EzButton type="secondary" size="xl">Button size: xl</EzButton>
+        </div>
+      </div>
+    </Variant>
+
+    <Variant title="Soft Buttons">
+      <div class="container">
+        <div>
+          <EzButton type="soft" size="xs">Button size: xs</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="soft" size="s">Button size: s</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="soft" size="m">Button size: m</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="soft" size="l"> Button size: l </EzButton>
+        </div>
+
+        <div>
+          <EzButton type="soft" size="xl">Button size: xl</EzButton>
+        </div>
+      </div>
+    </Variant>
   </Story>
 </template>
 
