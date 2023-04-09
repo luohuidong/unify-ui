@@ -7,8 +7,6 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { ref } from "vue";
-
 import PhotoIcon from "./icons/PhotoIcon.vue";
 
 const props = defineProps<{
@@ -45,19 +43,14 @@ function handleDrop(e: DragEvent) {
   if (files) {
     handleEmitFileChange(files);
   }
-  isDragOver.value = false;
 }
-
-const isDragOver = ref(false);
 </script>
 
 <template>
   <div
     class="drop-area"
-    :class="{ 'drop-area--drag-over': isDragOver }"
-    @dragenter.stop.prevent="isDragOver = true"
-    @dragover.stop.prevent="isDragOver = true"
-    @dragleave.stop.prevent="isDragOver = false"
+    @dragenter.stop.prevent
+    @dragover.stop.prevent
     @drop.stop.prevent="handleDrop"
   >
     <PhotoIcon class="icon" />
@@ -82,8 +75,6 @@ const isDragOver = ref(false);
 </template>
 
 <style lang="scss" scoped>
-$purple: rgb(79 70 229);
-
 .drop-area {
   box-sizing: border-box;
 
@@ -99,10 +90,6 @@ $purple: rgb(79 70 229);
   border-style: dashed;
   border-color: rgb(17 24 39 / 0.25);
   border-radius: 8px;
-}
-
-.drop-area--drag-over {
-  border-color: $purple;
 }
 
 .icon {
@@ -127,7 +114,7 @@ $purple: rgb(79 70 229);
 }
 
 .file-picker {
-  color: $purple;
+  color: rgb(79 70 229);
   font-weight: 600;
   cursor: pointer;
 
