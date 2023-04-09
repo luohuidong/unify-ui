@@ -1,14 +1,12 @@
 # Getting Started
 
-::: warning
-This project is under active development. It is not already suitable for production because all component's api isn't stable.
-:::
+> This project is under active development. It is not already suitable for production because all component's api isn't stable.
 
-Easy UI is a Vue.js 3 UI Library. 
+Easy UI is a Vue.js 3 UI Library.
 
 - All UI components style is based on Tailwind UI components style.
-- Tree shaking is supported out of the box. 
-- TypeScript is supported out of the box. 
+- Tree shaking is supported out of the box.
+- TypeScript is supported out of the box.
 
 ## Usage
 
