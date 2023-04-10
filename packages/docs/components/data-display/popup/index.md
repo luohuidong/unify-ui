@@ -9,7 +9,7 @@ import ShowCaseTriggerMethod from './ShowCaseTriggerMethod.vue'
 
 <ShowCaseBaseUsage />
 
-:::details show source
+:::details View Source
 <<< @/components/data-display/popup/ShowCaseBaseUsage.vue
 :::
 
@@ -17,7 +17,7 @@ import ShowCaseTriggerMethod from './ShowCaseTriggerMethod.vue'
 
 <ShowCaseTriggerMethod />
 
-:::details show source
+:::details View Source
 <<< @/components/data-display/popup/ShowCaseBaseUsage.vue
 :::
 

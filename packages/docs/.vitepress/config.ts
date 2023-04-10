@@ -7,34 +7,27 @@ export default defineConfig({
       message: "Released under the MIT License.",
       copyright: "Copyright © 2022-present luohuidong",
     },
-    nav: [
-      { text: "Guide", link: "/guide/getting-started" },
-      { text: "Components", link: "/components/general/button/" },
+    socialLinks: [
+      { icon: "github", link: "https://github.com/luohuidong/easy-ui" },
     ],
-    sidebar: {
-      "guide/": [
-        {
-          text: "Guide",
-          items: [{ text: "Getting Started", link: "/guide/getting-started" }],
-        },
-      ],
-      "components/": [
-        {
-          text: "Components",
-          items: [
-            {
-              text: "General",
-              items: [{ text: "Button", link: "/components/general/button/" }],
-            },
-            {
-              text: "Data Display",
-              items: [
-                { text: "Popup", link: "/components/data-display/popup/" },
-              ],
-            },
-          ],
-        },
-      ],
-    },
+    sidebar: [
+      {
+        text: "Guide",
+        items: [{ text: "Getting Started", link: "/guide/getting-started" }],
+      },
+      {
+        text: "Components",
+        items: [
+          {
+            text: "General",
+            items: [{ text: "Button", link: "/components/general/button/" }],
+          },
+          {
+            text: "Data Display",
+            items: [{ text: "Popup", link: "/components/data-display/popup/" }],
+          },
+        ],
+      },
+    ],
   },
 });
