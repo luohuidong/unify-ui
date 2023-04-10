@@ -5,9 +5,6 @@ dist-ssr
 *.local
 types
 
-# docs
-docs/.vitepress/cache
-
 # IDE 
 .idea
 
