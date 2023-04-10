@@ -6,7 +6,7 @@ import { EzButton, EzPopup } from "@luohuidong/easy-ui";
   <div class="container">
     <div>
       <EzPopup placement="top">
-        <EzButton>top black</EzButton>
+        <EzButton type="soft">top black</EzButton>
 
         <template #content>
           <div class="box">top</div>
@@ -16,7 +16,7 @@ import { EzButton, EzPopup } from "@luohuidong/easy-ui";
 
     <div>
       <EzPopup placement="bottom" append-to-body background-color="green">
-        <EzButton>bottom green</EzButton>
+        <EzButton type="soft">bottom green</EzButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -26,7 +26,7 @@ import { EzButton, EzPopup } from "@luohuidong/easy-ui";
 
     <div>
       <EzPopup placement="left" background-color="red">
-        <EzButton>left red </EzButton>
+        <EzButton type="soft">left red </EzButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -36,7 +36,7 @@ import { EzButton, EzPopup } from "@luohuidong/easy-ui";
 
     <div>
       <EzPopup placement="right" background-color="blue">
-        <EzButton>right blue</EzButton>
+        <EzButton type="soft">right blue</EzButton>
 
         <template #content>
           <div class="box">right</div>

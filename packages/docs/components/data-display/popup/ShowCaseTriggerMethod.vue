@@ -12,7 +12,7 @@ function handleClick() {
   <div class="container">
     <div>
       <EzPopup placement="bottom" trigger="click" append-to-body>
-        <EzButton>Trigger: click</EzButton>
+        <EzButton type="soft">Trigger: click</EzButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -22,7 +22,7 @@ function handleClick() {
 
     <div>
       <EzPopup placement="bottom" append-to-body>
-        <EzButton>Trigger: hover</EzButton>
+        <EzButton type="soft">Trigger: hover</EzButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -37,7 +37,9 @@ function handleClick() {
         trigger="controlled"
         :visible="visible"
       >
-        <EzButton @click="handleClick">Trigger: Controlled</EzButton>
+        <EzButton type="soft" @click="handleClick">
+          Trigger: Controlled
+        </EzButton>
 
         <template #content>
           <div class="box">bottom</div>

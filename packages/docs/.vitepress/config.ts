@@ -24,7 +24,10 @@ export default defineConfig({
           },
           {
             text: "Data Display",
-            items: [{ text: "Popup", link: "/components/data-display/popup/" }],
+            items: [
+              { text: "Tooltip", link: "/components/data-display/tooltip/" },
+              { text: "Popup", link: "/components/data-display/popup/" },
+            ],
           },
         ],
       },
