@@ -21,6 +21,9 @@ importers:
       vitepress:
         specifier: 1.0.0-alpha.65
         version: 1.0.0-alpha.65(@algolia/client-search@4.17.0)(@types/node@18.15.11)(sass@1.61.0)
+      vue:
+        specifier: ^3.2.47
+        version: 3.2.47
 
   packages/easy-ui:
     devDependencies:

@@ -26,6 +26,12 @@ export default defineConfig({
               text: "General",
               items: [{ text: "Button", link: "/components/general/button/" }],
             },
+            {
+              text: "Data Display",
+              items: [
+                { text: "Popup", link: "/components/data-display/popup/" },
+              ],
+            },
           ],
         },
       ],
