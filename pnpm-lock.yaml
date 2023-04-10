@@ -13,6 +13,10 @@ importers:
         version: 3.3.0
 
   packages/docs:
+    dependencies:
+      '@luohuidong/easy-ui':
+        specifier: workspace:^
+        version: link:../easy-ui
     devDependencies:
       vitepress:
         specifier: 1.0.0-alpha.65

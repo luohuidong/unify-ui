@@ -12,5 +12,8 @@
   "license": "ISC",
   "devDependencies": {
     "vitepress": "1.0.0-alpha.65"
+  },
+  "dependencies": {
+    "@luohuidong/easy-ui": "workspace:^"
   }
 }
