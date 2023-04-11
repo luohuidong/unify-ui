@@ -18,6 +18,9 @@ importers:
         specifier: workspace:^
         version: link:../easy-ui
     devDependencies:
+      '@faker-js/faker':
+        specifier: ^7.6.0
+        version: 7.6.0
       postcss:
         specifier: ^8.4.21
         version: 8.4.21

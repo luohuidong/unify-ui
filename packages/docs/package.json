@@ -12,6 +12,7 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "@faker-js/faker": "^7.6.0",
     "postcss": "^8.4.21",
     "postcss-prefix-selector": "^1.16.0",
     "vitepress": "1.0.0-alpha.65",
