@@ -21,12 +21,12 @@ features:
   - icon:
       src: /images/typescript.svg
     title: Uses TypesScript
-    details: Easy UI provides type definitions for all components because it was built with latest stable version of TypeScript.
+    details: Easy UI provides type definitions for all components because it was built with the latest stable version of TypeScript.
   - icon:
       src: /images/tailwind.svg
     title: Tailwind UI style
-    details: Although Easy UI does not depend on Tailwind CSS, the style of all components is based on the style of Tailwind UI components.
+    details: While Easy UI does not have a direct dependency on Tailwind CSS, the styling of all components is heavily influenced by the style of Tailwind UI components.
   - icon: 🛠️
     title: Out of box Tree Shaking
-    details: Easy UI was built with ES Module, so it can be used with tree shaking.
+    details: Easy UI supports tree shaking out of the box, as it was built using ES Modules.
 ---
