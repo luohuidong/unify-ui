@@ -12,14 +12,14 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   },
   {
     title: "Author",
-    key: "userId",
+    key: "author",
   },
 ];
 </script>
 
 <template>
   <EzTable row-key="id" :columns="columns" :data="data">
-    <template #userId="{ record }"> Author is {{ record.author }} </template>
+    <template #author="{ record }"> Author is {{ record.author }} </template>
   </EzTable>
 </template>
 
