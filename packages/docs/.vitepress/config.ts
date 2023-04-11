@@ -2,6 +2,7 @@ import { defineConfig } from "vitepress";
 
 export default defineConfig({
   title: "Easy UI",
+  appearance: false,
   themeConfig: {
     footer: {
       message: "Released under the MIT License.",
