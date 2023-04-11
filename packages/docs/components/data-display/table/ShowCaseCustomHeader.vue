@@ -15,19 +15,19 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
     key: "author",
   },
 ];
-
-const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
-  expandCondition: (row) => row.description as boolean,
-  showExpandRowDefault: true,
-};
 </script>
 
 <template>
-  <EzTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
-    <template #rowExpand="{ record }">
-      {{ `Expand row: ${record.description}` }}
+  <EzTable row-key="id" :columns="columns" :data="data">
+    <template #title="{ record }"> title: {{ record.userId }} </template>
+    <template #header-title>
+      <span class="customer-header-text">This is custom title!</span>
     </template>
   </EzTable>
 </template>
 
-<style scoped></style>
+<style scoped>
+.customer-header-text {
+  color: red;
+}
+</style>
