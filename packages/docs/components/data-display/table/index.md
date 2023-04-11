@@ -102,3 +102,31 @@ import ShowCaseTextEllipsis from './ShowCaseTextEllipsis.vue'
 <<< @/components/data-display/table/ShowCaseTextEllipsis.vue
 :::
 
+## API
+
+### Table Props
+
+| Property        | Type    | Default | Description                       |
+| --------------- | ------- | ------- | --------------------------------- |
+| columns         | Array   | -       | Columns of table                  |
+| data            | Array   | -       | Table data                        |
+| rowExpand       | Object  | -       | Enabled row can be expandable     |
+| rowKey          | String  | -       | Row's unique key                  |
+| selectedRowKeys | Set     | -       | The set of selected row keys      |
+| selection       | Object  | -       | Config of row selection           |
+| showFoot        | Boolean | false   | Whether to show foot              |
+| sort            | Object  | -       | Config of row sort                |
+| tbodyCellClass  | String  | -       | Class name of table body row cell |
+| tbodyRowClass   | String  | -       | Class name of Table body row      |
+
+#### columns
+
+| Property | Type    | Default | Description                                                                                                                       |
+| -------- | ------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
+| key      | String  | -       | Column key                                                                                                                        |
+| title    | String  | -       | Column title                                                                                                                      |
+| width    | String  | -       | Column width                                                                                                                      |
+| fixed    | String  | -       | `left` or `right`. To set Column to fixed left or right of the table                                                              |
+| sortable | Boolean | false   | To set Column to be Sortable                                                                                                      |
+| sortType | Array   | -       | Array need to be one of the following:`ascending` or `descending`. The column sort type                                           |
+| ellipsis | Boolean | false   | If the text content in a cell exceeds the available space, it can be clipped and replaced with an ellipsis to indicate truncation |
