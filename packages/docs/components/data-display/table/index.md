@@ -14,6 +14,10 @@ import ShowCaseTextEllipsis from './ShowCaseTextEllipsis.vue'
 
 ## Basic Usage
 
+The simplest way to create a table is by defining the `row-key`, `columns`, and `data` props. The `row-key` prop represents a unique identifier for each data item. The `columns` prop is used to define the columns of the table, and the `data` prop is used to pass the data that the table should display.
+
+If you want to customize the content of a cell, you can define the content and then pass it to the appropriate slot. The `key` attribute of the `columns` prop represents the slot name for the corresponding cell slot.
+
 ::: raw
 <ShowCaseBasicUsage class="vp-raw" />
 :::
@@ -123,10 +127,10 @@ import ShowCaseTextEllipsis from './ShowCaseTextEllipsis.vue'
 
 | Property | Type    | Default | Description                                                                                                                       |
 | -------- | ------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| key      | String  | -       | Column key                                                                                                                        |
-| title    | String  | -       | Column title                                                                                                                      |
-| width    | String  | -       | Column width                                                                                                                      |
+| ellipsis | Boolean | false   | If the text content in a cell exceeds the available space, it can be clipped and replaced with an ellipsis to indicate truncation |
 | fixed    | String  | -       | `left` or `right`. To set Column to fixed left or right of the table                                                              |
+| key      | String  | -       | Column key                                                                                                                        |
 | sortable | Boolean | false   | To set Column to be Sortable                                                                                                      |
 | sortType | Array   | -       | Array need to be one of the following:`ascending` or `descending`. The column sort type                                           |
-| ellipsis | Boolean | false   | If the text content in a cell exceeds the available space, it can be clipped and replaced with an ellipsis to indicate truncation |
+| title    | String  | -       | Column title                                                                                                                      |
+| width    | String  | -       | Column width                                                                                                                      |
