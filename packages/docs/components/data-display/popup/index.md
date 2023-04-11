@@ -5,19 +5,23 @@ import ShowCaseTriggerMethod from './ShowCaseTriggerMethod.vue'
 
 # Popup
 
-## Base Usage
+## Basic Usage
 
-<ShowCaseBaseUsage />
+::: raw
+<ShowCaseBaseUsage class="vp-raw" />
+:::
 
-:::details View Source
+::: details View Source
 <<< @/components/data-display/popup/ShowCaseBaseUsage.vue
 :::
 
 ## Trigger Method
 
-<ShowCaseTriggerMethod />
+::: raw
+<ShowCaseTriggerMethod class="vp-raw" />
+:::
 
-:::details View Source
+::: details View Source
 <<< @/components/data-display/popup/ShowCaseBaseUsage.vue
 :::
 

@@ -14,27 +14,32 @@ Easy UI provide 3 types of button.
 
 ## Primary Button
 
-<ShowCasePrimaryButton />
-:::details View Source
+::: raw
+<ShowCasePrimaryButton class="vp-raw" />
+:::
+
+::: details View Source
 <<< @/components/general/button/ShowCasePrimaryButton.vue
 :::
 
 ## Secondary Button
 
-<ShowCaseSecondaryButton />
+::: raw
+<ShowCaseSecondaryButton class="vp-raw" />
+:::
 
-:::details View Source
+::: details View Source
 <<< @/components/general/button/ShowCaseSecondaryButton.vue
 :::
 
 ## Soft Button
 
-<ShowCaseSoftButton />
+::: raw
+<ShowCaseSoftButton class="vp-raw" />
+:::
 
-:::details View Source
-
+::: details View Source
 <<< @/components/general/button/ShowCaseSoftButton.vue
-
 :::
 
 ## API

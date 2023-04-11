@@ -6,25 +6,25 @@ import { EzButton, EzTooltip } from "@luohuidong/easy-ui";
   <div class="container">
     <div>
       <EzTooltip title="Tooltip text" placement="top">
-        <EzButton>Hover over me!</EzButton>
+        <EzButton type="soft">Hover over me!</EzButton>
       </EzTooltip>
     </div>
 
     <div>
       <EzTooltip title="Tooltip text" placement="bottom" append-to-body>
-        <EzButton>Tooltip append to body</EzButton>
+        <EzButton type="soft">Tooltip append to body</EzButton>
       </EzTooltip>
     </div>
 
     <div>
       <EzTooltip title="Tooltip text" placement="left">
-        <EzButton>Hover over me!</EzButton>
+        <EzButton type="soft">Hover over me!</EzButton>
       </EzTooltip>
     </div>
 
     <div>
       <EzTooltip title="Tooltip text" placement="right" append-to-body>
-        <EzButton>Tooltip append to body</EzButton>
+        <EzButton type="soft">Tooltip append to body</EzButton>
       </EzTooltip>
     </div>
   </div>

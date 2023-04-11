@@ -7,17 +7,21 @@ import ShowCaseDisabled from './ShowCaseDisabled.vue'
 
 ## Basic Usage
 
-<ShowCaseBasicUsage />
+::: raw
+<ShowCaseBasicUsage class="vp-raw" />
+:::
 
-:::details View Source
+::: details View Source
 <<< @/components/data-display/tooltip/ShowCaseBasicUsage.vue
 :::
 
 ## Disabled
 
-<ShowCaseDisabled />
+::: raw
+<ShowCaseDisabled class="vp-raw" />
+:::
 
-:::details View Source
+::: details View Source
 <<< @/components/data-display/tooltip/ShowCaseDisabled.vue
 :::
 

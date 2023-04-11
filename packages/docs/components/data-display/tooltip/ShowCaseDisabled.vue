@@ -9,9 +9,9 @@ function handleClick() {
 </script>
 
 <template>
-  <EzButton @click="handleClick"
-    >Click button to change tooltip disabled</EzButton
-  >
+  <EzButton type="soft" @click="handleClick">
+    Click button to change tooltip disabled
+  </EzButton>
 
   <div>
     <EzTooltip title="Disabled Case" placement="bottom" :disabled="disabled">

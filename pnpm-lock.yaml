@@ -18,6 +18,12 @@ importers:
         specifier: workspace:^
         version: link:../easy-ui
     devDependencies:
+      postcss:
+        specifier: ^8.4.21
+        version: 8.4.21
+      postcss-prefix-selector:
+        specifier: ^1.16.0
+        version: 1.16.0(postcss@8.4.21)
       vitepress:
         specifier: 1.0.0-alpha.65
         version: 1.0.0-alpha.65(@algolia/client-search@4.17.0)(@types/node@18.15.11)(sass@1.61.0)
@@ -4584,6 +4590,14 @@ packages:
       jsonc-parser: 3.2.0
       mlly: 1.2.0
       pathe: 1.1.0
+    dev: true
+
+  /postcss-prefix-selector@1.16.0(postcss@8.4.21):
+    resolution: {integrity: sha512-rdVMIi7Q4B0XbXqNUEI+Z4E+pueiu/CS5E6vRCQommzdQ/sgsS4dK42U7GX8oJR+TJOtT+Qv3GkNo6iijUMp3Q==}
+    peerDependencies:
+      postcss: '>4 <9'
+    dependencies:
+      postcss: 8.4.21
     dev: true
 
   /postcss-selector-parser@6.0.11:

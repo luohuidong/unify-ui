@@ -1,6 +1,7 @@
 {
   "name": "easy-ui-docs",
   "private": true,
+  "type": "module",
   "description": "",
   "scripts": {
     "dev": "vitepress dev",
@@ -11,6 +12,8 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
+    "postcss": "^8.4.21",
+    "postcss-prefix-selector": "^1.16.0",
     "vitepress": "1.0.0-alpha.65",
     "vue": "^3.2.47"
   },
