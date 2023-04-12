@@ -5,7 +5,7 @@
     "cz": "cz",
     "build-lib": "pnpm --filter '@easy-ui-team/easy-ui' run build",
     "build-doc": "pnpm build-lib && pnpm --filter '@easy-ui-team/docs' run build",
-    "release": "pnpm build-lib && changeset publish"
+    "release": "pnpm build-lib && pnpm -r publish"
   },
   "keywords": [],
   "author": "luohuidong",
