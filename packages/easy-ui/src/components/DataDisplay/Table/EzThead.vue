@@ -13,10 +13,11 @@ function handleSort(column: ColumnData) {
   if (!column.sortable) return;
 
   const currentSort = rootProps.sort;
+  const sortTypes = column.sortType || ["ascending", "descending"];
 
   // if table is not sorted, current column will be sorted by ascending
   if (!currentSort) {
-    handleSortEmit({ columnKey: column.key, order: "ascending" });
+    handleSortEmit({ columnKey: column.key, order: sortTypes[0] });
     return;
   }
 
@@ -27,7 +28,6 @@ function handleSort(column: ColumnData) {
   }
 
   // change current column sort order
-  const sortTypes = column.sortType || ["ascending", "descending"];
   const index = sortTypes.findIndex((sortType) => sortType === currentSort.order);
   if (index === sortTypes.length - 1) {
     handleSortEmit(null);

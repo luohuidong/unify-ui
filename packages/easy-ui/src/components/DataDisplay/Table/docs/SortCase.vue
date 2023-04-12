@@ -15,7 +15,7 @@ const columns: TableType["$props"]["columns"] = [
     title: "Title",
     key: "title",
     sortable: true,
-    sortType: ["ascending", "descending"],
+    sortType: ["descending"],
     width: 200,
   },
   {
