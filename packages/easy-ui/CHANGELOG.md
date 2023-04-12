@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.3.2
+
+### Patch Changes
+
+- 8655a71: update version of dependencies
+
 ## 0.3.1
 
 ### Patch Changes
