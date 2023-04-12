@@ -18,6 +18,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {
     title: "Post",
     key: "post",
+    width: 600,
   },
 ];
 

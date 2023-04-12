@@ -68,7 +68,6 @@ function toggleExpandRow() {
       :class="rootProps.tbodyCellClass"
     >
       <div
-        v-if="rootProps.selection?.type === 'multiple'"
         :class="[
           commonStyle['cell__inner'],
           commonStyle['cell__inner--horizontal-center'],
@@ -76,13 +75,14 @@ function toggleExpandRow() {
         ]"
       >
         <EzCheckbox
+          v-if="rootProps.selection?.type === 'multiple'"
           :checked="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
           :disabled="rootProps.selection?.disabledCondition?.(record)"
           @change="(checked) => handleCheckboxChange(record, checked)"
         ></EzCheckbox>
-      </div>
-      <div v-else :class="commonStyle['cell__inner']">
+
         <input
+          v-else
           type="radio"
           :checked="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
           :disabled="rootProps.selection?.disabledCondition?.(record)"

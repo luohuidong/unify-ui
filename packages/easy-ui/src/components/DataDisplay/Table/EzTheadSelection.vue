@@ -97,7 +97,6 @@ function SelectionAllToggle(isSelectAll: boolean) {
 <template>
   <th class="th-selection-cell">
     <div
-      v-if="rootProps.selection?.type === 'multiple'"
       :class="[
         commonStyle['cell__inner'],
         commonStyle['cell__inner--horizontal-center'],
@@ -105,6 +104,7 @@ function SelectionAllToggle(isSelectAll: boolean) {
       ]"
     >
       <EzCheckbox
+        v-if="rootProps.selection?.type === 'multiple'"
         v-model:checked="state.checkboxValue"
         :indeterminate="state.indeterminate"
         :disabled="state.checkboxDisable"
