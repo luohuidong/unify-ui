@@ -20,5 +20,6 @@
   },
   "dependencies": {
     "@easy-ui-team/easy-ui": "workspace:^"
-  }
+  },
+  "version": null
 }
