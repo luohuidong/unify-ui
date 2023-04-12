@@ -3,8 +3,8 @@
   "private": true,
   "scripts": {
     "cz": "cz",
-    "build-lib": "pnpm --filter '@luohuidong/easy-ui' run build",
-    "build-doc": "pnpm build-lib && pnpm --filter 'easy-ui-docs' run build"
+    "build-lib": "pnpm --filter '@easy-ui-team/easy-ui' run build",
+    "build-doc": "pnpm build-lib && pnpm --filter '@easy-ui-team/docs' run build"
   },
   "keywords": [],
   "author": "luohuidong",
