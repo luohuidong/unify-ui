@@ -1,5 +1,12 @@
 # @easy-ui-team/easy-ui
 
+## 0.3.1
+
+### Patch Changes
+
+- 51f4dae: Fix the bug where the selection column does not display the shadow correctly when the selection type is set to single.
+- 51f4dae: fix the bug where the table sort state changes incorrectly
+
 ## 0.3.0
 
 ### Minor Changes
