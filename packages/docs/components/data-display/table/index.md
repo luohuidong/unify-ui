@@ -134,3 +134,17 @@ If you want to customize the content of a cell, you can define the content and t
 | sortType | Array   | -       | Array need to be one of the following:`ascending` or `descending`. The column sort type                                           |
 | title    | String  | -       | Column title                                                                                                                      |
 | width    | String  | -       | Column width                                                                                                                      |
+
+#### rowExpand
+
+| Property             | Type     | Default | Description                                           |
+| -------------------- | -------- | ------- | ----------------------------------------------------- |
+| expandCondition      | Function | -       | Function to determine whether the row can be expanded |
+| showExpandRowDefault | Boolean  | false   | Whether to show expand row by default                 |
+
+#### selection
+
+| Property          | Type     | Default | Description                                           |
+| ----------------- | -------- | ------- | ----------------------------------------------------- |
+| type              | String   | -       | Type of selection. Can be `single` or `multiple`      |
+| disabledCondition | Function | -       | Function to determine whether the row can be selected |

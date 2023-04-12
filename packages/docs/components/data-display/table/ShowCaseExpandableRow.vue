@@ -18,7 +18,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 
 const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
   expandCondition: (row) => row.description as boolean,
-  showExpandRowDefault: true,
+  showExpandRowDefault: false,
 };
 </script>
 
