@@ -1,4 +1,4 @@
-# @luohuidong/easy-ui
+# @easy-ui-team/easy-ui
 
 ## 0.3.0
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzButton, EzTooltip } from "@luohuidong/easy-ui";
+import { EzButton, EzTooltip } from "@easy-ui-team/easy-ui";
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 {
-  "name": "easy-ui-workspaces",
+  "name": "@easy-ui-team/workspaces",
   "private": true,
   "scripts": {
     "cz": "cz",

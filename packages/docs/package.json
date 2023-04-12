@@ -1,5 +1,5 @@
 {
-  "name": "easy-ui-docs",
+  "name": "@easy-ui-team/docs",
   "private": true,
   "type": "module",
   "description": "",
@@ -19,6 +19,6 @@
     "vue": "^3.2.47"
   },
   "dependencies": {
-    "@luohuidong/easy-ui": "workspace:^"
+    "@easy-ui-team/easy-ui": "workspace:^"
   }
 }

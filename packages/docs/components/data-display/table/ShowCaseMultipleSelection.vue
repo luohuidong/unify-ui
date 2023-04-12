@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { watchEffect, reactive } from "vue";
-import { EzTable } from "@luohuidong/easy-ui";
+import { EzTable } from "@easy-ui-team/easy-ui";
 
 import useFetchData from "./useFetchData";
 

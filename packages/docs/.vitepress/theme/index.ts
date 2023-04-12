@@ -1,4 +1,4 @@
 import DefaultTheme from "vitepress/theme";
-import "@luohuidong/easy-ui/dist/style.css";
+import "@easy-ui-team/easy-ui/dist/style.css";
 
 export default DefaultTheme;

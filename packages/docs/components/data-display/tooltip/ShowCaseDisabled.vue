@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzButton, EzTooltip } from "@luohuidong/easy-ui";
+import { EzButton, EzTooltip } from "@easy-ui-team/easy-ui";
 
 const disabled = ref(false);
 function handleClick() {
