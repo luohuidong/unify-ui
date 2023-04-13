@@ -26,7 +26,9 @@ If you want to customize the content of a cell, you can define the content and t
 <<< @/components/data-display/table/ShowCaseBasicUsage.vue
 :::
 
-## Fixed Column
+## Fixed Columns
+
+The table supports fixed columns. For keeping the left columns fixed in the table, you can set the `fixed` attribute of the `columns` prop to `left`. Similarly, to keep the right columns fixed in the table, you can set the `fixed` attribute of the `columns` prop to `right`.
 
 ::: raw
 <ShowCaseFixedColumn class="vp-raw" />
