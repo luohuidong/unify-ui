@@ -9,7 +9,7 @@ export default defineConfig({
       copyright: "Copyright © 2022-present luohuidong",
     },
     socialLinks: [
-      { icon: "github", link: "https://github.com/luohuidong/easy-ui" },
+      { icon: "github", link: "https://github.com/easy-ui-team/easy-ui" },
     ],
     sidebar: [
       {
