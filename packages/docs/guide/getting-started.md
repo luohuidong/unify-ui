@@ -15,7 +15,7 @@ Easy UI is a UI library for Vue.js 3.
 1. Install Easy UI
 
 ```bash
-pnpm add "@easy-ui-team/easy-ui"
+pnpm add @easy-ui-team/easy-ui
 ```
 
 2. Import css style in main js file
