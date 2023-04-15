@@ -22,6 +22,14 @@ const value = ref("allan@mail.com");
         </template>
       </EzInput>
     </Variant>
+
+    <Variant title="Inline trailing add-on">
+      <EzInput>
+        <template #inline-trailing-add-on>
+          <span class="inline-trailing-add-on">.com</span>
+        </template>
+      </EzInput>
+    </Variant>
   </Story>
 </template>
 

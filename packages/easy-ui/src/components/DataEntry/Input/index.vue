@@ -1,5 +1,5 @@
 <script lang="ts">
-import { defineComponent, useSlots } from "vue";
+import { defineComponent, ref } from "vue";
 
 export default defineComponent({
   name: "EzInput",
@@ -17,18 +17,30 @@ const emits = defineEmits<{
   (e: "update:modelValue", value: string): void;
 }>();
 
+const inputRef = ref<HTMLInputElement>();
+
 function handleInput(e: Event) {
   emits("update:modelValue", (e.target as HTMLInputElement).value);
+}
+
+function handleInlineAddOnClick() {
+  inputRef.value?.focus();
 }
 </script>
 
 <template>
   <span class="input-wrapper" :class="{ 'input-wrapper--disabled': disabled }">
-    <span v-if="$slots['inline-leading-add-on']" class="input-add-on input-add-on--leading">
+    <span
+      v-if="$slots['inline-leading-add-on']"
+      tabindex="1"
+      class="input-add-on input-add-on--inline-leading"
+      @click.stop="handleInlineAddOnClick"
+    >
       <slot name="inline-leading-add-on"></slot>
     </span>
 
     <input
+      ref="inputRef"
       :value="modelValue"
       class="input"
       :placeholder="placeholder"
@@ -36,7 +48,14 @@ function handleInput(e: Event) {
       @input="handleInput"
     />
 
-    <slot name="trailing-add-on"></slot>
+    <span
+      v-if="$slots['inline-trailing-add-on']"
+      tabindex="1"
+      class="input-add-on input-add-on--inline-trailing"
+      @click.stop="handleInlineAddOnClick"
+    >
+      <slot name="inline-trailing-add-on"></slot>
+    </span>
   </span>
 </template>
 
@@ -97,7 +116,11 @@ function handleInput(e: Event) {
   color: rgb(107 114 128);
 }
 
-.input-add-on--leading {
+.input-add-on--inline-leading {
   margin-right: 4px;
+}
+
+.input-add-on--inline-trailing {
+  margin-left: 4px;
 }
 </style>
