@@ -31,6 +31,10 @@ export default defineConfig({
               { text: "Popup", link: "/components/data-display/popup/" },
             ],
           },
+          {
+            text: "Data Entry",
+            items: [{ text: "Input", link: "/components/data-entry/input/" }],
+          },
         ],
       },
     ],
