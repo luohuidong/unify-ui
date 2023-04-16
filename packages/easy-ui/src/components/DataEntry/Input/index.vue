@@ -7,6 +7,8 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+import { computed, useSlots } from "vue";
+
 defineProps<{
   modelValue?: string;
   disabled?: boolean;
@@ -17,6 +19,7 @@ const emits = defineEmits<{
   (e: "update:modelValue", value: string): void;
 }>();
 
+const slots = useSlots();
 const inputRef = ref<HTMLInputElement>();
 
 function handleInput(e: Event) {
@@ -26,14 +29,32 @@ function handleInput(e: Event) {
 function handleInlineAddOnClick() {
   inputRef.value?.focus();
 }
+
+const existAddOn = computed(() => {
+  return slots["leading-add-on"] || slots["trailing-add-on"];
+});
 </script>
 
 <template>
-  <span class="input-wrapper" :class="{ 'input-wrapper--disabled': disabled }">
+  <span
+    class="input-wrapper"
+    :class="{
+      'input-wrapper--without-add-on': !existAddOn,
+      'input-wrapper--disabled': !existAddOn && disabled,
+    }"
+  >
+    <span
+      v-if="$slots['leading-add-on']"
+      class="add-on add-on--leading"
+      :class="{ 'add-on--disabled': disabled }"
+    >
+      <slot name="leading-add-on"></slot>
+    </span>
+
     <span
       v-if="$slots['inline-leading-add-on']"
-      tabindex="1"
-      class="input-add-on input-add-on--inline-leading"
+      :tabindex="disabled ? '' : '1'"
+      class="inline-add-on inline-add-on--leading"
       @click.stop="handleInlineAddOnClick"
     >
       <slot name="inline-leading-add-on"></slot>
@@ -43,6 +64,11 @@ function handleInlineAddOnClick() {
       ref="inputRef"
       :value="modelValue"
       class="input"
+      :class="{
+        'input--with-add-on': existAddOn,
+        'input--left-rounded': $slots['trailing-add-on'] && !$slots['leading-add-on'],
+        'input--right-rounded': $slots['leading-add-on'] && !$slots['trailing-add-on'],
+      }"
       :placeholder="placeholder"
       :disabled="disabled"
       @input="handleInput"
@@ -50,49 +76,62 @@ function handleInlineAddOnClick() {
 
     <span
       v-if="$slots['inline-trailing-add-on']"
-      tabindex="1"
-      class="input-add-on input-add-on--inline-trailing"
+      :tabindex="disabled ? '0' : '1'"
+      class="inline-add-on inline-add-on--trailing"
       @click.stop="handleInlineAddOnClick"
     >
       <slot name="inline-trailing-add-on"></slot>
+    </span>
+
+    <span
+      v-if="$slots['trailing-add-on']"
+      class="add-on add-on--trailing"
+      :class="{ 'add-on--disabled': disabled }"
+    >
+      <slot name="trailing-add-on"></slot>
     </span>
   </span>
 </template>
 
 <style lang="scss" scoped>
+$normal-border-color: #d1d5db;
+$active-border-color: #4f46e5;
+$radius: 6px;
+$disabled-background-color: rgb(249 250 251);
+
 .input-wrapper {
-  position: relative;
   box-sizing: border-box;
+
   height: 36px;
-  margin: 2px;
-  padding: 0px 12px;
+  min-width: 250px;
 
   display: inline-flex;
   align-items: center;
 
-  border-radius: 6px;
-  border: 1px solid #d1d5db;
+  border-radius: $radius;
   background-color: #fff;
-  overflow: hidden;
   color: rgb(17 24 39);
 }
 
-.input-wrapper:focus-within {
-  border: 1px solid rgb(79 70 229);
-  outline: 1px solid rgb(79 70 229);
+.input-wrapper--without-add-on {
+  padding: 0px 12px;
+  border: 1px solid $normal-border-color;
+}
+
+.input-wrapper--without-add-on:focus-within {
+  border: 1px solid $active-border-color;
+  outline: 1px solid $active-border-color;
 }
 
 .input-wrapper--disabled {
-  background: rgb(249 250 251);
+  background: $disabled-background-color;
   cursor: not-allowed;
-
-  * {
-    cursor: not-allowed;
-  }
 }
 
 .input {
+  box-sizing: border-box;
   height: 100%;
+  width: 100%;
   font-family: inherit;
   font-size: 14px;
   line-height: 24px;
@@ -102,25 +141,76 @@ function handleInlineAddOnClick() {
   background-color: transparent;
 }
 
+.input--with-add-on {
+  border: 1px solid $normal-border-color;
+  padding: 0 12px;
+}
+.input--with-add-on:focus-within {
+  border: 1px solid $active-border-color;
+  outline: 1px solid $active-border-color;
+}
+
+.input--left-rounded {
+  border-radius: $radius 0 0 $radius;
+}
+
+.input--right-rounded {
+  border-radius: 0 $radius $radius 0;
+}
+
 .input::placeholder {
   color: #a0aec0;
 }
 
 .input:disabled {
   color: #a0aec0;
+  cursor: not-allowed;
+  background-color: $disabled-background-color;
 }
 
-.input-add-on {
+.input:focus {
+  z-index: 1;
+}
+
+.add-on {
+  box-sizing: border-box;
+
+  display: flex;
+  align-items: center;
+
+  height: 100%;
+  padding: 0 12px;
+
+  border: 1px solid $normal-border-color;
+  font-size: 14px;
+  color: rgb(107 114 128);
+}
+
+.add-on--disabled {
+  background: $disabled-background-color;
+}
+
+.add-on--leading {
+  border-radius: $radius 0 0 $radius;
+  border-right: none;
+}
+
+.add-on--trailing {
+  border-radius: 0 $radius $radius 0;
+  border-left: none;
+}
+
+.inline-add-on {
   user-select: none;
   font-size: 14px;
   color: rgb(107 114 128);
 }
 
-.input-add-on--inline-leading {
+.inline-add-on--leading {
   margin-right: 4px;
 }
 
-.input-add-on--inline-trailing {
+.inline-add-on--trailing {
   margin-left: 4px;
 }
 </style>
