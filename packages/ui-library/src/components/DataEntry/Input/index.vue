@@ -37,10 +37,10 @@ const existAddOn = computed(() => {
 
 <template>
   <span
-    class="input-wrapper"
+    class="input-group"
     :class="{
-      'input-wrapper--without-add-on': !existAddOn,
-      'input-wrapper--disabled': !existAddOn && disabled,
+      'input-group--without-add-on': !existAddOn,
+      'input-group--disabled': !existAddOn && disabled,
     }"
   >
     <span
@@ -76,7 +76,7 @@ const existAddOn = computed(() => {
 
     <span
       v-if="$slots['inline-trailing-add-on']"
-      :tabindex="disabled ? '0' : '1'"
+      :tabindex="disabled ? '' : '1'"
       class="inline-add-on inline-add-on--trailing"
       @click.stop="handleInlineAddOnClick"
     >
@@ -99,7 +99,7 @@ $active-border-color: #4f46e5;
 $radius: 6px;
 $disabled-background-color: rgb(249 250 251);
 
-.input-wrapper {
+.input-group {
   box-sizing: border-box;
 
   height: 36px;
@@ -113,17 +113,17 @@ $disabled-background-color: rgb(249 250 251);
   color: rgb(17 24 39);
 }
 
-.input-wrapper--without-add-on {
+.input-group--without-add-on {
   padding: 0px 12px;
   border: 1px solid $normal-border-color;
 }
 
-.input-wrapper--without-add-on:focus-within {
+.input-group--without-add-on:focus-within {
   border: 1px solid $active-border-color;
   outline: 1px solid $active-border-color;
 }
 
-.input-wrapper--disabled {
+.input-group--disabled {
   background: $disabled-background-color;
   cursor: not-allowed;
 }
