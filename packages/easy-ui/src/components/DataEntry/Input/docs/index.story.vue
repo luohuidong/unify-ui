@@ -9,33 +9,147 @@ const value = ref("allan@mail.com");
   <Story title="Data Entry/Input">
     <Variant title="Basic usage">
       <div class="container">
-        <EzInput v-model="value" />
-        <EzInput placeholder="placeholder: you@email.com"></EzInput>
-        <EzInput v-model="value" disabled></EzInput>
+        <div>
+          <EzInput v-model="value" />
+        </div>
+        <div>
+          <EzInput placeholder="placeholder: you@email.com"></EzInput>
+        </div>
+        <div>
+          <EzInput v-model="value" disabled></EzInput>
+        </div>
       </div>
     </Variant>
 
-    <Variant title="Inline leading add-on">
-      <EzInput>
-        <template #inline-leading-add-on>
-          <span class="inline-leading-add-on">http://</span>
-        </template>
-      </EzInput>
+    <Variant title="Add-on">
+      <div class="container">
+        <div>
+          <EzInput>
+            <template #leading-add-on>
+              <span>http://</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput disabled>
+            <template #leading-add-on>
+              <span>http://</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput>
+            <template #trailing-add-on>
+              <span>.com</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput disabled>
+            <template #trailing-add-on>
+              <span>.com</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput>
+            <template #leading-add-on>
+              <span>http://</span>
+            </template>
+
+            <template #trailing-add-on>
+              <span>.com</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput disabled>
+            <template #leading-add-on>
+              <span>http://</span>
+            </template>
+
+            <template #trailing-add-on>
+              <span>.com</span>
+            </template>
+          </EzInput>
+        </div>
+      </div>
     </Variant>
 
-    <Variant title="Inline trailing add-on">
-      <EzInput>
-        <template #inline-trailing-add-on>
-          <span class="inline-trailing-add-on">.com</span>
-        </template>
-      </EzInput>
+    <Variant title="Inline add-on">
+      <div class="container">
+        <div>
+          <EzInput>
+            <template #inline-leading-add-on>
+              <span>http://</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput disabled>
+            <template #inline-leading-add-on>
+              <span>http://</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput>
+            <template #inline-trailing-add-on>
+              <span>.com</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput disabled>
+            <template #inline-trailing-add-on>
+              <span>.com</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput>
+            <template #inline-leading-add-on>
+              <span>http://</span>
+            </template>
+
+            <template #inline-trailing-add-on>
+              <span>.com</span>
+            </template>
+          </EzInput>
+        </div>
+
+        <div>
+          <EzInput disabled>
+            <template #inline-leading-add-on>
+              <span>http://</span>
+            </template>
+
+            <template #inline-trailing-add-on>
+              <span>.com</span>
+            </template>
+          </EzInput>
+        </div>
+      </div>
     </Variant>
   </Story>
 </template>
 
 <style lang="scss" scoped>
 .container {
-  height: 100vh;
+  height: 500px;
+  padding: 20px;
+}
+
+.container > div {
   padding: 20px;
 }
 </style>
