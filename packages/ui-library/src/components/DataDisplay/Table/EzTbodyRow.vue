@@ -167,7 +167,6 @@ function toggleExpandRow() {
 
   .normal-row__expand-toggle-cell {
     position: sticky;
-    top: 0;
     left: 0;
     z-index: 1;
 
@@ -183,7 +182,6 @@ function toggleExpandRow() {
 
   .normal-row__selection-toggle-cell {
     position: sticky;
-    top: 0;
     left: 0;
     z-index: 1;
   }
