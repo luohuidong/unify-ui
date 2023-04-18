@@ -38,7 +38,16 @@ The table supports fixed columns. For keeping the left columns fixed in the tabl
 <<< @/components/data-display/table/ShowCaseFixedColumn.vue
 :::
 
-## Single Selection
+## Selection
+
+Rows can be selected by using the `selection` prop. The `selection` prop is an object that contains the following properties:
+
+- `type`: Type of selection. Can be `single` or `multiple`
+- `disabledCondition`: Function to determine whether the row can be selected
+
+### Single Selection
+
+If you want to ensure that only one row can be selected at a time, set the `type` attribute of the `selection` prop to `single`.
 
 ::: raw
 <ShowCaseSingleSelection class="vp-raw" />
@@ -48,7 +57,9 @@ The table supports fixed columns. For keeping the left columns fixed in the tabl
 <<< @/components/data-display/table/ShowCaseSingleSelection.vue
 :::
 
-## Multiple Selection
+### Multiple Selection
+
+If you want to allow multiple rows to be selected in the table simultaneously, you can set the `type` attribute of the `selection` prop to `multiple`.
 
 ::: raw
 <ShowCaseMultipleSelection class="vp-raw" />
