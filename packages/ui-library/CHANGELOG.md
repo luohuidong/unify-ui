@@ -1,5 +1,12 @@
 # @easy-ui-team/easy-ui
 
+## 0.4.1
+
+### Patch Changes
+
+- 1a6b4f9: hide the expand toggle cell if none of the data meets the condition for expanding
+- f987a32: Solved the issue of incorrect sticky positioning of selection columns
+
 ## 0.4.0
 
 ### Minor Changes
