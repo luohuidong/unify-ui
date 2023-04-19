@@ -1,5 +1,16 @@
 # @easy-ui-team/easy-ui
 
+## 0.4.0
+
+### Minor Changes
+
+- 38ab0e2: the input component can add add-on and inline add-on
+
+### Patch Changes
+
+- b695682: solved the issue of incorrect shadow display for expand toggle cells and selection toggle cells
+- 7029c30: Fix issue with table sorting
+
 ## 0.3.2
 
 ### Patch Changes
