@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { watchEffect, reactive } from "vue";
+import { watchEffect, reactive, computed } from "vue";
 
 import { EzCheckbox } from "@/components";
 import { useInject } from "./composable";
@@ -92,6 +92,8 @@ function SelectionAllToggle(isSelectAll: boolean) {
     records: changedRecords,
   });
 }
+
+const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "px");
 </script>
 
 <template>
@@ -119,7 +121,7 @@ function SelectionAllToggle(isSelectAll: boolean) {
   position: sticky;
   top: 0;
   height: 50px;
-  left: 0;
+  left: v-bind(selectionColumnOffset);
   z-index: 3;
 }
 </style>
