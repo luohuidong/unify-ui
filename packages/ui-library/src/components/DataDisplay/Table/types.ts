@@ -41,6 +41,7 @@ export interface RootProps {
 export interface RootState {
   selectedRowKeys: Set<Key>;
   showExpandToggleCell: boolean;
+  selectionColumnOffset: number;
 }
 
 export interface RootEmit {

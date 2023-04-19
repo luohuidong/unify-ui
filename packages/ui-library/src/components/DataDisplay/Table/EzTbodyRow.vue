@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { reactive } from "vue";
+import { reactive, computed } from "vue";
 
 import { useInject, useSelection } from "./composable";
 import type { Record } from "./types";
@@ -24,6 +24,8 @@ const state = reactive({
 function toggleExpandRow() {
   state.showExpandRow = !state.showExpandRow;
 }
+
+const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "px");
 </script>
 
 <template>
@@ -182,7 +184,7 @@ function toggleExpandRow() {
 
   .normal-row__selection-toggle-cell {
     position: sticky;
-    left: 0;
+    left: v-bind(selectionColumnOffset);
     z-index: 1;
   }
 }
