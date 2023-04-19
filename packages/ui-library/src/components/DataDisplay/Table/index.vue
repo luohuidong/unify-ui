@@ -64,7 +64,7 @@ provide(injectKeys.rootEmitKey, emit);
 const { state } = useState(props);
 useWatchProps(props, state);
 const columnCount = useGetColumnCount(props);
-const { columnsData } = useGetColumnsInfo(props);
+const { columnsData } = useGetColumnsInfo(props, state);
 
 const slots = useSlots();
 useGetSlotKey(slots);

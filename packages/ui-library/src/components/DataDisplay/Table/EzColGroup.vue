@@ -6,7 +6,7 @@ import { useInject } from "./composable";
 import { expandColumnWidth, selectionColumnWidth } from "./constant";
 import type { Column } from "./types";
 
-const { rootProps, columnsData, rootContainerRef } = useInject();
+const { rootProps, columnsData, rootContainerRef, rootState } = useInject();
 
 const isAllColumnDefinedWidth = computed(() => {
   return columnsData.value.every((col) => col.width);
@@ -68,7 +68,7 @@ function getColumnWidth(col: Column) {
 
 <template>
   <colgroup>
-    <template v-if="rootProps.rowExpand">
+    <template v-if="rootState.showExpandToggleCell">
       <col :style="{ width: `${expandColumnWidth}px` }" class="column" />
     </template>
 
