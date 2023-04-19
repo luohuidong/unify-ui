@@ -6,7 +6,7 @@ import { ColumnData } from "./types";
 import EzTheadSelection from "./EzTheadSelection.vue";
 import EzTheadSort from "./EzTheadSort.vue";
 
-const { columnsData, showShadow, rootProps, rootSlotKeys } = useInject();
+const { columnsData, showShadow, rootProps, rootSlotKeys, rootState } = useInject();
 const { handleSortEmit } = useSortEmit();
 
 function handleSort(column: ColumnData) {
@@ -40,7 +40,7 @@ function handleSort(column: ColumnData) {
 <template>
   <thead>
     <tr>
-      <template v-if="rootProps.rowExpand">
+      <template v-if="rootState.showExpandToggleCell">
         <th
           class="cell expand-column-cell"
           :class="{ [commonStyle['cell--shadow-right']]: showShadow.expandColumnShadowVisible }"

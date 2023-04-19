@@ -1,15 +1,31 @@
-import { reactive, provide, computed } from "vue";
+import { reactive, provide, computed, watchEffect } from "vue";
 
 import type { Key, RootState, RootProps } from "../types";
 import * as injectKeys from "../injectKeys";
-import { expandColumnWidth } from "../constant";
 
 export function useState(rootProps: RootProps) {
-  const selectionColumnOffset = computed(() => (rootProps.rowExpand && expandColumnWidth) || 0);
-
   const state: RootState = reactive({
     selectedRowKeys: new Set<Key>(),
-    selectionColumnOffset,
+    showExpandToggleCell: false,
+  });
+
+  watchEffect(() => {
+    const rowExpand = rootProps.rowExpand;
+
+    if (!rowExpand) {
+      state.showExpandToggleCell = false;
+      return;
+    }
+
+    const expandabledRowCount = rootProps.data.reduce((acc, item) => {
+      if (rowExpand.expandCondition(item)) {
+        return acc + 1;
+      } else {
+        return acc;
+      }
+    }, 0);
+
+    state.showExpandToggleCell = !!expandabledRowCount;
   });
 
   provide(injectKeys.rootStateKey, state);

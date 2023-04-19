@@ -1,15 +1,18 @@
 import { computed, provide, type ComputedRef } from "vue";
 
-import type { RootProps, ColumnData } from "../types";
+import type { RootProps, ColumnData, RootState } from "../types";
 import * as injectKeys from "../injectKeys";
 import { selectionColumnWidth, expandColumnWidth } from "../constant";
 
-export function useGetColumnsInfo(props: RootProps): { columnsData: ComputedRef<ColumnData[]> } {
+export function useGetColumnsInfo(
+  props: RootProps,
+  rootState: RootState
+): { columnsData: ComputedRef<ColumnData[]> } {
   const columnsData = computed(() => {
     const leftFixedColumns: ColumnData[] = [];
     let left = 0;
     if (props.selection) left += selectionColumnWidth;
-    if (props.rowExpand) left += expandColumnWidth;
+    if (rootState.showExpandToggleCell) left += expandColumnWidth;
 
     const normalColumns: ColumnData[] = [];
 

@@ -39,7 +39,7 @@ function toggleExpandRow() {
   >
     <!-- expand column cell -->
     <td
-      v-if="rootProps.rowExpand"
+      v-if="rootState.showExpandToggleCell"
       class="normal-row__cell normal-row__expand-toggle-cell"
       :class="rootProps.tbodyCellClass"
     >
