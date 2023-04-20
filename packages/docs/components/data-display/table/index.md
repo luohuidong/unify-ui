@@ -40,10 +40,17 @@ The table supports fixed columns. For keeping the left columns fixed in the tabl
 
 ## Selection
 
-Rows can be selected by using the `selection` prop. The `selection` prop is an object that contains the following properties:
+The rows in the table can be selected by using the `selection` prop. The `selection` prop is an object that contains the following properties:
 
-- `type`: Type of selection. Can be `single` or `multiple`
-- `disabledCondition`: Function to determine whether the row can be selected
+- `type`: the type of selection, which can be either `single` or `multiple`
+- `disabledCondition`: a function that determine whether a row can be selected.
+
+You can use the `v-model:selectedRowKeys` to get the selected row keys.
+
+Additionally, there are two events that you can use to listen to changes in selection:
+
+- `select`: emitted when a row is selected
+- `select-all`: emitted when all rows are selected
 
 ### Single Selection
 
@@ -161,3 +168,11 @@ If you want to allow multiple rows to be selected in the table simultaneously, y
 | ----------------- | -------- | ------- | ----------------------------------------------------- |
 | type              | String   | -       | Type of selection. Can be `single` or `multiple`      |
 | disabledCondition | Function | -       | Function to determine whether the row can be selected |
+
+### Event
+
+| Event Name  | Description                                          |
+| ----------- | ---------------------------------------------------- |
+| select      | Event emitted when a row is selected                 |
+| select-all  | Event emitted when all rows are selected             |
+| sort-change | Event emitted when the sort type of a column changes |
