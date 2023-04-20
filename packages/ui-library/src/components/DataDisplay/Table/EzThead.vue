@@ -121,7 +121,7 @@ $border-color: #f0f0f0;
   top: 0;
   bottom: 0;
   right: 0;
-  width: 2px;
+  width: 1px;
   background: $border-color;
 }
 </style>
