@@ -140,7 +140,7 @@ const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "
   background-color: white;
 
   &:hover {
-    background: #fafafa;
+    background: #fafbfd;
   }
 
   &.normal-row--selection {
