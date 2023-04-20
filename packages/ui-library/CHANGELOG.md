@@ -1,5 +1,12 @@
 # @easy-ui-team/easy-ui
 
+## 0.4.2
+
+### Patch Changes
+
+- 772983c: change the width of the table header divider
+- 772983c: change the hover color of the table rows
+
 ## 0.4.1
 
 ### Patch Changes
