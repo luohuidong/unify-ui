@@ -78,6 +78,11 @@ If you want to allow multiple rows to be selected in the table simultaneously, y
 
 ## Expandable Row
 
+The `rowExpand` prop can be used to mark a row expandabled. The `rowExpand` prop is an object that contains the following properties:
+
+- `expandCondition`: a function that determine whether a row can be expanded.
+- `showExpandRowDefault`: whether to show expand row by default.
+
 ::: raw
 <ShowCaseExpandableRow class="vp-raw" />
 :::
