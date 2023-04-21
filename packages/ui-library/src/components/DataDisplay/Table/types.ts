@@ -7,12 +7,12 @@ export type SortType = "ascending" | "descending";
 export interface Column {
   key: string;
   title: string;
-  /** should pass width if column is fixed. */
+  /** When a column is fixed, it is necessary to provide the 'width' property */
   width?: number;
   fixed?: "left" | "right";
   sortable?: boolean;
   sortType?: SortType[];
-  /** ellipsis cell content via setting column.ellipsis. ellipsis only valid the column not use the slot  */
+  /** ellipsis cell content via setting 'ellipsis' property. The 'ellipsis' property only valid the column not use the slot  */
   ellipsis?: boolean;
 }
 
@@ -46,13 +46,12 @@ export interface RootState {
 
 export interface RootEmit {
   (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
-  /** emit when select/deselect one row */
-  (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
-  /** emit when select/deselect all rows */
-  (e: "selectAll", params: { selected: boolean; rowKeys: Key[]; records: Record[] }): void;
-  /** emit when click sortable column table header cell */
   (e: "update:sort", params: { columnKey: Key; order: SortType } | null): void;
-  /** emit when click sortable column table header cell */
+  /** Emits the "select" event when a row is selected or deselected. */
+  (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
+  /** Emits the "selectAll" event when all rows are selected or deselected. */
+  (e: "selectAll", params: { selected: boolean; rowKeys: Key[]; records: Record[] }): void;
+  /** Emits the "sortChange" event when the column sort order changes */
   (e: "sortChange", params: { columnKey: Key; order: SortType } | null): void;
 }
 

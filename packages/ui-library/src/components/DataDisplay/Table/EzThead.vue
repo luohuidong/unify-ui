@@ -15,13 +15,13 @@ function handleSort(column: ColumnData) {
   const currentSort = rootProps.sort;
   const sortTypes = column.sortType || ["ascending", "descending"];
 
-  // The first specified sort type in `sortTypes` will be used to sort the current column if the table is not currently sorted.
+  // The first specified sort type in `sortTypes` will be used to sort the current column if the table is not sorted.
   if (!currentSort) {
     handleSortEmit({ columnKey: column.key, order: sortTypes[0] });
     return;
   }
 
-  // The first specified sort type in `sortTypes` will be used to sort the current column if current column is not sorted.
+  // The first specified sort type in `sortTypes` will be used to sort the current column if the current column is not sorted.
   if (currentSort.columnKey !== column.key) {
     handleSortEmit({ columnKey: column.key, order: sortTypes[0] });
     return;

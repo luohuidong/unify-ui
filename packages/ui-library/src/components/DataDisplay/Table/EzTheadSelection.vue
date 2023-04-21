@@ -31,7 +31,7 @@ watchEffect(() => {
     }
   });
 
-  // if all data are unselectable, disable checkbox component
+  // Disable the checkbox component if all data are unselectable.
   if (rootProps.data.length - unselectableRowCount === 0) {
     // set checkbox value to false and indeterminate state to false when there is no table data
     state.checkboxValue = false;
@@ -40,18 +40,18 @@ watchEffect(() => {
     return;
   }
 
-  // check if all selectable row are selected
+  // Check if all selectable row are selected
   const result = SetUtils.intersection(selectableRowKeys, rootState.selectedRowKeys);
   if (result.size === selectableRowKeys.size) {
-    // if all table data is selected, set checkbox value to true, and indeterminate state is false.
+    // Set the checkbox value to true and the indeterminate state to false if all table data are selected.
     state.checkboxValue = true;
     state.indeterminate = false;
   } else if (result.size < selectableRowKeys.size && result.size > 0) {
-    // selectable row are partialy selected
+    // Select some but not all of the selectable rows
     state.checkboxValue = false;
     state.indeterminate = true;
   } else {
-    // all selectable row are unselected
+    // None of the selectable rows are selected
     state.checkboxValue = false;
     state.indeterminate = false;
   }
@@ -65,18 +65,18 @@ function SelectionAllToggle(isSelectAll: boolean) {
   rootProps.data.forEach((item) => {
     const rowKey = item[rootProps.rowKey];
 
-    // record must be selectable
+    // Rows must be selectable
     if (rootProps.selection?.disabledCondition?.(item)) {
       return true;
     }
 
     if (isSelectAll) {
-      // exclude the data which is already selected before user trigger select all data
+      // Exclude the data that has already been selected
       if (rootState.selectedRowKeys.has(rowKey)) return;
       changedRowKeys.push(rowKey);
       changedRecords.push(item);
     } else {
-      // data must be selected before user unselect all data
+      // Exclude the data that has not been selected yet
       if (!rootState.selectedRowKeys.has(rowKey)) return;
       changedRowKeys.push(rowKey);
       changedRecords.push(item);

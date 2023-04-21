@@ -50,13 +50,12 @@ provide(injectKeys.rootPropsKey, props);
 
 const emit = defineEmits<{
   (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
-  /** emit when select/deselect one row */
-  (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
-  /** emit when select/deselect all rows */
-  (e: "selectAll", params: { selected: boolean; rowKeys: Key[]; records: Record[] }): void;
-  /** emit when click sortable column table header cell */
   (e: "update:sort", params: { columnKey: Key; order: SortType } | null): void;
-  /** emit when click sortable column table header cell */
+  /** Emits the "select" event when a row is selected or deselected. */
+  (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
+  /** Emits the "selectAll" event when all rows are selected or deselected. */
+  (e: "selectAll", params: { selected: boolean; rowKeys: Key[]; records: Record[] }): void;
+  /** Emits the "sortChange" event when the column sort order changes */
   (e: "sortChange", params: { columnKey: Key; order: SortType } | null): void;
 }>();
 provide(injectKeys.rootEmitKey, emit);
@@ -88,7 +87,7 @@ useShowShadow({ containerRef, tableRef, columnsData, rootProps: props });
       </EzThead>
 
       <tbody>
-        <!-- 渲染 data 数据 -->
+        <!-- render the data -->
         <template v-if="props.data.length > 0">
           <EzTbodyRow
             v-for="(record, index) in props.data"

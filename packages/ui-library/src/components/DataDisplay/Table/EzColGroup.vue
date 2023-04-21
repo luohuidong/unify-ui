@@ -52,8 +52,8 @@ const lastNotFixedColumn = computed(() => {
 function getColumnWidth(col: Column) {
   const width = "auto";
 
-  // if all columns has been defined width and root container width is larger than all columns width,
-  // then set last not fixed column width to auto
+  // If all columns have defined `width` and the root container width is larger than the sum of all
+  // columns' widths, then the width of the last non-fixed column will be set to auto.
   if (shouldSetLastNotFixedColumnWidthToAuto.value && col === lastNotFixedColumn.value) {
     return width;
   }
