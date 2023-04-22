@@ -92,8 +92,34 @@ The example of adding leading add-ons to a disabled input:
 
 ### Properties
 
-| Property    | Type    | Default | Description                   |
-| ----------- | ------- | ------- | ----------------------------- |
-| modelValue  | string  | -       | Input value                   |
-| disabled    | boolean | false   | Whether the input is disabled |
-| placeholder | string  | -       | Input placeholder             |
+```ts
+defineProps<{
+  /** Input value */
+  modelValue?: string;
+  /** Whether the input is disabled */
+  disabled?: boolean;
+  /** Input placeholder */
+  placeholder?: string;
+}>();
+
+const emits = defineEmits<{
+  (e: "update:modelValue", value: string): void;
+  (e: "input", value: string): void;
+  (e: "change", value: string): void;
+}>();
+```
+
+### Events
+
+```ts
+defineEmits<{
+  (e: "update:modelValue", value: string): void;
+  /** The 'input' event is triggered when the value of an Input components changes. */
+  (e: "input", value: string): void;
+  /**
+   * The 'change' event fires when the value is committed, for example, by pressing the
+   * enter key or when the input element loses focus after its value has been changed
+   */
+  (e: "change", value: string): void;
+}>();
+```

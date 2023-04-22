@@ -10,20 +10,37 @@ export default defineComponent({
 import { computed, useSlots } from "vue";
 
 defineProps<{
+  /** Input value */
   modelValue?: string;
+  /** Whether the input is disabled */
   disabled?: boolean;
+  /** Input placeholder */
   placeholder?: string;
 }>();
 
 const emits = defineEmits<{
   (e: "update:modelValue", value: string): void;
+  /** The 'input' event is triggered when the value of an Input components changes. */
+  (e: "input", value: string): void;
+  /**
+   * The 'change' event fires when the value is committed, for example, by pressing the
+   * enter key or when the input element loses focus after its value has been changed
+   */
+  (e: "change", value: string): void;
 }>();
 
 const slots = useSlots();
 const inputRef = ref<HTMLInputElement>();
 
 function handleInput(e: Event) {
-  emits("update:modelValue", (e.target as HTMLInputElement).value);
+  const value = (e.target as HTMLInputElement).value;
+  emits("update:modelValue", value);
+  emits("input", value);
+}
+
+function handleChange(e: Event) {
+  const value = (e.target as HTMLInputElement).value;
+  emits("change", value);
 }
 
 function handleInlineAddOnClick() {
@@ -72,6 +89,7 @@ const existAddOn = computed(() => {
       :placeholder="placeholder"
       :disabled="disabled"
       @input="handleInput"
+      @change="handleChange"
     />
 
     <span
