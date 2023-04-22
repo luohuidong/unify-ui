@@ -135,49 +135,99 @@ The `rowExpand` prop can be used to mark a row expandabled. The `rowExpand` prop
 
 ### Table Props
 
-| Property        | Type    | Default | Description                       |
-| --------------- | ------- | ------- | --------------------------------- |
-| columns         | Array   | -       | Columns of table                  |
-| data            | Array   | -       | Table data                        |
-| rowExpand       | Object  | -       | Enabled row can be expandable     |
-| rowKey          | String  | -       | Row's unique key                  |
-| selectedRowKeys | Set     | -       | The set of selected row keys      |
-| selection       | Object  | -       | Config of row selection           |
-| showFoot        | Boolean | false   | Whether to show foot              |
-| sort            | Object  | -       | Config of row sort                |
-| tbodyCellClass  | String  | -       | Class name of table body row cell |
-| tbodyRowClass   | String  | -       | Class name of Table body row      |
+```ts
+export interface TableProps {
+  columns: Column[];
+
+  /** Table data */
+  data: Record[];
+
+  /** Enabled row can be expandable */
+  rowExpand?: {
+    expandCondition: (record: Record) => boolean;
+    showExpandRowDefault?: boolean;
+  };
+
+  /** Row's unique key */
+  rowKey: Key;
+
+  /** The set of selected row keys */
+  selectedRowKeys?: Set<Key>;
+
+  /** Config of row selection */
+  selection?: {
+    type: "multiple" | "single";
+    disabledCondition?: (record: Record) => boolean;
+  };
+
+  /** Whether to show foot */
+  showFoot?: boolean;
+
+  /** Config of row sort  */
+  sort?: {
+    columnKey: Key;
+    order: SortType;
+  } | null;
+
+  /** Class name of Table body row */
+  tbodyCellClass?: string;
+
+  /** Class name of table body row cell */
+  tbodyRowClass?: string | ((record: Record) => string);
+}
+```
 
 #### columns
 
-| Property | Type    | Default | Description                                                                                                                       |
-| -------- | ------- | ------- | --------------------------------------------------------------------------------------------------------------------------------- |
-| ellipsis | Boolean | false   | If the text content in a cell exceeds the available space, it can be clipped and replaced with an ellipsis to indicate truncation |
-| fixed    | String  | -       | `left` or `right`. To set Column to fixed left or right of the table                                                              |
-| key      | String  | -       | Column key                                                                                                                        |
-| sortable | Boolean | false   | To set Column to be Sortable                                                                                                      |
-| sortType | Array   | -       | Array need to be one of the following:`ascending` or `descending`. The column sort type                                           |
-| title    | String  | -       | Column title                                                                                                                      |
-| width    | String  | -       | Column width                                                                                                                      |
+```ts
+interface Column {
+  /**
+   * If the text content in a cell exceeds the available space, it can be clipped and
+   * replaced with an ellipsis to indicate truncation
+   */
+  ellipsis?: boolean;
 
-#### rowExpand
+  /** `left` or `right`. To set Column to fixed left or right of the table  */
+  fixed?: "left" | "right";
 
-| Property             | Type     | Default | Description                                           |
-| -------------------- | -------- | ------- | ----------------------------------------------------- |
-| expandCondition      | Function | -       | Function to determine whether the row can be expanded |
-| showExpandRowDefault | Boolean  | false   | Whether to show expand row by default                 |
+  /** Column key */
+  key: string;
 
-#### selection
+  /** To set Column to be Sortable */
+  sortable?: boolean;
 
-| Property          | Type     | Default | Description                                           |
-| ----------------- | -------- | ------- | ----------------------------------------------------- |
-| type              | String   | -       | Type of selection. Can be `single` or `multiple`      |
-| disabledCondition | Function | -       | Function to determine whether the row can be selected |
+  /** The column sort type. Array need to be one of the following:`ascending` or `descending`. */
+  sortType?: SortType[];
+
+  /** Column title */
+  title: string;
+
+  /** Column width. When a column is fixed, it is necessary to provide the 'width' property */
+  width?: number;
+}
+```
 
 ### Event
 
-| Event Name  | Description                                          |
-| ----------- | ---------------------------------------------------- |
-| select      | Event emitted when a row is selected                 |
-| select-all  | Event emitted when all rows are selected             |
-| sort-change | Event emitted when the sort type of a column changes |
+```ts
+interface TableEmits {
+  (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
+
+  (e: "update:sort", params: { columnKey: Key; order: SortType } | null): void;
+
+  /** Emits the "select" event when a row is selected or deselected. */
+  (
+    e: "select",
+    params: { selected: boolean; rowKey: Key; record: Record }
+  ): void;
+
+  /** Emits the "selectAll" event when all rows are selected or deselected. */
+  (
+    e: "selectAll",
+    params: { selected: boolean; rowKeys: Key[]; records: Record[] }
+  ): void;
+
+  /** Emits the "sortChange" event when the column sort order changes */
+  (e: "sortChange", params: { columnKey: Key; order: SortType } | null): void;
+}
+```
