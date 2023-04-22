@@ -7,7 +7,7 @@ import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
 import commonStyle from "./commonStyle.module.scss";
 
-const { rootProps, rootState, rootEmit, showShadow } = useInject();
+const { tableProps, tableState, tableEmits, showShadow } = useInject();
 
 const state = reactive({
   checkboxValue: false,
@@ -17,22 +17,22 @@ const state = reactive({
 
 // checkbox state
 watchEffect(() => {
-  if (rootProps.selection?.type !== "multiple") {
+  if (tableProps.selection?.type !== "multiple") {
     return;
   }
 
   const selectableRowKeys = new Set<string | number>();
   let unselectableRowCount = 0;
-  rootProps.data.forEach((item) => {
-    if (rootProps.selection?.disabledCondition?.(item)) {
+  tableProps.data.forEach((item) => {
+    if (tableProps.selection?.disabledCondition?.(item)) {
       unselectableRowCount++;
     } else {
-      selectableRowKeys.add(item[rootProps.rowKey]);
+      selectableRowKeys.add(item[tableProps.rowKey]);
     }
   });
 
   // Disable the checkbox component if all data are unselectable.
-  if (rootProps.data.length - unselectableRowCount === 0) {
+  if (tableProps.data.length - unselectableRowCount === 0) {
     // set checkbox value to false and indeterminate state to false when there is no table data
     state.checkboxValue = false;
     state.indeterminate = false;
@@ -41,7 +41,7 @@ watchEffect(() => {
   }
 
   // Check if all selectable row are selected
-  const result = SetUtils.intersection(selectableRowKeys, rootState.selectedRowKeys);
+  const result = SetUtils.intersection(selectableRowKeys, tableState.selectedRowKeys);
   if (result.size === selectableRowKeys.size) {
     // Set the checkbox value to true and the indeterminate state to false if all table data are selected.
     state.checkboxValue = true;
@@ -62,38 +62,40 @@ function SelectionAllToggle(isSelectAll: boolean) {
   const changedRowKeys: Key[] = [];
   const changedRecords: Record[] = [];
 
-  rootProps.data.forEach((item) => {
-    const rowKey = item[rootProps.rowKey];
+  tableProps.data.forEach((item) => {
+    const rowKey = item[tableProps.rowKey];
 
     // Rows must be selectable
-    if (rootProps.selection?.disabledCondition?.(item)) {
+    if (tableProps.selection?.disabledCondition?.(item)) {
       return true;
     }
 
     if (isSelectAll) {
       // Exclude the data that has already been selected
-      if (rootState.selectedRowKeys.has(rowKey)) return;
+      if (tableState.selectedRowKeys.has(rowKey)) return;
       changedRowKeys.push(rowKey);
       changedRecords.push(item);
     } else {
       // Exclude the data that has not been selected yet
-      if (!rootState.selectedRowKeys.has(rowKey)) return;
+      if (!tableState.selectedRowKeys.has(rowKey)) return;
       changedRowKeys.push(rowKey);
       changedRecords.push(item);
     }
 
-    isSelectAll ? rootState.selectedRowKeys.add(rowKey) : rootState.selectedRowKeys.delete(rowKey);
+    isSelectAll
+      ? tableState.selectedRowKeys.add(rowKey)
+      : tableState.selectedRowKeys.delete(rowKey);
   });
 
-  rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
-  rootEmit("selectAll", {
+  tableEmits("update:selectedRowKeys", new Set([...tableState.selectedRowKeys]));
+  tableEmits("selectAll", {
     selected: isSelectAll,
     rowKeys: changedRowKeys,
     records: changedRecords,
   });
 }
 
-const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "px");
+const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + "px");
 </script>
 
 <template>
@@ -106,7 +108,7 @@ const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "
       ]"
     >
       <EzCheckbox
-        v-if="rootProps.selection?.type === 'multiple'"
+        v-if="tableProps.selection?.type === 'multiple'"
         v-model:checked="state.checkboxValue"
         :indeterminate="state.indeterminate"
         :disabled="state.checkboxDisable"

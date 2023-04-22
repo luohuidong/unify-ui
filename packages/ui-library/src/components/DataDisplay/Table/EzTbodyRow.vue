@@ -14,18 +14,18 @@ defineProps<{
   record: Record;
 }>();
 
-const { rootProps, columnsData, rootSlotKeys, showShadow, rootState } = useInject();
+const { tableProps, columnsData, rootSlotKeys, showShadow, tableState } = useInject();
 const { handleCheckboxChange, handleRadioClick } = useSelection();
 
 const state = reactive({
-  showExpandRow: rootProps.rowExpand?.showExpandRowDefault || false,
+  showExpandRow: tableProps.rowExpand?.showExpandRowDefault || false,
 });
 
 function toggleExpandRow() {
   state.showExpandRow = !state.showExpandRow;
 }
 
-const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "px");
+const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + "px");
 </script>
 
 <template>
@@ -34,16 +34,16 @@ const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "
     class="normal-row"
     :class="[
       {
-        ['normal-row--selection']: rootState.selectedRowKeys.has(record[rootProps.rowKey]),
+        ['normal-row--selection']: tableState.selectedRowKeys.has(record[tableProps.rowKey]),
       },
-      rootProps.tbodyRowClass,
+      tableProps.tbodyRowClass,
     ]"
   >
     <!-- expand column cell -->
     <td
-      v-if="rootState.showExpandToggleCell"
+      v-if="tableState.showExpandToggleCell"
       class="normal-row__cell normal-row__expand-toggle-cell"
-      :class="rootProps.tbodyCellClass"
+      :class="tableProps.tbodyCellClass"
     >
       <div
         class="cell__inner"
@@ -54,7 +54,7 @@ const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "
       >
         <component
           :is="state.showExpandRow ? Minus : Add"
-          v-if="rootProps.rowExpand?.expandCondition(record)"
+          v-if="tableProps.rowExpand?.expandCondition(record)"
           :width="20"
           :height="20"
           class="normal-row__expand-toggle-cell-icon"
@@ -65,9 +65,9 @@ const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "
 
     <!-- selection column cell -->
     <td
-      v-if="rootProps.selection?.type"
+      v-if="tableProps.selection?.type"
       class="normal-row__cell normal-row__selection-toggle-cell"
-      :class="rootProps.tbodyCellClass"
+      :class="tableProps.tbodyCellClass"
     >
       <div
         :class="[
@@ -77,17 +77,17 @@ const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "
         ]"
       >
         <EzCheckbox
-          v-if="rootProps.selection?.type === 'multiple'"
-          :checked="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
-          :disabled="rootProps.selection?.disabledCondition?.(record)"
+          v-if="tableProps.selection?.type === 'multiple'"
+          :checked="tableState.selectedRowKeys.has(record[tableProps.rowKey])"
+          :disabled="tableProps.selection?.disabledCondition?.(record)"
           @change="(checked) => handleCheckboxChange(record, checked)"
         ></EzCheckbox>
 
         <input
           v-else
           type="radio"
-          :checked="rootState.selectedRowKeys.has(record[rootProps.rowKey])"
-          :disabled="rootProps.selection?.disabledCondition?.(record)"
+          :checked="tableState.selectedRowKeys.has(record[tableProps.rowKey])"
+          :disabled="tableProps.selection?.disabledCondition?.(record)"
           @change="() => handleRadioClick(record)"
         />
       </div>
@@ -111,7 +111,7 @@ const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "
             col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
           ['normal-row__cell--text-ellipsis']: col.ellipsis,
         },
-        rootProps.tbodyCellClass,
+        tableProps.tbodyCellClass,
       ]"
     >
       <template v-if="rootSlotKeys.has(col.key)">
@@ -126,7 +126,7 @@ const selectionColumnOffset = computed(() => rootState.selectionColumnOffset + "
 
   <!-- expand row -->
   <EzTbodyExpandRow
-    v-if="state.showExpandRow && rootProps.rowExpand?.expandCondition(record)"
+    v-if="state.showExpandRow && tableProps.rowExpand?.expandCondition(record)"
     :record="record"
   >
     <slot name="rowExpand"></slot>

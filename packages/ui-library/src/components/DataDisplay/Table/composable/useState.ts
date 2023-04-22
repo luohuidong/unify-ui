@@ -1,25 +1,25 @@
 import { reactive, provide, watchEffect } from "vue";
 
-import type { Key, RootState, RootProps } from "../types";
+import type { Key, TableState, TableProps } from "../types";
 import * as injectKeys from "../injectKeys";
 import { expandColumnWidth } from "../constant";
 
-export function useState(rootProps: RootProps) {
-  const state: RootState = reactive({
+export function useState(tableProps: TableProps) {
+  const state: TableState = reactive({
     selectedRowKeys: new Set<Key>(),
     showExpandToggleCell: false,
     selectionColumnOffset: 0,
   });
 
   watchEffect(() => {
-    const rowExpand = rootProps.rowExpand;
+    const rowExpand = tableProps.rowExpand;
 
     if (!rowExpand) {
       state.showExpandToggleCell = false;
       return;
     }
 
-    const expandabledRowCount = rootProps.data.reduce((acc, item) => {
+    const expandabledRowCount = tableProps.data.reduce((acc, item) => {
       if (rowExpand.expandCondition(item)) {
         return acc + 1;
       } else {
@@ -32,12 +32,12 @@ export function useState(rootProps: RootProps) {
 
   watchEffect(() => {
     // Expand row toggle column and selection column coexist at the same time.
-    if (state.showExpandToggleCell && rootProps.selection) {
+    if (state.showExpandToggleCell && tableProps.selection) {
       state.selectionColumnOffset = expandColumnWidth;
       return;
     }
     // Only the selection column is present.
-    if (rootProps.selection && !state.showExpandToggleCell) {
+    if (tableProps.selection && !state.showExpandToggleCell) {
       state.selectionColumnOffset = 0;
       return;
     }
@@ -46,7 +46,7 @@ export function useState(rootProps: RootProps) {
     state.selectionColumnOffset = 0;
   });
 
-  provide(injectKeys.rootStateKey, state);
+  provide(injectKeys.tableStateKey, state);
 
   return {
     state,

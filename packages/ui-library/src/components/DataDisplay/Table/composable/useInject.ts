@@ -1,12 +1,12 @@
 import { inject, type ComputedRef, type Ref } from "vue";
 
 import * as injectKeys from "../injectKeys";
-import type { RootProps, ColumnData, ShowShadow, RootState, RootEmit } from "../types";
+import type { TableProps, ColumnData, ShowShadow, TableState, TableEmits } from "../types";
 
 export function useInject() {
-  const rootProps = inject(injectKeys.rootPropsKey) as RootProps;
-  const rootState = inject(injectKeys.rootStateKey) as RootState;
-  const rootEmit = inject(injectKeys.rootEmitKey) as RootEmit;
+  const tableProps = inject(injectKeys.tablePropsKey) as TableProps;
+  const tableState = inject(injectKeys.tableStateKey) as TableState;
+  const tableEmits = inject(injectKeys.tableEmitsKey) as TableEmits;
   const rootSlotKeys = inject(injectKeys.slotKeysKey) as Ref<Set<string>>;
   const columnCount = inject(injectKeys.columnCount) as ComputedRef<number>;
   const columnsData = inject(injectKeys.columnsDataKey) as ComputedRef<ColumnData[]>;
@@ -16,9 +16,9 @@ export function useInject() {
   const tableRefKey = inject(injectKeys.tableRefKey) as Ref<HTMLElement | undefined>;
 
   return {
-    rootProps,
-    rootState,
-    rootEmit,
+    tableProps,
+    tableState,
+    tableEmits,
     rootSlotKeys,
     columnCount,
     columnsData,

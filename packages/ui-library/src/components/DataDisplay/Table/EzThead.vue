@@ -6,13 +6,13 @@ import { ColumnData } from "./types";
 import EzTheadSelection from "./EzTheadSelection.vue";
 import EzTheadSort from "./EzTheadSort.vue";
 
-const { columnsData, showShadow, rootProps, rootSlotKeys, rootState } = useInject();
+const { columnsData, showShadow, tableProps, rootSlotKeys, tableState } = useInject();
 const { handleSortEmit } = useSortEmit();
 
 function handleSort(column: ColumnData) {
   if (!column.sortable) return;
 
-  const currentSort = rootProps.sort;
+  const currentSort = tableProps.sort;
   const sortTypes = column.sortType || ["ascending", "descending"];
 
   // The first specified sort type in `sortTypes` will be used to sort the current column if the table is not sorted.
@@ -40,14 +40,14 @@ function handleSort(column: ColumnData) {
 <template>
   <thead>
     <tr>
-      <template v-if="rootState.showExpandToggleCell">
+      <template v-if="tableState.showExpandToggleCell">
         <th
           class="cell expand-column-cell"
           :class="{ [commonStyle['cell--shadow-right']]: showShadow.expandColumnShadowVisible }"
         ></th>
       </template>
 
-      <template v-if="rootProps.selection?.type">
+      <template v-if="tableProps.selection?.type">
         <EzTheadSelection class="cell"></EzTheadSelection>
       </template>
 

@@ -14,7 +14,7 @@ const sortType = computed(() => {
   return props.columnData.sortType || ["ascending", "descending"];
 });
 
-const { rootProps } = useInject();
+const { tableProps } = useInject();
 const { handleSortEmit } = useSortEmit();
 </script>
 
@@ -26,7 +26,7 @@ const { handleSortEmit } = useSortEmit();
         class="toggle-icon"
         :class="{
           'toggle-icon--active':
-            rootProps.sort?.columnKey === columnData.key && rootProps.sort.order === 'ascending',
+            tableProps.sort?.columnKey === columnData.key && tableProps.sort.order === 'ascending',
         }"
         @click.stop="handleSortEmit({ columnKey: columnData.key, order: 'ascending' })"
       ></TriangleUp>
@@ -38,7 +38,7 @@ const { handleSortEmit } = useSortEmit();
         class="toggle-icon"
         :class="{
           'toggle-icon--active':
-            rootProps.sort?.columnKey === columnData.key && rootProps.sort.order === 'descending',
+            tableProps.sort?.columnKey === columnData.key && tableProps.sort.order === 'descending',
         }"
         @click.stop="handleSortEmit({ columnKey: columnData.key, order: 'descending' })"
       ></TriangleDown>

@@ -46,7 +46,7 @@ const props = defineProps<{
   tbodyRowClass?: string | ((record: Record) => string);
   tbodyCellClass?: string;
 }>();
-provide(injectKeys.rootPropsKey, props);
+provide(injectKeys.tablePropsKey, props);
 
 const emit = defineEmits<{
   (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
@@ -58,7 +58,7 @@ const emit = defineEmits<{
   /** Emits the "sortChange" event when the column sort order changes */
   (e: "sortChange", params: { columnKey: Key; order: SortType } | null): void;
 }>();
-provide(injectKeys.rootEmitKey, emit);
+provide(injectKeys.tableEmitsKey, emit);
 
 const { state } = useState(props);
 useWatchProps(props, state);
@@ -72,7 +72,7 @@ const containerRef = ref<HTMLDivElement>();
 const tableRef = ref<HTMLTableElement>();
 provide(injectKeys.containerRefKey, containerRef);
 provide(injectKeys.tableRefKey, tableRef);
-useShowShadow({ containerRef, tableRef, columnsData, rootProps: props });
+useShowShadow({ containerRef, tableRef, columnsData, tableProps: props });
 </script>
 
 <template>

@@ -10,13 +10,13 @@ import {
 import { throttle } from "lodash-es";
 
 import * as injectKeys from "../injectKeys";
-import type { ShowShadow, ColumnData, RootProps } from "../types";
+import type { ShowShadow, ColumnData, TableProps } from "../types";
 
 export function useShowShadow(params: {
   containerRef: Ref<HTMLDivElement | undefined>;
   tableRef: Ref<HTMLTableElement | undefined>;
   columnsData: ComputedRef<ColumnData[]>;
-  rootProps: RootProps;
+  tableProps: TableProps;
 }) {
   const state: ShowShadow = reactive({
     showLeftFixedColumnShadow: false,
@@ -85,7 +85,7 @@ export function useShowShadow(params: {
 
     // if user has defined some column fix to left, then hide expand column shadow
     // or if show selection column, then hide expand column shadow
-    if (firstColumnData.fixed === "left" || params.rootProps.selection) {
+    if (firstColumnData.fixed === "left" || params.tableProps.selection) {
       state.expandColumnShadowVisible = false;
     } else {
       state.expandColumnShadowVisible = state.showLeftFixedColumnShadow;

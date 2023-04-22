@@ -21,7 +21,7 @@ export interface Column {
   ellipsis?: boolean;
 }
 
-export interface RootProps {
+export interface TableProps {
   /** Row's unique key */
   rowKey: Key;
   /** Table data */
@@ -52,13 +52,13 @@ export interface RootProps {
   tbodyCellClass?: string;
 }
 
-export interface RootState {
+export interface TableState {
   selectedRowKeys: Set<Key>;
   showExpandToggleCell: boolean;
   selectionColumnOffset: number;
 }
 
-export interface RootEmit {
+export interface TableEmits {
   (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
   (e: "update:sort", params: { columnKey: Key; order: SortType } | null): void;
   /** Emits the "select" event when a row is selected or deselected. */

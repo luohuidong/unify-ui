@@ -1,25 +1,25 @@
 import { computed, provide, type ComputedRef } from "vue";
 
-import type { RootProps, ColumnData, RootState } from "../types";
+import type { TableProps, ColumnData, TableState } from "../types";
 import * as injectKeys from "../injectKeys";
 import { selectionColumnWidth, expandColumnWidth } from "../constant";
 
 export function useGetColumnsInfo(
-  props: RootProps,
-  rootState: RootState
+  tableProps: TableProps,
+  tableState: TableState
 ): { columnsData: ComputedRef<ColumnData[]> } {
   const columnsData = computed(() => {
     const leftFixedColumns: ColumnData[] = [];
     let left = 0;
-    if (props.selection) left += selectionColumnWidth;
-    if (rootState.showExpandToggleCell) left += expandColumnWidth;
+    if (tableProps.selection) left += selectionColumnWidth;
+    if (tableState.showExpandToggleCell) left += expandColumnWidth;
 
     const normalColumns: ColumnData[] = [];
 
     const rightFixedColumns: ColumnData[] = [];
     let right = 0;
 
-    props.columns.forEach((item) => {
+    tableProps.columns.forEach((item) => {
       if (item.fixed === "right") {
         rightFixedColumns.push({ ...item, rightOffset: right });
         right = right + (item.width ?? 0);

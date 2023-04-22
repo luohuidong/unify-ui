@@ -1,21 +1,21 @@
 import { watch } from "vue";
 
-import type { RootProps, RootState } from "../types";
+import type { TableProps, TableState } from "../types";
 import { SetUtils } from "../utils";
 
-export function useWatchProps(props: RootProps, state: RootState) {
+export function useWatchProps(tableProps: TableProps, tableState: TableState) {
   watch(
-    () => props.selectedRowKeys,
+    () => tableProps.selectedRowKeys,
     (value) => {
       // clear state selectedRowKeys if props.selectedRowKeys is undefined
       if (!value) {
-        state.selectedRowKeys.clear();
+        tableState.selectedRowKeys.clear();
         return;
       }
 
       // set props.selectedRowKeys to state.selectedRowKeys if they are not equal.
-      if (!SetUtils.equal(value, state.selectedRowKeys)) {
-        state.selectedRowKeys = value;
+      if (!SetUtils.equal(value, tableState.selectedRowKeys)) {
+        tableState.selectedRowKeys = value;
       }
     }
   );

@@ -2,11 +2,11 @@ import type { SortType } from "../types";
 import { useInject } from "./useInject";
 
 export function useSortEmit() {
-  const { rootEmit } = useInject();
+  const { tableEmits } = useInject();
 
   function handleSortEmit(params: { columnKey: string; order: SortType } | null) {
-    rootEmit("update:sort", params);
-    rootEmit("sortChange", params);
+    tableEmits("update:sort", params);
+    tableEmits("sortChange", params);
   }
 
   return {

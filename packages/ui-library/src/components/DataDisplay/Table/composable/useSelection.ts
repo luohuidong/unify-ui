@@ -2,24 +2,24 @@ import { useInject } from "./useInject";
 import type { Record } from "../types";
 
 export function useSelection() {
-  const { rootProps, rootState, rootEmit } = useInject();
+  const { tableProps, tableState, tableEmits } = useInject();
 
   function handleCheckboxChange(record: Record, checked: boolean) {
-    const rowKey = record[rootProps.rowKey];
+    const rowKey = record[tableProps.rowKey];
 
-    checked ? rootState.selectedRowKeys.add(rowKey) : rootState.selectedRowKeys.delete(rowKey);
+    checked ? tableState.selectedRowKeys.add(rowKey) : tableState.selectedRowKeys.delete(rowKey);
 
-    rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
-    rootEmit("select", { selected: checked, rowKey, record });
+    tableEmits("update:selectedRowKeys", new Set([...tableState.selectedRowKeys]));
+    tableEmits("select", { selected: checked, rowKey, record });
   }
 
   function handleRadioClick(record: Record) {
-    const rowKey = record[rootProps.rowKey];
-    rootState.selectedRowKeys.clear();
-    rootState.selectedRowKeys.add(rowKey);
+    const rowKey = record[tableProps.rowKey];
+    tableState.selectedRowKeys.clear();
+    tableState.selectedRowKeys.add(rowKey);
 
-    rootEmit("update:selectedRowKeys", new Set([...rootState.selectedRowKeys]));
-    rootEmit("select", { selected: true, rowKey, record });
+    tableEmits("update:selectedRowKeys", new Set([...tableState.selectedRowKeys]));
+    tableEmits("select", { selected: true, rowKey, record });
   }
 
   return {
