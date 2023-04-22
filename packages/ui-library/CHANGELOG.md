@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.4.3
+
+### Patch Changes
+
+- 088df9e: Add both the 'input' and 'change' events to the input component.
+
 ## 0.4.2
 
 ### Patch Changes
