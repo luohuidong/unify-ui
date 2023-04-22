@@ -4,6 +4,9 @@ export default defineConfig({
   title: "Easy UI",
   appearance: false,
   themeConfig: {
+    search: {
+      provider: "local",
+    },
     footer: {
       message: "Released under the MIT License.",
       copyright: "Copyright © 2022-present luohuidong",
