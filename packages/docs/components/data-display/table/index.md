@@ -83,6 +83,8 @@ The `rowExpand` prop can be used to mark a row expandabled. The `rowExpand` prop
 - `expandCondition`: a function that determine whether a row can be expanded.
 - `showExpandRowDefault`: whether to show expand row by default.
 
+Additionally, you must define the content of the expanded row and pass it to the slot named `rowExpand`.
+
 ::: raw
 <ShowCaseExpandableRow class="vp-raw" />
 :::
@@ -92,6 +94,8 @@ The `rowExpand` prop can be used to mark a row expandabled. The `rowExpand` prop
 :::
 
 ## Custom Header
+
+Sometimes, you may want to customize the content of a column header cell. In this case, when you define a column with `column.key` as `author`, you can pass the custom content to the slot named `header-author`.
 
 ::: raw
 <ShowCaseCustomHeader class="vp-raw" />
