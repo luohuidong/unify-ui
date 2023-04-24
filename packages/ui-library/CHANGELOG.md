@@ -1,5 +1,15 @@
 # @easy-ui-team/easy-ui
 
+## 0.5.0
+
+### Minor Changes
+
+- f4ccf91: Add the Empty component
+
+### Patch Changes
+
+- 2af6dcc: Replace the empty data placeholder in the table with the EzEmpty component
+
 ## 0.4.3
 
 ### Patch Changes
