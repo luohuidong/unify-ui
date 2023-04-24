@@ -15,6 +15,7 @@ export { default as EzInput } from "./DataEntry/Input/index.vue";
 export { default as EzPopup } from "./DataDisplay/Popup/index.vue";
 export { default as EzTooltip } from "./DataDisplay/Tooltip/index.vue";
 export { default as EzTable } from "./DataDisplay/Table/index.vue";
+export { default as EzEmpty } from "./DataDisplay/Empty/index.vue";
 
 // Feedback Components
 export { useAlertDialog, ConfirmDialog } from "./Feedback/Dialog";
