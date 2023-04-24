@@ -39,7 +39,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
             />
           </svg>
 
-          <span>自定义暂无数据</span>
+          <span> Customized empty content </span>
         </div>
       </template>
     </EzTable>
@@ -48,9 +48,14 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 
 <style scoped>
 .placeholder {
+  height: 50px;
+
   display: flex;
   flex-direction: column;
-  padding: 20px;
   align-items: center;
+
+  text-align: center;
+  font-size: 12px;
+  color: #666666;
 }
 </style>

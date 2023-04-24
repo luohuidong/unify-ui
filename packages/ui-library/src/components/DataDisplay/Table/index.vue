@@ -8,6 +8,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { useSlots, provide, ref } from "vue";
+import { EzEmpty } from "@/components";
 
 import * as injectKeys from "./injectKeys";
 import {
@@ -104,9 +105,13 @@ useShowShadow({ containerRef, tableRef, columnsData, tableProps: props });
           </EzTbodyRow>
         </template>
         <template v-else>
-          <EzTbodyEmptyRow>
-            <slot name="empty"></slot>
-          </EzTbodyEmptyRow>
+          <tr>
+            <td :colspan="columnCount" class="empty-row__cell">
+              <slot name="empty">
+                <EzEmpty></EzEmpty>
+              </slot>
+            </td>
+          </tr>
         </template>
       </tbody>
 
@@ -131,5 +136,10 @@ useShowShadow({ containerRef, tableRef, columnsData, tableProps: props });
   background: white;
   border-collapse: collapse;
   table-layout: fixed;
+}
+
+.empty-row__cell {
+  padding: 20px 0;
+  border-bottom: 1px solid #f0f0f0;
 }
 </style>
