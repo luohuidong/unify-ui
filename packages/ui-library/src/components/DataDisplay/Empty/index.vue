@@ -13,7 +13,7 @@ import EmptyIcon from "./EmptyIcon.vue";
 <template>
   <div class="empty">
     <EmptyIcon class="empty__icon"></EmptyIcon>
-    <span class="empty__text">No Data</span>
+    <span class="empty__text">暂无数据</span>
   </div>
 </template>
 
