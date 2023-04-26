@@ -1,5 +1,12 @@
 # @easy-ui-team/easy-ui
 
+## 0.5.1
+
+### Patch Changes
+
+- 14028ff: adjust the height of the table rows and font size of the table cells
+- b55c378: Update the hint text of the Empty component.
+
 ## 0.5.0
 
 ### Minor Changes
