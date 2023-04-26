@@ -136,7 +136,8 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 <style lang="scss" scoped>
 .normal-row {
   text-align: left;
-  font-size: 14px;
+  font-size: 12px;
+  line-height: 16px;
   background-color: white;
 
   &:hover {
@@ -155,8 +156,8 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
     word-wrap: break-word;
     box-sizing: border-box;
     position: relative;
-    height: 50px;
-    padding: 16px;
+    height: 44px;
+    padding: 13px 16px;
     border-bottom: 1px solid #f0f0f0;
     background: inherit;
   }
