@@ -24,7 +24,6 @@ import type { Key, Record, Column, SortType } from "./types";
 import EzColGroup from "./EzColGroup.vue";
 import EzThead from "./EzThead.vue";
 import EzTbodyRow from "./EzTbodyRow.vue";
-import EzTbodyEmptyRow from "./EzTbodyEmptyRow.vue";
 
 const props = defineProps<{
   rowKey: Key;
