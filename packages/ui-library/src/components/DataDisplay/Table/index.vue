@@ -15,7 +15,6 @@ import {
   useGetColumnsInfo,
   useShowShadow,
   useState,
-  useWatchProps,
   useGetColumnCount,
   useGetSlotKey,
 } from "./composable";
@@ -25,27 +24,37 @@ import EzColGroup from "./EzColGroup.vue";
 import EzThead from "./EzThead.vue";
 import EzTbodyRow from "./EzTbodyRow.vue";
 
-const props = defineProps<{
-  rowKey: Key;
-  data: Record[];
-  columns: Column[];
-  rowExpand?: {
-    expandCondition: (record: Record) => boolean;
-    showExpandRowDefault?: boolean;
-  };
-  sort?: {
-    columnKey: Key;
-    order: SortType;
-  } | null;
-  showFoot?: boolean;
-  selection?: {
-    type: "multiple" | "single";
-    disabledCondition?: (record: Record) => boolean;
-  };
-  selectedRowKeys?: Set<Key>;
-  tbodyRowClass?: string | ((record: Record) => string);
-  tbodyCellClass?: string;
-}>();
+const props = withDefaults(
+  defineProps<{
+    rowKey: Key;
+    data: Record[];
+    columns: Column[];
+    rowExpand?: {
+      expandCondition: (record: Record) => boolean;
+      showExpandRowDefault?: boolean;
+    };
+    sort?: {
+      columnKey: Key;
+      order: SortType;
+    } | null;
+    showFoot?: boolean;
+    selection?: {
+      type: "multiple" | "single";
+      disabledCondition?: (record: Record) => boolean;
+    };
+    selectedRowKeys?: Set<Key>;
+    tbodyRowClass?: string | ((record: Record) => string);
+    tbodyCellClass?: string;
+  }>(),
+  {
+    rowExpand: undefined,
+    sort: null,
+    selection: undefined,
+    selectedRowKeys: () => new Set<Key>(),
+    tbodyRowClass: undefined,
+    tbodyCellClass: undefined,
+  }
+);
 provide(injectKeys.tablePropsKey, props);
 
 const emit = defineEmits<{
@@ -61,7 +70,6 @@ const emit = defineEmits<{
 provide(injectKeys.tableEmitsKey, emit);
 
 const { state } = useState(props);
-useWatchProps(props, state);
 const columnCount = useGetColumnCount(props);
 const { columnsData } = useGetColumnsInfo(props, state);
 

@@ -6,7 +6,6 @@ import { expandColumnWidth } from "../constant";
 
 export function useState(tableProps: TableProps) {
   const state: TableState = reactive({
-    selectedRowKeys: new Set<Key>(),
     showExpandToggleCell: false,
     selectionColumnOffset: 0,
   });

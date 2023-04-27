@@ -2,23 +2,26 @@ import { useInject } from "./useInject";
 import type { Record } from "../types";
 
 export function useSelection() {
-  const { tableProps, tableState, tableEmits } = useInject();
+  const { tableProps, tableEmits } = useInject();
 
   function handleCheckboxChange(record: Record, checked: boolean) {
     const rowKey = record[tableProps.rowKey];
 
-    checked ? tableState.selectedRowKeys.add(rowKey) : tableState.selectedRowKeys.delete(rowKey);
+    const newSelectedRowKeys = new Set(tableProps.selectedRowKeys);
+    checked ? newSelectedRowKeys.add(rowKey) : newSelectedRowKeys.delete(rowKey);
 
-    tableEmits("update:selectedRowKeys", new Set([...tableState.selectedRowKeys]));
+    tableEmits("update:selectedRowKeys", newSelectedRowKeys);
     tableEmits("select", { selected: checked, rowKey, record });
   }
 
   function handleRadioClick(record: Record) {
     const rowKey = record[tableProps.rowKey];
-    tableState.selectedRowKeys.clear();
-    tableState.selectedRowKeys.add(rowKey);
 
-    tableEmits("update:selectedRowKeys", new Set([...tableState.selectedRowKeys]));
+    const newSelectedRowKeys = new Set(tableProps.selectedRowKeys);
+    newSelectedRowKeys.clear();
+    newSelectedRowKeys.add(rowKey);
+
+    tableEmits("update:selectedRowKeys", newSelectedRowKeys);
     tableEmits("select", { selected: true, rowKey, record });
   }
 

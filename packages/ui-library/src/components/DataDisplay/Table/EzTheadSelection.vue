@@ -41,7 +41,7 @@ watchEffect(() => {
   }
 
   // Check if all selectable row are selected
-  const result = SetUtils.intersection(selectableRowKeys, tableState.selectedRowKeys);
+  const result = SetUtils.intersection(selectableRowKeys, tableProps.selectedRowKeys);
   if (result.size === selectableRowKeys.size) {
     // Set the checkbox value to true and the indeterminate state to false if all table data are selected.
     state.checkboxValue = true;
@@ -61,6 +61,7 @@ watchEffect(() => {
 function SelectionAllToggle(isSelectAll: boolean) {
   const changedRowKeys: Key[] = [];
   const changedRecords: Record[] = [];
+  const newSelectedRowKeys = new Set(tableProps.selectedRowKeys);
 
   tableProps.data.forEach((item) => {
     const rowKey = item[tableProps.rowKey];
@@ -72,22 +73,20 @@ function SelectionAllToggle(isSelectAll: boolean) {
 
     if (isSelectAll) {
       // Exclude the data that has already been selected
-      if (tableState.selectedRowKeys.has(rowKey)) return;
+      if (tableProps.selectedRowKeys.has(rowKey)) return;
       changedRowKeys.push(rowKey);
       changedRecords.push(item);
     } else {
       // Exclude the data that has not been selected yet
-      if (!tableState.selectedRowKeys.has(rowKey)) return;
+      if (!tableProps.selectedRowKeys.has(rowKey)) return;
       changedRowKeys.push(rowKey);
       changedRecords.push(item);
     }
 
-    isSelectAll
-      ? tableState.selectedRowKeys.add(rowKey)
-      : tableState.selectedRowKeys.delete(rowKey);
+    isSelectAll ? newSelectedRowKeys.add(rowKey) : newSelectedRowKeys.delete(rowKey);
   });
 
-  tableEmits("update:selectedRowKeys", new Set([...tableState.selectedRowKeys]));
+  tableEmits("update:selectedRowKeys", newSelectedRowKeys);
   tableEmits("selectAll", {
     selected: isSelectAll,
     rowKeys: changedRowKeys,

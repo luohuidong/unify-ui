@@ -46,7 +46,7 @@ export interface TableProps {
   rowKey: Key;
 
   /** The set of selected row keys */
-  selectedRowKeys?: Set<Key>;
+  selectedRowKeys: Set<Key>;
 
   /** Config of row selection */
   selection?: {
@@ -71,8 +71,6 @@ export interface TableProps {
 }
 
 export interface TableState {
-  selectedRowKeys: Set<Key>;
-
   selectionColumnOffset: number;
 
   showExpandToggleCell: boolean;

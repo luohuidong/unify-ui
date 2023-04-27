@@ -34,7 +34,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
     class="normal-row"
     :class="[
       {
-        ['normal-row--selection']: tableState.selectedRowKeys.has(record[tableProps.rowKey]),
+        ['normal-row--selection']: tableProps.selectedRowKeys.has(record[tableProps.rowKey]),
       },
       tableProps.tbodyRowClass,
     ]"
@@ -78,7 +78,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
       >
         <EzCheckbox
           v-if="tableProps.selection?.type === 'multiple'"
-          :checked="tableState.selectedRowKeys.has(record[tableProps.rowKey])"
+          :checked="tableProps.selectedRowKeys.has(record[tableProps.rowKey])"
           :disabled="tableProps.selection?.disabledCondition?.(record)"
           @change="(checked) => handleCheckboxChange(record, checked)"
         ></EzCheckbox>
@@ -86,7 +86,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
         <input
           v-else
           type="radio"
-          :checked="tableState.selectedRowKeys.has(record[tableProps.rowKey])"
+          :checked="tableProps.selectedRowKeys.has(record[tableProps.rowKey])"
           :disabled="tableProps.selection?.disabledCondition?.(record)"
           @change="() => handleRadioClick(record)"
         />
