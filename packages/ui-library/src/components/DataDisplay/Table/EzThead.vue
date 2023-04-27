@@ -94,12 +94,13 @@ $border-color: #f0f0f0;
   position: sticky;
   top: 0;
 
-  height: 50px;
-  padding: 16px;
+  height: 44px;
+  padding: 11px;
 
   word-wrap: break-word;
   text-align: left;
   font-size: 14px;
+  line-height: 20px;
   font-weight: 500;
   border-bottom: 1px solid $border-color;
   background: #f5f6fa;

@@ -121,7 +121,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 .th-selection-cell {
   position: sticky;
   top: 0;
-  height: 50px;
+  height: 44px;
   left: v-bind(selectionColumnOffset);
   z-index: 3;
 }
