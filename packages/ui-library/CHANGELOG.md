@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.5.2
+
+### Patch Changes
+
+- 3a726d8: remove the 'selectedRowKeys' property from the table's state.
+
 ## 0.5.1
 
 ### Patch Changes
