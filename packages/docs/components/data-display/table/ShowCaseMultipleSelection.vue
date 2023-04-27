@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import { watchEffect, reactive } from "vue";
-import { EzTable } from "@easy-ui-team/easy-ui";
+import { watch, reactive } from "vue";
+import { EzTable, EzButton } from "@easy-ui-team/easy-ui";
 
 import useFetchData from "./useFetchData";
 
@@ -33,9 +33,12 @@ const state = reactive({
   selectedRows: new Map<string, any>(),
 });
 
-watchEffect(() => {
-  console.log("state.selectedRowKeys", state.selectedRowKeys);
-});
+watch(
+  () => [...state.selectedRowKeys],
+  (value) => {
+    console.log("🚀 ~ file: MultipleSelection.vue:47 ~ watch ~ value:", value);
+  }
+);
 
 function handleChangeSelectionRows(params: {
   selected: boolean;
@@ -71,23 +74,37 @@ function handleSelectAll(params: {
     records: params.records,
   });
 }
+
+function handleClearSelection() {
+  state.selectedRowKeys.clear();
+}
 </script>
 
 <template>
-  <EzTable
-    v-model:selected-row-keys="state.selectedRowKeys"
-    row-key="id"
-    class="container"
-    :columns="columns"
-    :data="data"
-    :selection="{ type: 'multiple', disabledCondition }"
-    @select="handleSelection"
-    @select-all="handleSelectAll"
-  >
-  </EzTable>
+  <div>
+    <EzButton class="button" type="soft" @click="handleClearSelection">
+      Clear selectedRowKeys
+    </EzButton>
+
+    <EzTable
+      v-model:selected-row-keys="state.selectedRowKeys"
+      row-key="id"
+      class="container"
+      :columns="columns"
+      :data="data"
+      :selection="{ type: 'multiple', disabledCondition }"
+      @select="handleSelection"
+      @select-all="handleSelectAll"
+    >
+    </EzTable>
+  </div>
 </template>
 
 <style scoped>
+.button {
+  margin-bottom: 20px;
+}
+
 .container {
   width: 100%;
   height: 500px;
