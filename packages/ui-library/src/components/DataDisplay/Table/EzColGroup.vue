@@ -18,15 +18,15 @@ const totalColumnDefinedWidth = computed(() => {
   }, 0);
 });
 
-const shouldSetLastNotFixedColumnWidthToAuto = ref(false);
+const shouldSetNotFixedColumnWidthToAuto = ref(false);
 function handleResize() {
   if (
     isAllColumnDefinedWidth.value &&
     (rootContainerRef.value?.clientWidth || 0) > totalColumnDefinedWidth.value
   ) {
-    shouldSetLastNotFixedColumnWidthToAuto.value = true;
+    shouldSetNotFixedColumnWidthToAuto.value = true;
   } else {
-    shouldSetLastNotFixedColumnWidthToAuto.value = false;
+    shouldSetNotFixedColumnWidthToAuto.value = false;
   }
 }
 
@@ -41,29 +41,6 @@ onMounted(() => {
   // Start observing the element
   resizeObserver.observe(rootContainer);
 });
-
-const lastNotFixedColumn = computed(() => {
-  return columnsData.value
-    .slice()
-    .reverse()
-    .find((col) => !col.fixed);
-});
-
-function getColumnWidth(col: Column) {
-  const width = "auto";
-
-  // If all columns have defined `width` and the root container width is larger than the sum of all
-  // columns' widths, then the width of the last non-fixed column will be set to auto.
-  if (shouldSetLastNotFixedColumnWidthToAuto.value && col === lastNotFixedColumn.value) {
-    return width;
-  }
-
-  if (col.width) {
-    return `${col.width}px`;
-  }
-
-  return width;
-}
 </script>
 
 <template>
@@ -79,7 +56,7 @@ function getColumnWidth(col: Column) {
     <col
       v-for="col in columnsData"
       :key="col.key"
-      :style="{ width: getColumnWidth(col) }"
+      :style="{ width: shouldSetNotFixedColumnWidthToAuto ? 'auto' : `${col.width}px` }"
       class="column"
     />
   </colgroup>
