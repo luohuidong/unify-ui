@@ -70,7 +70,7 @@ const emit = defineEmits<{
 provide(injectKeys.tableEmitsKey, emit);
 
 const { state } = useState(props);
-const columnCount = useGetColumnCount(props);
+const columnCount = useGetColumnCount(props, state);
 const { columnsData } = useGetColumnsInfo(props, state);
 
 const slots = useSlots();
