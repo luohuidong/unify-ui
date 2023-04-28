@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.5.3
+
+### Patch Changes
+
+- 8f6c153: If the total width of all columns is less than the width of the table, then the width of all columns will be set to 'auto'.
+
 ## 0.5.2
 
 ### Patch Changes
