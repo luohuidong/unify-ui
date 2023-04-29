@@ -44,9 +44,23 @@ Easy UI provide 3 types of button.
 
 ## API
 
-| Property | Description                    | Type    | Accepted Values                | Default   |
-| -------- | ------------------------------ | ------- | ------------------------------ | --------- |
-| type     | Button type                    | string  | `primary`, `secondary`, `soft` | `primary` |
-| size     | Button size                    | string  | `xs`, `s`, `m`, `l`, `xl`      | `m`       |
-| disabled | Whether the button is disabled | boolean | -                              | `false`   |
-| loading  | Whether the button is loading  | boolean | -                              | `false`   |
+### Properties
+
+```ts
+withDefaults(
+  defineProps<{
+    type?: "secondary" | "primary" | "soft";
+    size?: "xs" | "s" | "m" | "l" | "xl";
+  }>(),
+  {
+    type: "secondary",
+    size: "m",
+  }
+);
+```
+
+### Events
+
+```ts
+const emits = defineEmits(["click"]);
+```
