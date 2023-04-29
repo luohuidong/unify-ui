@@ -41,6 +41,7 @@ export default defineConfig({
               { text: "NotFound", link: "/components/feedback/not-found/" },
             ],
           },
+          {
             text: "Data Entry",
             items: [{ text: "Input", link: "/components/data-entry/input/" }],
           },
