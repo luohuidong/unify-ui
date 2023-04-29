@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.6.0
+
+### Minor Changes
+
+- 06ac04b: add NotFound component
+
 ## 0.5.4
 
 ### Patch Changes
