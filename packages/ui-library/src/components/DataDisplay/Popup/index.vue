@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "EzPopover",
+  name: "EzPopup",
 });
 </script>
 
@@ -20,10 +20,14 @@ const props = withDefaults(
     overlayClassName?: string;
     backgroundColor?: string;
     fontColor?: string;
+    /** Whether to show the arrow */
     showArrow?: boolean;
     trigger?: "hover" | "click" | "focus" | "controlled";
+    /** Whether the popup is visible */
     visible?: boolean;
+    /** Whether the popup is disabled */
     disabled?: boolean;
+    /** Offset of the popup  */
     offset?: number;
   }>(),
   {

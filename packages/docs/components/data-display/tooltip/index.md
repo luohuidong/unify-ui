@@ -27,9 +27,17 @@ import ShowCaseDisabled from './ShowCaseDisabled.vue'
 
 ## API
 
-| Property     | Description                           | Type    | Accepted Values                  | Default |
-| ------------ | ------------------------------------- | ------- | -------------------------------- | ------- |
-| title        | The content of the tooltip            | string  | -                                | -       |
-| placement    | The placement of the tooltip          | string  | `top`, `bottom`, `left`, `right` | -       |
-| appendToBody | Whether to append the tooltip to body | boolean | -                                | -       |
-| disabled     | Whether the tooltip is disabled       | boolean | -                                | -       |
+### Properties
+
+```ts
+defineProps<{
+  /** The content of the tooltip */
+  title: string;
+  /** The placement of the tooltip */
+  placement: "top" | "bottom" | "left" | "right";
+  /** Whether to append the tooltip to body */
+  appendToBody?: boolean;
+  /** Whether the tooltip is disabled */
+  disabled?: boolean;
+}>();
+```
