@@ -18,6 +18,9 @@ const value = ref("allan@mail.com");
         <div>
           <EzInput v-model="value" disabled></EzInput>
         </div>
+        <div>
+          <EzInput v-model="value" readonly></EzInput>
+        </div>
       </div>
     </Variant>
 

@@ -100,12 +100,8 @@ defineProps<{
   disabled?: boolean;
   /** Input placeholder */
   placeholder?: string;
-}>();
-
-const emits = defineEmits<{
-  (e: "update:modelValue", value: string): void;
-  (e: "input", value: string): void;
-  (e: "change", value: string): void;
+  /** Control input editability */
+  readonly?: boolean;
 }>();
 ```
 
