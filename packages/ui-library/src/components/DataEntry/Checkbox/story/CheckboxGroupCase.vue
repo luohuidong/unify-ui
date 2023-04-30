@@ -61,6 +61,17 @@ const checkboxGroupValue2 = ref(new Set<string>(["test1", "test3"]));
         disabled
       ></EzCheckboxGroup>
     </li>
+
+    <li>
+      inline checkbox group:
+      <EzCheckboxGroup
+        v-model="checkboxGroupValue2"
+        name="group4"
+        :options="options"
+        disabled
+        inline
+      ></EzCheckboxGroup>
+    </li>
   </ul>
 </template>
 
