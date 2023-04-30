@@ -43,7 +43,13 @@ export default defineConfig({
           },
           {
             text: "Data Entry",
-            items: [{ text: "Input", link: "/components/data-entry/input/" }],
+            items: [
+              { text: "Input", link: "/components/data-entry/input/" },
+              {
+                text: "FilePicker",
+                link: "/components/data-entry/file-picker/",
+              },
+            ],
           },
         ],
       },

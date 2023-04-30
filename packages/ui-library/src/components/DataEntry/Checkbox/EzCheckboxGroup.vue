@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { provide, watch, reactive } from "vue";
+import { provide, watch, reactive, computed } from "vue";
 
 import EzCheckbox from "./EzCheckbox.vue";
 import type { Value } from "./types";
@@ -10,6 +10,7 @@ const props = defineProps<{
   modelValue: Set<Value>;
   name: string;
   disabled?: boolean;
+  inline?: boolean;
 }>();
 
 const emits = defineEmits<{
@@ -41,6 +42,8 @@ function handleChangeGroupValue(checked: boolean, value: string) {
 }
 
 provide("handleChangeGroupValue", handleChangeGroupValue);
+
+const flexDirection = computed(() => (props.inline ? "row" : "column"));
 </script>
 
 <template>
@@ -60,7 +63,7 @@ provide("handleChangeGroupValue", handleChangeGroupValue);
 <style lang="scss" scoped>
 .fieldset {
   display: flex;
-  flex-direction: column;
+  flex-direction: v-bind(flexDirection);
   width: fit-content;
 
   border: none;
