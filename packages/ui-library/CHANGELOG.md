@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.7.0
+
+### Minor Changes
+
+- e64742d: Add Switch component
+
 ## 0.6.1
 
 ### Patch Changes
