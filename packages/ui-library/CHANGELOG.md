@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.6.1
+
+### Patch Changes
+
+- 7248553: add a 'readonly' property to the Input component
+
 ## 0.6.0
 
 ### Minor Changes
