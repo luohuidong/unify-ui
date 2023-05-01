@@ -49,6 +49,7 @@ export default defineConfig({
                 text: "FilePicker",
                 link: "/components/data-entry/file-picker/",
               },
+              { text: "Switch", link: "/components/data-entry/switch/" },
             ],
           },
         ],
