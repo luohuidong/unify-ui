@@ -11,6 +11,7 @@ export { default as Scrim } from "./Scrim.vue";
 export { EzCheckbox, EzCheckboxGroup } from "./DataEntry/Checkbox";
 export { default as EzInput } from "./DataEntry/Input/index.vue";
 export { default as EzFilePicker } from "./DataEntry/FilePicker/index.vue";
+export { default as EzSwitch } from "./DataEntry/Switch/index.vue";
 
 // Data Display Components
 export { default as EzPopup } from "./DataDisplay/Popup/index.vue";
