@@ -47,6 +47,8 @@ function handleChange(event: Event) {
 
 /* The slider */
 .switch__slider {
+  box-sizing: content-box;
+
   --default-color: rgb(229 231 235);
 
   display: inline-block;
