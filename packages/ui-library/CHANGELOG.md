@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.7.1
+
+### Patch Changes
+
+- e06063e: The switch component can be rendered unusable
+
 ## 0.7.0
 
 ### Minor Changes
