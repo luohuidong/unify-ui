@@ -1,6 +1,6 @@
 {
   "name": "@easy-ui-team/easy-ui",
-  "version": "0.7.0",
+  "version": "0.7.1",
   "main": "dist/easy-ui.js",
   "types": "types/index.d.ts",
   "scripts": {
