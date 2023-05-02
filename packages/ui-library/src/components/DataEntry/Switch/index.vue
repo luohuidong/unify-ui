@@ -30,8 +30,18 @@ function handleChange(event: Event) {
 
 <template>
   <label class="switch">
-    <input type="checkbox" class="switch__checkbox" @input="handleInput" @change="handleChange" />
-    <span class="switch__slider switch__slider--rounded"></span>
+    <input
+      type="checkbox"
+      class="switch__checkbox"
+      :checked="modelValue"
+      :disabled="disabled"
+      @input="handleInput"
+      @change="handleChange"
+    />
+    <span
+      class="switch__slider switch__slider--rounded"
+      :class="{ 'switch__slider--disabled': disabled }"
+    ></span>
   </label>
 </template>
 
@@ -67,6 +77,10 @@ function handleChange(event: Event) {
   border-radius: 20px;
 }
 
+.switch__slider--disabled {
+  cursor: not-allowed;
+}
+
 .switch__slider:before {
   content: "";
 
@@ -88,5 +102,12 @@ function handleChange(event: Event) {
 
 .switch__checkbox:checked + .switch__slider:before {
   transform: translateX(20px);
+}
+
+.switch__checkbox:checked + .switch__slider--disabled {
+  --active-color: rgb(196 181 253);
+
+  border-color: var(--active-color);
+  background-color: var(--active-color);
 }
 </style>

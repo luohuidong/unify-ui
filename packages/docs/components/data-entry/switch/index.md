@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
+import ShowCaseDisabled from './ShowCaseDisabled.vue'
 </script>
 
 # Switch
@@ -12,6 +13,16 @@ import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
 
 ::: details View Source
 <<< @/components/data-entry/switch/ShowCaseBasicUsage.vue
+:::
+
+## Disabled
+
+::: raw
+<ShowCaseDisabled class="vp-raw" />
+:::
+
+::: details View Source
+<<< @/components/data-entry/switch/ShowCaseDisabled.vue
 :::
 
 ## API

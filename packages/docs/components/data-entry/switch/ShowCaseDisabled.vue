@@ -4,15 +4,11 @@ import { EzSwitch } from "@easy-ui-team/easy-ui";
 
 const switchValue1 = ref(true);
 const switchValue2 = ref(false);
-
-function handleChange(value: boolean) {
-  console.log("value", value);
-}
 </script>
 
 <template>
-  <EzSwitch v-model="switchValue1" @change="handleChange"></EzSwitch>
-  <EzSwitch v-model="switchValue2" @change="handleChange"></EzSwitch>
+  <EzSwitch v-model="switchValue1" disabled></EzSwitch>
+  <EzSwitch v-model="switchValue2" disabled></EzSwitch>
 </template>
 
 <style lang="scss" scoped></style>
