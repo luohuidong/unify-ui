@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.7.2
+
+### Patch Changes
+
+- 5d6d178: refactor Modal component
+
 ## 0.7.1
 
 ### Patch Changes
