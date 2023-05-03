@@ -1,7 +1,7 @@
 import { createApp, ref } from "vue";
 import type { App } from "vue";
 
-import BaseDialog from "./EzBaseDialog.vue";
+import EzBaseModal from "./EzBaseModal.vue";
 
 interface ConfirmOptions {
   title: string;
@@ -14,7 +14,7 @@ interface ReturnData {
   confirm: (options: ConfirmOptions) => void;
 }
 
-export default function useConfirm(): ReturnData {
+export function useEzConfirmModal(): ReturnData {
   const containers = ref<HTMLElement[]>([]);
   const apps = ref<App[]>([]);
 
@@ -58,7 +58,7 @@ export default function useConfirm(): ReturnData {
     }
 
     const Dialog = (
-      <BaseDialog
+      <EzBaseModal
         visible={true}
         title={options.title}
         supportingText={options.supportingText}
