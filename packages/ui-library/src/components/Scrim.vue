@@ -33,7 +33,7 @@ function handleClick(event: MouseEvent) {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 10;
+  z-index: 1500;
 
   background-color: rgba(color.$background-dark, 0.7);
 }
