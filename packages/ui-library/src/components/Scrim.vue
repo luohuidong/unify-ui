@@ -24,7 +24,7 @@ function handleClick(event: MouseEvent) {
 @use "@/styles/color";
 
 .scrim {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   left: 0;
