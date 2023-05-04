@@ -1,5 +1,12 @@
 # @easy-ui-team/easy-ui
 
+## 0.7.3
+
+### Patch Changes
+
+- 40d2e58: Change the useEzConfirmModal's confirm method to the form of a promise
+- 9322471: Modify the z-index of the Scrim component
+
 ## 0.7.2
 
 ### Patch Changes
