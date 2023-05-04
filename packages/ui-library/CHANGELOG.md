@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.7.4
+
+### Patch Changes
+
+- d4218f6: Corrected the issue where the Scrim display was incorrect when the content exceeded the viewport height
+
 ## 0.7.3
 
 ### Patch Changes
