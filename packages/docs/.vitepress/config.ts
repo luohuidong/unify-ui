@@ -38,6 +38,11 @@ export default defineConfig({
           {
             text: "Feedback",
             items: [
+              { text: "Modal", link: "/components/feedback/modal/" },
+              {
+                text: "Confirm Modal",
+                link: "/components/feedback/confirm-modal/",
+              },
               { text: "NotFound", link: "/components/feedback/not-found/" },
             ],
           },
