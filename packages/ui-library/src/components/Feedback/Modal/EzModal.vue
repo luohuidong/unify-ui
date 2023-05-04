@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
 
-import { EzButton, Scrim } from "@/components";
 import EzBaseModal from "./EzBaseModal.vue";
 
 withDefaults(
@@ -65,7 +64,7 @@ onUnmounted(() => {
         @click:cancel-button="handleCancelButtonClick"
       >
         <template #title>
-          <slot naem="title"></slot>
+          <slot name="title"></slot>
         </template>
 
         <slot></slot>
