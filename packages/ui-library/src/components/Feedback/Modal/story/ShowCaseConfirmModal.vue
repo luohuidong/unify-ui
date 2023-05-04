@@ -4,13 +4,16 @@ import { useEzConfirmModal } from "../useEzConfirmModal";
 
 const { confirm } = useEzConfirmModal();
 
-function handleConfirmDialogButton() {
-  confirm({
-    title: "Tips",
-    supportingText: "Are you sure you want to delete this record?",
-    onConfirm: () => {},
-    onCancel: () => {},
-  });
+async function handleConfirmDialogButton() {
+  try {
+    await confirm({
+      title: "Tips",
+      supportingText: "Are you sure you want to delete this record?",
+    });
+    console.log("confirm");
+  } catch (error) {
+    console.log(error);
+  }
 }
 </script>
 

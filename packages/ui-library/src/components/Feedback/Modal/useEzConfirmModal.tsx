@@ -6,19 +6,13 @@ import EzBaseModal from "./EzBaseModal.vue";
 interface ConfirmOptions {
   title: string;
   supportingText: string;
-  onConfirm: () => void | Promise<void>;
-  onCancel: () => void | Promise<void>;
 }
 
-interface ReturnData {
-  confirm: (options: ConfirmOptions) => void;
-}
-
-export function useEzConfirmModal(): ReturnData {
+export function useEzConfirmModal() {
   const containers = ref<HTMLElement[]>([]);
   const apps = ref<App[]>([]);
 
-  function destoryDialog() {
+  function destoryModal() {
     apps.value.forEach((app) => {
       app.unmount();
     });
@@ -44,30 +38,32 @@ export function useEzConfirmModal(): ReturnData {
     apps.value.push(app as any);
   }
 
-  function confirm(options: ConfirmOptions) {
-    const container = createContainer();
+  function confirm(options: ConfirmOptions): Promise<"confirm" | "cancel"> {
+    return new Promise((resolve, reject) => {
+      const container = createContainer();
 
-    async function handleConfirm() {
-      await options.onConfirm();
-      destoryDialog();
-    }
+      function handleConfirm() {
+        destoryModal();
+        resolve("confirm");
+      }
 
-    async function handleCancel() {
-      options.onCancel && (await options.onCancel());
-      destoryDialog();
-    }
+      function handleCancel() {
+        destoryModal();
+        reject("cancel");
+      }
 
-    const Dialog = (
-      <EzBaseModal
-        visible={true}
-        title={options.title}
-        supportingText={options.supportingText}
-        onClick:confirm-button={handleConfirm}
-        onClick:cancel-button={handleCancel}
-      />
-    );
+      const Modal = (
+        <EzBaseModal
+          visible={true}
+          title={options.title}
+          supportingText={options.supportingText}
+          onClick:confirm-button={handleConfirm}
+          onClick:cancel-button={handleCancel}
+        />
+      );
 
-    mountComponent(container, Dialog);
+      mountComponent(container, Modal);
+    });
   }
 
   return {

@@ -9,7 +9,7 @@ import ShowCaseConfirmModal from "./ShowCaseConfirmModal.vue";
       <ShowCaseBasicUsage></ShowCaseBasicUsage>
     </Variant>
 
-    <Variant title="Alret Modal">
+    <Variant title="Confirm Modal">
       <ShowCaseConfirmModal></ShowCaseConfirmModal>
     </Variant>
   </Story>
