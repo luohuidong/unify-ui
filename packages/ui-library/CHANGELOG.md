@@ -1,5 +1,12 @@
 # @easy-ui-team/easy-ui
 
+## 0.7.5
+
+### Patch Changes
+
+- 11b3b9f: Add a 'Close' button to the Modal component.
+- 8adc8ce: Add a 'modalClass' property to the Modal component for custom styling.
+
 ## 0.7.4
 
 ### Patch Changes
