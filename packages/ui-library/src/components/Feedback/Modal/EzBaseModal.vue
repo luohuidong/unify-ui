@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { EzButton, Scrim } from "@/components";
+import CloseIcon from "./IconClose.vue";
 
 withDefaults(
   defineProps<{
@@ -34,6 +35,8 @@ function handleCancelButtonClick() {
 <template>
   <Scrim v-show="visible">
     <div class="dialog">
+      <CloseIcon class="close-icon" @click="handleCancelButtonClick"></CloseIcon>
+
       <slot name="title">
         <div v-if="title" class="dialog__title">{{ title }}</div>
       </slot>
@@ -65,6 +68,8 @@ function handleCancelButtonClick() {
 @use "@/styles/type";
 
 .dialog {
+  position: relative;
+
   width: 450px;
   max-height: 650px;
 
@@ -75,6 +80,22 @@ function handleCancelButtonClick() {
 
   border-radius: 8px;
   background-color: color.$background;
+}
+
+.close-icon {
+  position: absolute;
+  right: 16px;
+  top: 16px;
+
+  width: 24px;
+  height: 24px;
+
+  color: rgb(156 163 175);
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(107 114 128);
+  }
 }
 
 .dialog__title {
