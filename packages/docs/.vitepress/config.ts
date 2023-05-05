@@ -49,6 +49,7 @@ export default defineConfig({
           {
             text: "Data Entry",
             items: [
+              { text: "Checkbox", link: "/components/data-entry/checkbox/" },
               { text: "Input", link: "/components/data-entry/input/" },
               {
                 text: "FilePicker",
