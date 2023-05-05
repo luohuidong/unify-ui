@@ -1,0 +1,43 @@
+<script setup lang="ts">
+import { ref } from "vue";
+import { EzCheckboxGroup } from "@easy-ui-team/easy-ui";
+
+const options = [
+  {
+    label: "test1",
+    value: "test1",
+  },
+  {
+    label: "test2",
+    value: "test2",
+  },
+  {
+    label: "test3",
+    value: "test3",
+  },
+];
+
+const checkboxGroupValue = ref(new Set<string>(["test1", "test3"]));
+const checkboxGroupValue2 = ref(new Set<string>(["test1", "test3"]));
+</script>
+
+<template>
+  <div>
+    <EzCheckboxGroup
+      v-model="checkboxGroupValue"
+      name="group1"
+      :options="options"
+      inline
+    ></EzCheckboxGroup>
+
+    <EzCheckboxGroup
+      v-model="checkboxGroupValue2"
+      name="group2"
+      :options="options"
+      disabled
+      inline
+    ></EzCheckboxGroup>
+  </div>
+</template>
+
+<style lang="scss" scoped></style>
