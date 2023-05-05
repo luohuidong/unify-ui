@@ -37,12 +37,14 @@ withDefaults(
     supportingText?: string;
     confirmText?: string;
     cancelText?: string;
+    modalClass?: string;
   }>(),
   {
     title: undefined,
     supportingText: undefined,
     confirmText: undefined,
     cancelText: undefined,
+    modalClass: undefined,
   }
 );
 ```

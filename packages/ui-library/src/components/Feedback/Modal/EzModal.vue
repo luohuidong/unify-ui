@@ -10,12 +10,14 @@ withDefaults(
     supportingText?: string;
     confirmText?: string;
     cancelText?: string;
+    modalClass?: string;
   }>(),
   {
     title: undefined,
     supportingText: undefined,
     confirmText: undefined,
     cancelText: undefined,
+    modalClass: undefined,
   }
 );
 
@@ -60,6 +62,7 @@ onUnmounted(() => {
         :visible="visible"
         :confirm-text="confirmText"
         :cancel-text="cancelText"
+        :modal-class="modalClass"
         @click:confirm-button="handleConfirmButtonClick"
         @click:cancel-button="handleCancelButtonClick"
       >

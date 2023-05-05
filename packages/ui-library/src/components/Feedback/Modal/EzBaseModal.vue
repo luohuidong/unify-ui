@@ -9,12 +9,14 @@ withDefaults(
     supportingText?: string;
     confirmText?: string;
     cancelText?: string;
+    modalClass?: string;
   }>(),
   {
     title: "",
     supportingText: "",
     confirmText: "Confirm",
     cancelText: "Cancel",
+    modalClass: undefined,
   }
 );
 
@@ -34,11 +36,11 @@ function handleCancelButtonClick() {
 
 <template>
   <Scrim v-show="visible">
-    <div class="dialog">
-      <CloseIcon class="close-icon" @click="handleCancelButtonClick"></CloseIcon>
+    <div class="modal" :class="modalClass">
+      <CloseIcon class="modal__close-icon" @click="handleCancelButtonClick"></CloseIcon>
 
       <slot name="title">
-        <div v-if="title" class="dialog__title">{{ title }}</div>
+        <div v-if="title" class="modal__title">{{ title }}</div>
       </slot>
 
       <div class="content">
@@ -67,7 +69,7 @@ function handleCancelButtonClick() {
 @use "@/styles/color";
 @use "@/styles/type";
 
-.dialog {
+.modal {
   position: relative;
 
   width: 450px;
@@ -82,7 +84,7 @@ function handleCancelButtonClick() {
   background-color: color.$background;
 }
 
-.close-icon {
+.modal__close-icon {
   position: absolute;
   right: 16px;
   top: 16px;
@@ -98,7 +100,7 @@ function handleCancelButtonClick() {
   }
 }
 
-.dialog__title {
+.modal__title {
   font-size: 16px;
   line-height: 24px;
   font-weight: 600;
