@@ -1,18 +1,18 @@
 import { ref, provide } from "vue";
 import * as provideKeys from "../provideKeys";
-import type { RootProps } from "../types";
+import type { RootProps, ElementRef } from "../types";
 
 export function useProvide(rootProps: RootProps) {
   provide(provideKeys.rootPropsKey, rootProps);
 
   // trigger element container reference
-  const referenceRef = ref<HTMLElement | null>(null);
+  const referenceRef: ElementRef = ref();
   provide(provideKeys.referenceRefKey, {
     referenceRef,
   });
 
   // floating element reference
-  const floatingRef = ref<HTMLElement | null>(null);
+  const floatingRef: ElementRef = ref();
   function setFloatingRef(e: HTMLElement) {
     floatingRef.value = e;
   }
@@ -22,7 +22,7 @@ export function useProvide(rootProps: RootProps) {
   });
 
   // floating element arrow reference
-  const floatingArrowRef = ref<HTMLElement | null>(null);
+  const floatingArrowRef: ElementRef = ref();
   function setFloatingArrowRef(e: HTMLElement) {
     floatingArrowRef.value = e;
   }

@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted, watch } from "vue";
-import type { ElementRef, RootProps } from "../types";
+import type { RootProps, ElementRef } from "../types";
 
 export function useAddEventListener({
   referenceRef,

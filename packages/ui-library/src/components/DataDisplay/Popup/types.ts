@@ -15,4 +15,4 @@ export interface RootProps {
 
 export type RootEmits = (e: "update:visible", visible: boolean) => void;
 
-export type ElementRef = Ref<HTMLElement | null>;
+export type ElementRef = Ref<HTMLElement | undefined>;

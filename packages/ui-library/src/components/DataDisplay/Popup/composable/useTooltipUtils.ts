@@ -1,5 +1,5 @@
 import { computePosition, flip, shift, offset, arrow, autoUpdate } from "@floating-ui/dom";
-import type { RootProps, ElementRef, RootEmits } from "../types";
+import type { RootProps, RootEmits, ElementRef } from "../types";
 
 export function useTooltipUtils({
   referenceRef,
