@@ -11,6 +11,7 @@ withDefaults(
   defineProps<{
     type?: "secondary" | "primary" | "soft";
     size?: "xs" | "s" | "m" | "l" | "xl";
+    rounded?: boolean;
   }>(),
   {
     type: "secondary",
@@ -37,6 +38,7 @@ function handleClick(e: MouseEvent) {
       'button--type-primary': type === 'primary',
       'button--type-secondary': type === 'secondary',
       'button--type-soft': type === 'soft',
+      'button--rounded': rounded,
     }"
     @click="handleClick"
   >
@@ -129,5 +131,9 @@ $primary-color: rgb(79 70 229);
     background-color: $active-color;
     border-color: $active-color;
   }
+}
+
+.button--rounded {
+  border-radius: 9999px;
 }
 </style>

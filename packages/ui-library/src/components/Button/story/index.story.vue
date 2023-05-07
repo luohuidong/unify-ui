@@ -75,6 +75,22 @@ import { EzButton } from "@/components";
         </div>
       </div>
     </Variant>
+
+    <Variant title="Rounded Border">
+      <div class="container">
+        <div>
+          <EzButton rounded>Button1</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="primary" rounded>Button2</EzButton>
+        </div>
+
+        <div>
+          <EzButton type="soft" rounded>Button3</EzButton>
+        </div>
+      </div>
+    </Variant>
   </Story>
 </template>
 
