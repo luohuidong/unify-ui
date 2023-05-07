@@ -5,7 +5,8 @@
   "types": "types/index.d.ts",
   "scripts": {
     "dev": "histoire dev",
-    "build": "vue-tsc --noEmit && vite build && vue-tsc --declaration --emitDeclarationOnly ",
+    "build": "vue-tsc --declaration --emitDeclarationOnly && vite build",
+    "type:check": "vue-tsc --noEmit",
     "commit": "cz",
     "story:dev": "histoire dev",
     "story:build": "histoire build",
