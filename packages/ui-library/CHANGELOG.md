@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.7.6
+
+### Patch Changes
+
+- 2bff8e0: The Button component allows for rounded borders.
+
 ## 0.7.5
 
 ### Patch Changes
