@@ -1,5 +1,11 @@
 # @easy-ui-team/easy-ui
 
+## 0.7.7
+
+### Patch Changes
+
+- 848e7de: The FileDropZone allows for customized content.
+
 ## 0.7.6
 
 ### Patch Changes
