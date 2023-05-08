@@ -4,7 +4,6 @@ import { throttle } from "lodash-es";
 
 import { useInject } from "./composable";
 import { expandColumnWidth, selectionColumnWidth } from "./constant";
-import type { Column } from "./types";
 
 const { tableProps, columnsData, rootContainerRef, tableState } = useInject();
 

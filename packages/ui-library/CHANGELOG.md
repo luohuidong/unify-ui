@@ -1,4 +1,4 @@
-# @easy-ui-team/easy-ui
+# unify-ui
 
 ## 0.7.7
 
