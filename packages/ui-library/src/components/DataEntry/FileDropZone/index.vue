@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "EzFilePicker",
+  name: "EzFileDropZone",
 });
 </script>
 
@@ -10,6 +10,7 @@ export default defineComponent({
 import PhotoIcon from "./icons/PhotoIcon.vue";
 
 const props = defineProps<{
+  promptText?: string;
   multiple?: boolean;
 }>();
 
@@ -53,24 +54,26 @@ function handleDrop(e: DragEvent) {
     @dragover.stop.prevent
     @drop.stop.prevent="handleDrop"
   >
-    <PhotoIcon class="icon" />
+    <slot>
+      <PhotoIcon class="icon" />
 
-    <div class="tips">
-      <span class="tips__first-line">
-        <label class="file-picker">
-          <span>Upload a file </span>
-          <input
-            class="file-picker__input"
-            :multiple="multiple"
-            type="file"
-            @change="handleFileChange"
-          />
-        </label>
-        <span>or drag and drop</span>
-      </span>
+      <div class="tips">
+        <span class="tips__first-line">
+          <label class="file-picker">
+            <span>Upload a file </span>
+            <input
+              class="file-picker__input"
+              :multiple="multiple"
+              type="file"
+              @change="handleFileChange"
+            />
+          </label>
+          <span>or drag and drop</span>
+        </span>
 
-      <span class="tips__second-line">PNG, JPG, GIF up to 10MB</span>
-    </div>
+        <span class="tips__second-line">{{ promptText }}</span>
+      </div>
+    </slot>
   </div>
 </template>
 

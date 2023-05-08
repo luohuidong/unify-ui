@@ -10,7 +10,7 @@ export { default as Scrim } from "./Scrim.vue";
 // Data Entry Components
 export { EzCheckbox, EzCheckboxGroup } from "./DataEntry/Checkbox";
 export { default as EzInput } from "./DataEntry/Input/index.vue";
-export { default as EzFilePicker } from "./DataEntry/FilePicker/index.vue";
+export { default as EzFileDropZone } from "./DataEntry/FileDropZone/index.vue";
 export { default as EzSwitch } from "./DataEntry/Switch/index.vue";
 
 // Data Display Components
