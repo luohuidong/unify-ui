@@ -4,6 +4,12 @@
 
 ### Patch Changes
 
+- 9a26f3d: modify component names
+
+## 0.7.7
+
+### Patch Changes
+
 - 848e7de: The FileDropZone allows for customized content.
 
 ## 0.7.6
