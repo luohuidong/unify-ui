@@ -56,8 +56,8 @@ export default defineConfig({
               },
               { text: "Input", link: "/components/data-entry/input/" },
               {
-                text: "FilePicker",
-                link: "/components/data-entry/file-picker/",
+                text: "FileDropZone",
+                link: "/components/data-entry/file-drop-zone/",
               },
               { text: "Switch", link: "/components/data-entry/switch/" },
             ],
