@@ -1,13 +1,13 @@
 # Checkbox
 
 ```vue
-<script setup lang='ts'>
+<script setup lang="ts">
 import { ref } from "vue";
 const checked = ref(true);
 </script>
 
 <template>
-<EzCheckbox v-model="checked1" label="One"></EzCheckbox>
+  <UniCheckbox v-model="checked1" label="One"></UniCheckbox>
 </template>
 ```
 

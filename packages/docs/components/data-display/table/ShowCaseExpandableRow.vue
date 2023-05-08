@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { EzTable } from "unify-ui";
+import { UniTable } from "unify-ui";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
 
-const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
     title: "Title",
     key: "title",
@@ -16,18 +16,23 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   },
 ];
 
-const rowExpand: InstanceType<typeof EzTable>["$props"]["rowExpand"] = {
+const rowExpand: InstanceType<typeof UniTable>["$props"]["rowExpand"] = {
   expandCondition: (row) => row.description as boolean,
   showExpandRowDefault: false,
 };
 </script>
 
 <template>
-  <EzTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
+  <UniTable
+    row-key="id"
+    :columns="columns"
+    :data="data"
+    :row-expand="rowExpand"
+  >
     <template #rowExpand="{ record }">
       {{ `Expand row: ${record.description}` }}
     </template>
-  </EzTable>
+  </UniTable>
 </template>
 
 <style scoped></style>

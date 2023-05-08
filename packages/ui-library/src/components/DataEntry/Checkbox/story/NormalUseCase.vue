@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import EzCheckbox from "../EzCheckbox.vue";
+import UniCheckbox from "../UniCheckbox.vue";
 
 const checked1 = ref(true);
 const checked2 = ref(false);
@@ -9,10 +9,10 @@ const checked4 = ref(false);
 </script>
 
 <template>
-  <EzCheckbox v-model:checked="checked1" label="checked"></EzCheckbox>
-  <EzCheckbox v-model:checked="checked2" label="not checked"></EzCheckbox>
-  <EzCheckbox v-model:checked="checked3" label="checked & disabled" disabled></EzCheckbox>
-  <EzCheckbox v-model:checked="checked4" label="not checked & disabled" disabled></EzCheckbox>
+  <UniCheckbox v-model:checked="checked1" label="checked"></UniCheckbox>
+  <UniCheckbox v-model:checked="checked2" label="not checked"></UniCheckbox>
+  <UniCheckbox v-model:checked="checked3" label="checked & disabled" disabled></UniCheckbox>
+  <UniCheckbox v-model:checked="checked4" label="not checked & disabled" disabled></UniCheckbox>
 </template>
 
 <style lang="scss" module></style>

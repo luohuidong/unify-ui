@@ -1,31 +1,31 @@
 <script setup lang="ts">
-import { EzButton, EzTooltip } from "unify-ui";
+import { UniButton, UniToolTip } from "unify-ui";
 </script>
 
 <template>
   <div class="container">
     <div>
-      <EzTooltip title="Tooltip text" placement="top">
-        <EzButton type="soft">Hover over me!</EzButton>
-      </EzTooltip>
+      <UniToolTip title="Tooltip text" placement="top">
+        <UniButton type="soft">Hover over me!</UniButton>
+      </UniToolTip>
     </div>
 
     <div>
-      <EzTooltip title="Tooltip text" placement="bottom" append-to-body>
-        <EzButton type="soft">Tooltip append to body</EzButton>
-      </EzTooltip>
+      <UniToolTip title="Tooltip text" placement="bottom" append-to-body>
+        <UniButton type="soft">Tooltip append to body</UniButton>
+      </UniToolTip>
     </div>
 
     <div>
-      <EzTooltip title="Tooltip text" placement="left">
-        <EzButton type="soft">Hover over me!</EzButton>
-      </EzTooltip>
+      <UniToolTip title="Tooltip text" placement="left">
+        <UniButton type="soft">Hover over me!</UniButton>
+      </UniToolTip>
     </div>
 
     <div>
-      <EzTooltip title="Tooltip text" placement="right" append-to-body>
-        <EzButton type="soft">Tooltip append to body</EzButton>
-      </EzTooltip>
+      <UniToolTip title="Tooltip text" placement="right" append-to-body>
+        <UniButton type="soft">Tooltip append to body</UniButton>
+      </UniToolTip>
     </div>
   </div>
 </template>

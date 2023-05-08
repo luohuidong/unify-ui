@@ -1,27 +1,27 @@
 <script setup lang="ts">
-import { EzButton } from "unify-ui";
+import { UniButton } from "unify-ui";
 </script>
 
 <template>
   <div class="container">
     <div>
-      <EzButton type="secondary" size="xs">Button size: xs</EzButton>
+      <UniButton type="secondary" size="xs">Button size: xs</UniButton>
     </div>
 
     <div>
-      <EzButton type="secondary" size="s">Button size: s</EzButton>
+      <UniButton type="secondary" size="s">Button size: s</UniButton>
     </div>
 
     <div>
-      <EzButton type="secondary" size="m">Button size: m</EzButton>
+      <UniButton type="secondary" size="m">Button size: m</UniButton>
     </div>
 
     <div>
-      <EzButton type="secondary" size="l"> Button size: l </EzButton>
+      <UniButton type="secondary" size="l"> Button size: l </UniButton>
     </div>
 
     <div>
-      <EzButton type="secondary" size="xl">Button size: xl</EzButton>
+      <UniButton type="secondary" size="xl">Button size: xl</UniButton>
     </div>
   </div>
 </template>

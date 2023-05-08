@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import EzTable from "../index.vue";
+import UniTable from "../index.vue";
 
-const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
     title: "Title",
     key: "title",
@@ -21,11 +21,11 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 
 <template>
   <div :style="{ marginBottom: '50px' }">
-    <EzTable row-key="id" :columns="columns" :data="[]"> </EzTable>
+    <UniTable row-key="id" :columns="columns" :data="[]"> </UniTable>
   </div>
 
   <div>
-    <EzTable row-key="id" :columns="columns" :data="[]">
+    <UniTable row-key="id" :columns="columns" :data="[]">
       <template #empty>
         <div class="placeholder">
           <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 512 512">
@@ -42,7 +42,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
           <span> Customized empty content </span>
         </div>
       </template>
-    </EzTable>
+    </UniTable>
   </div>
 </template>
 

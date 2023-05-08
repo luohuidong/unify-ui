@@ -2,7 +2,7 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "EzPopup",
+  name: "UniPopup",
 });
 </script>
 

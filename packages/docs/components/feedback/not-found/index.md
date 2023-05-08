@@ -4,7 +4,7 @@ import ShowCase from './ShowCase.vue'
 
 # NotFound
 
-We can use the `EzNotFound` component on the 404 page, which will be displayed when users visit a page that does not exist.
+We can use the `UniNotFound` component on the 404 page, which will be displayed when users visit a page that does not exist.
 
 :::raw
 <ShowCase class="vp-raw" />

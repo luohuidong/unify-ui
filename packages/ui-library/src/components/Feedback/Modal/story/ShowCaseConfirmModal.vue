@@ -1,8 +1,8 @@
 <script setup lang="ts">
-import { EzButton } from "@/components";
-import { useEzConfirmModal } from "../useEzConfirmModal";
+import { UniButton } from "@/components";
+import { useUniConfirmModal } from "../useUniConfirmModal";
 
-const { confirm } = useEzConfirmModal();
+const { confirm } = useUniConfirmModal();
 
 async function handleConfirmDialogButton() {
   try {
@@ -18,5 +18,5 @@ async function handleConfirmDialogButton() {
 </script>
 
 <template>
-  <EzButton type="soft" @click="handleConfirmDialogButton">confirm Dialog</EzButton>
+  <UniButton type="soft" @click="handleConfirmDialogButton">confirm Dialog</UniButton>
 </template>

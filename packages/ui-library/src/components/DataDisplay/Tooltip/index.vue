@@ -2,12 +2,12 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "EzToolTip",
+  name: "UniToolTip",
 });
 </script>
 
 <script lang="ts" setup>
-import { EzPopup } from "@/components";
+import { UniPopup } from "@/components";
 
 defineProps<{
   /** The content of the tooltip */
@@ -22,11 +22,11 @@ defineProps<{
 </script>
 
 <template>
-  <EzPopup :append-to-body="appendToBody" :placement="placement" :disabled="disabled">
+  <UniPopup :append-to-body="appendToBody" :placement="placement" :disabled="disabled">
     <slot></slot>
 
     <template #content>
       {{ title }}
     </template>
-  </EzPopup>
+  </UniPopup>
 </template>

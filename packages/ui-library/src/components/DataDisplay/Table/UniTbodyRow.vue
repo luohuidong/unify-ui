@@ -5,10 +5,10 @@ import { useInject, useSelection } from "./composable";
 import type { Record } from "./types";
 import commonStyle from "./commonStyle.module.scss";
 
-import { EzCheckbox } from "@/components";
+import { UniCheckbox } from "@/components";
 import Add from "./icons/Add.vue";
 import Minus from "./icons/Minus.vue";
-import EzTbodyExpandRow from "./EzTbodyExpandRow.vue";
+import UniTbodyExpandRow from "./UniTbodyExpandRow.vue";
 
 defineProps<{
   record: Record;
@@ -76,12 +76,12 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
           { [commonStyle['cell--shadow-right']]: showShadow.selectionColumnShadowVisible },
         ]"
       >
-        <EzCheckbox
+        <UniCheckbox
           v-if="tableProps.selection?.type === 'multiple'"
           :checked="tableProps.selectedRowKeys.has(record[tableProps.rowKey])"
           :disabled="tableProps.selection?.disabledCondition?.(record)"
           @change="(checked) => handleCheckboxChange(record, checked)"
-        ></EzCheckbox>
+        ></UniCheckbox>
 
         <input
           v-else
@@ -125,12 +125,12 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
   </tr>
 
   <!-- expand row -->
-  <EzTbodyExpandRow
+  <UniTbodyExpandRow
     v-if="state.showExpandRow && tableProps.rowExpand?.expandCondition(record)"
     :record="record"
   >
     <slot name="rowExpand"></slot>
-  </EzTbodyExpandRow>
+  </UniTbodyExpandRow>
 </template>
 
 <style lang="scss" scoped>

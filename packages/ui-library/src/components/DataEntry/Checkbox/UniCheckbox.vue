@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, inject, ref, watch } from "vue";
+import { computed, inject } from "vue";
 
 import Tick from "./icons/TickIcon.vue";
 import IndeterminateIcon from "./icons/IndeterminateIcon.vue";

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzButton } from "@/components";
-import EzPopup from "../index.vue";
+import { UniButton } from "@/components";
+import UniPopup from "../index.vue";
 
 const visible = ref(true);
 function handleClick() {
@@ -12,33 +12,33 @@ function handleClick() {
 <template>
   <div :style="{ height: '100vh' }">
     <div :style="{ marginBottom: '100px' }">
-      <EzPopup placement="bottom" trigger="click" append-to-body>
-        <EzButton>Trigger: click</EzButton>
+      <UniPopup placement="bottom" trigger="click" append-to-body>
+        <UniButton>Trigger: click</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
 
     <div :style="{ marginBottom: '100px' }">
-      <EzPopup placement="bottom" append-to-body>
-        <EzButton>Trigger: hover</EzButton>
+      <UniPopup placement="bottom" append-to-body>
+        <UniButton>Trigger: hover</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
 
     <div>
-      <EzPopup placement="bottom" append-to-body trigger="controlled" :visible="visible">
-        <EzButton @click="handleClick">Trigger: Controlled</EzButton>
+      <UniPopup placement="bottom" append-to-body trigger="controlled" :visible="visible">
+        <UniButton @click="handleClick">Trigger: Controlled</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
   </div>
 </template>

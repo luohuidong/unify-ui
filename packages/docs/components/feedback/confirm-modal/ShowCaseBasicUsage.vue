@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { useEzConfirmModal, EzButton } from "unify-ui";
+import { useUniConfirmModal, UniButton } from "unify-ui";
 
-const { confirm } = useEzConfirmModal();
+const { confirm } = useUniConfirmModal();
 
 async function handleConfirmDialogButton() {
   try {
@@ -18,9 +18,9 @@ async function handleConfirmDialogButton() {
 
 <template>
   <div>
-    <EzButton type="soft" @click="handleConfirmDialogButton">
+    <UniButton type="soft" @click="handleConfirmDialogButton">
       Show Confirm Dialog
-    </EzButton>
+    </UniButton>
   </div>
 </template>
 

@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzButton } from "@/components";
-import EzTooltip from "../index.vue";
+import { UniButton } from "@/components";
+import UniToolTip from "../index.vue";
 
 const disabled = ref(false);
 function handleClick() {
@@ -10,12 +10,12 @@ function handleClick() {
 </script>
 
 <template>
-  <EzButton @click="handleClick">Click button to change tooltip disabled</EzButton>
+  <UniButton @click="handleClick">Click button to change tooltip disabled</UniButton>
 
   <div>
-    <EzTooltip title="Disabled Case" placement="bottom" :disabled="disabled">
+    <UniToolTip title="Disabled Case" placement="bottom" :disabled="disabled">
       <div>Tooltip disabled: {{ disabled }}</div>
-    </EzTooltip>
+    </UniToolTip>
   </div>
 </template>
 

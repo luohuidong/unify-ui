@@ -1,1 +1,1 @@
-export { default as EzRadio } from "./EzRadio.vue";
+export { default as UniRadio } from "./UniRadio.vue";

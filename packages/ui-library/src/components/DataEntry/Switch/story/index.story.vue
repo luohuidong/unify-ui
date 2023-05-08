@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import EzSwitch from "../index.vue";
+import UniSwitch from "../index.vue";
 
 const switchValue1 = ref(true);
 
@@ -16,12 +16,12 @@ const switchValue3 = ref(false);
 <template>
   <Story title="Data Entry/Switch">
     <Variant title="Basic Usage">
-      <EzSwitch v-model="switchValue1" @change="handleChange"></EzSwitch>
+      <UniSwitch v-model="switchValue1" @change="handleChange"></UniSwitch>
     </Variant>
 
     <Variant title="Disabled">
-      <EzSwitch v-model="switchValue2" disabled></EzSwitch>
-      <EzSwitch v-model="switchValue3" disabled></EzSwitch>
+      <UniSwitch v-model="switchValue2" disabled></UniSwitch>
+      <UniSwitch v-model="switchValue3" disabled></UniSwitch>
     </Variant>
   </Story>
 </template>

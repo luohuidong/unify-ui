@@ -1,2 +1,2 @@
-export { default as EzModal } from "./EzModal.vue";
-export { useEzConfirmModal } from "./useEzConfirmModal";
+export { default as UniModal } from "./UniModal.vue";
+export { useUniConfirmModal } from "./useUniConfirmModal";

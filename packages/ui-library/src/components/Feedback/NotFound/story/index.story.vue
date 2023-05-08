@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import EzNotFound from "../index.vue";
+import UniNotFound from "../index.vue";
 </script>
 
 <template>
   <Story title="Feedback/NotFound">
     <div class="container">
       <div>
-        <EzNotFound></EzNotFound>
+        <UniNotFound></UniNotFound>
       </div>
 
       <div>
-        <EzNotFound align="right"></EzNotFound>
+        <UniNotFound align="right"></UniNotFound>
       </div>
 
       <div>
-        <EzNotFound align="left"></EzNotFound>
+        <UniNotFound align="left"></UniNotFound>
       </div>
     </div>
   </Story>

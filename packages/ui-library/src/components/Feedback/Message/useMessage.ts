@@ -1,11 +1,11 @@
 import { createVNode, render } from "vue";
 
-import MessagesContainer from "./EzMessagesContainer.vue";
-import BaseMessage from "./EzBaseMessage.vue";
+import MessagesContainer from "./UniMessagesContainer.vue";
+import BaseMessage from "./UniBaseMessage.vue";
 
 export default function useMessage() {
   function createMessagesContainer(): HTMLDivElement {
-    const id = "vue-material";
+    const id = "unify-ui";
     const container = document.getElementById(id);
     if (!container) {
       render(createVNode(MessagesContainer, { id }), document.body);

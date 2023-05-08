@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import EzInput from "../index.vue";
+import UniInput from "../index.vue";
 
 const value = ref("allan@mail.com");
 </script>
@@ -10,16 +10,16 @@ const value = ref("allan@mail.com");
     <Variant title="Basic usage">
       <div class="container">
         <div>
-          <EzInput v-model="value" />
+          <UniInput v-model="value" />
         </div>
         <div>
-          <EzInput placeholder="placeholder: you@email.com"></EzInput>
+          <UniInput placeholder="placeholder: you@email.com"></UniInput>
         </div>
         <div>
-          <EzInput v-model="value" disabled></EzInput>
+          <UniInput v-model="value" disabled></UniInput>
         </div>
         <div>
-          <EzInput v-model="value" readonly></EzInput>
+          <UniInput v-model="value" readonly></UniInput>
         </div>
       </div>
     </Variant>
@@ -27,51 +27,39 @@ const value = ref("allan@mail.com");
     <Variant title="Add-on">
       <div class="container">
         <div>
-          <EzInput>
+          <UniInput>
             <template #leading-add-on>
               <span>http://</span>
             </template>
-          </EzInput>
+          </UniInput>
         </div>
 
         <div>
-          <EzInput disabled>
+          <UniInput disabled>
             <template #leading-add-on>
               <span>http://</span>
             </template>
-          </EzInput>
+          </UniInput>
         </div>
 
         <div>
-          <EzInput>
+          <UniInput>
             <template #trailing-add-on>
               <span>.com</span>
             </template>
-          </EzInput>
+          </UniInput>
         </div>
 
         <div>
-          <EzInput disabled>
+          <UniInput disabled>
             <template #trailing-add-on>
               <span>.com</span>
             </template>
-          </EzInput>
+          </UniInput>
         </div>
 
         <div>
-          <EzInput>
-            <template #leading-add-on>
-              <span>http://</span>
-            </template>
-
-            <template #trailing-add-on>
-              <span>.com</span>
-            </template>
-          </EzInput>
-        </div>
-
-        <div>
-          <EzInput disabled>
+          <UniInput>
             <template #leading-add-on>
               <span>http://</span>
             </template>
@@ -79,7 +67,19 @@ const value = ref("allan@mail.com");
             <template #trailing-add-on>
               <span>.com</span>
             </template>
-          </EzInput>
+          </UniInput>
+        </div>
+
+        <div>
+          <UniInput disabled>
+            <template #leading-add-on>
+              <span>http://</span>
+            </template>
+
+            <template #trailing-add-on>
+              <span>.com</span>
+            </template>
+          </UniInput>
         </div>
       </div>
     </Variant>
@@ -87,51 +87,39 @@ const value = ref("allan@mail.com");
     <Variant title="Inline add-on">
       <div class="container">
         <div>
-          <EzInput>
+          <UniInput>
             <template #inline-leading-add-on>
               <span>http://</span>
             </template>
-          </EzInput>
+          </UniInput>
         </div>
 
         <div>
-          <EzInput disabled>
+          <UniInput disabled>
             <template #inline-leading-add-on>
               <span>http://</span>
             </template>
-          </EzInput>
+          </UniInput>
         </div>
 
         <div>
-          <EzInput>
+          <UniInput>
             <template #inline-trailing-add-on>
               <span>.com</span>
             </template>
-          </EzInput>
+          </UniInput>
         </div>
 
         <div>
-          <EzInput disabled>
+          <UniInput disabled>
             <template #inline-trailing-add-on>
               <span>.com</span>
             </template>
-          </EzInput>
+          </UniInput>
         </div>
 
         <div>
-          <EzInput>
-            <template #inline-leading-add-on>
-              <span>http://</span>
-            </template>
-
-            <template #inline-trailing-add-on>
-              <span>.com</span>
-            </template>
-          </EzInput>
-        </div>
-
-        <div>
-          <EzInput disabled>
+          <UniInput>
             <template #inline-leading-add-on>
               <span>http://</span>
             </template>
@@ -139,7 +127,19 @@ const value = ref("allan@mail.com");
             <template #inline-trailing-add-on>
               <span>.com</span>
             </template>
-          </EzInput>
+          </UniInput>
+        </div>
+
+        <div>
+          <UniInput disabled>
+            <template #inline-leading-add-on>
+              <span>http://</span>
+            </template>
+
+            <template #inline-trailing-add-on>
+              <span>.com</span>
+            </template>
+          </UniInput>
         </div>
       </div>
     </Variant>

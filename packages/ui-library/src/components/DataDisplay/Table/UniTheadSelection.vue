@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watchEffect, reactive, computed } from "vue";
 
-import { EzCheckbox } from "@/components";
+import { UniCheckbox } from "@/components";
 import { useInject } from "./composable";
 import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
@@ -106,13 +106,13 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
         { [commonStyle['cell--shadow-right']]: showShadow.selectionColumnShadowVisible },
       ]"
     >
-      <EzCheckbox
+      <UniCheckbox
         v-if="tableProps.selection?.type === 'multiple'"
         v-model:checked="state.checkboxValue"
         :indeterminate="state.indeterminate"
         :disabled="state.checkboxDisable"
         @change="SelectionAllToggle"
-      ></EzCheckbox>
+      ></UniCheckbox>
     </div>
   </th>
 </template>

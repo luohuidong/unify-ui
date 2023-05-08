@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzButton, EzTooltip } from "unify-ui";
+import { UniButton, UniToolTip } from "unify-ui";
 
 const disabled = ref(false);
 function handleClick() {
@@ -9,14 +9,14 @@ function handleClick() {
 </script>
 
 <template>
-  <EzButton type="soft" @click="handleClick">
+  <UniButton type="soft" @click="handleClick">
     Click button to change tooltip disabled
-  </EzButton>
+  </UniButton>
 
   <div>
-    <EzTooltip title="Disabled Case" placement="bottom" :disabled="disabled">
+    <UniToolTip title="Disabled Case" placement="bottom" :disabled="disabled">
       <div>Tooltip disabled: {{ disabled }}</div>
-    </EzTooltip>
+    </UniToolTip>
   </div>
 </template>
 

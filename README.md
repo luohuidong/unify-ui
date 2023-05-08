@@ -28,10 +28,10 @@ import "unify-ui/dist/style.css";
 
 ```vue
 <script setup lang="ts">
-import { EzButton } from "unify-ui";
+import { UniButton } from "unify-ui";
 </script>
 
 <template>
-  <EzButton type="text">text button</EzButton>
+  <UniButton type="text">text button</UniButton>
 </template>
 ```

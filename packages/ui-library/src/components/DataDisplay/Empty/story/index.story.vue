@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import EzEmpty from "../index.vue";
+import UniEmpty from "../index.vue";
 </script>
 
 <template>
   <Story title="Date Display/Empty">
     <Variant title="Basic Usage">
-      <EzEmpty></EzEmpty>
+      <UniEmpty></UniEmpty>
     </Variant>
   </Story>
 </template>

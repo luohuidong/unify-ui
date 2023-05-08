@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzCheckboxGroup } from "unify-ui";
+import { UniCheckboxGroup } from "unify-ui";
 
 const options = [
   {
@@ -23,20 +23,20 @@ const checkboxGroupValue2 = ref(new Set<string>(["test1", "test3"]));
 
 <template>
   <div>
-    <EzCheckboxGroup
+    <UniCheckboxGroup
       v-model="checkboxGroupValue"
       name="group1"
       :options="options"
       inline
-    ></EzCheckboxGroup>
+    ></UniCheckboxGroup>
 
-    <EzCheckboxGroup
+    <UniCheckboxGroup
       v-model="checkboxGroupValue2"
       name="group2"
       :options="options"
       disabled
       inline
-    ></EzCheckboxGroup>
+    ></UniCheckboxGroup>
   </div>
 </template>
 

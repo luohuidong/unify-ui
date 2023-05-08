@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
 
-import Scrim from "../Scrim.vue";
-import BaseDrawer from "./EzBaseDrawer.vue";
+import UniScrim from "../UniScrim.vue";
+import BaseDrawer from "./UniBaseDrawer.vue";
 
 defineProps<{
   visible: boolean;
@@ -29,9 +29,9 @@ function handleClick() {
 
 <template>
   <teleport to="body">
-    <Scrim v-show="visible" @click="handleClick">
+    <UniScrim v-show="visible" @click="handleClick">
       <BaseDrawer></BaseDrawer>
-    </Scrim>
+    </UniScrim>
   </teleport>
 </template>
 

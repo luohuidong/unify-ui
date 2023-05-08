@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { EzInput } from "unify-ui";
+import { UniInput } from "unify-ui";
 </script>
 
 <template>
-  <EzInput placeholder="placeholder: you@email.com"></EzInput>
+  <UniInput placeholder="placeholder: you@email.com"></UniInput>
 </template>
 
 <style lang="scss" scoped></style>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzModal, EzButton } from "unify-ui";
+import { UniModal, UniButton } from "unify-ui";
 
 const visible = ref(false);
 
@@ -23,16 +23,16 @@ function handleKeyboardEscapeKey() {
 
 <template>
   <div>
-    <EzButton type="soft" @click="handleButtonClick">Open the Modal</EzButton>
+    <UniButton type="soft" @click="handleButtonClick">Open the Modal</UniButton>
 
-    <EzModal
+    <UniModal
       :visible="visible"
       title="Tips"
       supporting-text="Are you sure you want to delete this record?"
       @click:confirm-button="handleConfirm"
       @click:cancel-button="handleCancel"
       @press:keyboard-escape-key="handleKeyboardEscapeKey"
-    ></EzModal>
+    ></UniModal>
   </div>
 </template>
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzFileDropZone } from "unify-ui";
+import { UniFileDropZone } from "unify-ui";
 
 const filesInfo = ref<{ name: string }[]>([]);
 
@@ -10,7 +10,7 @@ function fileChange(fileList: File[]) {
 </script>
 
 <template>
-  <EzFileDropZone multiple @file-change="fileChange"> </EzFileDropZone>
+  <UniFileDropZone multiple @file-change="fileChange"> </UniFileDropZone>
 
   <p>File list:</p>
   <ul>

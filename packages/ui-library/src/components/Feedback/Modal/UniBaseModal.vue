@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzButton, Scrim } from "@/components";
+import { UniButton, UniScrim } from "@/components";
 import CloseIcon from "./IconClose.vue";
 
 withDefaults(
@@ -35,7 +35,7 @@ function handleCancelButtonClick() {
 </script>
 
 <template>
-  <Scrim v-show="visible">
+  <UniScrim v-show="visible">
     <div class="modal" :class="modalClass">
       <CloseIcon class="modal__close-icon" @click="handleCancelButtonClick"></CloseIcon>
 
@@ -51,17 +51,17 @@ function handleCancelButtonClick() {
 
       <div class="actions">
         <slot name="actions">
-          <EzButton type="secondary" class="cancel-button" @click="handleCancelButtonClick">
+          <UniButton type="secondary" class="cancel-button" @click="handleCancelButtonClick">
             {{ cancelText }}
-          </EzButton>
+          </UniButton>
 
-          <EzButton type="primary" @click="handleConfirmButtonClick">
+          <UniButton type="primary" @click="handleConfirmButtonClick">
             {{ confirmText }}
-          </EzButton>
+          </UniButton>
         </slot>
       </div>
     </div>
-  </Scrim>
+  </UniScrim>
 </template>
 
 <style lang="scss" scoped>

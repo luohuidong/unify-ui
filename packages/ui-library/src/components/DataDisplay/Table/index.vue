@@ -2,13 +2,13 @@
 import { defineComponent } from "vue";
 
 export default defineComponent({
-  name: "EzTable",
+  name: "UniTable",
 });
 </script>
 
 <script setup lang="ts">
 import { useSlots, provide, ref } from "vue";
-import { EzEmpty } from "@/components";
+import { UniEmpty } from "@/components";
 
 import * as injectKeys from "./injectKeys";
 import {
@@ -20,9 +20,9 @@ import {
 } from "./composable";
 import type { Key, Record, Column, SortType } from "./types";
 
-import EzColGroup from "./EzColGroup.vue";
-import EzThead from "./EzThead.vue";
-import EzTbodyRow from "./EzTbodyRow.vue";
+import UniColGroup from "./UniColGroup.vue";
+import UniThead from "./UniThead.vue";
+import UniTbodyRow from "./UniTbodyRow.vue";
 
 const props = withDefaults(
   defineProps<{
@@ -86,18 +86,18 @@ useShowShadow({ containerRef, tableRef, columnsData, tableProps: props });
 <template>
   <div ref="containerRef" class="scroll-container">
     <table ref="tableRef" class="table">
-      <EzColGroup></EzColGroup>
+      <UniColGroup></UniColGroup>
 
-      <EzThead>
+      <UniThead>
         <template #theadCell="{ columnKey }">
           <slot :name="columnKey"></slot>
         </template>
-      </EzThead>
+      </UniThead>
 
       <tbody>
         <!-- render the data -->
         <template v-if="props.data.length > 0">
-          <EzTbodyRow
+          <UniTbodyRow
             v-for="(record, index) in props.data"
             :key="(record[props.rowKey] as string)"
             :record="record"
@@ -109,13 +109,13 @@ useShowShadow({ containerRef, tableRef, columnsData, tableProps: props });
             <template #rowExpand>
               <slot name="rowExpand" :record="record" :index="index"></slot>
             </template>
-          </EzTbodyRow>
+          </UniTbodyRow>
         </template>
         <template v-else>
           <tr>
             <td :colspan="columnCount" class="empty-row__cell">
               <slot name="empty">
-                <EzEmpty></EzEmpty>
+                <UniEmpty></UniEmpty>
               </slot>
             </td>
           </tr>

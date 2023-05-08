@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import EzCheckboxGroup from "../EzCheckboxGroup.vue";
+import UniCheckboxGroup from "../UniCheckboxGroup.vue";
 
 const options = [
   {
@@ -26,51 +26,51 @@ const checkboxGroupValue2 = ref(new Set<string>(["test1", "test3"]));
   <ul>
     <li>
       normal checkbox group:
-      <EzCheckboxGroup
+      <UniCheckboxGroup
         v-model="checkboxGroupValue"
         name="group1"
         :options="options"
-      ></EzCheckboxGroup>
+      ></UniCheckboxGroup>
     </li>
 
     <li>
       with initial value:
-      <EzCheckboxGroup
+      <UniCheckboxGroup
         v-model="checkboxGroupValue2"
         name="group2"
         :options="options"
-      ></EzCheckboxGroup>
+      ></UniCheckboxGroup>
     </li>
 
     <li>
       disabled checkbox group:
-      <EzCheckboxGroup
+      <UniCheckboxGroup
         v-model="checkboxGroupValue"
         name="group3"
         :options="options"
         disabled
-      ></EzCheckboxGroup>
+      ></UniCheckboxGroup>
     </li>
 
     <li>
       disabled checkbox group with initial value:
-      <EzCheckboxGroup
+      <UniCheckboxGroup
         v-model="checkboxGroupValue2"
         name="group4"
         :options="options"
         disabled
-      ></EzCheckboxGroup>
+      ></UniCheckboxGroup>
     </li>
 
     <li>
       inline checkbox group:
-      <EzCheckboxGroup
+      <UniCheckboxGroup
         v-model="checkboxGroupValue2"
         name="group4"
         :options="options"
         disabled
         inline
-      ></EzCheckboxGroup>
+      ></UniCheckboxGroup>
     </li>
   </ul>
 </template>

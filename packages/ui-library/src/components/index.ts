@@ -1,25 +1,25 @@
-export { default as EzButton } from "./Button/index.vue";
+export { default as UniButton } from "./Button/index.vue";
 export {
-  EzStandardDrawer,
-  EzModalDrawer,
-  EzNavigationList,
-  EzNavigationListItem,
+  UniStandardDrawer,
+  UniModalDrawer,
+  UniNavigationList,
+  UniNavigationListItem,
 } from "./NavigationDrawer";
-export { default as Scrim } from "./Scrim.vue";
+export { default as UniScrim } from "./UniScrim.vue";
 
 // Data Entry Components
-export { EzCheckbox, EzCheckboxGroup } from "./DataEntry/Checkbox";
-export { default as EzInput } from "./DataEntry/Input/index.vue";
-export { default as EzFileDropZone } from "./DataEntry/FileDropZone/index.vue";
-export { default as EzSwitch } from "./DataEntry/Switch/index.vue";
+export { UniCheckbox, UniCheckboxGroup } from "./DataEntry/Checkbox";
+export { default as UniInput } from "./DataEntry/Input/index.vue";
+export { default as UniFileDropZone } from "./DataEntry/FileDropZone/index.vue";
+export { default as UniSwitch } from "./DataEntry/Switch/index.vue";
 
 // Data Display Components
-export { default as EzPopup } from "./DataDisplay/Popup/index.vue";
-export { default as EzTooltip } from "./DataDisplay/Tooltip/index.vue";
-export { default as EzTable } from "./DataDisplay/Table/index.vue";
-export { default as EzEmpty } from "./DataDisplay/Empty/index.vue";
+export { default as UniPopup } from "./DataDisplay/Popup/index.vue";
+export { default as UniToolTip } from "./DataDisplay/Tooltip/index.vue";
+export { default as UniTable } from "./DataDisplay/Table/index.vue";
+export { default as UniEmpty } from "./DataDisplay/Empty/index.vue";
 
 // Feedback Components
-export { EzModal, useEzConfirmModal } from "./Feedback/Modal";
+export { UniModal, useUniConfirmModal } from "./Feedback/Modal";
 export { useMessage } from "./Feedback/Message";
-export { default as EzNotFound } from "./Feedback/NotFound/index.vue";
+export { default as UniNotFound } from "./Feedback/NotFound/index.vue";

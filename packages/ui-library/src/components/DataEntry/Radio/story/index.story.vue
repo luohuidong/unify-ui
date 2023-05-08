@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import EzRadio from "../EzRadio.vue";
+import UniRadio from "../UniRadio.vue";
 </script>
 
 <template>
   <Story title="Data Entry/Radio">
     <Variant title="Normal use">
       <div class="container">
-        <EzRadio name="radio" title="one" value="1"></EzRadio>
-        <EzRadio name="radio" title="two" value="2"></EzRadio>
-        <EzRadio name="radio" title="three" value="3"></EzRadio>
-        <EzRadio name="radio" title="four" value="4"></EzRadio>
+        <UniRadio name="radio" title="one" value="1"></UniRadio>
+        <UniRadio name="radio" title="two" value="2"></UniRadio>
+        <UniRadio name="radio" title="three" value="3"></UniRadio>
+        <UniRadio name="radio" title="four" value="4"></UniRadio>
       </div>
     </Variant>
   </Story>

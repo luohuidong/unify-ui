@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzButton, EzPopup } from "unify-ui";
+import { UniButton, UniPopup } from "unify-ui";
 
 const visible = ref(true);
 function handleClick() {
@@ -11,40 +11,40 @@ function handleClick() {
 <template>
   <div class="container">
     <div>
-      <EzPopup placement="bottom" trigger="click" append-to-body>
-        <EzButton type="soft">Trigger: click</EzButton>
+      <UniPopup placement="bottom" trigger="click" append-to-body>
+        <UniButton type="soft">Trigger: click</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
 
     <div>
-      <EzPopup placement="bottom" append-to-body>
-        <EzButton type="soft">Trigger: hover</EzButton>
+      <UniPopup placement="bottom" append-to-body>
+        <UniButton type="soft">Trigger: hover</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
 
     <div>
-      <EzPopup
+      <UniPopup
         placement="bottom"
         append-to-body
         trigger="controlled"
         :visible="visible"
       >
-        <EzButton type="soft" @click="handleClick">
+        <UniButton type="soft" @click="handleClick">
           Trigger: Controlled
-        </EzButton>
+        </UniButton>
 
         <template #content>
           <div class="box">bottom</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
   </div>
 </template>

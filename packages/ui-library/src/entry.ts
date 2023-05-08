@@ -1,10 +1,10 @@
 import type { Plugin } from "vue";
-import { EzButton } from "./components";
+import { UniButton } from "./components";
 
 const installAllComponents: Plugin = {
   install(app, options) {
-    app.component(EzButton.name, EzButton);
-    console.log("🚀 ~ file: entry.ts:7 ~ install ~ Button.name", EzButton.name);
+    app.component(UniButton.name, UniButton);
+    console.log("🚀 ~ file: entry.ts:7 ~ install ~ Button.name", UniButton.name);
   },
 };
 

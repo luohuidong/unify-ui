@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import BaseDrawer from "./EzBaseDrawer.vue";
+import BaseDrawer from "./UniBaseDrawer.vue";
 </script>
 
 <template>

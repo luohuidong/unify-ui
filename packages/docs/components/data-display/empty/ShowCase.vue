@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { EzEmpty } from "unify-ui";
+import { UniEmpty } from "unify-ui";
 </script>
 
 <template>
-  <EzEmpty></EzEmpty>
+  <UniEmpty></UniEmpty>
 </template>
 
 <style lang="scss" scoped></style>

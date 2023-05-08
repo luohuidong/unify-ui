@@ -1,32 +1,32 @@
 <script setup lang="ts">
-import { EzButton } from "@/components";
-import EzTooltip from "../index.vue";
+import { UniButton } from "@/components";
+import UniToolTip from "../index.vue";
 </script>
 
 <template>
   <div class="container">
     <div>
-      <EzTooltip title="Tooltip text" placement="top">
-        <EzButton>Hover over me!</EzButton>
-      </EzTooltip>
+      <UniToolTip title="Tooltip text" placement="top">
+        <UniButton>Hover over me!</UniButton>
+      </UniToolTip>
     </div>
 
     <div>
-      <EzTooltip title="Tooltip text" placement="bottom" append-to-body>
-        <EzButton>Tooltip append to body</EzButton>
-      </EzTooltip>
+      <UniToolTip title="Tooltip text" placement="bottom" append-to-body>
+        <UniButton>Tooltip append to body</UniButton>
+      </UniToolTip>
     </div>
 
     <div>
-      <EzTooltip title="Tooltip text" placement="left">
-        <EzButton>Hover over me!</EzButton>
-      </EzTooltip>
+      <UniToolTip title="Tooltip text" placement="left">
+        <UniButton>Hover over me!</UniButton>
+      </UniToolTip>
     </div>
 
     <div>
-      <EzTooltip title="Tooltip text" placement="right" append-to-body>
-        <EzButton>Tooltip append to body</EzButton>
-      </EzTooltip>
+      <UniToolTip title="Tooltip text" placement="right" append-to-body>
+        <UniButton>Tooltip append to body</UniButton>
+      </UniToolTip>
     </div>
   </div>
 </template>

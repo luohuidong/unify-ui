@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { provide, watch, reactive, computed } from "vue";
 
-import EzCheckbox from "./EzCheckbox.vue";
+import UniCheckbox from "./UniCheckbox.vue";
 import type { Value } from "./types";
 import { SetUtils } from "./utils";
 
@@ -48,7 +48,7 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
 
 <template>
   <fieldset class="fieldset">
-    <EzCheckbox
+    <UniCheckbox
       v-for="item in options"
       :key="item.label"
       :name="name"
@@ -56,7 +56,7 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
       :value="item.value"
       :checked="state.values.has(item.value)"
       :disabled="disabled"
-    ></EzCheckbox>
+    ></UniCheckbox>
   </fieldset>
 </template>
 

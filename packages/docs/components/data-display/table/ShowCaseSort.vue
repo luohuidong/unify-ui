@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import { EzTable } from "unify-ui";
+import { UniTable } from "unify-ui";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
 
-type TableType = InstanceType<typeof EzTable>;
+type TableType = InstanceType<typeof UniTable>;
 
 const sort = ref<TableType["sort"]>(null);
 
@@ -39,7 +39,7 @@ function handleSortChange(sort: TableType["sort"]) {
 </script>
 
 <template>
-  <EzTable
+  <UniTable
     v-model:sort="sort"
     row-key="id"
     :columns="columns"
@@ -47,7 +47,7 @@ function handleSortChange(sort: TableType["sort"]) {
     @sort-change="handleSortChange"
   >
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
-  </EzTable>
+  </UniTable>
 </template>
 
 <style scoped></style>

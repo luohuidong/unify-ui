@@ -1,29 +1,29 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzInput } from "unify-ui";
+import { UniInput } from "unify-ui";
 const value = ref("");
 </script>
 
 <template>
   <div class="container">
     <div>
-      <EzInput v-model="value">
+      <UniInput v-model="value">
         <template #inline-leading-add-on>
           <span>http://</span>
         </template>
-      </EzInput>
+      </UniInput>
     </div>
 
     <div>
-      <EzInput v-model="value">
+      <UniInput v-model="value">
         <template #inline-trailing-add-on>
           <span>.com</span>
         </template>
-      </EzInput>
+      </UniInput>
     </div>
 
     <div>
-      <EzInput v-model="value">
+      <UniInput v-model="value">
         <template #inline-leading-add-on>
           <span>http://</span>
         </template>
@@ -31,7 +31,7 @@ const value = ref("");
         <template #inline-trailing-add-on>
           <span>.com</span>
         </template>
-      </EzInput>
+      </UniInput>
     </div>
   </div>
 </template>

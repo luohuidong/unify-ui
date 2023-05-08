@@ -1,47 +1,47 @@
 <script setup lang="ts">
-import { EzButton, EzPopup } from "unify-ui";
+import { UniButton, UniPopup } from "unify-ui";
 </script>
 
 <template>
   <div class="container">
     <div>
-      <EzPopup placement="top">
-        <EzButton type="soft">top black</EzButton>
+      <UniPopup placement="top">
+        <UniButton type="soft">top black</UniButton>
 
         <template #content>
           <div class="box">top</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
 
     <div>
-      <EzPopup placement="bottom" append-to-body background-color="green">
-        <EzButton type="soft">bottom green</EzButton>
+      <UniPopup placement="bottom" append-to-body background-color="green">
+        <UniButton type="soft">bottom green</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
 
     <div>
-      <EzPopup placement="left" background-color="red">
-        <EzButton type="soft">left red </EzButton>
+      <UniPopup placement="left" background-color="red">
+        <UniButton type="soft">left red </UniButton>
 
         <template #content>
           <div class="box">bottom</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
 
     <div>
-      <EzPopup placement="right" background-color="blue">
-        <EzButton type="soft">right blue</EzButton>
+      <UniPopup placement="right" background-color="blue">
+        <UniButton type="soft">right blue</UniButton>
 
         <template #content>
           <div class="box">right</div>
         </template>
-      </EzPopup>
+      </UniPopup>
     </div>
   </div>
 </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzCheckbox } from "unify-ui";
+import { UniCheckbox } from "unify-ui";
 
 const checked1 = ref(true);
 const checked2 = ref(false);
@@ -8,17 +8,17 @@ const checked2 = ref(false);
 
 <template>
   <div>
-    <EzCheckbox
+    <UniCheckbox
       v-model:checked="checked1"
       label="checked & disabled"
       disabled
-    ></EzCheckbox>
+    ></UniCheckbox>
 
-    <EzCheckbox
+    <UniCheckbox
       v-model:checked="checked2"
       label="not checked & disabled"
       disabled
-    ></EzCheckbox>
+    ></UniCheckbox>
   </div>
 </template>
 

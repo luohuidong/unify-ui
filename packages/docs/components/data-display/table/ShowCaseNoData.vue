@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import { EzTable } from "unify-ui";
+import { UniTable } from "unify-ui";
 
-const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
     title: "Title",
     key: "title",
@@ -22,11 +22,11 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 <template>
   <div>
     <div :style="{ marginBottom: '50px' }">
-      <EzTable row-key="id" :columns="columns" :data="[]"> </EzTable>
+      <UniTable row-key="id" :columns="columns" :data="[]"> </UniTable>
     </div>
 
     <div>
-      <EzTable row-key="id" :columns="columns" :data="[]">
+      <UniTable row-key="id" :columns="columns" :data="[]">
         <template #empty>
           <div class="placeholder">
             <svg
@@ -48,7 +48,7 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
             <span>Customize empty data placeholder</span>
           </div>
         </template>
-      </EzTable>
+      </UniTable>
     </div>
   </div>
 </template>

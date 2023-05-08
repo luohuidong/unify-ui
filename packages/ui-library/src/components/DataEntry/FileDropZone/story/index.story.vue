@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import EzFileDropZone from "../index.vue";
+import UniFileDropZone from "../index.vue";
 
 const filesInfo = ref<{ name: string }[]>([]);
 
@@ -13,10 +13,10 @@ function fileChange(fileList: File[]) {
 <template>
   <Story title="Data Entry/FileDropZone">
     <Variant title="Basic Usage">
-      <EzFileDropZone
+      <UniFileDropZone
         prompt-text="PNG, JPG, GIF up to 10MB"
         @file-change="fileChange"
-      ></EzFileDropZone>
+      ></UniFileDropZone>
 
       <p>File list:</p>
       <ul>
@@ -25,9 +25,9 @@ function fileChange(fileList: File[]) {
     </Variant>
 
     <Variant title="Customized Content">
-      <EzFileDropZone prompt-text="PNG, JPG, GIF up to 10MB" @file-change="fileChange">
+      <UniFileDropZone prompt-text="PNG, JPG, GIF up to 10MB" @file-change="fileChange">
         Customize Content
-      </EzFileDropZone>
+      </UniFileDropZone>
 
       <p>File list:</p>
       <ul>
@@ -36,7 +36,7 @@ function fileChange(fileList: File[]) {
     </Variant>
 
     <Variant title="Multiple Files">
-      <EzFileDropZone multiple @file-change="fileChange"> </EzFileDropZone>
+      <UniFileDropZone multiple @file-change="fileChange"> </UniFileDropZone>
 
       <p>File list:</p>
       <ul>

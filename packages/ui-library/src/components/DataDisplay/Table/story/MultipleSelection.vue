@@ -1,13 +1,13 @@
 <script setup lang="ts">
 import { reactive, watch } from "vue";
-import { EzButton } from "@/components";
+import { UniButton } from "@/components";
 
-import EzTable from "../index.vue";
+import UniTable from "../index.vue";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
 
-const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
     title: "Title",
     key: "title",
@@ -74,11 +74,11 @@ function handleClearSelection() {
 </script>
 
 <template>
-  <EzButton class="button" type="soft" @click="handleClearSelection">
+  <UniButton class="button" type="soft" @click="handleClearSelection">
     Clear selectedRowKeys
-  </EzButton>
+  </UniButton>
 
-  <EzTable
+  <UniTable
     v-model:selected-row-keys="state.selectedRowKeys"
     row-key="id"
     class="container"
@@ -88,7 +88,7 @@ function handleClearSelection() {
     @select="handleSelection"
     @select-all="handleSelectAll"
   >
-  </EzTable>
+  </UniTable>
 </template>
 
 <style scoped>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzButton } from "@/components";
+import { UniButton } from "@/components";
 </script>
 
 <template>
@@ -7,23 +7,23 @@ import { EzButton } from "@/components";
     <Variant title="Primary Buttons">
       <div class="container">
         <div>
-          <EzButton type="primary" size="xs">Button size: xs</EzButton>
+          <UniButton type="primary" size="xs">Button size: xs</UniButton>
         </div>
 
         <div>
-          <EzButton type="primary" size="s">Button size: s</EzButton>
+          <UniButton type="primary" size="s">Button size: s</UniButton>
         </div>
 
         <div>
-          <EzButton type="primary" size="m">Button size: m</EzButton>
+          <UniButton type="primary" size="m">Button size: m</UniButton>
         </div>
 
         <div>
-          <EzButton type="primary" size="l"> Button size: l </EzButton>
+          <UniButton type="primary" size="l"> Button size: l </UniButton>
         </div>
 
         <div>
-          <EzButton type="primary" size="xl">Button size: xl</EzButton>
+          <UniButton type="primary" size="xl">Button size: xl</UniButton>
         </div>
       </div>
     </Variant>
@@ -31,23 +31,23 @@ import { EzButton } from "@/components";
     <Variant title="Secondary Buttons">
       <div class="container">
         <div>
-          <EzButton type="secondary" size="xs">Button size: xs</EzButton>
+          <UniButton type="secondary" size="xs">Button size: xs</UniButton>
         </div>
 
         <div>
-          <EzButton type="secondary" size="s">Button size: s</EzButton>
+          <UniButton type="secondary" size="s">Button size: s</UniButton>
         </div>
 
         <div>
-          <EzButton type="secondary" size="m">Button size: m</EzButton>
+          <UniButton type="secondary" size="m">Button size: m</UniButton>
         </div>
 
         <div>
-          <EzButton type="secondary" size="l"> Button size: l </EzButton>
+          <UniButton type="secondary" size="l"> Button size: l </UniButton>
         </div>
 
         <div>
-          <EzButton type="secondary" size="xl">Button size: xl</EzButton>
+          <UniButton type="secondary" size="xl">Button size: xl</UniButton>
         </div>
       </div>
     </Variant>
@@ -55,23 +55,23 @@ import { EzButton } from "@/components";
     <Variant title="Soft Buttons">
       <div class="container">
         <div>
-          <EzButton type="soft" size="xs">Button size: xs</EzButton>
+          <UniButton type="soft" size="xs">Button size: xs</UniButton>
         </div>
 
         <div>
-          <EzButton type="soft" size="s">Button size: s</EzButton>
+          <UniButton type="soft" size="s">Button size: s</UniButton>
         </div>
 
         <div>
-          <EzButton type="soft" size="m">Button size: m</EzButton>
+          <UniButton type="soft" size="m">Button size: m</UniButton>
         </div>
 
         <div>
-          <EzButton type="soft" size="l"> Button size: l </EzButton>
+          <UniButton type="soft" size="l"> Button size: l </UniButton>
         </div>
 
         <div>
-          <EzButton type="soft" size="xl">Button size: xl</EzButton>
+          <UniButton type="soft" size="xl">Button size: xl</UniButton>
         </div>
       </div>
     </Variant>
@@ -79,15 +79,15 @@ import { EzButton } from "@/components";
     <Variant title="Rounded Border">
       <div class="container">
         <div>
-          <EzButton rounded>Button1</EzButton>
+          <UniButton rounded>Button1</UniButton>
         </div>
 
         <div>
-          <EzButton type="primary" rounded>Button2</EzButton>
+          <UniButton type="primary" rounded>Button2</UniButton>
         </div>
 
         <div>
-          <EzButton type="soft" rounded>Button3</EzButton>
+          <UniButton type="soft" rounded>Button3</UniButton>
         </div>
       </div>
     </Variant>

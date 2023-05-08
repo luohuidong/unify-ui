@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzButton } from "@/components";
+import { UniButton } from "@/components";
 import Popup from "../index.vue";
 </script>
 
@@ -7,7 +7,7 @@ import Popup from "../index.vue";
   <div class="container">
     <div>
       <Popup placement="top">
-        <EzButton>top black</EzButton>
+        <UniButton>top black</UniButton>
 
         <template #content>
           <div class="box">top</div>
@@ -17,7 +17,7 @@ import Popup from "../index.vue";
 
     <div>
       <Popup placement="bottom" append-to-body background-color="green">
-        <EzButton>bottom green</EzButton>
+        <UniButton>bottom green</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -27,7 +27,7 @@ import Popup from "../index.vue";
 
     <div>
       <Popup placement="left" background-color="red">
-        <EzButton>left red </EzButton>
+        <UniButton>left red</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -37,7 +37,7 @@ import Popup from "../index.vue";
 
     <div>
       <Popup placement="right" background-color="blue">
-        <EzButton>right blue</EzButton>
+        <UniButton>right blue</UniButton>
 
         <template #content>
           <div class="box">right</div>

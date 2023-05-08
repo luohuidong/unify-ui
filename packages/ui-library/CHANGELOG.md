@@ -29,7 +29,7 @@
 
 ### Patch Changes
 
-- 40d2e58: Change the useEzConfirmModal's confirm method to the form of a promise
+- 40d2e58: Change the useUniConfirmModal's confirm method to the form of a promise
 - 9322471: Modify the z-index of the Scrim component
 
 ## 0.7.2
@@ -95,7 +95,7 @@
 
 ### Patch Changes
 
-- 2af6dcc: Replace the empty data placeholder in the table with the EzEmpty component
+- 2af6dcc: Replace the empty data placeholder in the table with the UniEmpty component
 
 ## 0.4.3
 

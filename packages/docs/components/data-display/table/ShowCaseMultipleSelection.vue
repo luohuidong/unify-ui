@@ -1,12 +1,12 @@
 <script setup lang="ts">
 import { watch, reactive } from "vue";
-import { EzTable, EzButton } from "unify-ui";
+import { UniTable, UniButton } from "unify-ui";
 
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
 
-const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
     title: "Title",
     key: "title",
@@ -82,11 +82,11 @@ function handleClearSelection() {
 
 <template>
   <div>
-    <EzButton class="button" type="soft" @click="handleClearSelection">
+    <UniButton class="button" type="soft" @click="handleClearSelection">
       Clear selectedRowKeys
-    </EzButton>
+    </UniButton>
 
-    <EzTable
+    <UniTable
       v-model:selected-row-keys="state.selectedRowKeys"
       row-key="id"
       class="container"
@@ -96,7 +96,7 @@ function handleClearSelection() {
       @select="handleSelection"
       @select-all="handleSelectAll"
     >
-    </EzTable>
+    </UniTable>
   </div>
 </template>
 

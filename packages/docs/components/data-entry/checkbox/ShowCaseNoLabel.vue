@@ -1,15 +1,15 @@
 <script setup lang="ts">
-import { EzCheckbox } from "unify-ui";
+import { UniCheckbox } from "unify-ui";
 </script>
 
 <template>
   <ul>
     <li>
-      <EzCheckbox :checked="true"></EzCheckbox>
+      <UniCheckbox :checked="true"></UniCheckbox>
     </li>
 
     <li>
-      <EzCheckbox :checked="false"></EzCheckbox>
+      <UniCheckbox :checked="false"></UniCheckbox>
     </li>
   </ul>
 </template>

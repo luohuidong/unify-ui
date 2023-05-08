@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
 
-import EzBaseModal from "./EzBaseModal.vue";
+import UniBaseModal from "./UniBaseModal.vue";
 
 withDefaults(
   defineProps<{
@@ -56,7 +56,7 @@ onUnmounted(() => {
       :leave-active-class="$style['transition--leave-active']"
       :leave-to-class="$style['transition--leave-to']"
     >
-      <EzBaseModal
+      <UniBaseModal
         :title="title"
         :supporting-text="supportingText"
         :visible="visible"
@@ -75,7 +75,7 @@ onUnmounted(() => {
         <template #actions>
           <slot name="actions"></slot>
         </template>
-      </EzBaseModal>
+      </UniBaseModal>
     </Transition>
   </teleport>
 </template>

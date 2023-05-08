@@ -1,19 +1,19 @@
 <script setup lang="ts">
-import { EzNotFound } from "unify-ui";
+import { UniNotFound } from "unify-ui";
 </script>
 
 <template>
   <div class="container">
     <div>
-      <EzNotFound></EzNotFound>
+      <UniNotFound></UniNotFound>
     </div>
 
     <div>
-      <EzNotFound align="right"></EzNotFound>
+      <UniNotFound align="right"></UniNotFound>
     </div>
 
     <div>
-      <EzNotFound align="left"></EzNotFound>
+      <UniNotFound align="left"></UniNotFound>
     </div>
   </div>
 </template>

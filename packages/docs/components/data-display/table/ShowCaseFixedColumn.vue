@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import { EzTable } from "unify-ui";
+import { UniTable } from "unify-ui";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
 
-const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
     title: "Title",
     key: "title",
@@ -31,9 +31,9 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 </script>
 
 <template>
-  <EzTable row-key="id" class="container" :columns="columns" :data="data">
+  <UniTable row-key="id" class="container" :columns="columns" :data="data">
     <template #actions>Delete</template>
-  </EzTable>
+  </UniTable>
 </template>
 
 <style scoped>

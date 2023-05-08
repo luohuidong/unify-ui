@@ -1,14 +1,14 @@
 import { createApp, ref } from "vue";
 import type { App } from "vue";
 
-import EzBaseModal from "./EzBaseModal.vue";
+import UniBaseModal from "./UniBaseModal.vue";
 
 interface ConfirmOptions {
   title: string;
   supportingText: string;
 }
 
-export function useEzConfirmModal() {
+export function useUniConfirmModal() {
   const containers = ref<HTMLElement[]>([]);
   const apps = ref<App[]>([]);
 
@@ -53,7 +53,7 @@ export function useEzConfirmModal() {
       }
 
       const Modal = (
-        <EzBaseModal
+        <UniBaseModal
           visible={true}
           title={options.title}
           supportingText={options.supportingText}

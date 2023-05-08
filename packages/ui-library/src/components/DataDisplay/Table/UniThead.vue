@@ -3,8 +3,8 @@ import { useInject, useSortEmit } from "./composable";
 import commonStyle from "./commonStyle.module.scss";
 import { ColumnData } from "./types";
 
-import EzTheadSelection from "./EzTheadSelection.vue";
-import EzTheadSort from "./EzTheadSort.vue";
+import UniTheadSelection from "./UniTheadSelection.vue";
+import UniTheadSort from "./UniTheadSort.vue";
 
 const { columnsData, showShadow, tableProps, rootSlotKeys, tableState } = useInject();
 const { handleSortEmit } = useSortEmit();
@@ -48,7 +48,7 @@ function handleSort(column: ColumnData) {
       </template>
 
       <template v-if="tableProps.selection?.type">
-        <EzTheadSelection class="cell"></EzTheadSelection>
+        <UniTheadSelection class="cell"></UniTheadSelection>
       </template>
 
       <th
@@ -77,7 +77,7 @@ function handleSort(column: ColumnData) {
           {{ col.title }}
         </template>
 
-        <EzTheadSort v-if="col.sortable" :column-data="col"></EzTheadSort>
+        <UniTheadSort v-if="col.sortable" :column-data="col"></UniTheadSort>
 
         <div v-if="index !== columnsData.length - 1" class="divider"></div>
       </th>

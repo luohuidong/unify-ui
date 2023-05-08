@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import EzTable from "../index.vue";
+import UniTable from "../index.vue";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
 
-const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
     title: "Title",
     key: "title",
@@ -31,10 +31,10 @@ const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
 </script>
 
 <template>
-  <EzTable row-key="id" class="container" :columns="columns" :data="data">
+  <UniTable row-key="id" class="container" :columns="columns" :data="data">
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
     <template #actions>删除</template>
-  </EzTable>
+  </UniTable>
 </template>
 
 <style scoped>

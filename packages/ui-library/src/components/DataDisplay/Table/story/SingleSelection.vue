@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import EzTable from "../index.vue";
+import UniTable from "../index.vue";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
 
-const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
+const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
     title: "Title",
     key: "title",
@@ -28,14 +28,14 @@ function disabledCondition(record: any) {
 </script>
 
 <template>
-  <EzTable
+  <UniTable
     row-key="id"
     class="container"
     :columns="columns"
     :data="data"
     :selection="{ type: 'single', disabledCondition }"
   >
-  </EzTable>
+  </UniTable>
 </template>
 
 <style scoped>
