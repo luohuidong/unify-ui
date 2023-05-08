@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzInput } from "@easy-ui-team/easy-ui";
+import { EzInput } from "unify-ui";
 const value = ref("disabled");
 </script>
 

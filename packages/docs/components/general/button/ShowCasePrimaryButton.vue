@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzButton } from "@easy-ui-team/easy-ui";
+import { EzButton } from "unify-ui";
 </script>
 
 <template>

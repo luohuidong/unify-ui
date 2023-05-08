@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzSwitch } from "@easy-ui-team/easy-ui";
+import { EzSwitch } from "unify-ui";
 
 const switchValue1 = ref(true);
 const switchValue2 = ref(false);

@@ -1,7 +1,7 @@
 import { defineConfig } from "vitepress";
 
 export default defineConfig({
-  title: "Easy UI",
+  title: "Unify UI",
   appearance: false,
   themeConfig: {
     search: {

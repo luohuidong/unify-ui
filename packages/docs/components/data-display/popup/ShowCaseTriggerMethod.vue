@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzButton, EzPopup } from "@easy-ui-team/easy-ui";
+import { EzButton, EzPopup } from "unify-ui";
 
 const visible = ref(true);
 function handleClick() {

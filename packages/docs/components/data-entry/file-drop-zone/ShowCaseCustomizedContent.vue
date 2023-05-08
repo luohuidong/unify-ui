@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzFileDropZone } from "@easy-ui-team/easy-ui";
+import { EzFileDropZone } from "unify-ui";
 </script>
 
 <template>

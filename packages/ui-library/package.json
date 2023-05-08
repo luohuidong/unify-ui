@@ -1,7 +1,7 @@
 {
   "name": "unify-ui",
   "version": "0.7.6",
-  "main": "dist/easy-ui.js",
+  "main": "dist/unify-ui.js",
   "types": "types/index.d.ts",
   "scripts": {
     "dev": "histoire dev",
@@ -16,14 +16,14 @@
     "test:coverage": "vitest run --coverage"
   },
   "license": "MIT",
-  "description": "Easy UI is a UI library for Vue.js 3.",
+  "description": "Unify UI is a UI library for Vue.js 3.",
   "keywords": [
-    "Easy UI"
+    "Unify UI"
   ],
-  "homepage": "https://github.com/easy-ui-team/easy-ui",
+  "homepage": "https://github.com/unify-ui/unify-ui",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/easy-ui-team/easy-ui/issues"
+    "url": "https://github.com/unify-ui/unify-ui/issues"
   },
   "files": [
     "dist",
@@ -35,7 +35,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/easy-ui-team/easy-ui.git"
+    "url": "https://github.com/unify-ui/unify-ui.git"
   },
   "devDependencies": {
     "@faker-js/faker": "^7.6.0",

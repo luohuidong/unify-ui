@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzCheckboxGroup } from "@easy-ui-team/easy-ui";
+import { EzCheckboxGroup } from "unify-ui";
 
 const options = [
   {

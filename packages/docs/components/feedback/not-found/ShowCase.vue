@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzNotFound } from "@easy-ui-team/easy-ui";
+import { EzNotFound } from "unify-ui";
 </script>
 
 <template>

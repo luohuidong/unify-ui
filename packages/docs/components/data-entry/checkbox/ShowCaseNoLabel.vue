@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzCheckbox } from "@easy-ui-team/easy-ui";
+import { EzCheckbox } from "unify-ui";
 </script>
 
 <template>

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzEmpty } from "@easy-ui-team/easy-ui";
+import { EzEmpty } from "unify-ui";
 </script>
 
 <template>

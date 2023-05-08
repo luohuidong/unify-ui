@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { watch, reactive } from "vue";
-import { EzTable, EzButton } from "@easy-ui-team/easy-ui";
+import { EzTable, EzButton } from "unify-ui";
 
 import useFetchData from "./useFetchData";
 

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzModal, EzButton } from "@easy-ui-team/easy-ui";
+import { EzModal, EzButton } from "unify-ui";
 
 const visible = ref(false);
 

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useEzConfirmModal, EzButton } from "@easy-ui-team/easy-ui";
+import { useEzConfirmModal, EzButton } from "unify-ui";
 
 const { confirm } = useEzConfirmModal();
 

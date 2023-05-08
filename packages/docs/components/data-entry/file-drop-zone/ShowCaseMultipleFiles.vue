@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzFileDropZone } from "@easy-ui-team/easy-ui";
+import { EzFileDropZone } from "unify-ui";
 
 const filesInfo = ref<{ name: string }[]>([]);
 

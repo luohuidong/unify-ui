@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { EzCheckbox } from "@easy-ui-team/easy-ui";
+import { EzCheckbox } from "unify-ui";
 
 const checked1 = ref(true);
 const checked2 = ref(false);

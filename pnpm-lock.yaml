@@ -14,7 +14,7 @@ importers:
 
   packages/docs:
     dependencies:
-      '@easy-ui-team/easy-ui':
+      unify-ui:
         specifier: workspace:^
         version: link:../ui-library
     devDependencies:

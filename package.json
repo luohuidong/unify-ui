@@ -1,10 +1,10 @@
 {
-  "name": "@easy-ui-team/workspaces",
+  "name": "@unify-ui/workspaces",
   "private": true,
   "scripts": {
     "cz": "cz",
-    "build-lib": "pnpm --filter '@easy-ui-team/easy-ui' run build",
-    "build-doc": "pnpm build-lib && pnpm --filter '@easy-ui-team/docs' run build",
+    "build-lib": "pnpm --filter 'unify-ui' run build",
+    "build-doc": "pnpm build-lib && pnpm --filter '@unify-ui/docs' run build",
     "release": "pnpm build-lib && pnpm -r publish"
   },
   "keywords": [],

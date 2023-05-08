@@ -6,7 +6,7 @@ import ShowCaseSoftButton from './ShowCaseSoftButton.vue'
 
 # Button
 
-Easy UI provide 3 types of button.
+Unify UI provide 3 types of button.
 
 - Primary Button
 - Secondary Button

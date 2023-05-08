@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzTable } from "@easy-ui-team/easy-ui";
+import { EzTable } from "unify-ui";
 
 const columns: InstanceType<typeof EzTable>["$props"]["columns"] = [
   {

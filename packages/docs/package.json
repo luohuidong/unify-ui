@@ -1,5 +1,5 @@
 {
-  "name": "@easy-ui-team/docs",
+  "name": "@unify-ui/docs",
   "private": true,
   "type": "module",
   "description": "",
@@ -19,6 +19,6 @@
     "vue": "^3.2.47"
   },
   "dependencies": {
-    "@easy-ui-team/easy-ui": "workspace:^"
+    "unify-ui": "workspace:^"
   }
 }

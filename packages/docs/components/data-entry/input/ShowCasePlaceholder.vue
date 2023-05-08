@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { EzInput } from "@easy-ui-team/easy-ui";
+import { EzInput } from "unify-ui";
 </script>
 
 <template>

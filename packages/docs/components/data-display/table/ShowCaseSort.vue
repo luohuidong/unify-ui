@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import { EzTable } from "@easy-ui-team/easy-ui";
+import { EzTable } from "unify-ui";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
