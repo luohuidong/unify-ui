@@ -4,7 +4,7 @@ layout: home
 hero:
   name: Unify UI
   text: A UI Library Powered by Vue.js 3
-  tagline: Rapidly build beautiful vue.js 3 applications
+  tagline: Rapidly build beautiful Vue.js 3 applications
   actions:
     - theme: brand
       text: Get Started
