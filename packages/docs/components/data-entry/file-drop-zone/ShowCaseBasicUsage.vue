@@ -10,15 +10,17 @@ function fileChange(fileList: File[]) {
 </script>
 
 <template>
-  <UniFileDropZone
-    prompt-text="PNG, JPG, GIF up to 10MB"
-    @file-change="fileChange"
-  ></UniFileDropZone>
+  <div>
+    <UniFileDropZone
+      prompt-text="PNG, JPG, GIF up to 10MB"
+      @file-change="fileChange"
+    ></UniFileDropZone>
 
-  <p>File list:</p>
-  <ul>
-    <li v-for="item in filesInfo" :key="item.name">{{ item.name }}</li>
-  </ul>
+    <p>File list:</p>
+    <ul>
+      <li v-for="item in filesInfo" :key="item.name">{{ item.name }}</li>
+    </ul>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

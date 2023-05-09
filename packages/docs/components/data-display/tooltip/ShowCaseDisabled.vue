@@ -9,14 +9,16 @@ function handleClick() {
 </script>
 
 <template>
-  <UniButton type="soft" @click="handleClick">
-    Click button to change tooltip disabled
-  </UniButton>
-
   <div>
-    <UniToolTip title="Disabled Case" placement="bottom" :disabled="disabled">
-      <div>Tooltip disabled: {{ disabled }}</div>
-    </UniToolTip>
+    <UniButton type="soft" @click="handleClick">
+      Click button to change tooltip disabled
+    </UniButton>
+
+    <div>
+      <UniToolTip title="Disabled Case" placement="bottom" :disabled="disabled">
+        <div>Tooltip disabled: {{ disabled }}</div>
+      </UniToolTip>
+    </div>
   </div>
 </template>
 
