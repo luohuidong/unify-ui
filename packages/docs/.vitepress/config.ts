@@ -4,6 +4,7 @@ export default defineConfig({
   title: "Unify UI",
   appearance: false,
   themeConfig: {
+    outline: [2, 3],
     search: {
       provider: "local",
     },
