@@ -15,6 +15,18 @@ export default defineConfig({
     socialLinks: [
       { icon: "github", link: "https://github.com/easy-ui-team/easy-ui" },
     ],
+    nav: [
+      {
+        text: "Guide",
+        activeMatch: `^/guide/`,
+        link: "/guide/getting-started.html",
+      },
+      {
+        text: "Components",
+        activeMatch: `^/components/`,
+        link: "/components/general/button/",
+      },
+    ],
     sidebar: [
       {
         text: "Guide",
