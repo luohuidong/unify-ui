@@ -1,8 +1,13 @@
 <script setup lang="ts">
+import { reactive } from "vue";
 import { UniTable } from "unify-ui";
 import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
+
+const state = reactive({
+  selectedRowKeys: new Set<string>(),
+});
 
 const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
@@ -29,6 +34,7 @@ function disabledCondition(record: any) {
 
 <template>
   <UniTable
+    v-model:selected-row-keys="state.selectedRowKeys"
     row-key="id"
     class="container"
     :columns="columns"
