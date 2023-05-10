@@ -143,50 +143,50 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
   &:hover {
     background: #fafbfd;
   }
+}
 
-  &.normal-row--selection {
-    background: #e6f4ff;
+.normal-row--selection {
+  background: #eaf2ff;
 
-    &:hover {
-      background: #bae0ff;
-    }
+  &:hover {
+    background: #d5e8fe;
   }
+}
 
-  .normal-row__cell {
-    word-wrap: break-word;
-    box-sizing: border-box;
-    position: relative;
-    height: 44px;
-    padding: 13px 16px;
-    border-bottom: 1px solid #f0f0f0;
-    background: inherit;
+.normal-row__cell {
+  word-wrap: break-word;
+  box-sizing: border-box;
+  position: relative;
+  height: 44px;
+  padding: 13px 16px;
+  border-bottom: 1px solid #f0f0f0;
+  background: inherit;
+}
+
+.normal-row__cell--text-ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.normal-row__expand-toggle-cell {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+}
+
+.normal-row__expand-toggle-cell-icon {
+  color: grey;
+  cursor: pointer;
+
+  &:hover {
+    color: #409eff;
   }
+}
 
-  .normal-row__cell--text-ellipsis {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-
-  .normal-row__expand-toggle-cell {
-    position: sticky;
-    left: 0;
-    z-index: 1;
-
-    .normal-row__expand-toggle-cell-icon {
-      color: grey;
-      cursor: pointer;
-
-      &:hover {
-        color: #409eff;
-      }
-    }
-  }
-
-  .normal-row__selection-toggle-cell {
-    position: sticky;
-    left: v-bind(selectionColumnOffset);
-    z-index: 1;
-  }
+.normal-row__selection-toggle-cell {
+  position: sticky;
+  left: v-bind(selectionColumnOffset);
+  z-index: 1;
 }
 </style>
