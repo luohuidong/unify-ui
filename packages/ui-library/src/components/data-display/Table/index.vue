@@ -26,25 +26,43 @@ import UniTbodyRow from "./UniTbodyRow.vue";
 
 const props = withDefaults(
   defineProps<{
-    rowKey: Key;
-    data: Record[];
     columns: Column[];
+
+    /** Table data */
+    data: Record[];
+
+    /** Enabled row can be expandable */
     rowExpand?: {
       expandCondition: (record: Record) => boolean;
       showExpandRowDefault?: boolean;
     };
-    sort?: {
-      columnKey: Key;
-      order: SortType;
-    } | null;
-    showFoot?: boolean;
+
+    /** Row's unique key */
+    rowKey: Key;
+
+    /** The set of selected row keys */
+    selectedRowKeys: Set<Key>;
+
+    /** Config of row selection */
     selection?: {
       type: "multiple" | "single";
       disabledCondition?: (record: Record) => boolean;
     };
-    selectedRowKeys?: Set<Key>;
-    tbodyRowClass?: string | ((record: Record) => string);
+
+    /** Whether to show foot */
+    showFoot?: boolean;
+
+    /** Config of row sort  */
+    sort?: {
+      columnKey: Key;
+      order: SortType;
+    } | null;
+
+    /** Class name of Table body row */
     tbodyCellClass?: string;
+
+    /** Class name of table body row cell */
+    tbodyRowClass?: string | ((record: Record) => string);
   }>(),
   {
     rowExpand: undefined,

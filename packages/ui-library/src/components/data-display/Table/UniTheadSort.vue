@@ -20,9 +20,8 @@ const { handleSortEmit } = useSortEmit();
 
 <template>
   <div class="sort-container">
-    <div class="toggle">
+    <div v-if="sortType.includes('ascending')" class="toggle">
       <TriangleUp
-        v-if="sortType.includes('ascending')"
         class="toggle-icon"
         :class="{
           'toggle-icon--active':
@@ -32,9 +31,8 @@ const { handleSortEmit } = useSortEmit();
       ></TriangleUp>
     </div>
 
-    <div class="toggle">
+    <div v-if="sortType.includes('descending')" class="toggle">
       <TriangleDown
-        v-if="sortType.includes('descending')"
         class="toggle-icon"
         :class="{
           'toggle-icon--active':
@@ -48,7 +46,7 @@ const { handleSortEmit } = useSortEmit();
 
 <style lang="scss" scoped>
 %child-position-center {
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -57,7 +55,7 @@ const { handleSortEmit } = useSortEmit();
 .sort-container {
   @extend %child-position-center;
   position: absolute;
-  right: 6px;
+  left: 10px;
   top: 50%;
   transform: translateY(-50%);
   gap: 2px;
