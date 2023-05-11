@@ -19,8 +19,11 @@ defineProps<{
 
 <style lang="scss" scoped>
 .expand-row__cell {
-  padding: 16px;
+  padding: 20px;
   border-bottom: 1px solid #f0f0f0;
-  background: rgba(0, 0, 0, 0.02);
+  font-size: 14px;
+  line-height: 20px;
+  color: rgb(75 85 99);
+  background-color: white;
 }
 </style>

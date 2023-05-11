@@ -30,15 +30,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 
 <template>
   <!-- normal row -->
-  <tr
-    class="normal-row"
-    :class="[
-      {
-        ['normal-row--selection']: tableProps.selectedRowKeys.has(record[tableProps.rowKey]),
-      },
-      tableProps.tbodyRowClass,
-    ]"
-  >
+  <tr class="normal-row" :class="[tableProps.tbodyRowClass]">
     <!-- expand column cell -->
     <td
       v-if="tableState.showExpandToggleCell"
@@ -136,30 +128,20 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 <style lang="scss" scoped>
 .normal-row {
   text-align: left;
-  font-size: 12px;
+  font-size: 14px;
   line-height: 16px;
+  color: rgb(75 85 99);
   background-color: white;
-
-  &:hover {
-    background: #fafbfd;
-  }
-}
-
-.normal-row--selection {
-  background: #eaf2ff;
-
-  &:hover {
-    background: #d5e8fe;
-  }
+  border-top: 1px solid rgb(229 231 235);
 }
 
 .normal-row__cell {
-  word-wrap: break-word;
-  box-sizing: border-box;
   position: relative;
-  height: 44px;
-  padding: 13px 16px;
-  border-bottom: 1px solid #f0f0f0;
+  padding: 16px 12px;
+
+  font-size: 14px;
+  line-height: 20px;
+  box-sizing: border-box;
   background: inherit;
 }
 
