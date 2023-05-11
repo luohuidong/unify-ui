@@ -1,5 +1,13 @@
 # unify-ui
 
+## 0.8.1
+
+### Patch Changes
+
+- cd8b195: change the text of the Empty component
+- 4b08caf: Modify the CSS style of the Table component.
+- 6b8e808: Integrate the FilePicker into the FileDropZone.
+
 ## 0.8.0
 
 ### Minor Changes
