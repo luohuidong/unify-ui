@@ -7,6 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+import { UniFilePicker } from "@/components";
 import PhotoIcon from "./icons/PhotoIcon.vue";
 
 const props = defineProps<{
@@ -28,15 +29,10 @@ function handleEmitFileChange(files: FileList) {
   emits("file-change", props.multiple ? tmpFiles : [tmpFiles[0]]);
 }
 
-function handleFileChange(event: Event) {
-  const input = event.target as HTMLInputElement;
-
-  const files = input.files;
-  if (files) {
-    handleEmitFileChange(files);
+function handleFileChange(fileList: FileList) {
+  if (fileList) {
+    handleEmitFileChange(fileList);
   }
-
-  input.value = "";
 }
 
 function handleDrop(e: DragEvent) {
@@ -59,16 +55,10 @@ function handleDrop(e: DragEvent) {
 
       <div class="tips">
         <span class="tips__first-line">
-          <label class="file-picker">
-            <span>Upload a file </span>
-            <input
-              class="file-picker__input"
-              :multiple="multiple"
-              type="file"
-              @change="handleFileChange"
-            />
-          </label>
-          <span>or drag and drop</span>
+          <UniFilePicker :multiple="multiple" @file-change="handleFileChange">
+            <span>Upload a file</span>
+          </UniFilePicker>
+          <span> or drag and drop</span>
         </span>
 
         <span class="tips__second-line">{{ promptText }}</span>

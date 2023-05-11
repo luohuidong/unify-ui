@@ -5,6 +5,7 @@ export { default as UniButton } from "./general/Button/index.vue";
 export { UniCheckbox, UniCheckboxGroup } from "./data-entry/Checkbox";
 export { default as UniInput } from "./data-entry/Input/index.vue";
 export { default as UniFileDropZone } from "./data-entry/FileDropZone/index.vue";
+export { default as UniFilePicker } from "./data-entry/FilePicker/index.vue";
 export { default as UniSwitch } from "./data-entry/Switch/index.vue";
 
 // Data Display Components
