@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.8.0
+
+### Minor Changes
+
+- fcf38a9: Add FilePicker component
+
 ## 0.7.7
 
 ### Patch Changes
