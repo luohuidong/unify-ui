@@ -18,73 +18,18 @@ import {
   useGetColumnCount,
   useGetSlotKey,
 } from "./composable";
-import type { Key, Record, Column, SortType } from "./types";
+import type { Key, Record, TableProps, TableEmits } from "./types";
 
 import UniColGroup from "./UniColGroup.vue";
 import UniThead from "./UniThead.vue";
 import UniTbodyRow from "./UniTbodyRow.vue";
 
-const props = withDefaults(
-  defineProps<{
-    columns: Column[];
-
-    /** Table data */
-    data: Record[];
-
-    /** Enabled row can be expandable */
-    rowExpand?: {
-      expandCondition: (record: Record) => boolean;
-      showExpandRowDefault?: boolean;
-    };
-
-    /** Row's unique key */
-    rowKey: Key;
-
-    /** The set of selected row keys */
-    selectedRowKeys: Set<Key>;
-
-    /** Config of row selection */
-    selection?: {
-      type: "multiple" | "single";
-      disabledCondition?: (record: Record) => boolean;
-    };
-
-    /** Whether to show foot */
-    showFoot?: boolean;
-
-    /** Config of row sort  */
-    sort?: {
-      columnKey: Key;
-      order: SortType;
-    } | null;
-
-    /** Class name of Table body row */
-    tbodyCellClass?: string;
-
-    /** Class name of table body row cell */
-    tbodyRowClass?: string | ((record: Record) => string);
-  }>(),
-  {
-    rowExpand: undefined,
-    sort: null,
-    selection: undefined,
-    selectedRowKeys: () => new Set<Key>(),
-    tbodyRowClass: undefined,
-    tbodyCellClass: undefined,
-  }
-);
+const props = withDefaults(defineProps<TableProps>(), {
+  selectedRowKeys: () => new Set<Key>(),
+});
 provide(injectKeys.tablePropsKey, props);
 
-const emit = defineEmits<{
-  (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
-  (e: "update:sort", params: { columnKey: Key; order: SortType } | null): void;
-  /** Emits the "select" event when a row is selected or deselected. */
-  (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
-  /** Emits the "selectAll" event when all rows are selected or deselected. */
-  (e: "selectAll", params: { selected: boolean; rowKeys: Key[]; records: Record[] }): void;
-  /** Emits the "sortChange" event when the column sort order changes */
-  (e: "sortChange", params: { columnKey: Key; order: SortType } | null): void;
-}>();
+const emit = defineEmits<TableEmits>();
 provide(injectKeys.tableEmitsKey, emit);
 
 const { state } = useState(props);
