@@ -46,7 +46,7 @@ export interface TableProps {
   rowKey: Key;
 
   /** The set of selected row keys */
-  selectedRowKeys?: Set<Key>;
+  selectedRowKeys: Set<Key>;
 
   /** Config of row selection */
   selection?: {
