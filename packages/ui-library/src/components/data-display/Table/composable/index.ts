@@ -6,3 +6,4 @@ export { useState } from "./useState";
 export { useGetColumnCount } from "./useGetColumnCount";
 export { useGetSlotKey } from "./useGetSlotKey";
 export { useSortEmit } from "./useSortEmit";
+export { useWatchData } from "./useWatchData";

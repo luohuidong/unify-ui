@@ -17,6 +17,7 @@ import {
   useState,
   useGetColumnCount,
   useGetSlotKey,
+  useWatchData,
 } from "./composable";
 import type { Key, Record, TableProps, TableEmits } from "./types";
 
@@ -31,6 +32,8 @@ provide(injectKeys.tablePropsKey, props);
 
 const emit = defineEmits<TableEmits>();
 provide(injectKeys.tableEmitsKey, emit);
+
+useWatchData(props, emit);
 
 const { state } = useState(props);
 const columnCount = useGetColumnCount(props, state);

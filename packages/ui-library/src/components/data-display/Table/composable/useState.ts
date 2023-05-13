@@ -1,6 +1,6 @@
 import { reactive, provide, watchEffect } from "vue";
 
-import type { Key, TableState, TableProps } from "../types";
+import type { TableState, TableProps } from "../types";
 import * as injectKeys from "../injectKeys";
 import { expandColumnWidth } from "../constant";
 

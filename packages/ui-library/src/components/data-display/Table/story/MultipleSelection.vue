@@ -5,7 +5,7 @@ import { UniButton } from "@/components";
 import UniTable from "../index.vue";
 import useFetchData from "./useFetchData";
 
-const { data } = useFetchData();
+const { data, refreshData } = useFetchData();
 
 const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
   {
@@ -78,6 +78,8 @@ function handleClearSelection() {
     Clear selectedRowKeys
   </UniButton>
 
+  <UniButton class="button" type="soft" @click="refreshData"> Refresh Data </UniButton>
+
   <UniTable
     v-model:selected-row-keys="state.selectedRowKeys"
     row-key="id"
@@ -94,6 +96,7 @@ function handleClearSelection() {
 <style scoped>
 .button {
   margin-bottom: 20px;
+  margin-right: 20px;
 }
 
 .container {
