@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.8.2
+
+### Patch Changes
+
+- 1d3bbd5: Remove any keys from selectedRowKeys that do not exist in data.
+
 ## 0.8.1
 
 ### Patch Changes
