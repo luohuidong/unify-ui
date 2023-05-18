@@ -6,10 +6,21 @@ import UniRadio from "../UniRadio.vue";
   <Story title="Data Entry/Radio">
     <Variant title="Normal use">
       <div class="container">
-        <UniRadio name="radio" title="one" value="1"></UniRadio>
-        <UniRadio name="radio" title="two" value="2"></UniRadio>
-        <UniRadio name="radio" title="three" value="3"></UniRadio>
-        <UniRadio name="radio" title="four" value="4"></UniRadio>
+        <div>
+          <UniRadio name="radio" title="one" value="1"></UniRadio>
+        </div>
+
+        <div>
+          <UniRadio name="radio" title="two" value="2"></UniRadio>
+        </div>
+
+        <div>
+          <UniRadio name="radio" title="three" value="3"></UniRadio>
+        </div>
+
+        <div>
+          <UniRadio name="radio" title="four" value="4"></UniRadio>
+        </div>
       </div>
     </Variant>
   </Story>
