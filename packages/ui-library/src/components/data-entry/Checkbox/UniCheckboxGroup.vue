@@ -47,10 +47,11 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
 </script>
 
 <template>
-  <fieldset class="fieldset">
+  <fieldset class="checkbox-fieldset">
     <UniCheckbox
       v-for="item in options"
       :key="item.label"
+      class="checkbox--column"
       :name="name"
       :label="item.label"
       :value="item.value"
@@ -61,7 +62,7 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
 </template>
 
 <style lang="scss" scoped>
-.fieldset {
+.checkbox-fieldset {
   display: flex;
   flex-direction: v-bind(flexDirection);
   width: fit-content;
@@ -69,5 +70,9 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
   border: none;
   padding: 0;
   margin: 0;
+}
+
+.checkbox--column:not(:first-child) {
+  margin-top: 16px;
 }
 </style>
