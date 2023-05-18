@@ -1,7 +1,7 @@
 <script setup lang="ts">
 defineProps<{
   name: string;
-  title: string;
+  label: string;
   value: string | number;
 }>();
 </script>
@@ -10,7 +10,7 @@ defineProps<{
   <label class="label">
     <input class="input" type="radio" :name="name" />
     <div class="checkmark"></div>
-    <span class="text">{{ title }}</span>
+    <span class="text">{{ label }}</span>
   </label>
 </template>
 
@@ -34,7 +34,7 @@ defineProps<{
   position: relative;
   height: 16px;
   width: 16px;
-  margin-right: 5px;
+  margin-right: 8px;
 
   background-color: #eee;
   border-radius: 50%;
@@ -74,6 +74,7 @@ defineProps<{
 
 .text {
   font-size: 14px;
-  line-height: 20px;
+  line-height: 24px;
+  font-weight: 500;
 }
 </style>

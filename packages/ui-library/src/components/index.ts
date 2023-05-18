@@ -7,6 +7,7 @@ export { default as UniInput } from "./data-entry/Input/index.vue";
 export { default as UniFileDropZone } from "./data-entry/FileDropZone/index.vue";
 export { default as UniFilePicker } from "./data-entry/FilePicker/index.vue";
 export { default as UniSwitch } from "./data-entry/Switch/index.vue";
+export { UniRadio, UniRadioGroup } from "./data-entry/Radio";
 
 // Data Display Components
 export { default as UniPopup } from "./data-display/Popup/index.vue";
