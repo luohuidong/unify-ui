@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.9.0
+
+### Minor Changes
+
+- 98aa2bb: add RadioGroup component
+
 ## 0.8.2
 
 ### Patch Changes
