@@ -1,11 +1,22 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends string | number | symbol">
 import UniRadio from "./UniRadio.vue";
 
 defineProps<{
-  options: { label: string; value: string | number }[];
+  modelValue?: T;
+  options: { label: string; value: T }[];
   name: string;
   inline?: boolean;
 }>();
+
+const emits = defineEmits<{
+  (e: "update:modelValue", value: T): void;
+  (e: "change", value: T): void;
+}>();
+
+function handleChange(value: T) {
+  emits("update:modelValue", value);
+  emits("change", value);
+}
 </script>
 
 <template>
@@ -19,6 +30,8 @@ defineProps<{
       :name="name"
       :label="option.label"
       :value="option.value"
+      :checked="modelValue === option.value"
+      @change="handleChange"
     ></UniRadio>
   </fieldset>
 </template>

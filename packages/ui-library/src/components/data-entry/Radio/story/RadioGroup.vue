@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import { ref } from "vue";
 import UniRadioGroup from "../UniRadioGroup.vue";
 
 const options = [
@@ -7,13 +8,25 @@ const options = [
   { label: "three", value: "3" },
   { label: "four", value: "4" },
 ];
+
+const value = ref("1");
+
+function handleChange(value: string) {
+  console.log("value", value);
+}
 </script>
 
 <template>
   <p>normal:</p>
-  <UniRadioGroup name="number" :options="options"></UniRadioGroup>
-  <p>inline：</p>
-  <UniRadioGroup name="number" :options="options" inline></UniRadioGroup>
+  <UniRadioGroup
+    v-model="value"
+    name="number1"
+    :options="options"
+    @change="handleChange"
+  ></UniRadioGroup>
+
+  <p>inline:</p>
+  <UniRadioGroup v-model="value" name="number2" :options="options" inline></UniRadioGroup>
 </template>
 
 <style lang="scss" scoped></style>

@@ -1,14 +1,31 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="T extends string | number | symbol">
 defineProps<{
   name: string;
   label: string;
-  value: string | number;
+  value: T;
+  checked?: boolean;
 }>();
+
+const emits = defineEmits<{
+  (e: "change", value: T): void;
+}>();
+
+function handleChange(e: Event) {
+  const value = (e.target as HTMLInputElement).value as T;
+  emits("change", value);
+}
 </script>
 
 <template>
   <label class="label">
-    <input class="input" type="radio" :name="name" />
+    <input
+      class="input"
+      type="radio"
+      :name="name"
+      :value="value"
+      :checked="checked"
+      @change="handleChange"
+    />
     <div class="checkmark"></div>
     <span class="text">{{ label }}</span>
   </label>
