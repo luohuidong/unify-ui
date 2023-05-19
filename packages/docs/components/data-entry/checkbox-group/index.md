@@ -4,7 +4,7 @@ import ShowCaseDisabled from './ShowCaseDisabled.vue'
 import ShowCaseInline from './ShowCaseInline.vue'
 </script>
 
-# Checkbox Group
+# CheckboxGroup
 
 ## Basic Usage
 
@@ -36,7 +36,7 @@ import ShowCaseInline from './ShowCaseInline.vue'
 <<< @/components/data-entry/checkbox-group/ShowCaseInline.vue
 :::
 
-## APIs
+## API
 
 ### Properties
 

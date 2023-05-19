@@ -2,7 +2,7 @@
 import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
 </script>
 
-# Confirm Modal
+# ConfirmModal
 
 Confirm Modal use to preventing accidental actions. When the user needs to perform a potentially dangerous action, a Modal can be used to display a confirmation dialog to prevent accidental actions that could have negative consequences.
 

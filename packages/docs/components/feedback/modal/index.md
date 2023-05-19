@@ -25,7 +25,7 @@ In short, the Modal component can provide a better user experience by helping us
 <<< @/components/feedback/modal/ShowCaseBasicUsage.vue
 :::
 
-## APIs
+## API
 
 ### Properties
 
