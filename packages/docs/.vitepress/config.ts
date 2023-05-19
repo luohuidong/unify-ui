@@ -72,6 +72,10 @@ export default defineConfig({
                 text: "FileDropZone",
                 link: "/components/data-entry/file-drop-zone/",
               },
+              {
+                text: "Radio",
+                link: "/components/data-entry/radio/",
+              },
               { text: "Switch", link: "/components/data-entry/switch/" },
             ],
           },
