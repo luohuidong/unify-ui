@@ -12,9 +12,7 @@ export default defineConfig({
       message: "Released under the MIT License.",
       copyright: "Copyright © 2022-present luohuidong",
     },
-    socialLinks: [
-      { icon: "github", link: "https://github.com/easy-ui-team/easy-ui" },
-    ],
+    socialLinks: [{ icon: "github", link: "https://github.com/easy-ui-team/easy-ui" }],
     nav: [
       {
         text: "Guide",
@@ -51,11 +49,8 @@ export default defineConfig({
           {
             text: "Feedback",
             items: [
+              { text: "ConfirmModal", link: "/components/feedback/confirm-modal/" },
               { text: "Modal", link: "/components/feedback/modal/" },
-              {
-                text: "Confirm Modal",
-                link: "/components/feedback/confirm-modal/",
-              },
               { text: "NotFound", link: "/components/feedback/not-found/" },
             ],
           },
@@ -63,19 +58,11 @@ export default defineConfig({
             text: "Data Entry",
             items: [
               { text: "Checkbox", link: "/components/data-entry/checkbox/" },
-              {
-                text: "Checkbox Group",
-                link: "/components/data-entry/checkbox-group/",
-              },
+              { text: "CheckboxGroup", link: "/components/data-entry/checkbox-group/" },
+              { text: "FileDropZone", link: "/components/data-entry/file-drop-zone/" },
               { text: "Input", link: "/components/data-entry/input/" },
-              {
-                text: "FileDropZone",
-                link: "/components/data-entry/file-drop-zone/",
-              },
-              {
-                text: "Radio",
-                link: "/components/data-entry/radio/",
-              },
+              { text: "Radio", link: "/components/data-entry/radio/" },
+              { text: "RadioGroup", link: "/components/data-entry/radio-group/" },
               { text: "Switch", link: "/components/data-entry/switch/" },
             ],
           },

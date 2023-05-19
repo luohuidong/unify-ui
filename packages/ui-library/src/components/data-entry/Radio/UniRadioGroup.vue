@@ -15,6 +15,7 @@ const emits = defineEmits<{
 
 function handleChange(value: T) {
   emits("update:modelValue", value);
+  /** Triggered after a value is selected */
   emits("change", value);
 }
 </script>
