@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.9.1
+
+### Patch Changes
+
+- 4101082: The RadioGroup component can use v-model to bind its value.
+
 ## 0.9.0
 
 ### Minor Changes
