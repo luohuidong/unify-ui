@@ -6,6 +6,7 @@ defineProps<{
   options: { label: string; value: T }[];
   name: string;
   inline?: boolean;
+  disabled?: boolean;
 }>();
 
 const emits = defineEmits<{
@@ -32,6 +33,7 @@ function handleChange(value: T) {
       :label="option.label"
       :value="option.value"
       :checked="modelValue === option.value"
+      :disabled="disabled"
       @change="handleChange"
     ></UniRadio>
   </fieldset>

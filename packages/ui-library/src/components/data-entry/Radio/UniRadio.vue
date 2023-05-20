@@ -1,9 +1,10 @@
 <script setup lang="ts" generic="T extends string | number | symbol">
 defineProps<{
   name: string;
-  label: string;
+  label?: string;
   value: T;
   checked?: boolean;
+  disabled?: boolean;
 }>();
 
 const emits = defineEmits<{
@@ -17,13 +18,14 @@ function handleChange(e: Event) {
 </script>
 
 <template>
-  <label class="label">
+  <label class="label" :class="{ 'label--disabled': disabled }">
     <input
       class="input"
       type="radio"
       :name="name"
       :value="value"
       :checked="checked"
+      :disabled="disabled"
       @change="handleChange"
     />
     <div class="checkmark"></div>
@@ -41,6 +43,10 @@ function handleChange(e: Event) {
   user-select: none;
 }
 
+.label--disabled {
+  cursor: not-allowed;
+}
+
 /* Hide the browser's default radio button */
 .input {
   display: none;
@@ -53,18 +59,24 @@ function handleChange(e: Event) {
   width: 16px;
   margin-right: 8px;
 
-  background-color: #eee;
   border-radius: 50%;
-}
-
-/* On mouse-over, add a grey background color */
-.label:hover .checkmark {
-  background-color: #ccc;
+  border-width: 1px;
+  border-style: solid;
+  border-color: rgb(209, 213, 219);
 }
 
 /* When the radio button is checked, add a purple background */
 .input:checked ~ .checkmark {
-  background-color: #4f46e5;
+  --checked-color: #4f46e5;
+  background-color: var(--checked-color);
+  border-color: var(--checked-color);
+}
+
+/** When the radio button is disabled, add a grey background */
+.input:disabled ~ .checkmark {
+  --disabled-color: #eee;
+  background-color: var(--disabled-color);
+  border-color: var(--disabled-color);
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -93,5 +105,8 @@ function handleChange(e: Event) {
   font-size: 14px;
   line-height: 24px;
   font-weight: 500;
+}
+.input:disabled ~ .text {
+  color: #ccc;
 }
 </style>

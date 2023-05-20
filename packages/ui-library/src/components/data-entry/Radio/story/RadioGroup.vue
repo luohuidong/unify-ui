@@ -27,6 +27,9 @@ function handleChange(value: string) {
 
   <p>inline:</p>
   <UniRadioGroup v-model="value" name="number2" :options="options" inline></UniRadioGroup>
+
+  <p>disabled:</p>
+  <UniRadioGroup v-model="value" name="number3" :options="options" disabled> </UniRadioGroup>
 </template>
 
 <style lang="scss" scoped></style>

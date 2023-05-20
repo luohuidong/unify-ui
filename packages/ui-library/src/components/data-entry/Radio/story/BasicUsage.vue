@@ -5,7 +5,7 @@ import UniRadio from "../UniRadio.vue";
 <template>
   <div class="container">
     <div>
-      <UniRadio name="radio" label="one" value="1"></UniRadio>
+      <UniRadio name="radio" label="one" value="1" disabled></UniRadio>
     </div>
 
     <div>
