@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.9.2
+
+### Patch Changes
+
+- 3f2a8e6: The Radio and RadioGroup components can be disabled.
+
 ## 0.9.1
 
 ### Patch Changes
