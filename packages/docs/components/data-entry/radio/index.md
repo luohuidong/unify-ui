@@ -1,5 +1,7 @@
 <script setup lang='ts'>
 import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
+import ShowCaseDisabled from './ShowCaseDisabled.vue'
+import ShowCaseNoLabel from './ShowCaseNoLabel.vue'
 </script>
 
 # Radio
@@ -14,6 +16,26 @@ import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
 <<< @/components/data-entry/radio/ShowCaseBasicUsage.vue
 :::
 
+## Disabled
+
+::: raw
+<ShowCaseDisabled class="vp-raw" />
+:::
+
+::: details View Source
+<<< @/components/data-entry/radio/ShowCaseDisabled.vue
+:::
+
+## No Label
+
+::: raw
+<ShowCaseNoLabel class="vp-raw" />
+:::
+
+::: details View Source
+<<< @/components/data-entry/radio/ShowCaseNoLabel.vue
+:::
+
 ## API
 
 ### Properties
@@ -23,9 +45,10 @@ generic = "T extends string | number | symbol";
 
 defineProps<{
   name: string;
-  label: string;
+  label?: string;
   value: T;
   checked?: boolean;
+  disabled?: boolean;
 }>();
 ```
 
