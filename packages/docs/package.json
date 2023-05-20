@@ -12,11 +12,11 @@
   "author": "",
   "license": "ISC",
   "devDependencies": {
-    "@faker-js/faker": "^8.0.0",
+    "@faker-js/faker": "^8.0.1",
     "postcss": "^8.4.23",
     "postcss-prefix-selector": "^1.16.0",
-    "vitepress": "1.0.0-alpha.75",
-    "vue": "^3.3.2"
+    "vitepress": "1.0.0-alpha.76",
+    "vue": "^3.3.4"
   },
   "dependencies": {
     "unify-ui": "workspace:^"
