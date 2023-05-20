@@ -10,20 +10,10 @@ const options = [
 ];
 
 const value = ref("1");
-
-function handleChange(value: string) {
-  console.log("value", value);
-}
 </script>
 
 <template>
-  <UniRadioGroup
-    v-model="value"
-    name="inline-case"
-    :options="options"
-    inline
-    @change="handleChange"
-  ></UniRadioGroup>
+  <UniRadioGroup v-model="value" name="disabled-case" :options="options" disabled></UniRadioGroup>
 </template>
 
 <style lang="scss" scoped></style>

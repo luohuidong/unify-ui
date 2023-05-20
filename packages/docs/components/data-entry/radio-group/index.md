@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
 import ShowCaseInline from './ShowCaseInline.vue'
+import ShowCaseDisabled from './ShowCaseDisabled.vue'
 </script>
 
 # RadioGroup
@@ -25,6 +26,16 @@ import ShowCaseInline from './ShowCaseInline.vue'
 <<< @/components/data-entry/radio-group/ShowCaseInline.vue
 :::
 
+## Disabled
+
+::: raw
+<ShowCaseDisabled class="vp-raw" />
+:::
+
+::: details View source
+<<< @/components/data-entry/radio-group/ShowCaseDisabled.vue
+:::
+
 ## API
 
 ### Properties
@@ -37,6 +48,7 @@ defineProps<{
   options: { label: string; value: T }[];
   name: string;
   inline?: boolean;
+  disabled?: boolean;
 }>();
 ```
 

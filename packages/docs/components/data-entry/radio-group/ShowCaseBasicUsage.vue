@@ -19,7 +19,7 @@ function handleChange(value: string) {
 <template>
   <UniRadioGroup
     v-model="value"
-    name="number1"
+    name="basic-usage"
     :options="options"
     @change="handleChange"
   ></UniRadioGroup>
