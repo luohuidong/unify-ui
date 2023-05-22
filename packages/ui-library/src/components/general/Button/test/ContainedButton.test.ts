@@ -1,18 +1,25 @@
-import { render, fireEvent } from "@testing-library/vue";
-import Button from "../index.vue";
+import { mount } from "@vue/test-utils";
 
-test("it should work", async () => {
-  const { getByText } = render(Button, {
-    props: {
-      type: "contained",
-    },
+import UniButton from "../index.vue";
+
+test("button basic usage", () => {
+  const wrapper = mount(UniButton, {
     slots: {
-      default: "test button",
+      default: "Hello World",
     },
   });
 
-  // assert output
-  const button = getByText("test button");
+  expect(wrapper.html()).toContain("Hello World");
+});
 
-  await fireEvent.click(button);
+test("button click event", () => {
+  const wrapper = mount(UniButton, {
+    slots: {
+      default: "Hello World",
+    },
+  });
+
+  wrapper.trigger("click");
+
+  expect(wrapper.emitted()).toHaveProperty("click");
 });
