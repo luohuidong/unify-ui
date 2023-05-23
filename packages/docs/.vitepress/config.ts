@@ -60,6 +60,7 @@ export default defineConfig({
               { text: "Checkbox", link: "/components/data-entry/checkbox/" },
               { text: "CheckboxGroup", link: "/components/data-entry/checkbox-group/" },
               { text: "FileDropZone", link: "/components/data-entry/file-drop-zone/" },
+              { text: "FilePicker", link: "/components/data-entry/file-picker/" },
               { text: "Input", link: "/components/data-entry/input/" },
               { text: "Radio", link: "/components/data-entry/radio/" },
               { text: "RadioGroup", link: "/components/data-entry/radio-group/" },
