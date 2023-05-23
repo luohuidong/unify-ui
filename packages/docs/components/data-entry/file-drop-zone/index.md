@@ -46,3 +46,30 @@ import ShowCaseCustomizedContent from './ShowCaseCustomizedContent.vue'
 ::: details View Source
 <<< @/components/data-entry/file-drop-zone/ShowCaseCustomizedContent.vue
 :::
+
+## API
+
+### Properties
+
+```ts
+const props = defineProps<{
+  promptText?: string;
+  multiple?: boolean;
+}>();
+```
+
+### Events
+
+```ts
+const emits = defineEmits<{
+  (e: "file-change", files: File[]): void;
+}>();
+```
+
+### Slots
+
+```ts
+defineSlots<{
+  default?: (props: {}) => any;
+}>();
+```

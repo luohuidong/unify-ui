@@ -19,6 +19,10 @@ const emits = defineEmits<{
   (e: "file-change", files: File[]): void;
 }>();
 
+defineSlots<{
+  default?: (props: {}) => any;
+}>();
+
 function handleEmitFileChange(files: FileList) {
   const tmpFiles: File[] = [];
 
