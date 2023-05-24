@@ -11,7 +11,8 @@
     "story:dev": "histoire dev",
     "story:build": "histoire build",
     "story:preview": "histoire preview",
-    "test": "vitest",
+    "test": "vitest run",
+    "test:dev": "vitest dev",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage"
   },

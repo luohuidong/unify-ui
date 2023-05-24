@@ -5,7 +5,8 @@
     "cz": "cz",
     "build-lib": "pnpm --filter 'unify-ui' run build",
     "build-doc": "pnpm build-lib && pnpm --filter '@unify-ui/docs' run build",
-    "release": "pnpm build-lib && pnpm -r publish"
+    "release": "pnpm build-lib && pnpm -r publish",
+    "test": "pnpm -r test"
   },
   "keywords": [],
   "author": "luohuidong",
