@@ -15,7 +15,7 @@ test("button basic usage", () => {
   expect(wrapper.classes()).toContain("button--size-m");
 });
 
-test("button event event", () => {
+test("button event click", () => {
   const wrapper = mount(UniButton, {
     slots: {
       default: "Hello World",
@@ -23,7 +23,6 @@ test("button event event", () => {
   });
 
   wrapper.trigger("click");
-
   expect(wrapper.emitted()).toHaveProperty("click");
 });
 
@@ -115,4 +114,16 @@ test("button rounded", () => {
   });
 
   expect(wrapper.classes()).toContain("button--rounded");
+});
+
+test("button disabled", () => {
+  const wrapper = mount(UniButton, {
+    props: {
+      disabled: true,
+    },
+  });
+
+  wrapper.trigger("click");
+  expect(wrapper.emitted()).not.toHaveProperty("click");
+  expect(wrapper.classes()).toContain("button--disabled");
 });

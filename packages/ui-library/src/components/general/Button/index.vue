@@ -12,6 +12,7 @@ withDefaults(
     type?: "secondary" | "primary" | "soft";
     size?: "xs" | "s" | "m" | "l" | "xl";
     rounded?: boolean;
+    disabled?: boolean;
   }>(),
   {
     type: "secondary",
@@ -19,7 +20,9 @@ withDefaults(
   }
 );
 
-const emits = defineEmits(["click"]);
+const emits = defineEmits<{
+  (e: "click", event: MouseEvent): void;
+}>();
 
 function handleClick(e: MouseEvent) {
   emits("click", e);
@@ -39,7 +42,9 @@ function handleClick(e: MouseEvent) {
       'button--type-secondary': type === 'secondary',
       'button--type-soft': type === 'soft',
       'button--rounded': rounded,
+      'button--disabled': disabled,
     }"
+    :disabled="disabled"
     @click="handleClick"
   >
     <slot></slot>
@@ -135,5 +140,21 @@ $primary-color: rgb(79 70 229);
 
 .button--rounded {
   border-radius: 9999px;
+}
+
+.button--disabled {
+  --background-color: rgba(0, 0, 0, 0.04);
+  --font-color: #d9d9d9;
+
+  cursor: not-allowed;
+  background-color: var(--background-color);
+  border-color: var(--font-color);
+  color: var(--font-color);
+
+  &:hover {
+    background-color: var(--background-color);
+    border-color: var(--font-color);
+    color: var(--font-color);
+  }
 }
 </style>
