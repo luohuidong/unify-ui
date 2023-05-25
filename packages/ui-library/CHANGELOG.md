@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.9.3
+
+### Patch Changes
+
+- 48900e8: The Button component supports the disabled feature.
+
 ## 0.9.2
 
 ### Patch Changes
