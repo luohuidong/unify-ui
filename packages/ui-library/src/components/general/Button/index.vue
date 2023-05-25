@@ -24,6 +24,10 @@ const emits = defineEmits<{
   (e: "click", event: MouseEvent): void;
 }>();
 
+const slots = defineSlots<{
+  default(props: {}): any;
+}>();
+
 function handleClick(e: MouseEvent) {
   emits("click", e);
 }

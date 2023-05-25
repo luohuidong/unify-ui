@@ -2,6 +2,8 @@
 import ShowCasePrimaryButton from './ShowCasePrimaryButton.vue'
 import ShowCaseSecondaryButton from './ShowCaseSecondaryButton.vue'
 import ShowCaseSoftButton from './ShowCaseSoftButton.vue'
+import ShowCaseRounded from './ShowCaseRounded.vue'
+import ShowCaseDisabled from './ShowCaseDisabled.vue'
 </script>
 
 # Button
@@ -42,6 +44,26 @@ Unify UI provide 3 types of button.
 <<< @/components/general/button/ShowCaseSoftButton.vue
 :::
 
+## Rounded Button
+
+::: raw
+<ShowCaseRounded class="vp-raw" />
+:::
+
+::: details View Source
+<<< @/components/general/button/ShowCaseRounded.vue
+:::
+
+## Disabled
+
+::: raw
+<ShowCaseDisabled class="vp-raw" />
+:::
+
+::: details View Source
+<<< @/components/general/button/ShowCaseDisabled.vue
+:::
+
 ## API
 
 ### Properties
@@ -51,6 +73,8 @@ withDefaults(
   defineProps<{
     type?: "secondary" | "primary" | "soft";
     size?: "xs" | "s" | "m" | "l" | "xl";
+    rounded?: boolean;
+    disabled?: boolean;
   }>(),
   {
     type: "secondary",
@@ -62,5 +86,15 @@ withDefaults(
 ### Events
 
 ```ts
-const emits = defineEmits(["click"]);
+const emits = defineEmits<{
+  (e: "click", event: MouseEvent): void;
+}>();
+```
+
+### Slots
+
+```ts
+const slots = defineSlots<{
+  default(props: {}): any;
+}>();
 ```
