@@ -2,10 +2,10 @@
 import { reactive, computed } from "vue";
 
 import { useInject, useSelection } from "./composable";
-import type { Record } from "./types";
+import type { Record, Key } from "./types";
 import commonStyle from "./commonStyle.module.scss";
 
-import { UniCheckbox } from "@/components";
+import { UniCheckbox, UniRadio } from "@/components";
 import Add from "./icons/Add.vue";
 import Minus from "./icons/Minus.vue";
 import UniTbodyExpandRow from "./UniTbodyExpandRow.vue";
@@ -75,13 +75,14 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
           @change="(checked) => handleCheckboxChange(record, checked)"
         ></UniCheckbox>
 
-        <input
+        <UniRadio
           v-else
-          type="radio"
+          name="unitable-single-selection"
+          :value="(record[tableProps.rowKey] as Key)"
           :checked="tableProps.selectedRowKeys.has(record[tableProps.rowKey])"
           :disabled="tableProps.selection?.disabledCondition?.(record)"
           @change="() => handleRadioClick(record)"
-        />
+        ></UniRadio>
       </div>
     </td>
 
