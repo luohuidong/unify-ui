@@ -51,7 +51,7 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
     <UniCheckbox
       v-for="item in options"
       :key="item.label"
-      class="checkbox--column"
+      :class="{ 'checkbox--column': !inline }"
       :name="name"
       :label="item.label"
       :value="item.value"
