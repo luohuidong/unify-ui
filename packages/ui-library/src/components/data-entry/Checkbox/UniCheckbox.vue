@@ -32,7 +32,7 @@ const handleChangeGroupValue = inject("handleChangeGroupValue", void 0) as
 
 function handleChange(e: Event) {
   const checked = (e.target as HTMLInputElement).checked;
-  if (props.disabled === false) {
+  if (!props.disabled) {
     emit("update:checked", checked);
     emit("change", checked);
 
@@ -69,8 +69,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 </template>
 
 <style lang="scss" scoped>
-$active-color: #037aff;
-$hover-color: #0261cc;
+$active-color: rgb(79, 70, 229);
 
 $border-grey: rgba(206, 206, 206, 1);
 $background-grey: #f4f4f4;
@@ -116,8 +115,9 @@ $font-grey: #a8abb2;
   cursor: not-allowed;
 }
 
-// add icon color, checkmark background color, checkmark border color when checkbox is not hover, not checked, disabled
-// not hover - not checked - not disabled
+// add icon color, checkmark background color, checkmark border color
+
+// not checked - not disabled
 .checkmark {
   @extend %square;
 
@@ -126,7 +126,7 @@ $font-grey: #a8abb2;
   border: 1px solid $border-grey;
 }
 
-// not hover - not checked - disabled
+// not checked - disabled
 .input:disabled ~ .checkmark {
   color: transparent;
   background-color: $background-grey;
@@ -134,45 +134,15 @@ $font-grey: #a8abb2;
   cursor: not-allowed;
 }
 
-// not hover - checked - not disabled
+// checked - not disabled
 .input:checked ~ .checkmark {
   color: white;
   background-color: $active-color;
   border-color: $active-color;
 }
 
-// not hover - checked - disabled
+// checked - disabled
 .input:checked:disabled ~ .checkmark {
-  color: $font-grey;
-  background-color: $background-grey;
-  border-color: $border-grey;
-  cursor: not-allowed;
-}
-
-// hover - not checked - not disabled
-.label:hover > .checkmark {
-  color: transparent;
-  background-color: white;
-  border-color: $hover-color;
-}
-
-// hover - not checked - disabled
-.label:hover > .input:disabled ~ .checkmark {
-  color: transparent;
-  background-color: $background-grey;
-  border: 1px solid $border-grey;
-  cursor: not-allowed;
-}
-
-// hover - checked - not disabled
-.label:hover > .input:checked ~ .checkmark {
-  color: white;
-  background-color: $hover-color;
-  border-color: $hover-color;
-}
-
-// hover - checked - disabled
-.label:hover > .input:checked:disabled ~ .checkmark {
   color: $font-grey;
   background-color: $background-grey;
   border-color: $border-grey;
