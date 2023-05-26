@@ -1,5 +1,12 @@
 # unify-ui
 
+## 0.9.4
+
+### Patch Changes
+
+- 3a5e5f5: Fix the layout issue that occurs when the inline property is passed to the Checkbox component.
+- 3bda64b: Modify the CSS style of the Checkbox component
+
 ## 0.9.3
 
 ### Patch Changes
