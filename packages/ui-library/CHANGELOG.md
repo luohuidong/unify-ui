@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.9.5
+
+### Patch Changes
+
+- f515c3d: Replace the native radio element with the UniRadio Component within the Table component.
+
 ## 0.9.4
 
 ### Patch Changes
