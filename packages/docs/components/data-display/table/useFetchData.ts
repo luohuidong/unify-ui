@@ -8,7 +8,7 @@ type Posts = {
 }[];
 
 export default function useFetchData() {
-  const data: Posts = new Array(5).fill(0).map(() => ({
+  const data: Posts = new Array(10).fill(0).map(() => ({
     id: faker.string.uuid(),
     title: faker.lorem.word(),
     author: faker.person.fullName(),
