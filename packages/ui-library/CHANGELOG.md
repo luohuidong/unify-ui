@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.10.1
+
+### Patch Changes
+
+- e1875f5: The input component can be disabled, and a placeholder can be set.
+
 ## 0.10.0
 
 ### Minor Changes
