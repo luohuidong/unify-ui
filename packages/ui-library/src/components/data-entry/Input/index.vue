@@ -18,6 +18,8 @@ defineProps<{
   placeholder?: string;
   /** Control input editability */
   readonly?: boolean;
+  /** native input types */
+  type?: string;
 }>();
 
 const emits = defineEmits<{
@@ -91,6 +93,7 @@ const existAddOn = computed(() => {
       :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
+      :type="type"
       @input="handleInput"
       @change="handleChange"
     />
