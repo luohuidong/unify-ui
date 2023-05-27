@@ -62,6 +62,7 @@ export default defineConfig({
               { text: "FileDropZone", link: "/components/data-entry/file-drop-zone/" },
               { text: "FilePicker", link: "/components/data-entry/file-picker/" },
               { text: "Input", link: "/components/data-entry/input/" },
+              { text: "Password", link: "/components/data-entry/password/" },
               { text: "Radio", link: "/components/data-entry/radio/" },
               { text: "RadioGroup", link: "/components/data-entry/radio-group/" },
               { text: "Switch", link: "/components/data-entry/switch/" },
