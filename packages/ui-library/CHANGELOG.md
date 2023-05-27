@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.10.2
+
+### Patch Changes
+
+- f04ba4f: The Password component can listen for the "change" and "input" events.
+
 ## 0.10.1
 
 ### Patch Changes
