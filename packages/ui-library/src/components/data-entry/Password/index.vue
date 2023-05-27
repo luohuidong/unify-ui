@@ -13,12 +13,15 @@ import UniInput from "../Input/index.vue";
 import EyeOn from "./icons/EyeOn.vue";
 import EyeOff from "./icons/EyeOff.vue";
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     modelValue?: string;
+    disabled?: boolean;
+    placeholder?: string;
   }>(),
   {
     modelValue: "",
+    placeholder: "",
   }
 );
 
@@ -29,6 +32,7 @@ defineEmits<{
 const showPassword = ref(false);
 
 function handleTriggerClick() {
+  if (props.disabled) return;
   showPassword.value = !showPassword.value;
 }
 </script>
@@ -37,10 +41,12 @@ function handleTriggerClick() {
   <UniInput
     :model-value="modelValue"
     :type="showPassword ? 'text' : 'password'"
+    :disabled="disabled"
+    :placeholder="placeholder"
     @update:model-value="(value) => $emit('update:modelValue', value)"
   >
     <template #inline-trailing-add-on>
-      <div class="password-trigger-container">
+      <div v-if="!props.disabled" class="password-trigger-container">
         <EyeOn v-if="showPassword" class="password-trigger" @click="handleTriggerClick" />
         <EyeOff v-else class="password-trigger" @click="handleTriggerClick" />
       </div>

@@ -12,21 +12,29 @@ watch(value, (value) => {
 
 <template>
   <Story title="Data Entry/Password">
-    <div class="container">
-      <div>
+    <Variant title="Basic Usage">
+      <div class="container">
         <UniPassword v-model="value"></UniPassword>
       </div>
-    </div>
+    </Variant>
+
+    <Variant title="Placeholder">
+      <div class="container">
+        <UniPassword v-model="value" placeholder="Please enter password"></UniPassword>
+      </div>
+    </Variant>
+
+    <Variant title="Disabled">
+      <div class="container">
+        <UniPassword v-model="value" disabled></UniPassword>
+      </div>
+    </Variant>
   </Story>
 </template>
 
 <style lang="scss" scoped>
 .container {
   height: 500px;
-  padding: 20px;
-}
-
-.container > div {
   padding: 20px;
 }
 </style>
