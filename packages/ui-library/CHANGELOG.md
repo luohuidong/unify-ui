@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.10.0
+
+### Minor Changes
+
+- d825477: Add the Password component
+
 ## 0.9.5
 
 ### Patch Changes
