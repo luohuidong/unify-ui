@@ -5,7 +5,9 @@
   "types": "types/index.d.ts",
   "scripts": {
     "dev": "histoire dev",
-    "build": "vue-tsc --declaration --emitDeclarationOnly --project tsconfig.prod.json && vite build",
+    "build": "run-p build:type build:lib",
+    "build:type": "vue-tsc --declaration --emitDeclarationOnly --project tsconfig.prod.json",
+    "build:lib": "vite build",
     "type:check": "vue-tsc --noEmit --project tsconfig.prod.json",
     "commit": "cz",
     "story:dev": "histoire dev",
@@ -57,6 +59,7 @@
     "happy-dom": "^9.20.3",
     "histoire": "^0.16.1",
     "lodash-es": "^4.17.21",
+    "npm-run-all": "^4.1.5",
     "prettier": "^2.8.8",
     "sass": "^1.62.1",
     "typescript": "^5.0.4",
