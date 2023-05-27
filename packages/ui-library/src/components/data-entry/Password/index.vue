@@ -27,6 +27,8 @@ const props = withDefaults(
 
 defineEmits<{
   (e: "update:modelValue", value: string): void;
+  (e: "input", value: string): void;
+  (e: "change", value: string): void;
 }>();
 
 const showPassword = ref(false);
@@ -44,6 +46,8 @@ function handleTriggerClick() {
     :disabled="disabled"
     :placeholder="placeholder"
     @update:model-value="(value) => $emit('update:modelValue', value)"
+    @input="(value) => $emit('input', value)"
+    @change="(value) => $emit('change', value)"
   >
     <template #inline-trailing-add-on>
       <div v-if="!props.disabled" class="password-trigger-container">
