@@ -7,13 +7,16 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "unify-ui/composable/useI18n";
 import EmptyIcon from "./EmptyIcon.vue";
+
+const { t } = useI18n();
 </script>
 
 <template>
   <div class="empty">
     <EmptyIcon class="empty__icon"></EmptyIcon>
-    <span class="empty__text">No Data</span>
+    <span class="empty__text">{{ t("empty.no_data") }}</span>
   </div>
 </template>
 
