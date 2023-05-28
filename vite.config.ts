@@ -4,6 +4,7 @@ import { defineConfig } from "vite";
 import vue from "@vitejs/plugin-vue";
 import vueJsx from "@vitejs/plugin-vue-jsx";
 import path from "path";
+import ViteYaml from "@modyfi/vite-plugin-yaml";
 
 import packagejson from "./package.json";
 
@@ -11,7 +12,7 @@ const peerdependencies = Object.keys(packagejson.peerDependencies);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueJsx()],
+  plugins: [vue(), vueJsx(), ViteYaml()],
   resolve: {
     alias: {
       "unify-ui": path.join(__dirname, "src"),
