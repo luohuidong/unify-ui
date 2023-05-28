@@ -5,7 +5,7 @@ import { useInject, useSelection } from "./composable";
 import type { Record, Key } from "./types";
 import commonStyle from "./commonStyle.module.scss";
 
-import { UniCheckbox, UniRadio } from "@/components";
+import { UniCheckbox, UniRadio } from "unify-ui/components";
 import Add from "./icons/Add.vue";
 import Minus from "./icons/Minus.vue";
 import UniTbodyExpandRow from "./UniTbodyExpandRow.vue";

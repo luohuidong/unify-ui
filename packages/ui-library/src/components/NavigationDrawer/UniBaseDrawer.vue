@@ -7,7 +7,7 @@
 </template>
 
 <style lang="scss" scoped>
-@use "@/styles/color";
+@use "unify-ui/styles/color";
 
 .base-drawer {
   width: 400px;

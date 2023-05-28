@@ -21,7 +21,7 @@ function handleClick(event: MouseEvent) {
 </template>
 
 <style lang="scss" scoped>
-@use "@/styles/color";
+@use "unify-ui/styles/color";
 
 .scrim {
   position: fixed;

@@ -82,8 +82,8 @@ onUnmounted(() => {
 
 <style lang="scss" module>
 @use "sass:map";
-@use "@/styles/color";
-@use "@/styles/type";
+@use "unify-ui/styles/color";
+@use "unify-ui/styles/type";
 
 .transition--enter-active,
 .transition--leave-active {
