@@ -14,7 +14,7 @@ export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
     alias: {
-      "@": path.join(__dirname, "src"),
+      "unify-ui": path.join(__dirname, "src"),
     },
   },
   test: {

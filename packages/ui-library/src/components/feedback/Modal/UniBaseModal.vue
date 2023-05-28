@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UniButton, UniScrim } from "@/components";
+import { UniButton, UniScrim } from "unify-ui/components";
 import CloseIcon from "./IconClose.vue";
 
 withDefaults(
@@ -66,8 +66,8 @@ function handleCancelButtonClick() {
 
 <style lang="scss" scoped>
 @use "sass:map";
-@use "@/styles/color";
-@use "@/styles/type";
+@use "unify-ui/styles/color";
+@use "unify-ui/styles/type";
 
 .modal {
   position: relative;

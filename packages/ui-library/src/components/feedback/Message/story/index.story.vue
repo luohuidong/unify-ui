@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UniButton, useMessage } from "@/components";
+import { UniButton, useMessage } from "unify-ui/components";
 
 const { message } = useMessage();
 

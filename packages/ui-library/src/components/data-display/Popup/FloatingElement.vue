@@ -35,7 +35,7 @@ const color = computed(() => rootPropsKey?.fontColor || "white");
 </template>
 
 <style lang="scss" scoped>
-@use "@/styles/zindex";
+@use "unify-ui/styles/zindex";
 
 .tooltip {
   display: none;

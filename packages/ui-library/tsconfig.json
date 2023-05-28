@@ -12,7 +12,7 @@
     "lib": ["ESNext", "DOM", "DOM.Iterable"],
     "baseUrl": ".",
     "paths": {
-      "@/*": ["src/*"]
+      "unify-ui/*": ["src/*"]
     },
     "declaration": true,
     "declarationDir": "types",
