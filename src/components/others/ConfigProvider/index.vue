@@ -12,6 +12,10 @@ import { configKey, type ConfigProviderProps } from "unify-ui/composable/useConf
 
 const props = defineProps<ConfigProviderProps>();
 provide(configKey, props);
+
+defineSlots<{
+  default(props: {}): any;
+}>();
 </script>
 
 <template>

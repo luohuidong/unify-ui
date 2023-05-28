@@ -1,12 +1,13 @@
 import { defineConfig } from "vitepress";
 import path from "node:path";
 import vueJsx from "@vitejs/plugin-vue-jsx";
+import ViteYaml from "@modyfi/vite-plugin-yaml";
 
 export default defineConfig({
   title: "Unify UI",
   appearance: false,
   vite: {
-    plugins: [vueJsx()],
+    plugins: [vueJsx(), ViteYaml()],
     resolve: {
       alias: {
         "unify-ui": path.join(__dirname, "../../src"),
@@ -57,14 +58,6 @@ export default defineConfig({
             ],
           },
           {
-            text: "Feedback",
-            items: [
-              { text: "ConfirmModal", link: "/components/feedback/confirm-modal/" },
-              { text: "Modal", link: "/components/feedback/modal/" },
-              { text: "NotFound", link: "/components/feedback/not-found/" },
-            ],
-          },
-          {
             text: "Data Entry",
             items: [
               { text: "Checkbox", link: "/components/data-entry/checkbox/" },
@@ -77,6 +70,18 @@ export default defineConfig({
               { text: "RadioGroup", link: "/components/data-entry/radio-group/" },
               { text: "Switch", link: "/components/data-entry/switch/" },
             ],
+          },
+          {
+            text: "Feedback",
+            items: [
+              { text: "ConfirmModal", link: "/components/feedback/confirm-modal/" },
+              { text: "Modal", link: "/components/feedback/modal/" },
+              { text: "NotFound", link: "/components/feedback/not-found/" },
+            ],
+          },
+          {
+            text: "Others",
+            items: [{ text: "ConfigProvider", link: "/components/others/config-provider/" }],
           },
         ],
       },
