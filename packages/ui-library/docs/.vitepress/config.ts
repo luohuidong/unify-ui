@@ -1,8 +1,18 @@
 import { defineConfig } from "vitepress";
+import path from "node:path";
+import vueJsx from "@vitejs/plugin-vue-jsx";
 
 export default defineConfig({
   title: "Unify UI",
   appearance: false,
+  vite: {
+    plugins: [vueJsx()],
+    resolve: {
+      alias: {
+        "unify-ui": path.join(__dirname, "../../src"),
+      },
+    },
+  },
   themeConfig: {
     outline: [2, 3],
     search: {
