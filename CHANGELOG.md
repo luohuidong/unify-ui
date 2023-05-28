@@ -1,5 +1,15 @@
 # unify-ui
 
+## 0.11.0
+
+### Minor Changes
+
+- d02c0e8: Add the ConfigProvider component
+
+### Patch Changes
+
+- d8d8492: Internationalize the Empty component
+
 ## 0.10.3
 
 ### Patch Changes
