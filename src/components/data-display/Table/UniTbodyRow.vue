@@ -71,7 +71,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
       >
         <UniCheckbox
           v-if="tableProps.selection?.type === 'multiple'"
-          :checked="tableProps.selectedRowKeys.has(record[tableProps.rowKey])"
+          :checked="tableProps.selectedRowKeys?.has(record[tableProps.rowKey])"
           :disabled="tableProps.selection?.disabledCondition?.(record)"
           @change="(checked) => handleCheckboxChange(record, checked)"
         ></UniCheckbox>
@@ -80,7 +80,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
           v-else
           name="unitable-single-selection"
           :value="(record[tableProps.rowKey] as Key)"
-          :checked="tableProps.selectedRowKeys.has(record[tableProps.rowKey])"
+          :checked="tableProps.selectedRowKeys?.has(record[tableProps.rowKey])"
           :disabled="tableProps.selection?.disabledCondition?.(record)"
           @change="() => handleRadioClick(record)"
         ></UniRadio>

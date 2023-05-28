@@ -73,12 +73,12 @@ function SelectionAllToggle(isSelectAll: boolean) {
 
     if (isSelectAll) {
       // Exclude the data that has already been selected
-      if (tableProps.selectedRowKeys.has(rowKey)) return;
+      if (tableProps.selectedRowKeys?.has(rowKey)) return;
       changedRowKeys.push(rowKey);
       changedRecords.push(item);
     } else {
       // Exclude the data that has not been selected yet
-      if (!tableProps.selectedRowKeys.has(rowKey)) return;
+      if (!tableProps.selectedRowKeys?.has(rowKey)) return;
       changedRowKeys.push(rowKey);
       changedRecords.push(item);
     }

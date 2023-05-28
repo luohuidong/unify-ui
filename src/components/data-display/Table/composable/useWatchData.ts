@@ -19,7 +19,7 @@ export function useWatchData(tableProps: TableProps, tableEmits: TableEmits) {
           newSelectedRowKeys.delete(key);
         }
       }
-      if (newSelectedRowKeys.size === tableProps.selectedRowKeys.size) return;
+      if (newSelectedRowKeys.size === tableProps.selectedRowKeys?.size) return;
       tableEmits("update:selectedRowKeys", newSelectedRowKeys);
     },
     {
