@@ -1,5 +1,6 @@
 <script setup lang="ts">
-import { UniButton, UniScrim } from "unify-ui/components";
+import UniButton from "../../general/Button/index.vue";
+import UniScrim from "../../others/Scrim/index.vue";
 import CloseIcon from "./IconClose.vue";
 
 withDefaults(

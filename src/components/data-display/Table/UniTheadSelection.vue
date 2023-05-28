@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watchEffect, reactive, computed } from "vue";
 
-import { UniCheckbox } from "unify-ui/components";
+import UniCheckbox from "../../data-entry/Checkbox/UniCheckbox.vue";
 import { useInject } from "./composable";
 import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
