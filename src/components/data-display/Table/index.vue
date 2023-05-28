@@ -8,7 +8,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { useSlots, provide, ref } from "vue";
-import { UniEmpty } from "unify-ui/components";
+import UniEmpty from "../Empty/index.vue";
 
 import * as injectKeys from "./injectKeys";
 import {

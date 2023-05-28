@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { UniPopup } from "unify-ui/components";
+import UniPopup from "../../data-display/Popup/index.vue";
 
 defineProps<{
   /** The content of the tooltip */
