@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.10.3
+
+### Patch Changes
+
+- f806359: Make the 'selectedRowKeys' property of the Table component optional
+
 ## 0.10.2
 
 ### Patch Changes
