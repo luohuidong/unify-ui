@@ -31,3 +31,4 @@ export {
 
 // Others
 export { default as UniScrim } from "./others/Scrim/index.vue";
+export { default as UniConfigProvider } from "./others/ConfigProvider/index.vue";
