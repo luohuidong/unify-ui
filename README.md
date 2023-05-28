@@ -35,7 +35,3 @@ import { UniButton } from "unify-ui";
   <UniButton type="text">text button</UniButton>
 </template>
 ```
-
-## IDE Support
-
-[![JetBrains Logo (Main) logo](https://resources.jetbrains.com/storage/products/company/brand/logos/jb_beam.svg)](https://jb.gg/OpenSourceSupport)
