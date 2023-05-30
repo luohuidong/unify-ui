@@ -2,10 +2,10 @@ import { get } from "lodash-es";
 
 import { useConfig } from "./useConfig";
 import zh_CN from "unify-ui/locales/zh-CN.yaml";
-import en from "unify-ui/locales/en.yaml";
+import en_US from "unify-ui/locales/en-US.yaml";
 
 const messages = {
-  en,
+  "en-US": en_US,
   "zh-CN": zh_CN,
 };
 
