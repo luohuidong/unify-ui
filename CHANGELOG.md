@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.11.1
+
+### Patch Changes
+
+- d96953f: rename the en locale file
+
 ## 0.11.0
 
 ### Minor Changes
