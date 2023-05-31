@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.11.2
+
+### Patch Changes
+
+- 6e95171: Add the fallbackLocale property to the ConfigProvider component
+
 ## 0.11.1
 
 ### Patch Changes
