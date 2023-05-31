@@ -8,9 +8,19 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { provide } from "vue";
-import { configKey, type ConfigProviderProps } from "unify-ui/composable/useConfig";
 
-const props = defineProps<ConfigProviderProps>();
+import { configKey } from "./utils";
+
+const props = withDefaults(
+  defineProps<{
+    locale?: "en-US" | "zh-CN";
+    fallbackLocale?: "en-US" | "zh-CN";
+  }>(),
+  {
+    locale: "en-US",
+    fallbackLocale: "en-US",
+  }
+);
 provide(configKey, props);
 
 defineSlots<{
