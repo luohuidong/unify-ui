@@ -18,7 +18,7 @@ import {
   useGetColumnCount,
   useGetSlotKey,
   useWatchData,
-} from "./composable";
+} from "./composables";
 import type { Key, Record, TableProps, TableEmits } from "./types";
 
 import UniColGroup from "./UniColGroup.vue";

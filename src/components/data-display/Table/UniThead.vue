@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useInject, useSortEmit } from "./composable";
+import { useInject, useSortEmit } from "./composables";
 import commonStyle from "./commonStyle.module.scss";
 import { ColumnData } from "./types";
 

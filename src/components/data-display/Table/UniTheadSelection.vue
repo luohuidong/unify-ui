@@ -2,7 +2,7 @@
 import { watchEffect, reactive, computed } from "vue";
 
 import UniCheckbox from "../../data-entry/Checkbox/UniCheckbox.vue";
-import { useInject } from "./composable";
+import { useInject } from "./composables";
 import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
 import commonStyle from "./commonStyle.module.scss";

@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from "vue";
 import { throttle } from "lodash-es";
 
-import { useInject } from "./composable";
+import { useInject } from "./composables";
 import { expandColumnWidth, selectionColumnWidth } from "./constant";
 
 const { tableProps, columnsData, rootContainerRef, tableState } = useInject();

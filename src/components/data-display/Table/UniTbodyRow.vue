@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive, computed } from "vue";
 
-import { useInject, useSelection } from "./composable";
+import { useInject, useSelection } from "./composables";
 import type { Record, Key } from "./types";
 import commonStyle from "./commonStyle.module.scss";
 

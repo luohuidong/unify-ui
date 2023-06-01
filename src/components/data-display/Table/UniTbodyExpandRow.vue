@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useInject } from "./composable";
+import { useInject } from "./composables";
 import type { Record } from "./types";
 
 const { columnCount } = useInject();

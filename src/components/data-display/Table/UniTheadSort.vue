@@ -4,7 +4,7 @@ import { computed } from "vue";
 import TriangleUp from "./icons/TriangleUp.vue";
 import TriangleDown from "./icons/TriangleDown.vue";
 import { ColumnData } from "./types";
-import { useInject, useSortEmit } from "./composable";
+import { useInject, useSortEmit } from "./composables";
 
 const props = defineProps<{
   columnData: ColumnData;
