@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.11.3
+
+### Patch Changes
+
+- 2ca740a: Modify the location of the useConfig.ts file
+
 ## 0.11.2
 
 ### Patch Changes
