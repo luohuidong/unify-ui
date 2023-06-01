@@ -18,7 +18,6 @@
     "declaration": true,
     "declarationDir": "types",
     "types": [
-      "vitest/globals",
       "@modyfi/vite-plugin-yaml/modules" // https://github.com/Modyfi/vite-plugin-yaml
     ],
     "skipLibCheck": true

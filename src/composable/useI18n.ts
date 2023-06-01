@@ -1,6 +1,6 @@
 import { get } from "lodash-es";
 
-import { useConfig } from "../components/others/ConfigProvider/useConfig";
+import { useConfig } from "./useConfig";
 import zh_CN from "unify-ui/locales/zh-CN.yaml";
 import en_US from "unify-ui/locales/en-US.yaml";
 

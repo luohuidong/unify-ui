@@ -1,13 +1,14 @@
 import { mount } from "@vue/test-utils";
+import { h, defineComponent } from "vue";
 import { test, expect } from "vitest";
-import { h, defineComponent, inject } from "vue";
-import { UniConfigProvider } from "unify-ui";
-import { configKey } from "../utils";
+import { UniConfigProvider, UniEmpty } from "unify-ui";
+
+import { useConfig } from "../useConfig";
 
 test("locale and fallbackLocale", async () => {
   const TestComponent = defineComponent({
     setup() {
-      const config = inject(configKey);
+      const config = useConfig();
       return { config };
     },
     template: `
@@ -18,6 +19,7 @@ test("locale and fallbackLocale", async () => {
     `,
   });
 
+  // default locale:en-US. Expect en-US.
   const wrapper = mount(UniConfigProvider, {
     slots: {
       default: () => h(TestComponent),
@@ -31,8 +33,11 @@ test("locale and fallbackLocale", async () => {
   expect(locale.text()).toContain("en-US");
   expect(fallbackLocale.text()).toContain("en-US");
 
-  // locale: zh-CN, fallbackLocale: zh-CN
-  await wrapper.setProps({ locale: "zh-CN", fallbackLocale: "zh-CN" });
+  // pass locale:zh-CN,  fallbackLocale: zh-HK
+  await wrapper.setProps({
+    locale: "zh-CN",
+    fallbackLocale: "zh-HK",
+  });
   expect(locale.text()).toContain("zh-CN");
-  expect(fallbackLocale.text()).toContain("zh-CN");
+  expect(fallbackLocale.text()).toContain("zh-HK");
 });
