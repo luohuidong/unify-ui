@@ -19,11 +19,16 @@ import ShowCaseInternationalization from './ShowCaseInternationalization.vue'
 ### Properties
 
 ```ts
-interface ConfigProviderProps {
-  locale: "en" | "zh-CN";
-}
-
-const props = defineProps<ConfigProviderProps>();
+const props = withDefaults(
+  defineProps<{
+    locale?: "en-US" | "zh-CN";
+    fallbackLocale?: "en-US" | "zh-CN";
+  }>(),
+  {
+    locale: "en-US",
+    fallbackLocale: "en-US",
+  }
+);
 ```
 
 ### Slots
