@@ -45,9 +45,9 @@ function handleTriggerClick() {
     :type="showPassword ? 'text' : 'password'"
     :disabled="disabled"
     :placeholder="placeholder"
-    @update:model-value="(value) => $emit('update:modelValue', value)"
-    @input="(value) => $emit('input', value)"
-    @change="(value) => $emit('change', value)"
+    @update:model-value="(value: string) => $emit('update:modelValue', value)"
+    @input="(value: string) => $emit('input', value)"
+    @change="(value: string) => $emit('change', value)"
   >
     <template #inline-trailing-add-on>
       <div v-if="!props.disabled" class="password-trigger-container">
