@@ -9,7 +9,7 @@
     "build:type": "vue-tsc --declaration --emitDeclarationOnly --project tsconfig.prod.json",
     "build:lib": "vite build",
     "type:check": "vue-tsc --noEmit --project tsconfig.prod.json",
-    "commit": "cz",
+    "cz": "cz",
     "cs": "changeset",
     "release": "pnpm build && pnpm publish",
     "docs:dev": "vitepress dev docs",
