@@ -59,6 +59,30 @@ import UniInput from "../index.vue";
         </template>
       </UniInput>
     </div>
+
+    <div>
+      <UniInput status="error" placeholder="error">
+        <template #inline-leading-add-on>
+          <span>http://</span>
+        </template>
+
+        <template #inline-trailing-add-on>
+          <span>.com</span>
+        </template>
+      </UniInput>
+    </div>
+
+    <div>
+      <UniInput disabled status="error" placeholder="error & disabled">
+        <template #inline-leading-add-on>
+          <span>http://</span>
+        </template>
+
+        <template #inline-trailing-add-on>
+          <span>.com</span>
+        </template>
+      </UniInput>
+    </div>
   </div>
 </template>
 

@@ -9,18 +9,27 @@ export default defineComponent({
 <script setup lang="ts">
 import { computed, useSlots } from "vue";
 
-defineProps<{
-  /** Input value */
-  modelValue?: string;
-  /** Whether the input is disabled */
-  disabled?: boolean;
-  /** Input placeholder */
-  placeholder?: string;
-  /** Control input editability */
-  readonly?: boolean;
-  /** native input types */
-  type?: string;
-}>();
+withDefaults(
+  defineProps<{
+    /** Input value */
+    modelValue?: string;
+    /** Whether the input is disabled */
+    disabled?: boolean;
+    /** Input placeholder */
+    placeholder?: string;
+    /** Control input editability */
+    readonly?: boolean;
+    /** native input types */
+    type?: string;
+    status?: "normal" | "error";
+  }>(),
+  {
+    modelValue: "",
+    placeholder: "",
+    type: "text",
+    status: "normal",
+  }
+);
 
 const emits = defineEmits<{
   (e: "update:modelValue", value: string): void;
@@ -61,13 +70,14 @@ const existAddOn = computed(() => {
     class="input-group"
     :class="{
       'input-group--without-add-on': !existAddOn,
+      'input-group--error': !existAddOn && status === 'error',
       'input-group--disabled': !existAddOn && disabled,
     }"
   >
     <span
       v-if="$slots['leading-add-on']"
       class="add-on add-on--leading"
-      :class="{ 'add-on--disabled': disabled }"
+      :class="{ 'add-on--disabled': disabled, 'add-on--error': status === 'error' }"
     >
       <slot name="leading-add-on"></slot>
     </span>
@@ -76,6 +86,7 @@ const existAddOn = computed(() => {
       v-if="$slots['inline-leading-add-on']"
       :tabindex="disabled ? '' : '1'"
       class="inline-add-on inline-add-on--leading"
+      :class="{ 'inline-add-on--error': status === 'error' }"
       @click.stop="handleInlineAddOnClick"
     >
       <slot name="inline-leading-add-on"></slot>
@@ -89,6 +100,7 @@ const existAddOn = computed(() => {
         'input--with-add-on': existAddOn,
         'input--left-rounded': $slots['trailing-add-on'] && !$slots['leading-add-on'],
         'input--right-rounded': $slots['leading-add-on'] && !$slots['trailing-add-on'],
+        'input--error': existAddOn && status === 'error',
       }"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -102,6 +114,7 @@ const existAddOn = computed(() => {
       v-if="$slots['inline-trailing-add-on']"
       :tabindex="disabled ? '' : '1'"
       class="inline-add-on inline-add-on--trailing"
+      :class="{ 'inline-add-on--error': status === 'error' }"
       @click.stop="handleInlineAddOnClick"
     >
       <slot name="inline-trailing-add-on"></slot>
@@ -110,7 +123,7 @@ const existAddOn = computed(() => {
     <span
       v-if="$slots['trailing-add-on']"
       class="add-on add-on--trailing"
-      :class="{ 'add-on--disabled': disabled }"
+      :class="{ 'add-on--disabled': disabled, 'add-on--error': status === 'error' }"
     >
       <slot name="trailing-add-on"></slot>
     </span>
@@ -122,6 +135,7 @@ $normal-border-color: #d1d5db;
 $active-border-color: #4f46e5;
 $radius: 6px;
 $disabled-background-color: rgb(249 250 251);
+$error-color: rgb(239 68 68);
 
 .input-group {
   box-sizing: border-box;
@@ -135,21 +149,30 @@ $disabled-background-color: rgb(249 250 251);
   border-radius: $radius;
   background-color: #fff;
   color: rgb(17 24 39);
-}
 
-.input-group--without-add-on {
-  padding: 0px 12px;
-  border: 1px solid $normal-border-color;
-}
+  &.input-group--without-add-on {
+    padding: 0px 12px;
+    border: 1px solid $normal-border-color;
 
-.input-group--without-add-on:focus-within {
-  border: 1px solid $active-border-color;
-  outline: 1px solid $active-border-color;
-}
+    &:focus-within {
+      border: 1px solid $active-border-color;
+      outline: 1px solid $active-border-color;
+    }
+  }
 
-.input-group--disabled {
-  background: $disabled-background-color;
-  cursor: not-allowed;
+  &.input-group--error {
+    border: 1px solid $error-color;
+
+    &:focus-within {
+      border: 1px solid $error-color;
+      outline: 1px solid $error-color;
+    }
+  }
+
+  &.input-group--disabled {
+    background: $disabled-background-color;
+    cursor: not-allowed;
+  }
 }
 
 .input {
@@ -163,37 +186,44 @@ $disabled-background-color: rgb(249 250 251);
   border: none;
   outline: none;
   background-color: transparent;
-}
-
-.input--with-add-on {
-  border: 1px solid $normal-border-color;
-  padding: 0 12px;
-}
-.input--with-add-on:focus-within {
-  border: 1px solid $active-border-color;
-  outline: 1px solid $active-border-color;
-}
-
-.input--left-rounded {
-  border-radius: $radius 0 0 $radius;
-}
-
-.input--right-rounded {
-  border-radius: 0 $radius $radius 0;
-}
-
-.input::placeholder {
-  color: #a0aec0;
-}
-
-.input:disabled {
-  color: #a0aec0;
-  cursor: not-allowed;
-  background-color: $disabled-background-color;
-}
-
-.input:focus {
   z-index: 1;
+
+  &::placeholder {
+    color: #a0aec0;
+  }
+
+  &:disabled {
+    color: #a0aec0;
+    cursor: not-allowed;
+    background-color: $disabled-background-color;
+  }
+
+  &.input--with-add-on {
+    border: 1px solid $normal-border-color;
+    padding: 0 12px;
+
+    &:focus {
+      border: 1px solid $active-border-color;
+      outline: 1px solid $active-border-color;
+    }
+  }
+
+  &.input--left-rounded {
+    border-radius: $radius 0 0 $radius;
+  }
+
+  &.input--right-rounded {
+    border-radius: 0 $radius $radius 0;
+  }
+
+  &.input--error {
+    border: 1px solid $error-color;
+
+    &:focus {
+      border: 1px solid $error-color;
+      outline: 1px solid $error-color;
+    }
+  }
 }
 
 .add-on {
@@ -205,36 +235,47 @@ $disabled-background-color: rgb(249 250 251);
   height: 100%;
   padding: 0 12px;
 
-  border: 1px solid $normal-border-color;
+  border-width: 1px;
+  border-style: solid;
+  border-color: $normal-border-color;
   font-size: 14px;
   color: rgb(107 114 128);
-}
 
-.add-on--disabled {
-  background: $disabled-background-color;
-}
+  &.add-on--disabled {
+    background: $disabled-background-color;
+  }
 
-.add-on--leading {
-  border-radius: $radius 0 0 $radius;
-  border-right: none;
-}
+  &.add-on--leading {
+    border-radius: $radius 0 0 $radius;
+    border-right: none;
+  }
 
-.add-on--trailing {
-  border-radius: 0 $radius $radius 0;
-  border-left: none;
+  &.add-on--trailing {
+    border-radius: 0 $radius $radius 0;
+    border-left: none;
+  }
+
+  &.add-on--error {
+    color: $error-color;
+    border-color: $error-color;
+  }
 }
 
 .inline-add-on {
   user-select: none;
   font-size: 14px;
   color: rgb(107 114 128);
-}
 
-.inline-add-on--leading {
-  margin-right: 4px;
-}
+  &.inline-add-on--leading {
+    margin-right: 4px;
+  }
 
-.inline-add-on--trailing {
-  margin-left: 4px;
+  &.inline-add-on--trailing {
+    margin-left: 4px;
+  }
+
+  &.inline-add-on--error {
+    color: $error-color;
+  }
 }
 </style>

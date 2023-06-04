@@ -20,6 +20,13 @@ const value = ref("allan@mail.com");
     <div>
       <UniInput v-model="value" readonly></UniInput>
     </div>
+
+    <div>
+      <UniInput placeholder="error" status="error"></UniInput>
+    </div>
+    <div>
+      <UniInput disabled placeholder="error & disabled" status="error"></UniInput>
+    </div>
   </div>
 </template>
 
