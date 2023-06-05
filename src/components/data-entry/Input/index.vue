@@ -42,6 +42,13 @@ const emits = defineEmits<{
   (e: "change", value: string): void;
 }>();
 
+defineSlots<{
+  ["leading-add-on"](props: {}): any;
+  ["trailing-add-on"](props: {}): any;
+  ["inline-leading-add-on"](props: {}): any;
+  ["inline-trailing-add-on"](props: {}): any;
+}>();
+
 const slots = useSlots();
 const inputRef = ref<HTMLInputElement>();
 

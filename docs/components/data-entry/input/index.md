@@ -93,16 +93,27 @@ The example of adding leading add-ons to a disabled input:
 ### Properties
 
 ```ts
-defineProps<{
-  /** Input value */
-  modelValue?: string;
-  /** Whether the input is disabled */
-  disabled?: boolean;
-  /** Input placeholder */
-  placeholder?: string;
-  /** Control input editability */
-  readonly?: boolean;
-}>();
+withDefaults(
+  defineProps<{
+    /** Input value */
+    modelValue?: string;
+    /** Whether the input is disabled */
+    disabled?: boolean;
+    /** Input placeholder */
+    placeholder?: string;
+    /** Control input editability */
+    readonly?: boolean;
+    /** native input types */
+    type?: string;
+    status?: "normal" | "error";
+  }>(),
+  {
+    modelValue: "",
+    placeholder: "",
+    type: "text",
+    status: "normal",
+  }
+);
 ```
 
 ### Events
@@ -117,5 +128,16 @@ defineEmits<{
    * enter key or when the input element loses focus after its value has been changed
    */
   (e: "change", value: string): void;
+}>();
+```
+
+### Slots
+
+```ts
+defineSlots<{
+  ["leading-add-on"](props: {}): any;
+  ["trailing-add-on"](props: {}): any;
+  ["inline-leading-add-on"](props: {}): any;
+  ["inline-trailing-add-on"](props: {}): any;
 }>();
 ```
