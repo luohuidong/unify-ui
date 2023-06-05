@@ -1,10 +1,9 @@
 import { test, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import { defineComponent, h, warn } from "vue";
+import { defineComponent, h } from "vue";
 import { UniConfigProvider } from "unify-ui";
 
 import { useI18n } from "../useI18n";
-import { assignWith } from "lodash-es";
 
 test("use useI18n with ConfigProvider", async () => {
   const TestComponent = defineComponent({
