@@ -6,6 +6,7 @@ import ShowCaseAddOn from './ShowCaseAddOn.vue'
 import ShowCaseAddOnDisabled from './ShowCaseAddOnDisabled.vue'
 import ShowCaseInlineAddOn from './ShowCaseInlineAddOn.vue'
 import ShowCaseInlineAddOnDisabled from './ShowCaseInlineAddOnDisabled.vue'
+import ShowCaseStatusError from './ShowCaseStatusError.vue'
 </script>
 
 # Input
@@ -86,6 +87,16 @@ The example of adding leading add-ons to a disabled input:
 
 ::: details View Source
 <<< @/components/data-entry/input/ShowCaseInlineAddOnDisabled.vue
+:::
+
+## Status: Error
+
+::: raw
+<ShowCaseStatusError class=vp-raw />
+:::
+
+::: details View Source
+<<< @/components/data-entry/input/ShowCaseStatusError.vue
 :::
 
 ## API
