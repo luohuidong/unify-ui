@@ -1,2 +1,5 @@
 empty:
   no_data: No Data
+modal:
+  confirm: Confirm
+  cancel: Cancel
