@@ -3,23 +3,14 @@ import { onMounted, onUnmounted } from "vue";
 
 import UniBaseModal from "./UniBaseModal.vue";
 
-withDefaults(
-  defineProps<{
-    visible: boolean;
-    title?: string;
-    supportingText?: string;
-    confirmText?: string;
-    cancelText?: string;
-    modalClass?: string;
-  }>(),
-  {
-    title: undefined,
-    supportingText: undefined,
-    confirmText: undefined,
-    cancelText: undefined,
-    modalClass: undefined,
-  }
-);
+defineProps<{
+  visible: boolean;
+  title?: string;
+  supportingText?: string;
+  confirmText?: string;
+  cancelText?: string;
+  modalClass?: string;
+}>();
 
 const emits = defineEmits<{
   (e: "click:confirm-button"): void;

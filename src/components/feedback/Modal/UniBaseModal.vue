@@ -1,25 +1,20 @@
 <script setup lang="ts">
+import { useI18n } from "unify-ui/composables/useI18n";
+
 import UniButton from "../../general/Button/index.vue";
 import UniScrim from "../../others/Scrim/index.vue";
 import CloseIcon from "./IconClose.vue";
 
-withDefaults(
-  defineProps<{
-    visible: boolean;
-    title?: string;
-    supportingText?: string;
-    confirmText?: string;
-    cancelText?: string;
-    modalClass?: string;
-  }>(),
-  {
-    title: "",
-    supportingText: "",
-    confirmText: "Confirm",
-    cancelText: "Cancel",
-    modalClass: undefined,
-  }
-);
+const { t } = useI18n();
+
+defineProps<{
+  visible: boolean;
+  title?: string;
+  supportingText?: string;
+  confirmText?: string;
+  cancelText?: string;
+  modalClass?: string;
+}>();
 
 const emits = defineEmits<{
   (e: "click:confirm-button"): void;
@@ -53,11 +48,11 @@ function handleCancelButtonClick() {
       <div class="actions">
         <slot name="actions">
           <UniButton type="secondary" class="cancel-button" @click="handleCancelButtonClick">
-            {{ cancelText }}
+            {{ cancelText || t("modal.cancel") }}
           </UniButton>
 
           <UniButton type="primary" @click="handleConfirmButtonClick">
-            {{ confirmText }}
+            {{ confirmText || t("modal.confirm") }}
           </UniButton>
         </slot>
       </div>

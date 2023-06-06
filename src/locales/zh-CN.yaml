@@ -1,2 +1,5 @@
 empty:
   no_data: 暂无数据
+modal:
+  confirm: 确定
+  cancel: 取消
