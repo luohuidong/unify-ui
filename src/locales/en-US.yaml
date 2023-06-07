@@ -3,3 +3,6 @@ empty:
 modal:
   confirm: Confirm
   cancel: Cancel
+not_found:
+  title: Page not found
+  prompt: Sorry, we couldn't find the page you're looking for.
