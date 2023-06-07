@@ -7,6 +7,8 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+import { useI18n } from "unify-ui/composables/useI18n";
+
 withDefaults(
   defineProps<{
     align?: "left" | "center" | "right";
@@ -15,6 +17,8 @@ withDefaults(
     align: "center",
   }
 );
+
+const { t } = useI18n();
 </script>
 
 <template>
@@ -27,8 +31,8 @@ withDefaults(
     }"
   >
     <p class="not-found__text">404</p>
-    <h1 class="not-found__heading">Page not found</h1>
-    <p class="not-found__hint">Sorry, we couldn't find the page you're looking for.</p>
+    <h1 class="not-found__heading">{{ t("not_found.title") }}</h1>
+    <p class="not-found__hint">{{ t("not_found.prompt") }}</p>
   </div>
 </template>
 

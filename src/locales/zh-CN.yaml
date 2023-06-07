@@ -3,3 +3,6 @@ empty:
 modal:
   confirm: 确定
   cancel: 取消
+not_found:
+  title: 未找到页面
+  prompt: 抱歉，我们找不到您所寻找的页面。
