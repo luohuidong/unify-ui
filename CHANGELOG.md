@@ -1,5 +1,13 @@
 # unify-ui
 
+## 0.11.4
+
+### Patch Changes
+
+- f8a58f3: Internationalize the Empty component
+- d677129: Add an error status to the Input component using the 'status' property
+- fb0aaca: internationalize the NotFound component
+
 ## 0.11.3
 
 ### Patch Changes
