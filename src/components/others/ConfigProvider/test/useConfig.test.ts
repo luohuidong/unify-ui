@@ -3,7 +3,7 @@ import { h, defineComponent } from "vue";
 import { test, expect } from "vitest";
 import { UniConfigProvider } from "unify-ui";
 
-import { useConfig } from "../useConfig";
+import { useConfig } from "../utils";
 
 test("locale and fallbackLocale", async () => {
   const TestComponent = defineComponent({
