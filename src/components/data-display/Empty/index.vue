@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { useI18n } from "unify-ui/composables/useI18n";
+import { useI18n } from "unify-ui/i18n";
 import EmptyIcon from "./EmptyIcon.vue";
 
 const { t } = useI18n();
