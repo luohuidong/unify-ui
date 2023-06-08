@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.11.5
+
+### Patch Changes
+
+- 0cff708: Resolve the problem with the internationalization of the ConfirmModal component not working.
+
 ## 0.11.4
 
 ### Patch Changes
