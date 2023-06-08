@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { useI18n } from "unify-ui/composables/useI18n";
+import { useI18n } from "unify-ui/i18n";
 
 import UniButton from "../../general/Button/index.vue";
 import UniScrim from "../../others/Scrim/index.vue";
