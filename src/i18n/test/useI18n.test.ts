@@ -5,6 +5,21 @@ import { UniConfigProvider } from "unify-ui";
 
 import { useI18n } from "../useI18n";
 
+test("use useI18n without ConfigProvider", async () => {
+  const TestComponent = defineComponent({
+    setup() {
+      const { t } = useI18n();
+      return {
+        t,
+      };
+    },
+    template: `<div>{{ t('empty.no_data') }}</div>`,
+  });
+
+  const wrapper = mount(TestComponent);
+  expect(wrapper.html()).toBe(`<div>No Data</div>`);
+});
+
 test("use useI18n with ConfigProvider", async () => {
   const TestComponent = defineComponent({
     setup() {
@@ -43,19 +58,4 @@ test("use useI18n with ConfigProvider", async () => {
     fallbackLocale: "zh-CN",
   });
   expect(wrapper.html()).toBe(`<div>暂无数据</div>`);
-});
-
-test("use useI18n without ConfigProvider", async () => {
-  const TestComponent = defineComponent({
-    setup() {
-      const { t } = useI18n();
-      return {
-        t,
-      };
-    },
-    template: `<div>{{ t('empty.no_data') }}</div>`,
-  });
-
-  const wrapper = mount(TestComponent);
-  expect(wrapper.html()).toBe(`<div>No Data</div>`);
 });
