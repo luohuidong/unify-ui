@@ -7,9 +7,9 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { provide } from "vue";
+import { provide, watch } from "vue";
 
-import { configKey } from "./utils";
+import { configKey, GlobalConfig } from "./utils";
 
 const props = withDefaults(
   defineProps<{
@@ -22,6 +22,15 @@ const props = withDefaults(
   }
 );
 provide(configKey, props);
+
+watch(
+  () => [props.locale, props.fallbackLocale],
+  ([locale, fallbackLocale]) => {
+    const config = GlobalConfig.getInstance().config;
+    config.locale = locale;
+    config.fallbackLocale = fallbackLocale;
+  }
+);
 
 defineSlots<{
   default(props: {}): any;
