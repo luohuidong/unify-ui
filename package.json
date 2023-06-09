@@ -2,6 +2,9 @@
   "name": "unify-ui-workspaces",
   "private": true,
   "scripts": {
+    "build": "pnpm --filter 'unify-ui' build && pnpm --filter '@unify-ui/docs' build",
+    "release": "pnpm build && pnpm publish",
+    "test": "pnpm -r test",
     "cz": "cz",
     "cs": "changeset"
   },
