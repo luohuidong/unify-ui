@@ -3,7 +3,7 @@
   "private": true,
   "scripts": {
     "build": "pnpm --filter 'unify-ui' build && pnpm --filter '@unify-ui/docs' build",
-    "release": "pnpm build && pnpm publish",
+    "release": "pnpm build && pnpm -r publish",
     "test": "pnpm -r test",
     "cz": "cz",
     "cs": "changeset"
