@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UniButton } from "unify-ui/components";
+import { UniButton } from "@/components";
 import { useUniConfirmModal } from "../useUniConfirmModal";
 
 const { confirm } = useUniConfirmModal();

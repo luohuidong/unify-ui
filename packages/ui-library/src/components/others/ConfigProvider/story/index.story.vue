@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { UniEmpty, UniConfigProvider, UniButton } from "unify-ui";
+import { UniEmpty, UniConfigProvider, UniButton } from "@/components";
 
 const locale = ref<"en-US" | "zh-CN">("en-US");
 </script>

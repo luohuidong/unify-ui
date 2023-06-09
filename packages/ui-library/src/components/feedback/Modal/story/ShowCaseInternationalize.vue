@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UniButton, UniModal, useUniConfirmModal, UniConfigProvider } from "unify-ui";
+import { UniButton, UniModal, useUniConfirmModal, UniConfigProvider } from "@/components";
 import { ref } from "vue";
 
 const visible = ref(false);

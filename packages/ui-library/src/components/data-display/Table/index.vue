@@ -8,7 +8,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { useSlots, provide, ref } from "vue";
-import UniEmpty from "../Empty/index.vue";
+import { UniEmpty } from "@/components";
 
 import * as injectKeys from "./injectKeys";
 import {
@@ -63,11 +63,7 @@ useShowShadow({ containerRef, tableRef, columnsData, tableProps: props });
       <tbody>
         <!-- render the data -->
         <template v-if="props.data.length > 0">
-          <UniTbodyRow
-            v-for="(record, index) in props.data"
-            :key="(record[props.rowKey] as string)"
-            :record="record"
-          >
+          <UniTbodyRow v-for="(record, index) in props.data" :key="(record[props.rowKey] as string)" :record="record">
             <template #rowCell="{ columnKey }">
               <slot :name="columnKey" :record="record" :index="index"></slot>
             </template>

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive, watch } from "vue";
-import { UniButton } from "unify-ui/components";
+import { UniButton } from "@/components";
 
 import UniTable from "../index.vue";
 import useFetchData from "./useFetchData";

@@ -1,12 +1,11 @@
 <script setup lang="ts">
 import { reactive, computed } from "vue";
 
+import { UniCheckbox, UniRadio } from '@/components'
 import { useInject, useSelection } from "./composables";
 import type { Record, Key } from "./types";
 import commonStyle from "./commonStyle.module.scss";
 
-import UniCheckbox from "../../data-entry/Checkbox/UniCheckbox.vue";
-import UniRadio from "../../data-entry/Radio/UniRadio.vue";
 import Add from "./icons/Add.vue";
 import Minus from "./icons/Minus.vue";
 import UniTbodyExpandRow from "./UniTbodyExpandRow.vue";

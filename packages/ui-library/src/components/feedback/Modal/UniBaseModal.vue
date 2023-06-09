@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "@/i18n";
 
-import UniButton from "../../general/Button/index.vue";
-import UniScrim from "../../others/Scrim/index.vue";
+import { UniButton, UniScrim } from '@/components'
 import CloseIcon from "./IconClose.vue";
 
 const { t } = useI18n();

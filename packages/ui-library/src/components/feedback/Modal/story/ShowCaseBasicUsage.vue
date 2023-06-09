@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { UniButton } from "unify-ui/components";
+import { UniButton } from "@/components";
 
 import UniModal from "../UniModal.vue";
 

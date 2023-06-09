@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import UniFilePicker from "../FilePicker/index.vue";
+import { UniFilePicker } from '@/components'
 import PhotoIcon from "./icons/PhotoIcon.vue";
 
 const props = defineProps<{
