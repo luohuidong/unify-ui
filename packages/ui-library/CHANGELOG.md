@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.11.6
+
+### Patch Changes
+
+- b3367c7: Modify the import path of components
+
 ## 0.11.5
 
 ### Patch Changes
