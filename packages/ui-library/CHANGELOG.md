@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.12.0
+
+### Minor Changes
+
+- 7aac461: Add the Form and FormItem components
+
 ## 0.11.6
 
 ### Patch Changes
