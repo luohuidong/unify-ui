@@ -60,9 +60,7 @@ function validate() {
 }
 
 async function handleSubmit() {
-  try {
-    await validate();
-  } catch {}
+  await validate().catch(() => {});
 }
 
 defineExpose({
@@ -71,9 +69,15 @@ defineExpose({
 </script>
 
 <template>
-  <form @submit.prevent="handleSubmit">
+  <form :class="$style.form" @submit.prevent="handleSubmit">
     <slot></slot>
   </form>
 </template>
 
-<style lang="scss" module></style>
+<style lang="scss" module>
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+</style>

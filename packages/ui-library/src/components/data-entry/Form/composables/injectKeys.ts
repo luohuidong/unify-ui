@@ -1,23 +1,20 @@
-import type { InjectionKey } from "vue";
+import type { InjectionKey, ComputedRef } from "vue";
 import type { RuleItem } from "async-validator";
 
-import type { FormProps } from "../types";
+import type { FormProps, FormItemInfo } from "../types";
 
 export interface State {
-  formItems: Map<
-    string,
-    {
-      rules: RuleItem[];
-      validateStatus: "success" | "error" | undefined;
-      validateMessage: string;
-    }
-  >;
+  formItems: Map<string, FormItemInfo>;
 }
 
-export const injectKey = Symbol("form") as InjectionKey<{
+export const injectFormStoreKey = Symbol("form") as InjectionKey<{
   state: State;
   registerFormItem: (name: string, rules: RuleItem[]) => void;
   unRegisterFormItem: (name: string) => void;
   validateFormItem(name: string): Promise<void>;
   formProps: FormProps;
+}>;
+
+export const InjectFormItemStoreInjectKey = Symbol("form-item") as InjectionKey<{
+  formItemInfo: ComputedRef<FormItemInfo | undefined>;
 }>;

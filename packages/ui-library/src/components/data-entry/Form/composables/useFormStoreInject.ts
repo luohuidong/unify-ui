@@ -1,7 +1,7 @@
 import { inject } from "vue";
 
-import { injectKey } from "./injectKeys";
+import { injectFormStoreKey } from "./injectKeys";
 
 export function useFormStoreInject() {
-  return inject(injectKey);
+  return inject(injectFormStoreKey);
 }

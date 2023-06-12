@@ -2,7 +2,7 @@ import { provide, reactive } from "vue";
 import Schema from "async-validator";
 import type { RuleItem } from "async-validator";
 
-import { injectKey, State } from "./injectKeys";
+import { injectFormStoreKey, State } from "./injectKeys";
 import type { FormProps } from "../types";
 
 export function useFormStoreProvider(props: FormProps) {
@@ -45,7 +45,7 @@ export function useFormStoreProvider(props: FormProps) {
       });
   }
 
-  provide(injectKey, {
+  provide(injectFormStoreKey, {
     state,
     registerFormItem,
     unRegisterFormItem,

@@ -7,10 +7,11 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { computed, watch, onMounted, onUnmounted } from "vue";
+import { computed, watch, onMounted, onUnmounted, provide } from "vue";
 import type { RuleItem } from "async-validator";
 
 import { useFormStoreInject } from "./composables/useFormStoreInject";
+import { InjectFormItemStoreInjectKey } from "./composables/injectKeys";
 
 type ValidateStatus = "success" | "error" | undefined;
 
@@ -36,25 +37,58 @@ onUnmounted(() => {
 const formItemInfo = computed(() => store?.state.formItems.get(props.name));
 
 const formItemValue = computed(() => store?.formProps.model[props.name]);
-watch(formItemValue, async (value) => {
+watch(formItemValue, async () => {
   await store?.validateFormItem(props.name);
 });
+
+provide(InjectFormItemStoreInjectKey, {
+  formItemInfo,
+});
+
+const isRequired = computed(() => props.rules.find((rule) => (rule as any).required));
 </script>
 
 <template>
-  <div>
-    <label>
-      <div>{{ label }}: {{ formItemValue }}</div>
-      <div>
-        <slot :validate-status="formItemInfo?.validateStatus"></slot>
-      </div>
-      <div class="message">{{ formItemInfo?.validateMessage }}</div>
-    </label>
-  </div>
+  <label :class="$style.container">
+    <div :class="$style.label">
+      <span v-if="isRequired" :class="$style.label__asterisk">*</span>{{ label }}
+    </div>
+    <div :class="$style.slot">
+      <slot :validate-status="formItemInfo?.validateStatus"></slot>
+    </div>
+    <div :class="$style.message">{{ formItemInfo?.validateMessage }}</div>
+  </label>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
+.container {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+}
+
+.label {
+  display: inline-block;
+  color: rgb(17, 24, 39);
+  font-size: 14px;
+  line-height: 24px;
+  font-weight: 500;
+
+  .label__asterisk {
+    margin-right: 4px;
+    color: rgb(220, 38, 38);
+  }
+}
+
+.slot {
+  display: inline-block;
+}
+
 .message {
-  color: red;
+  display: inline-block;
+  color: rgb(220, 38, 38);
+  font-size: 14px;
+  line-height: 24px;
+  height: 24px;
 }
 </style>
