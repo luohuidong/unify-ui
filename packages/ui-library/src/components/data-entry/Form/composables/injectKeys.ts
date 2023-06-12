@@ -9,7 +9,7 @@ export interface State {
     {
       rules: RuleItem[];
       validateStatus: "success" | "error" | undefined;
-      validateMessage: "";
+      validateMessage: string;
     }
   >;
 }
@@ -18,6 +18,6 @@ export const injectKey = Symbol("form") as InjectionKey<{
   state: State;
   registerFormItem: (name: string, rules: RuleItem[]) => void;
   unRegisterFormItem: (name: string) => void;
-  validate(name: string): Promise<void>;
+  validateFormItem(name: string): Promise<void>;
   formProps: FormProps;
 }>;

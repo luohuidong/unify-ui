@@ -22,7 +22,7 @@ export function useFormStoreProvider(props: FormProps) {
     state.formItems.delete(name);
   }
 
-  async function validate(name: string) {
+  async function validateFormItem(name: string) {
     const formItemInfo = state.formItems.get(name);
 
     if (!formItemInfo) return;
@@ -45,12 +45,18 @@ export function useFormStoreProvider(props: FormProps) {
       });
   }
 
-  provide(injectKey, { state, registerFormItem, unRegisterFormItem, validate, formProps: props });
+  provide(injectKey, {
+    state,
+    registerFormItem,
+    unRegisterFormItem,
+    validateFormItem,
+    formProps: props,
+  });
 
   return {
     state,
     registerFormItem,
     unRegisterFormItem,
-    validate,
+    validateFormItem,
   };
 }

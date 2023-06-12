@@ -37,8 +37,7 @@ const formItemInfo = computed(() => store?.state.formItems.get(props.name));
 
 const formItemValue = computed(() => store?.formProps.model[props.name]);
 watch(formItemValue, async (value) => {
-  console.log("🚀 ~ file: FormItem.vue:42 ~ value:", value);
-  await store?.validate(props.name);
+  await store?.validateFormItem(props.name);
 });
 </script>
 
