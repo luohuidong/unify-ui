@@ -37,26 +37,28 @@ function validate() {
   });
   const validator = new Schema(descriptor);
 
-  return validator
-    .validate(props.model)
-    .then(() => {
-      state.formItems.forEach((formItem, name) => {
-        formItem.validateStatus = "success";
-        formItem.validateMessage = "";
-      });
-      emits("finish");
-    })
-    .catch(({ errors }) => {
-      errors.forEach((error) => {
-        const formItem = state.formItems.get(error.field as string);
-        if (formItem) {
-          formItem.validateStatus = "error";
-          formItem.validateMessage = error.message as string;
-        }
-      });
-      emits("finish-failed");
-      throw new Error("validate failed");
+  return new Promise((resolve, reject) => {
+    validator.validate(props.model, (errors) => {
+      if (errors) {
+        errors.forEach((error) => {
+          const formItem = state.formItems.get(error.field as string);
+          if (formItem) {
+            formItem.validateStatus = "error";
+            formItem.validateMessage = error.message as string;
+          }
+        });
+        emits("finish-failed");
+        reject("validate failed");
+      } else {
+        state.formItems.forEach((formItem, name) => {
+          formItem.validateStatus = "success";
+          formItem.validateMessage = "";
+        });
+        emits("finish");
+        resolve("pass");
+      }
     });
+  });
 }
 
 async function handleSubmit() {
