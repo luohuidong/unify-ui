@@ -1,5 +1,12 @@
 # unify-ui
 
+## 0.12.1
+
+### Patch Changes
+
+- 2fa8fe3: Form data can be validated at the form level
+- 902dfe2: The Input and Password components support displaying error statuses for form validation.
+
 ## 0.12.0
 
 ### Minor Changes
