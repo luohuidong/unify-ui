@@ -1,3 +1,6 @@
+export type Model = Record<string, unknown>;
+
 export interface FormProps {
-  model: Record<string, unknown>;
+  model: Model;
+  layout: "horizontal" | "vertical" | "inline";
 }

@@ -1,22 +1,16 @@
 <script setup lang="ts">
-import { reactive } from "vue";
-import { UniForm, UniFormItem, UniInput } from "@/components";
-
-const model = reactive({
-  username: "",
-});
+import ShowCaseBasicUsage from "./ShowCaseBasicUsage.vue";
+import ShowCaseManualValidateForm from "./ShowCaseManualValidateForm.vue";
 </script>
 
 <template>
   <Story title="Data Entry/Form">
-    <UniForm :model="model">
-      <UniFormItem
-        name="username"
-        :rules="[{ required: true, message: 'Username is required' }]"
-        label="Username"
-      >
-        <uni-input v-model="model.username" />
-      </UniFormItem>
-    </UniForm>
+    <Variant title="Basic Usage">
+      <ShowCaseBasicUsage></ShowCaseBasicUsage>
+    </Variant>
+
+    <Variant title="Manual Validate Form Data">
+      <ShowCaseManualValidateForm></ShowCaseManualValidateForm>
+    </Variant>
   </Story>
 </template>
