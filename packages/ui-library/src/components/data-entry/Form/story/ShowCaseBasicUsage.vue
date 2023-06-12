@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UniForm, UniFormItem, UniInput } from "@/components";
+import { UniForm, UniFormItem, UniInput, UniButton, UniPassword } from "@/components";
 import { reactive } from "vue";
 
 const model = reactive({
@@ -17,7 +17,12 @@ function handleFinishFailed() {
 </script>
 
 <template>
-  <UniForm :model="model" @finish="handleFinish" @finish-failed="handleFinishFailed">
+  <UniForm
+    :model="model"
+    class="container"
+    @finish="handleFinish"
+    @finish-failed="handleFinishFailed"
+  >
     <UniFormItem
       name="username"
       :rules="[{ required: true, message: 'Username is required' }]"
@@ -31,9 +36,19 @@ function handleFinishFailed() {
       :rules="[{ required: true, message: 'Password is required' }]"
       label="Password"
     >
-      <UniInput v-model="model.password" />
+      <UniPassword v-model="model.password" />
     </UniFormItem>
 
-    <button>提交</button>
+    <UniButton class="button" type="soft">Submit</UniButton>
   </UniForm>
 </template>
+
+<style scoped>
+.container {
+  padding: 20px;
+}
+
+.button {
+  width: 100px;
+}
+</style>

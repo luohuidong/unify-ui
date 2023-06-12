@@ -8,8 +8,9 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { computed, useSlots } from "vue";
+import { useFormItemStoreInject } from "../Form/composables/useFormItemInject";
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     /** Input value */
     modelValue?: string;
@@ -21,13 +22,13 @@ withDefaults(
     readonly?: boolean;
     /** native input types */
     type?: string;
-    status?: "normal" | "error";
+    status?: "error";
   }>(),
   {
     modelValue: "",
     placeholder: "",
     type: "text",
-    status: "normal",
+    status: undefined,
   }
 );
 
@@ -51,6 +52,11 @@ defineSlots<{
 
 const slots = useSlots();
 const inputRef = ref<HTMLInputElement>();
+const formItemStore = useFormItemStoreInject();
+
+const statusValue = computed(
+  () => props.status ?? formItemStore?.formItemInfo.value?.validateStatus
+);
 
 function handleInput(e: Event) {
   const value = (e.target as HTMLInputElement).value;
@@ -77,14 +83,14 @@ const existAddOn = computed(() => {
     class="input-group"
     :class="{
       'input-group--without-add-on': !existAddOn,
-      'input-group--error': !existAddOn && status === 'error',
+      'input-group--error': !existAddOn && statusValue === 'error',
       'input-group--disabled': !existAddOn && disabled,
     }"
   >
     <span
       v-if="$slots['leading-add-on']"
       class="add-on add-on--leading"
-      :class="{ 'add-on--disabled': disabled, 'add-on--error': status === 'error' }"
+      :class="{ 'add-on--disabled': disabled, 'add-on--error': statusValue === 'error' }"
     >
       <slot name="leading-add-on"></slot>
     </span>
@@ -93,7 +99,7 @@ const existAddOn = computed(() => {
       v-if="$slots['inline-leading-add-on']"
       :tabindex="disabled ? '' : '1'"
       class="inline-add-on inline-add-on--leading"
-      :class="{ 'inline-add-on--error': status === 'error' }"
+      :class="{ 'inline-add-on--error': statusValue === 'error' }"
       @click.stop="handleInlineAddOnClick"
     >
       <slot name="inline-leading-add-on"></slot>
@@ -107,7 +113,7 @@ const existAddOn = computed(() => {
         'input--with-add-on': existAddOn,
         'input--left-rounded': $slots['trailing-add-on'] && !$slots['leading-add-on'],
         'input--right-rounded': $slots['leading-add-on'] && !$slots['trailing-add-on'],
-        'input--error': existAddOn && status === 'error',
+        'input--error': existAddOn && statusValue === 'error',
       }"
       :placeholder="placeholder"
       :disabled="disabled"
@@ -121,7 +127,7 @@ const existAddOn = computed(() => {
       v-if="$slots['inline-trailing-add-on']"
       :tabindex="disabled ? '' : '1'"
       class="inline-add-on inline-add-on--trailing"
-      :class="{ 'inline-add-on--error': status === 'error' }"
+      :class="{ 'inline-add-on--error': statusValue === 'error' }"
       @click.stop="handleInlineAddOnClick"
     >
       <slot name="inline-trailing-add-on"></slot>
@@ -130,7 +136,7 @@ const existAddOn = computed(() => {
     <span
       v-if="$slots['trailing-add-on']"
       class="add-on add-on--trailing"
-      :class="{ 'add-on--disabled': disabled, 'add-on--error': status === 'error' }"
+      :class="{ 'add-on--disabled': disabled, 'add-on--error': statusValue === 'error' }"
     >
       <slot name="trailing-add-on"></slot>
     </span>

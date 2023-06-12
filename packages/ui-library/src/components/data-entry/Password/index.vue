@@ -9,6 +9,7 @@ export default defineComponent({
 <script setup lang="ts">
 import { ref } from "vue";
 
+import { useFormItemStoreInject } from "../Form/composables/useFormItemInject";
 import UniInput from "../Input/index.vue";
 import EyeOn from "./icons/EyeOn.vue";
 import EyeOff from "./icons/EyeOff.vue";
@@ -18,10 +19,12 @@ const props = withDefaults(
     modelValue?: string;
     disabled?: boolean;
     placeholder?: string;
+    status?: "error";
   }>(),
   {
     modelValue: "",
     placeholder: "",
+    status: undefined,
   }
 );
 
@@ -32,6 +35,7 @@ defineEmits<{
 }>();
 
 const showPassword = ref(false);
+const formItemStore = useFormItemStoreInject();
 
 function handleTriggerClick() {
   if (props.disabled) return;
@@ -45,6 +49,7 @@ function handleTriggerClick() {
     :type="showPassword ? 'text' : 'password'"
     :disabled="disabled"
     :placeholder="placeholder"
+    :status="status ?? formItemStore?.formItemInfo.value?.validateStatus"
     @update:model-value="(value: string) => $emit('update:modelValue', value)"
     @input="(value: string) => $emit('input', value)"
     @change="(value: string) => $emit('change', value)"
