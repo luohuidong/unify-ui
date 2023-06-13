@@ -40,11 +40,6 @@ onUnmounted(() => {
 
 const formItemInfo = computed(() => store?.state.formItems.get(props.name));
 
-const formItemValue = computed(() => store?.formProps.model[props.name]);
-watch(formItemValue, async () => {
-  await store?.validateFormItem(props.name);
-});
-
 provide(InjectFormItemStoreInjectKey, {
   formItemInfo,
 });

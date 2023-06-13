@@ -9,7 +9,7 @@ const model = reactive({
 
 const formRef = ref<InstanceType<typeof UniForm> | null>(null);
 
-async function handleSubmit({ clearValidate }: { clearValidate: () => void }) {
+async function handleSubmit() {
   try {
     await formRef.value?.validate();
     console.log("validate pass, model:", model);
