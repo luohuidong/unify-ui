@@ -1,5 +1,13 @@
 # unify-ui
 
+## 0.12.2
+
+### Patch Changes
+
+- f275dca: Remove the validation logic when the data is changed.
+- 7dd15c4: The UniButton component supports the htmlType property, which allows you to specify the type of native button element
+- ee9c222: The Form component allows access to the clearValidate function.
+
 ## 0.12.1
 
 ### Patch Changes
