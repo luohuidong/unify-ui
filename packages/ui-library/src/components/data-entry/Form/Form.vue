@@ -9,6 +9,7 @@ export default defineComponent({
 <script setup lang="ts">
 import Schema from "async-validator";
 import type { Rules } from "async-validator";
+import { cloneDeep } from "lodash-es";
 
 import { useFormStoreProvider } from "./composables";
 import type { Model } from "./types";
@@ -23,14 +24,19 @@ const props = withDefaults(
   }
 );
 
+const emits = defineEmits<{
+  (e: "update:model", value: Model): void;
+}>();
+
 defineSlots<{
   default(props: {}): any;
 }>();
 
 const { state } = useFormStoreProvider(props);
+const originalModel = cloneDeep(props.model);
 
 function clearValidate() {
-  state.formItems.forEach((formItem, name) => {
+  state.formItems.forEach((formItem) => {
     formItem.validateStatus = undefined;
     formItem.validateMessage = "";
   });
@@ -65,9 +71,15 @@ function validate() {
   });
 }
 
+function resetFields() {
+  emits("update:model", Object.assign({}, originalModel));
+  clearValidate();
+}
+
 defineExpose({
   validate, // trigger data entry validation
-  clearValidate, // clear data entry validation
+  clearValidate, // clear data entry validation,
+  resetFields,
 });
 </script>
 
