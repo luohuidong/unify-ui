@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { computed, watch, onMounted, onUnmounted, provide } from "vue";
+import { computed, onMounted, onUnmounted, provide } from "vue";
 import type { RuleItem } from "async-validator";
 
 import { useFormStoreInject } from "./composables/useFormStoreInject";

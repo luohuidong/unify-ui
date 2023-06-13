@@ -54,6 +54,7 @@ export default defineConfig({
               { text: "CheckboxGroup", link: "/components/data-entry/checkbox-group/" },
               { text: "FileDropZone", link: "/components/data-entry/file-drop-zone/" },
               { text: "FilePicker", link: "/components/data-entry/file-picker/" },
+              { text: "Form", link: "/components/data-entry/form/" },
               { text: "Input", link: "/components/data-entry/input/" },
               { text: "Password", link: "/components/data-entry/password/" },
               { text: "Radio", link: "/components/data-entry/radio/" },
