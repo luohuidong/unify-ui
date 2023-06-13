@@ -13,10 +13,12 @@ withDefaults(
     size?: "xs" | "s" | "m" | "l" | "xl";
     rounded?: boolean;
     disabled?: boolean;
+    htmlType?: "button" | "submit" | "reset";
   }>(),
   {
     type: "secondary",
     size: "m",
+    htmlType: "button",
   }
 );
 
@@ -36,6 +38,7 @@ function handleClick(e: MouseEvent) {
 <template>
   <button
     class="button"
+    :type="htmlType"
     :class="{
       'button--size-xs': size === 'xs',
       'button--size-s': size === 's',
