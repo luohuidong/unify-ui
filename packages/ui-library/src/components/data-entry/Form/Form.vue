@@ -23,12 +23,18 @@ const props = withDefaults(
   }
 );
 
+defineSlots<{
+  default(props: {}): any;
+}>();
+
 const { state } = useFormStoreProvider(props);
 
-const emits = defineEmits<{
-  (e: "finish"): void;
-  (e: "finish-failed"): void;
-}>();
+function clearValidate() {
+  state.formItems.forEach((formItem, name) => {
+    formItem.validateStatus = undefined;
+    formItem.validateMessage = "";
+  });
+}
 
 function validate() {
   const descriptor: Rules = {};
@@ -47,31 +53,26 @@ function validate() {
             formItem.validateMessage = error.message as string;
           }
         });
-        emits("finish-failed");
         reject("validate failed");
       } else {
         state.formItems.forEach((formItem, name) => {
           formItem.validateStatus = "success";
           formItem.validateMessage = "";
         });
-        emits("finish");
         resolve("pass");
       }
     });
   });
 }
 
-async function handleSubmit() {
-  await validate().catch(() => {});
-}
-
 defineExpose({
-  validate,
+  validate, // trigger data entry validation
+  clearValidate, // clear data entry validation
 });
 </script>
 
 <template>
-  <form :class="$style.form" @submit.prevent="handleSubmit">
+  <form ref="formRef" :class="$style.form" @submit.prevent="" @reset.prevent="">
     <slot></slot>
   </form>
 </template>

@@ -12,14 +12,18 @@ import type { RuleItem } from "async-validator";
 
 import { useFormStoreInject } from "./composables/useFormStoreInject";
 import { InjectFormItemStoreInjectKey } from "./composables/injectKeys";
+import type { ValidateStatus } from "./types";
 
-type ValidateStatus = "success" | "error" | undefined;
-
-const props = defineProps<{
-  label: string;
-  name: string;
-  rules: RuleItem[];
-}>();
+const props = withDefaults(
+  defineProps<{
+    label: string;
+    name: string;
+    rules?: RuleItem[];
+  }>(),
+  {
+    rules: () => [],
+  }
+);
 
 defineSlots<{
   default(props: { validateStatus: ValidateStatus }): any;
