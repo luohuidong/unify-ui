@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { UniForm, UniFormItem, UniButton } from "unify-ui";
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 
-const model = reactive({
+const model = ref({
   username: "",
 });
 
@@ -18,8 +18,7 @@ async function handleSubmit() {
 }
 
 function handleReset() {
-  model.username = "";
-  formRef.value?.clearValidate();
+  formRef.value?.resetFields();
 }
 </script>
 
