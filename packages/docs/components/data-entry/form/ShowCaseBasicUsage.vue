@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { UniForm, UniFormItem, UniInput, UniButton, UniPassword } from "unify-ui";
-import { reactive, ref } from "vue";
+import { ref } from "vue";
 
-const model = reactive({
+const model = ref({
   username: "",
   password: "",
+  address: "",
 });
 
 const formRef = ref<InstanceType<typeof UniForm> | null>(null);
@@ -19,9 +20,7 @@ async function handleSubmit() {
 }
 
 function handleReset() {
-  model.username = "";
-  model.password = "";
-  formRef.value?.clearValidate();
+  formRef.value?.resetFields();
 }
 </script>
 
@@ -42,6 +41,10 @@ function handleReset() {
         label="Password"
       >
         <UniPassword v-model="model.password" />
+      </UniFormItem>
+
+      <UniFormItem name="address" label="Address">
+        <UniInput v-model="model.address" />
       </UniFormItem>
 
       <div>

@@ -79,7 +79,7 @@ function resetFields() {
 defineExpose({
   validate, // trigger data entry validation
   clearValidate, // clear data entry validation,
-  resetFields,
+  resetFields, // reset data and clear validation
 });
 </script>
 

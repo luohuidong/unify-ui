@@ -47,12 +47,30 @@ const props = withDefaults(
 );
 ```
 
+### Events
+
+```ts
+const emits = defineEmits<{
+  (e: "update:model", value: Model): void;
+}>();
+```
+
 ### Slots
 
 ```ts
 defineSlots<{
   default(props: {}): any;
 }>();
+```
+
+### Expose
+
+```ts
+defineExpose({
+  validate, // trigger data entry validation
+  clearValidate, // clear data entry validation,
+  resetFields, // reset data and clear validation
+});
 ```
 
 ## FormItem API
