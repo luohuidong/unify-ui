@@ -33,7 +33,6 @@ import ShowCaseTriggerMethod from './ShowCaseTriggerMethod.vue'
 const props = withDefaults(
   defineProps<{
     placement: "top" | "bottom" | "left" | "right";
-    appendToBody?: boolean;
     overlayClassName?: string;
     backgroundColor?: string;
     fontColor?: string;
@@ -48,7 +47,6 @@ const props = withDefaults(
     offset?: number;
   }>(),
   {
-    appendToBody: false,
     overlayClassName: void 0,
     backgroundColor: void 0,
     fontColor: void 0,

@@ -35,8 +35,6 @@ defineProps<{
   title: string;
   /** The placement of the tooltip */
   placement: "top" | "bottom" | "left" | "right";
-  /** Whether to append the tooltip to body */
-  appendToBody?: boolean;
   /** Whether the tooltip is disabled */
   disabled?: boolean;
 }>();
