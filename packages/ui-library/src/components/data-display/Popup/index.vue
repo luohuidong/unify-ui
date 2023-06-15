@@ -16,7 +16,6 @@ import type { RootEmits } from "./types";
 const props = withDefaults(
   defineProps<{
     placement: "top" | "bottom" | "left" | "right";
-    appendToBody?: boolean;
     overlayClassName?: string;
     backgroundColor?: string;
     fontColor?: string;
@@ -31,7 +30,6 @@ const props = withDefaults(
     offset?: number;
   }>(),
   {
-    appendToBody: false,
     overlayClassName: void 0,
     backgroundColor: void 0,
     fontColor: void 0,
@@ -87,18 +85,11 @@ watch(
   <div ref="referenceRef" class="popup">
     <slot></slot>
 
-    <template v-if="appendToBody">
-      <Teleport to="body">
-        <FloatingElement>
-          <slot name="content"></slot>
-        </FloatingElement>
-      </Teleport>
-    </template>
-    <template v-else>
+    <Teleport to="body">
       <FloatingElement>
         <slot name="content"></slot>
       </FloatingElement>
-    </template>
+    </Teleport>
   </div>
 </template>
 
