@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.12.3
+
+### Patch Changes
+
+- 7a64ae9: By default, the Popup component and Tooltip component are appended to the body
+
 ## 0.12.2
 
 ### Patch Changes
