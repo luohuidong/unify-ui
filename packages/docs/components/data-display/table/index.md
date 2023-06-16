@@ -117,6 +117,10 @@ Sometimes, you may want to customize the content of a column header cell. In thi
 
 ## Sort
 
+To enable the table column sort feature, set the `column.sortable` property. The default shot types are `ascending` and `descending`. If you only want to sort in one direction, set the `column.sortType` property to either `['ascending']` or `['descending']`.
+
+When the sort event is triggered, the `columnKey` and `order` (sort type) of the current sort state are provided. You can use this information to request data from the server.
+
 ::: raw
 <ShowCaseSort class="vp-raw" />
 :::
@@ -140,6 +144,12 @@ Sometimes, you may want to customize the content of a column header cell. In thi
 ### Table Props
 
 ```ts
+export type Record = any;
+
+export type Key = string | number;
+
+export type SortType = "ascending" | "descending";
+
 export interface TableProps {
   columns: Column[];
 
@@ -214,22 +224,18 @@ interface Column {
 ### Event
 
 ```ts
+export type SortType = "ascending" | "descending";
+
 interface TableEmits {
   (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
 
   (e: "update:sort", params: { columnKey: Key; order: SortType } | null): void;
 
   /** Emits the "select" event when a row is selected or deselected. */
-  (
-    e: "select",
-    params: { selected: boolean; rowKey: Key; record: Record }
-  ): void;
+  (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
 
   /** Emits the "selectAll" event when all rows are selected or deselected. */
-  (
-    e: "selectAll",
-    params: { selected: boolean; rowKeys: Key[]; records: Record[] }
-  ): void;
+  (e: "selectAll", params: { selected: boolean; rowKeys: Key[]; records: Record[] }): void;
 
   /** Emits the "sortChange" event when the column sort order changes */
   (e: "sortChange", params: { columnKey: Key; order: SortType } | null): void;
