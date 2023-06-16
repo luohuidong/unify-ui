@@ -33,8 +33,13 @@ const columns: TableType["$props"]["columns"] = [
   },
 ];
 
-function handleSortChange(sort: TableType["sort"]) {
-  console.log(sort);
+function handleSortChange(
+  params: {
+    columnKey: string;
+    order: "ascending" | "descending";
+  } | null
+) {
+  console.log("params:", params);
 }
 </script>
 
