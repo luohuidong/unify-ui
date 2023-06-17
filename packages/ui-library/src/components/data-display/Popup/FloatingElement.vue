@@ -27,7 +27,7 @@ const color = computed(() => rootPropsKey?.fontColor || "white");
     <slot></slot>
 
     <div
-      v-if="rootPropsKey?.showArrow"
+      v-show="rootPropsKey?.showArrow"
       :ref="(e)=> floatingArrowRef?.setFloatingArrowRef(e as HTMLDivElement)"
       class="arrow"
     ></div>
