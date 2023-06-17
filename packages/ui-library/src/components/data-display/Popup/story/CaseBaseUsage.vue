@@ -6,7 +6,7 @@ import Popup from "../index.vue";
 <template>
   <div class="container">
     <div>
-      <Popup placement="top">
+      <Popup placement="top" :show-arrow="false">
         <UniButton>top black</UniButton>
 
         <template #content>
