@@ -11,7 +11,7 @@ import { UniButton, UniToolTip } from "unify-ui";
     </div>
 
     <div>
-      <UniToolTip title="Tooltip text" placement="bottom" append-to-body>
+      <UniToolTip title="Tooltip text" placement="bottom">
         <UniButton type="soft">Tooltip append to body</UniButton>
       </UniToolTip>
     </div>
@@ -23,7 +23,7 @@ import { UniButton, UniToolTip } from "unify-ui";
     </div>
 
     <div>
-      <UniToolTip title="Tooltip text" placement="right" append-to-body>
+      <UniToolTip title="Tooltip text" placement="right">
         <UniButton type="soft">Tooltip append to body</UniButton>
       </UniToolTip>
     </div>

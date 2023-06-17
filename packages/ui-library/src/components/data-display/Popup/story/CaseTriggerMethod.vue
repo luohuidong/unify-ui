@@ -12,7 +12,7 @@ function handleClick() {
 <template>
   <div :style="{ height: '100vh' }">
     <div :style="{ marginBottom: '100px' }">
-      <UniPopup placement="bottom" trigger="click" append-to-body>
+      <UniPopup placement="bottom" trigger="click">
         <UniButton>Trigger: click</UniButton>
 
         <template #content>
@@ -22,7 +22,7 @@ function handleClick() {
     </div>
 
     <div :style="{ marginBottom: '100px' }">
-      <UniPopup placement="bottom" append-to-body>
+      <UniPopup placement="bottom">
         <UniButton>Trigger: hover</UniButton>
 
         <template #content>
@@ -32,7 +32,7 @@ function handleClick() {
     </div>
 
     <div>
-      <UniPopup placement="bottom" append-to-body trigger="controlled" :visible="visible">
+      <UniPopup placement="bottom" trigger="controlled" :visible="visible">
         <UniButton @click="handleClick">Trigger: Controlled</UniButton>
 
         <template #content>

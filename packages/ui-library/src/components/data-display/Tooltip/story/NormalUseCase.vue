@@ -12,7 +12,7 @@ import UniToolTip from "../index.vue";
     </div>
 
     <div>
-      <UniToolTip title="Tooltip text" placement="bottom" append-to-body>
+      <UniToolTip title="Tooltip text" placement="bottom">
         <UniButton>Tooltip append to body</UniButton>
       </UniToolTip>
     </div>
@@ -24,7 +24,7 @@ import UniToolTip from "../index.vue";
     </div>
 
     <div>
-      <UniToolTip title="Tooltip text" placement="right" append-to-body>
+      <UniToolTip title="Tooltip text" placement="right">
         <UniButton>Tooltip append to body</UniButton>
       </UniToolTip>
     </div>

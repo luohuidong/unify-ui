@@ -16,7 +16,7 @@ import Popup from "../index.vue";
     </div>
 
     <div>
-      <Popup placement="bottom" append-to-body background-color="green">
+      <Popup placement="bottom" background-color="green">
         <UniButton>bottom green</UniButton>
 
         <template #content>

@@ -11,7 +11,7 @@ function handleClick() {
 <template>
   <div class="container">
     <div>
-      <UniPopup placement="bottom" trigger="click" append-to-body>
+      <UniPopup placement="bottom" trigger="click">
         <UniButton type="soft">Trigger: click</UniButton>
 
         <template #content>
@@ -21,7 +21,7 @@ function handleClick() {
     </div>
 
     <div>
-      <UniPopup placement="bottom" append-to-body>
+      <UniPopup placement="bottom">
         <UniButton type="soft">Trigger: hover</UniButton>
 
         <template #content>
@@ -31,15 +31,8 @@ function handleClick() {
     </div>
 
     <div>
-      <UniPopup
-        placement="bottom"
-        append-to-body
-        trigger="controlled"
-        :visible="visible"
-      >
-        <UniButton type="soft" @click="handleClick">
-          Trigger: Controlled
-        </UniButton>
+      <UniPopup placement="bottom" trigger="controlled" :visible="visible">
+        <UniButton type="soft" @click="handleClick"> Trigger: Controlled </UniButton>
 
         <template #content>
           <div class="box">bottom</div>
