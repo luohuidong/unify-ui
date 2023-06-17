@@ -15,7 +15,7 @@ import { UniButton, UniPopup } from "unify-ui";
     </div>
 
     <div>
-      <UniPopup placement="bottom" append-to-body background-color="green">
+      <UniPopup placement="bottom" background-color="green">
         <UniButton type="soft">bottom green</UniButton>
 
         <template #content>
