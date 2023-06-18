@@ -1,0 +1,6 @@
+@use "color";
+@use "type";
+
+$color-error: color.$error;
+$font-size-sm: type.$font-size-sm;
+$font-size-base: type.$font-size-base;
