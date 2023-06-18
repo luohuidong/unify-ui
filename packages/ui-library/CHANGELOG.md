@@ -1,5 +1,13 @@
 # unify-ui
 
+## 0.12.4
+
+### Patch Changes
+
+- 6036357: Create CSS design tokens for forms
+- a93500b: Resolved the issue where the Popup component's floating element displayed incorrectly when the showArrow property was set to false.
+- 5649ebf: Setting the default value for the form item store injection
+
 ## 0.12.3
 
 ### Patch Changes
