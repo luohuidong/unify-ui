@@ -54,9 +54,7 @@ const slots = useSlots();
 const inputRef = ref<HTMLInputElement>();
 const formItemStore = useFormItemStoreInject();
 
-const statusValue = computed(
-  () => props.status ?? formItemStore?.formItemInfo.value?.validateStatus
-);
+const statusValue = computed(() => props.status ?? formItemStore?.formItemInfo.value?.validateStatus);
 
 function handleInput(e: Event) {
   const value = (e.target as HTMLInputElement).value;
@@ -144,11 +142,12 @@ const existAddOn = computed(() => {
 </template>
 
 <style lang="scss" scoped>
+@use "@/styles/form";
+
 $normal-border-color: #d1d5db;
 $active-border-color: #4f46e5;
 $radius: 6px;
 $disabled-background-color: rgb(249 250 251);
-$error-color: rgb(239 68 68);
 
 .input-group {
   box-sizing: border-box;
@@ -164,7 +163,7 @@ $error-color: rgb(239 68 68);
   color: rgb(17 24 39);
 
   &.input-group--without-add-on {
-    padding: 0px 12px;
+    padding: 0 12px;
     border: 1px solid $normal-border-color;
 
     &:focus-within {
@@ -174,11 +173,11 @@ $error-color: rgb(239 68 68);
   }
 
   &.input-group--error {
-    border: 1px solid $error-color;
+    border: 1px solid form.$color-error;
 
     &:focus-within {
-      border: 1px solid $error-color;
-      outline: 1px solid $error-color;
+      border: 1px solid form.$color-error;
+      outline: 1px solid form.$color-error;
     }
   }
 
@@ -193,7 +192,7 @@ $error-color: rgb(239 68 68);
   height: 100%;
   width: 100%;
   font-family: inherit;
-  font-size: 14px;
+  font-size: form.$font-size-sm;
   line-height: 24px;
   color: rgb(17 24 39);
   border: none;
@@ -230,11 +229,11 @@ $error-color: rgb(239 68 68);
   }
 
   &.input--error {
-    border: 1px solid $error-color;
+    border: 1px solid form.$color-error;
 
     &:focus {
-      border: 1px solid $error-color;
-      outline: 1px solid $error-color;
+      border: 1px solid form.$color-error;
+      outline: 1px solid form.$color-error;
     }
   }
 }
@@ -251,7 +250,7 @@ $error-color: rgb(239 68 68);
   border-width: 1px;
   border-style: solid;
   border-color: $normal-border-color;
-  font-size: 14px;
+  font-size: form.$font-size-sm;
   color: rgb(107 114 128);
 
   &.add-on--disabled {
@@ -269,14 +268,14 @@ $error-color: rgb(239 68 68);
   }
 
   &.add-on--error {
-    color: $error-color;
-    border-color: $error-color;
+    color: form.$color-error;
+    border-color: form.$color-error;
   }
 }
 
 .inline-add-on {
   user-select: none;
-  font-size: 14px;
+  font-size: form.$font-size-sm;
   color: rgb(107 114 128);
 
   &.inline-add-on--leading {
@@ -288,7 +287,7 @@ $error-color: rgb(239 68 68);
   }
 
   &.inline-add-on--error {
-    color: $error-color;
+    color: form.$color-error;
   }
 }
 </style>
