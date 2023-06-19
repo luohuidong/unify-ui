@@ -10,9 +10,9 @@ export default defineComponent({
 import { computed, onMounted, onUnmounted, provide } from "vue";
 import type { RuleItem } from "async-validator";
 
+import type { ValidateStatus } from "@/types/form";
 import { useFormStoreInject } from "./composables/useFormStoreInject";
 import { InjectFormItemStoreInjectKey } from "./composables/injectKeys";
-import type { ValidateStatus } from "./types";
 
 const props = withDefaults(
   defineProps<{
@@ -49,9 +49,7 @@ const isRequired = computed(() => props.rules.find((rule) => (rule as any).requi
 
 <template>
   <label :class="$style.container">
-    <div :class="$style.label">
-      <span v-if="isRequired" :class="$style.label__asterisk">*</span>{{ label }}
-    </div>
+    <div :class="$style.label"><span v-if="isRequired" :class="$style.label__asterisk">*</span>{{ label }}</div>
     <div :class="$style.slot">
       <slot :validate-status="formItemInfo?.validateStatus"></slot>
     </div>

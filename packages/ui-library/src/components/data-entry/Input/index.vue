@@ -8,6 +8,8 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { computed, useSlots } from "vue";
+
+import type { ValidateStatus } from "@/types/form";
 import { useFormItemStoreInject } from "../Form/composables/useFormItemInject";
 
 const props = withDefaults(
@@ -22,7 +24,7 @@ const props = withDefaults(
     readonly?: boolean;
     /** native input types */
     type?: string;
-    status?: "error";
+    status?: ValidateStatus;
   }>(),
   {
     modelValue: "",

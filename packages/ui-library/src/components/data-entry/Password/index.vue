@@ -9,6 +9,7 @@ export default defineComponent({
 <script setup lang="ts">
 import { ref } from "vue";
 
+import type { ValidateStatus } from "@/types/form";
 import { useFormItemStoreInject } from "../Form/composables/useFormItemInject";
 import UniInput from "../Input/index.vue";
 import EyeOn from "./icons/EyeOn.vue";
@@ -19,7 +20,7 @@ const props = withDefaults(
     modelValue?: string;
     disabled?: boolean;
     placeholder?: string;
-    status?: "error";
+    status?: ValidateStatus;
   }>(),
   {
     modelValue: "",
