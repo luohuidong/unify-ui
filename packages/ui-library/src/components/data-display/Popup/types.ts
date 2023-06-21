@@ -2,14 +2,15 @@ import type { Ref } from "vue";
 
 export interface RootProps {
   placement: "top" | "bottom" | "left" | "right";
-  appendToBody?: boolean;
   overlayClassName?: string;
-  backgroundColor?: string;
-  fontColor?: string;
+  /** Whether to show the arrow */
   showArrow?: boolean;
   trigger?: "hover" | "click" | "focus" | "controlled";
+  /** Whether the popup is visible */
   visible?: boolean;
+  /** Whether the popup is disabled */
   disabled?: boolean;
+  /** Offset of the popup  */
   offset?: number;
 }
 

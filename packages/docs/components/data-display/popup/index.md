@@ -30,31 +30,26 @@ import ShowCaseTriggerMethod from './ShowCaseTriggerMethod.vue'
 ### Properties
 
 ```ts
-const props = withDefaults(
-  defineProps<{
-    placement: "top" | "bottom" | "left" | "right";
-    overlayClassName?: string;
-    backgroundColor?: string;
-    fontColor?: string;
-    /** Whether to show the arrow */
-    showArrow?: boolean;
-    trigger?: "hover" | "click" | "focus" | "controlled";
-    /** Whether the popup is visible */
-    visible?: boolean;
-    /** Whether the popup is disabled */
-    disabled?: boolean;
-    /** Offset of the popup  */
-    offset?: number;
-  }>(),
-  {
-    overlayClassName: void 0,
-    backgroundColor: void 0,
-    fontColor: void 0,
-    showArrow: true,
-    trigger: "hover",
-    offset: 6,
-  }
-);
+interface RootProps {
+  placement: "top" | "bottom" | "left" | "right";
+  overlayClassName?: string;
+  /** Whether to show the arrow */
+  showArrow?: boolean;
+  trigger?: "hover" | "click" | "focus" | "controlled";
+  /** Whether the popup is visible */
+  visible?: boolean;
+  /** Whether the popup is disabled */
+  disabled?: boolean;
+  /** Offset of the popup  */
+  offset?: number;
+}
+
+const props = withDefaults(defineProps<RootProps>(), {
+  overlayClassName: void 0,
+  showArrow: true,
+  trigger: "hover",
+  offset: 6,
+});
 ```
 
 ### Events
