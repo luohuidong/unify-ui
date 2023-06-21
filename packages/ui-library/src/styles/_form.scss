@@ -1,6 +1,24 @@
 @use "color";
 @use "type";
 
-$color-error: color.$error;
+$control-height: 36px;
+$control-min-width: 250px;
+$control-padding-x: 12px;
+
+$font-color: rgb(17 24 39);
+$font-color-error: color.$error;
+$font-color-disabled: #a0aec0;
+$border-color: rgb(107, 114, 128);
+$border-color-active: #4f46e5;
+$border-color-error: color.$error;
+$outline-color-active: #4f46e5;
+$outline-color-error: color.$error;
+$background-color: #ffffff;
+$background-color-active: #4f46e5;
+$background-color-disabled: rgb(249 250 251);
+$placeholder-color: #a0aec0;
+
 $font-size-sm: type.$font-size-sm;
 $font-size-base: type.$font-size-base;
+
+$radius: 6px;
