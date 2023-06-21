@@ -6,8 +6,8 @@ import Popup from "../index.vue";
 <template>
   <div class="container">
     <div>
-      <Popup placement="top" :show-arrow="false">
-        <UniButton>top black</UniButton>
+      <Popup placement="top">
+        <UniButton>top</UniButton>
 
         <template #content>
           <div class="box">top</div>
@@ -16,8 +16,8 @@ import Popup from "../index.vue";
     </div>
 
     <div>
-      <Popup placement="bottom" background-color="green">
-        <UniButton>bottom green</UniButton>
+      <Popup placement="bottom">
+        <UniButton>bottom</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -26,8 +26,8 @@ import Popup from "../index.vue";
     </div>
 
     <div>
-      <Popup placement="left" background-color="red">
-        <UniButton>left red</UniButton>
+      <Popup placement="left">
+        <UniButton>left</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -36,8 +36,8 @@ import Popup from "../index.vue";
     </div>
 
     <div>
-      <Popup placement="right" background-color="blue">
-        <UniButton>right blue</UniButton>
+      <Popup placement="right">
+        <UniButton>right</UniButton>
 
         <template #content>
           <div class="box">right</div>
