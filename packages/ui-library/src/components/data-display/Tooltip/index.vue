@@ -20,7 +20,7 @@ defineProps<{
 </script>
 
 <template>
-  <UniPopup :placement="placement" :disabled="disabled">
+  <UniPopup :placement="placement" :disabled="disabled" :overlay-class-name="$style.overlay">
     <slot></slot>
 
     <template #content>
@@ -28,3 +28,11 @@ defineProps<{
     </template>
   </UniPopup>
 </template>
+
+<style lang="scss" module>
+.overlay {
+  padding: 8px 12px;
+  background: black;
+  color: white;
+}
+</style>

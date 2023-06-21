@@ -19,20 +19,19 @@ const floatingArrowRef = inject(provideKeys.floatingArrowRefKey);
 <template>
   <div
     :ref="(e) => floatingRef?.setFloatingRef(e as HTMLDivElement)"
-    class="floating-element"
-    :class="[rootPropsKey?.overlayClassName]"
+    :class="[$style['floating-element'], rootPropsKey?.overlayClassName]"
   >
     <slot></slot>
 
     <div
       v-show="rootPropsKey?.showArrow"
       :ref="(e)=> floatingArrowRef?.setFloatingArrowRef(e as HTMLDivElement)"
-      class="arrow"
+      :class="$style.arrow"
     ></div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @use "@/styles/zindex";
 
 .floating-element {
