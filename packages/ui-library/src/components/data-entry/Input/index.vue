@@ -146,45 +146,39 @@ const existAddOn = computed(() => {
 <style lang="scss" scoped>
 @use "@/styles/form";
 
-$normal-border-color: #d1d5db;
-$active-border-color: #4f46e5;
-$radius: 6px;
-$disabled-background-color: rgb(249 250 251);
-
 .input-group {
   box-sizing: border-box;
 
-  height: 36px;
-  min-width: 250px;
+  height: form.$control-height;
+  min-width: form.$control-min-width;
 
   display: inline-flex;
   align-items: center;
 
-  border-radius: $radius;
-  background-color: #fff;
-  color: rgb(17 24 39);
+  border-radius: form.$radius;
+  background-color: form.$background-color;
 
   &.input-group--without-add-on {
-    padding: 0 12px;
-    border: 1px solid $normal-border-color;
+    padding: 0 form.$control-padding-x;
+    border: 1px solid form.$border-color;
 
     &:focus-within {
-      border: 1px solid $active-border-color;
-      outline: 1px solid $active-border-color;
+      border: 1px solid form.$border-color-active;
+      outline: 1px solid form.$outline-color-active;
     }
   }
 
   &.input-group--error {
-    border: 1px solid form.$color-error;
+    border: 1px solid form.$border-color-error;
 
     &:focus-within {
-      border: 1px solid form.$color-error;
-      outline: 1px solid form.$color-error;
+      border: 1px solid form.$border-color-error;
+      outline: 1px solid form.$outline-color-error;
     }
   }
 
   &.input-group--disabled {
-    background: $disabled-background-color;
+    background: form.$background-color-disabled;
     cursor: not-allowed;
   }
 }
@@ -196,46 +190,46 @@ $disabled-background-color: rgb(249 250 251);
   font-family: inherit;
   font-size: form.$font-size-sm;
   line-height: 24px;
-  color: rgb(17 24 39);
+  color: form.$font-color;
   border: none;
   outline: none;
   background-color: transparent;
   z-index: 1;
 
   &::placeholder {
-    color: #a0aec0;
+    color: form.$placeholder-color;
   }
 
   &:disabled {
-    color: #a0aec0;
+    color: form.$font-color-disabled;
     cursor: not-allowed;
-    background-color: $disabled-background-color;
+    background-color: form.$background-color-disabled;
   }
 
   &.input--with-add-on {
-    border: 1px solid $normal-border-color;
-    padding: 0 12px;
+    border: 1px solid form.$border-color;
+    padding: 0 form.$control-padding-x;
 
     &:focus {
-      border: 1px solid $active-border-color;
-      outline: 1px solid $active-border-color;
+      border: 1px solid form.$border-color-active;
+      outline: 1px solid form.$outline-color-active;
     }
   }
 
   &.input--left-rounded {
-    border-radius: $radius 0 0 $radius;
+    border-radius: form.$radius 0 0 form.$radius;
   }
 
   &.input--right-rounded {
-    border-radius: 0 $radius $radius 0;
+    border-radius: 0 form.$radius form.$radius 0;
   }
 
   &.input--error {
-    border: 1px solid form.$color-error;
+    border: 1px solid form.$border-color-error;
 
     &:focus {
-      border: 1px solid form.$color-error;
-      outline: 1px solid form.$color-error;
+      border: 1px solid form.$border-color-error;
+      outline: 1px solid form.$outline-color-error;
     }
   }
 }
@@ -247,31 +241,31 @@ $disabled-background-color: rgb(249 250 251);
   align-items: center;
 
   height: 100%;
-  padding: 0 12px;
+  padding: 0 form.$control-padding-x;
 
   border-width: 1px;
   border-style: solid;
-  border-color: $normal-border-color;
+  border-color: form.$border-color;
   font-size: form.$font-size-sm;
   color: rgb(107 114 128);
 
   &.add-on--disabled {
-    background: $disabled-background-color;
+    background: form.$background-color-disabled;
   }
 
   &.add-on--leading {
-    border-radius: $radius 0 0 $radius;
+    border-radius: form.$radius 0 0 form.$radius;
     border-right: none;
   }
 
   &.add-on--trailing {
-    border-radius: 0 $radius $radius 0;
+    border-radius: 0 form.$radius form.$radius 0;
     border-left: none;
   }
 
   &.add-on--error {
-    color: form.$color-error;
-    border-color: form.$color-error;
+    color: form.$font-color-error;
+    border-color: form.$border-color-error;
   }
 }
 
@@ -289,7 +283,7 @@ $disabled-background-color: rgb(249 250 251);
   }
 
   &.inline-add-on--error {
-    color: form.$color-error;
+    color: form.$font-color-error;
   }
 }
 </style>
