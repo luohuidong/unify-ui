@@ -22,7 +22,7 @@ import ShowCaseTriggerMethod from './ShowCaseTriggerMethod.vue'
 :::
 
 ::: details View Source
-<<< @/components/data-display/popup/ShowCaseBaseUsage.vue
+<<< @/components/data-display/popup/ShowCaseTriggerMethod.vue
 :::
 
 ## API
