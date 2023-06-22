@@ -11,7 +11,7 @@ import TextEllipsis from "./TextEllipsis.vue";
 </script>
 
 <template>
-  <Story title="Date Display/Table">
+  <Story title="Data Display/Table">
     <Variant title="Normal use">
       <NormalUse></NormalUse>
     </Variant>
