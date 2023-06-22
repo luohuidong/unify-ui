@@ -63,7 +63,7 @@ watch(
 </script>
 
 <template>
-  <div ref="referenceRef" class="popup">
+  <div ref="referenceRef" :class="$style.popup">
     <slot></slot>
 
     <Teleport to="body">
@@ -74,7 +74,7 @@ watch(
   </div>
 </template>
 
-<style scoped>
+<style module>
 .popup {
   display: inline-block;
 }
