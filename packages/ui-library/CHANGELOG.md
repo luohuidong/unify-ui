@@ -1,5 +1,18 @@
 # unify-ui
 
+## 0.13.0
+
+### Minor Changes
+
+- 82c89ec: Add the Select component.
+- 245d718: Add the tag component
+
+### Patch Changes
+
+- 5c7005b: remove the backgroundColor and fontColor property of the Popup component
+- 1c0aa2d: Extract the common CSS values for form controls from the Input component.
+- 0b76b45: Modify the CSS styles of the Popup and Tooltip components.
+
 ## 0.12.4
 
 ### Patch Changes
