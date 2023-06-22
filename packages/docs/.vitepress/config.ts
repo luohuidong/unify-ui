@@ -60,6 +60,7 @@ export default defineConfig({
               { text: "Password", link: "/components/data-entry/password/" },
               { text: "Radio", link: "/components/data-entry/radio/" },
               { text: "RadioGroup", link: "/components/data-entry/radio-group/" },
+              { text: "Select", link: "/components/data-entry/select/" },
               { text: "Switch", link: "/components/data-entry/switch/" },
             ],
           },
