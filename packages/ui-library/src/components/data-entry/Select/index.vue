@@ -12,6 +12,7 @@ import { ref } from "vue";
 import { UniPopup } from "@/components";
 import CloseIcon from "./icons/Close.vue";
 import ArrowIcon from "./icons/Arrow.vue";
+import TickIcon from "./icons/Tick.vue";
 
 defineProps<{
   modelValue: T;
@@ -25,8 +26,16 @@ const emit = defineEmits<{
 }>();
 
 const visible = ref(false);
+const triggerRef = ref<HTMLSpanElement>();
+const floatingElementWidth = ref("250px");
+
 function visibleChange() {
   visible.value = !visible.value;
+}
+
+function handleTriggerClick() {
+  triggerRef.value && (floatingElementWidth.value = (triggerRef.value.offsetWidth || 250) + "px");
+  visibleChange();
 }
 
 function handleItemClick(value: T) {
@@ -44,29 +53,42 @@ function handleClear() {
 <template>
   <uni-popup placement="bottom" trigger="controlled" :visible="visible" :show-arrow="false">
     <span
-      :class="{ [$style['select__trigger']]: true, [$style['select__trigger--with-value']]: modelValue }"
-      @click="visibleChange"
+      ref="triggerRef"
+      :class="{ [$style['trigger']]: true, [$style['trigger--with-value']]: modelValue }"
+      @click="handleTriggerClick"
     >
-      <input :class="$style['select__input']" :placeholder="placeholder" readonly :value="modelValue" />
+      <input :class="$style['trigger__input']" :placeholder="placeholder" readonly :value="modelValue" />
 
-      <span :class="$style['select__icons']">
-        <span :class="$style['select__icon-arrows']">
-          <arrow-icon :class="[$style['select__icon-arrow'], $style['select__icon-arrow--up']]"></arrow-icon>
-          <arrow-icon :class="[$style['select__icon-arrow'], $style['select__icon-arrow--down']]"></arrow-icon>
+      <span :class="$style['trigger__icons']">
+        <span :class="$style['trigger__icon-arrow-wrapper']">
+          <arrow-icon :class="[$style['trigger__icon-arrow'], $style['select__icon-arrow--up']]"></arrow-icon>
+          <arrow-icon :class="[$style['trigger__icon-arrow'], $style['select__icon-arrow--down']]"></arrow-icon>
         </span>
-        <close-icon :class="$style['select__icon-close']" @click.stop="handleClear"></close-icon>
+        <close-icon :class="$style['trigger__icon-close']" @click.stop="handleClear"></close-icon>
       </span>
     </span>
 
     <template #content>
-      <ul :class="$style['select__options']">
+      <ul :class="$style['options']" :style="{ width: floatingElementWidth }">
         <li
           v-for="option in options"
           :key="option.value"
-          :class="{ [$style['select__option']]: true, [$style['select__option--active']]: option.value === modelValue }"
+          :class="$style['option']"
           @click="handleItemClick(option.value)"
         >
-          <slot name="option">{{ option.value }}</slot>
+          <slot name="option">
+            <div :class="$style['option__default-content']">
+              <span
+                :class="{
+                  [$style['option__default-content-label']]: true,
+                  [$style['option__default-content-label--active']]: option.value === modelValue,
+                }"
+              >
+                {{ option.label }}
+              </span>
+              <tick-icon v-if="option.value === modelValue" :class="$style['option__default-content-icon']"></tick-icon>
+            </div>
+          </slot>
         </li>
       </ul>
     </template>
@@ -74,9 +96,10 @@ function handleClear() {
 </template>
 
 <style lang="scss" module>
+@use "@/styles/color";
 @use "@/styles/form";
 
-.select__trigger {
+.trigger {
   position: relative;
   display: inline-block;
   height: form.$control-height;
@@ -95,18 +118,18 @@ function handleClear() {
     border: 1px solid form.$border-color-active;
     outline: 1px solid form.$outline-color-active;
   }
+}
 
-  &.select__trigger--with-value:hover {
-    .select__icon-arrows {
-      display: none;
-    }
-    .select__icon-close {
-      display: block;
-    }
+.trigger--with-value:hover {
+  .trigger__icon-arrow-wrapper {
+    display: none;
+  }
+  .trigger__icon-close {
+    display: block;
   }
 }
 
-.select__input {
+.trigger__input {
   box-sizing: border-box;
   height: 100%;
   width: 100%;
@@ -118,7 +141,7 @@ function handleClear() {
   outline: none;
 }
 
-.select__icons {
+.trigger__icons {
   width: 20px;
   display: flex;
   align-items: center;
@@ -129,11 +152,11 @@ function handleClear() {
   top: 50%;
   transform: translateY(-50%);
 
-  .select__icon-arrows {
+  .trigger__icon-arrow-wrapper {
     display: flex;
     flex-direction: column;
 
-    .select__icon-arrow {
+    .trigger__icon-arrow {
       color: form.$icon-color;
       width: 10px;
       height: 10px;
@@ -147,7 +170,7 @@ function handleClear() {
     }
   }
 
-  .select__icon-close {
+  .trigger__icon-close {
     display: none;
     color: form.$icon-color;
     &:hover {
@@ -156,8 +179,7 @@ function handleClear() {
   }
 }
 
-.select__options {
-  min-width: 250px;
+.options {
   max-height: 200px;
   overflow-y: auto;
   list-style: none;
@@ -165,7 +187,37 @@ function handleClear() {
   margin: 0;
 }
 
-.select__option {
+.option__default-content {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:hover .option__default-content-icon {
+    color: #ffffff;
+  }
+
+  .option__default-content-label {
+    flex: 1;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .option__default-content-label--active {
+    font-weight: bolder;
+  }
+
+  .option__default-content-icon {
+    width: 16px;
+    height: 16px;
+    margin-left: 8px;
+    color: color.$indigo-600;
+  }
+}
+
+.option {
   box-sizing: border-box;
   height: form.$control-height;
   padding: 0 form.$control-padding-x;
@@ -178,8 +230,7 @@ function handleClear() {
   align-content: center;
   cursor: pointer;
 
-  &:hover,
-  &.select__option--active {
+  &:hover {
     color: #ffffff;
     background: form.$background-color-active;
   }
