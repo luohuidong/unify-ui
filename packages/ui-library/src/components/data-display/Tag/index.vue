@@ -6,7 +6,11 @@ export default defineComponent({
 });
 </script>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+defineSlots<{
+  default(props: {}): any;
+}>();
+</script>
 
 <template>
   <span :class="$style.tag">

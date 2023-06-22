@@ -44,6 +44,7 @@ export default defineConfig({
               { text: "Empty", link: "/components/data-display/empty/" },
               { text: "Popup", link: "/components/data-display/popup/" },
               { text: "Table", link: "/components/data-display/table/" },
+              { text: "Tag", link: "/components/data-display/tag/" },
               { text: "Tooltip", link: "/components/data-display/tooltip/" },
             ],
           },
