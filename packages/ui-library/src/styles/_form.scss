@@ -1,3 +1,4 @@
+@use "sass:map";
 @use "color";
 @use "type";
 
@@ -10,22 +11,22 @@ $font-size-base: type.$font-size-base;
 
 $radius: 6px;
 
-$font-color: rgb(17 24 39);
-$font-color-error: color.$error;
-$font-color-disabled: #a0aec0;
+$font-color: color.$gray-800;
+$font-color-error: color.$red-600;
+$font-color-disabled: color.$gray-400;
 
-$border-color: #d1d5db;
-$border-color-active: #4f46e5;
-$border-color-error: color.$error;
+$border-color: color.$gray-300;
+$border-color-active: color.$indigo-600;
+$border-color-error: color.$red-600;
 
-$outline-color-active: #4f46e5;
-$outline-color-error: color.$error;
+$outline-color-active: color.$indigo-600;
+$outline-color-error: color.$red-600;
 
-$background-color: #ffffff;
-$background-color-active: #4f46e5;
-$background-color-disabled: rgb(249 250 251);
+$background-color: color.$background-light;
+$background-color-active: color.$indigo-600;
+$background-color-disabled: color.$gray-100;
 
-$placeholder-color: #a0aec0;
+$placeholder-color: color.$gray-400;
 
-$icon-color: #a0aec0;
-$icon-color-active: rgb(107, 114, 128);
+$icon-color: color.$gray-400;
+$icon-color-active: color.$gray-500;
