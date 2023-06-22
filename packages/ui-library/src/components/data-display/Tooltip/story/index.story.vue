@@ -4,7 +4,7 @@ import DisabledCase from "./DisabledCase.vue";
 </script>
 
 <template>
-  <Story title="Date Display/Tooltip">
+  <Story title="Data Display/Tooltip">
     <Variant title="Normal use">
       <NormalUseCase></NormalUseCase>
     </Variant>

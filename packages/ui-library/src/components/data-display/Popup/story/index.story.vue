@@ -4,7 +4,7 @@ import CaseTriggerMethod from "./CaseTriggerMethod.vue";
 </script>
 
 <template>
-  <Story title="Date Display/Popup">
+  <Story title="Data Display/Popup">
     <Variant title="Base usage">
       <CaseBaseUsage></CaseBaseUsage>
     </Variant>
