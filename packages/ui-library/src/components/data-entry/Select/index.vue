@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts" generic="T extends string | number | undefined">
-import { ref } from "vue";
+import { onMounted, onUnmounted, ref } from "vue";
 
 import { UniPopup } from "@/components";
 import CloseIcon from "./icons/Close.vue";
@@ -28,6 +28,7 @@ const emit = defineEmits<{
 const visible = ref(false);
 const triggerRef = ref<HTMLSpanElement>();
 const floatingElementWidth = ref("250px");
+const optionsRef = ref<HTMLUListElement>();
 
 function visibleChange() {
   visible.value = !visible.value;
@@ -48,6 +49,21 @@ function handleClear() {
   emit("update:modelValue", undefined);
   emit("change", undefined);
 }
+
+function handleDocumentClick(e: MouseEvent) {
+  if (!triggerRef.value || !optionsRef.value) return;
+
+  const path = e.composedPath();
+  if (!path.includes(triggerRef.value) && !path.includes(optionsRef.value)) {
+    visible.value = false;
+  }
+}
+onMounted(() => {
+  document.addEventListener("click", handleDocumentClick);
+});
+onUnmounted(() => {
+  document.removeEventListener("click", handleDocumentClick);
+});
 </script>
 
 <template>
@@ -69,7 +85,7 @@ function handleClear() {
     </span>
 
     <template #content>
-      <ul :class="$style['options']" :style="{ width: floatingElementWidth }">
+      <ul ref="optionsRef" :class="$style['options']" :style="{ width: floatingElementWidth }">
         <li
           v-for="option in options"
           :key="option.value"
