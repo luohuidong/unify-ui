@@ -28,6 +28,12 @@ export interface Column {
 
   /** Column width. When a column is fixed, it is necessary to provide the 'width' property */
   width?: number;
+
+  /**
+   * Minimum width of the column
+   * @default 200
+   */
+  minWidth?: number;
 }
 
 export interface TableProps {
