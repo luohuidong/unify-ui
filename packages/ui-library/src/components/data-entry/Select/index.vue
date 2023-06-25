@@ -201,6 +201,7 @@ onUnmounted(() => {
   list-style: none;
   padding: 0;
   margin: 0;
+  border-radius: 4px;
 }
 
 .option__default-content {
