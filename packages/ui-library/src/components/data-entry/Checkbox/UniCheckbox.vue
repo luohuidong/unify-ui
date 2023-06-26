@@ -36,9 +36,7 @@ function handleChange(e: Event) {
     emit("update:checked", checked);
     emit("change", checked);
 
-    props.value !== undefined &&
-      handleChangeGroupValue &&
-      handleChangeGroupValue(checked, props.value);
+    props.value !== undefined && handleChangeGroupValue && handleChangeGroupValue(checked, props.value);
   }
 }
 
@@ -69,11 +67,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 </template>
 
 <style lang="scss" scoped>
-$active-color: rgb(79, 70, 229);
-
-$border-grey: rgba(206, 206, 206, 1);
-$background-grey: #f4f4f4;
-$font-grey: #a8abb2;
+@use "@/styles/form";
 
 %square {
   height: 14px;
@@ -92,7 +86,7 @@ $font-grey: #a8abb2;
   display: inline-flex;
   align-items: center;
   cursor: v-bind(cursor);
-  font-size: 14px;
+  font-size: form.$font-size-sm;
   user-select: none;
 }
 
@@ -104,14 +98,14 @@ $font-grey: #a8abb2;
   @extend %square;
 
   color: white;
-  background: $active-color;
-  border: 1px solid $active-color;
+  background: form.$background-color-active;
+  border: 1px solid form.$border-color-active;
 }
 
 .input:disabled ~ .indeterminate {
-  color: $font-grey;
-  background-color: $background-grey;
-  border-color: $border-grey;
+  color: form.$font-color-disabled;
+  background-color: form.$background-color;
+  border-color: form.$border-color;
   cursor: not-allowed;
 }
 
@@ -122,30 +116,30 @@ $font-grey: #a8abb2;
   @extend %square;
 
   color: transparent;
-  background: white;
-  border: 1px solid $border-grey;
+  background: form.$background-color;
+  border: 1px solid form.$border-color;
 }
 
 // not checked - disabled
 .input:disabled ~ .checkmark {
   color: transparent;
-  background-color: $background-grey;
-  border-color: $border-grey;
+  background-color: form.$background-color;
+  border-color: form.$border-color;
   cursor: not-allowed;
 }
 
 // checked - not disabled
 .input:checked ~ .checkmark {
   color: white;
-  background-color: $active-color;
-  border-color: $active-color;
+  background-color: form.$background-color-active;
+  border-color: form.$border-color-active;
 }
 
 // checked - disabled
 .input:checked:disabled ~ .checkmark {
-  color: $font-grey;
-  background-color: $background-grey;
-  border-color: $border-grey;
+  color: form.$font-color-disabled;
+  background-color: form.$background-color;
+  border-color: form.$border-color;
   cursor: not-allowed;
 }
 
@@ -154,6 +148,6 @@ $font-grey: #a8abb2;
 }
 
 .input:disabled ~ .label__text--disabled {
-  color: #a8abb2;
+  color: form.$font-color-disabled;
 }
 </style>
