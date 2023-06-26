@@ -34,6 +34,8 @@ function handleChange(e: Event) {
 </template>
 
 <style lang="scss" scoped>
+@use "@/styles/form";
+
 /* Customize the label (the container) */
 .label {
   display: inline-flex;
@@ -60,23 +62,21 @@ function handleChange(e: Event) {
   margin-right: 8px;
 
   border-radius: 50%;
-  border-width: 1px;
+  border-width: form.$border-width;
   border-style: solid;
-  border-color: rgb(209, 213, 219);
+  border-color: form.$border-color;
 }
 
 /* When the radio button is checked, add a purple background */
 .input:checked ~ .checkmark {
-  --checked-color: #4f46e5;
-  background-color: var(--checked-color);
-  border-color: var(--checked-color);
+  background-color: form.$background-color-active;
+  border-color: form.$border-color-active;
 }
 
 /** When the radio button is disabled, add a grey background */
 .input:disabled ~ .checkmark {
-  --disabled-color: #eee;
-  background-color: var(--disabled-color);
-  border-color: var(--disabled-color);
+  background-color: form.$background-color-disabled;
+  border-color: form.$border-color;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
@@ -93,7 +93,7 @@ function handleChange(e: Event) {
 
   display: none;
   border-radius: 50%;
-  background: white;
+  background: form.$background-color;
 }
 
 /* Show the indicator (dot/circle) when checked */
@@ -102,11 +102,12 @@ function handleChange(e: Event) {
 }
 
 .text {
-  font-size: 14px;
+  font-size: form.$font-size-sm;
+
   line-height: 24px;
   font-weight: 500;
 }
 .input:disabled ~ .text {
-  color: #ccc;
+  color: form.$font-color-disabled;
 }
 </style>
