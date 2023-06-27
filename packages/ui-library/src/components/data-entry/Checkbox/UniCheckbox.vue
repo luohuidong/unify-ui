@@ -1,15 +1,14 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="V extends string | number">
 import { computed, inject } from "vue";
 
 import Tick from "./icons/TickIcon.vue";
 import IndeterminateIcon from "./icons/IndeterminateIcon.vue";
-import type { Value } from "./types";
 
 const props = withDefaults(
   defineProps<{
     label?: string;
     checked?: boolean;
-    value?: Value;
+    value?: V;
     disabled?: boolean;
     indeterminate?: boolean;
   }>(),
@@ -27,7 +26,7 @@ const emit = defineEmits<{
 
 // use this function when checkbox is inside checkbox group
 const handleChangeGroupValue = inject("handleChangeGroupValue", void 0) as
-  | ((checked: boolean, value: Value) => void)
+  | ((checked: boolean, value: V) => void)
   | undefined;
 
 function handleChange(e: Event) {

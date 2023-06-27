@@ -1,25 +1,25 @@
-<script setup lang="ts">
+<script setup lang="ts" generic="V extends string | number">
 import { provide, watch, reactive, computed } from "vue";
 
 import UniCheckbox from "./UniCheckbox.vue";
-import type { Value } from "./types";
 import { SetUtils } from "./utils";
 
 const props = defineProps<{
-  options: { label: string; value: Value }[];
-  modelValue: Set<Value>;
+  options: { label: string; value: V }[];
+  modelValue: Set<V>;
   disabled?: boolean;
   inline?: boolean;
 }>();
 
 const emits = defineEmits<{
-  (e: "update:modelValue", value: Set<Value>): void;
+  (e: "update:modelValue", value: Set<V>): void;
+  (e: "change", value: Set<V>): void;
 }>();
 
 const state = reactive<{
-  values: Set<Value>;
+  values: Set<V>;
 }>({
-  values: new Set<Value>(),
+  values: new Set(),
 });
 
 watch(
@@ -35,9 +35,12 @@ watch(
   }
 );
 
-function handleChangeGroupValue(checked: boolean, value: string) {
+function handleChangeGroupValue(checked: boolean, value: V) {
   checked ? state.values.add(value) : state.values.delete(value);
-  emits("update:modelValue", new Set(state.values));
+
+  const newValue = new Set(state.values);
+  emits("update:modelValue", newValue);
+  emits("change", newValue);
 }
 
 provide("handleChangeGroupValue", handleChangeGroupValue);
@@ -51,7 +54,6 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
       v-for="item in options"
       :key="item.label"
       :class="{ 'checkbox--column': !inline }"
-      :name="name"
       :label="item.label"
       :value="item.value"
       :checked="state.values.has(item.value)"
