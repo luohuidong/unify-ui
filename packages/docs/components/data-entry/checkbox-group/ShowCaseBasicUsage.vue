@@ -21,11 +21,7 @@ const checkboxGroupValue = ref(new Set<string>(["test1", "test3"]));
 </script>
 
 <template>
-  <UniCheckboxGroup
-    v-model="checkboxGroupValue"
-    name="group"
-    :options="options"
-  ></UniCheckboxGroup>
+  <UniCheckboxGroup v-model="checkboxGroupValue" :options="options"></UniCheckboxGroup>
 </template>
 
 <style lang="scss" module></style>

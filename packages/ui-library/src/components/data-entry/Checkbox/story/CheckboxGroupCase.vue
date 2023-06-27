@@ -26,51 +26,27 @@ const checkboxGroupValue2 = ref(new Set<string>(["test1", "test3"]));
   <ul>
     <li>
       normal checkbox group:
-      <UniCheckboxGroup
-        v-model="checkboxGroupValue"
-        name="group1"
-        :options="options"
-      ></UniCheckboxGroup>
+      <UniCheckboxGroup v-model="checkboxGroupValue" :options="options"></UniCheckboxGroup>
     </li>
 
     <li>
       with initial value:
-      <UniCheckboxGroup
-        v-model="checkboxGroupValue2"
-        name="group2"
-        :options="options"
-      ></UniCheckboxGroup>
+      <UniCheckboxGroup v-model="checkboxGroupValue2" :options="options"></UniCheckboxGroup>
     </li>
 
     <li>
       disabled checkbox group:
-      <UniCheckboxGroup
-        v-model="checkboxGroupValue"
-        name="group3"
-        :options="options"
-        disabled
-      ></UniCheckboxGroup>
+      <UniCheckboxGroup v-model="checkboxGroupValue" :options="options" disabled></UniCheckboxGroup>
     </li>
 
     <li>
       disabled checkbox group with initial value:
-      <UniCheckboxGroup
-        v-model="checkboxGroupValue2"
-        name="group4"
-        :options="options"
-        disabled
-      ></UniCheckboxGroup>
+      <UniCheckboxGroup v-model="checkboxGroupValue2" :options="options" disabled></UniCheckboxGroup>
     </li>
 
     <li>
       inline checkbox group:
-      <UniCheckboxGroup
-        v-model="checkboxGroupValue2"
-        name="group4"
-        :options="options"
-        disabled
-        inline
-      ></UniCheckboxGroup>
+      <UniCheckboxGroup v-model="checkboxGroupValue2" :options="options" disabled inline></UniCheckboxGroup>
     </li>
   </ul>
 </template>

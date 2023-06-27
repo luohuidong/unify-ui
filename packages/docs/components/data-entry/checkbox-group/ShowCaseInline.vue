@@ -23,16 +23,10 @@ const checkboxGroupValue2 = ref(new Set<string>(["test1", "test3"]));
 
 <template>
   <div>
-    <UniCheckboxGroup
-      v-model="checkboxGroupValue"
-      name="group1"
-      :options="options"
-      inline
-    ></UniCheckboxGroup>
+    <UniCheckboxGroup v-model="checkboxGroupValue" :options="options" inline></UniCheckboxGroup>
 
     <UniCheckboxGroup
       v-model="checkboxGroupValue2"
-      name="group2"
       :options="options"
       disabled
       inline
