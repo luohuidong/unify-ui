@@ -53,6 +53,7 @@ const props = defineProps<{
 
 ```ts
 const emits = defineEmits<{
-  (e: "update:modelValue", value: Set<Value>): void;
+  (e: "update:modelValue", value: Set<V>): void;
+  (e: "change", value: Set<V>): void;
 }>();
 ```
