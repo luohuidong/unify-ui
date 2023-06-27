@@ -53,7 +53,6 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
     <UniCheckbox
       v-for="item in options"
       :key="item.label"
-      :class="{ 'checkbox--column': !inline }"
       :label="item.label"
       :value="item.value"
       :checked="state.values.has(item.value)"
@@ -67,13 +66,10 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
   display: flex;
   flex-direction: v-bind(flexDirection);
   width: fit-content;
+  gap: 5px;
 
   border: none;
   padding: 0;
   margin: 0;
-}
-
-.checkbox--column:not(:first-child) {
-  margin-top: 16px;
 }
 </style>
