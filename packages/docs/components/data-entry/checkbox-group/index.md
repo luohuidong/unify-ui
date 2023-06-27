@@ -44,7 +44,6 @@ import ShowCaseInline from './ShowCaseInline.vue'
 const props = defineProps<{
   options: { label: string; value: Value }[];
   modelValue: Set<Value>;
-  name: string;
   disabled?: boolean;
   inline?: boolean;
 }>();
