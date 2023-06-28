@@ -9,7 +9,7 @@
     "cs": "changeset"
   },
   "devDependencies": {
-    "@changesets/cli": "^2.26.1",
+    "@changesets/cli": "^2.26.2",
     "commitizen": "^4.3.0"
   }
 }
