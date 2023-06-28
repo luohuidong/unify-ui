@@ -3,8 +3,8 @@ module.exports = {
   parserOptions: {
     parser: "@typescript-eslint/parser",
     ecmaVersion: 2020,
-    sourceType: "module",
+    sourceType: "module"
   },
-  extends: ["plugin:vue/vue3-recommended", "prettier"],
-  rules: {},
+  extends: ["plugin:vue/vue3-recommended", "prettier", "plugin:storybook/recommended"],
+  rules: {}
 };
