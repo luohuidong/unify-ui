@@ -1,5 +1,19 @@
 # unify-ui
 
+## 0.13.1
+
+### Patch Changes
+
+- f34f139: Hide the floating element when clicking outside the Select component.
+- fce66dd: utilize SCSS variables instead of hard-coded values within the Radio component
+- 719a156: remove the name property of the CheckboxGroup component
+- 915c4ad: revise the css style of the CheckboxGroup component
+- 75088a0: The CheckboxGroup component adds a 'change' event.
+- abc7446: revise the css style of the Select component
+- 8eda6e4: Resolve the issue of the Popup component's arrow displaying incorrectly.
+- 73104dd: Utilize SCSS variables instead of hard-coded values within the Checkbox component.
+- 66e275a: Table columns without a specified width default to a minimum of 200px.
+
 ## 0.13.0
 
 ### Minor Changes
