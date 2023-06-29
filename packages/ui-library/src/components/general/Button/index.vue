@@ -16,7 +16,7 @@ withDefaults(
     htmlType?: "button" | "submit" | "reset";
   }>(),
   {
-    type: "secondary",
+    type: "soft",
     size: "m",
     htmlType: "button",
   }
