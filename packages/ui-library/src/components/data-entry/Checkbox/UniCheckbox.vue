@@ -122,7 +122,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 // not checked - disabled
 .input:disabled ~ .checkmark {
   color: transparent;
-  background-color: form.$background-color;
+  background-color: form.$background-color-disabled;
   border-color: form.$border-color;
   cursor: not-allowed;
 }
@@ -137,7 +137,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 // checked - disabled
 .input:checked:disabled ~ .checkmark {
   color: form.$font-color-disabled;
-  background-color: form.$background-color;
+  background-color: form.$background-color-disabled;
   border-color: form.$border-color;
   cursor: not-allowed;
 }
