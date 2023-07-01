@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { useI18n } from "@/i18n";
 
-import { UniButton, UniScrim } from '@/components'
-import CloseIcon from "./IconClose.vue";
+import { UniButton, UniScrim } from "@/components";
+import { IconClose } from "@/icons/";
 
 const { t } = useI18n();
 
@@ -32,7 +32,7 @@ function handleCancelButtonClick() {
 <template>
   <UniScrim v-show="visible">
     <div class="modal" :class="modalClass">
-      <CloseIcon class="modal__close-icon" @click="handleCancelButtonClick"></CloseIcon>
+      <IconClose class="modal__close-icon" @click="handleCancelButtonClick"></IconClose>
 
       <slot name="title">
         <div v-if="title" class="modal__title">{{ title }}</div>
