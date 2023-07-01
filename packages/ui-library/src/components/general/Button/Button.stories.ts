@@ -13,13 +13,7 @@ const meta = {
     htmlType: { control: "radio", options: ["button", "submit", "reset"] },
     onClick: {},
   },
-  args: {
-    type: "primary",
-    size: "m",
-    disabled: false,
-    rounded: false,
-    htmlType: "button",
-  },
+
   excludeStories: /.*Data$/,
 } satisfies Meta<typeof UniButton>;
 
@@ -30,12 +24,29 @@ export const actionsData = {
   onClick: action("click"),
 };
 
+export const SoftButton: Story = {
+  render: (args) => ({
+    components: { UniButton },
+    setup: () => ({ args }),
+    template: '<UniButton v-bind="args">UniButton</UniButton>',
+  }),
+  args: {
+    size: "m",
+    disabled: false,
+    rounded: false,
+    htmlType: "button",
+  },
+};
+
 export const PrimaryButton: Story = {
   render: (args) => ({
     components: { UniButton },
     setup: () => ({ args }),
     template: '<UniButton v-bind="args">UniButton</UniButton>',
   }),
+  args: {
+    type: "primary",
+  },
 };
 
 export const SecondaryButton: Story = {
@@ -46,17 +57,6 @@ export const SecondaryButton: Story = {
   }),
   args: {
     type: "secondary",
-  },
-};
-
-export const SoftButton: Story = {
-  render: (args) => ({
-    components: { UniButton },
-    setup: () => ({ args }),
-    template: '<UniButton v-bind="args">UniButton</UniButton>',
-  }),
-  args: {
-    type: "soft",
   },
 };
 
