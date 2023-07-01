@@ -1,0 +1,3 @@
+<% iconInfos.forEach(function(iconInfo) { -%>
+export { default as <%= iconInfo.iconName %> } from "./assets/<%= iconInfo.iconFileName %>"
+<% }) %>
