@@ -1,29 +1,24 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import { action } from "@storybook/addon-actions";
 
 import CheckboxGroup from "./UniCheckboxGroup.vue";
 
 const meta = {
-  title: "General/CheckboxGroup",
+  title: "Data Entry/CheckboxGroup",
   component: CheckboxGroup,
   tags: ["autodocs"],
-  argTypes: {},
-  args: {},
-  excludeStories: /.*Data$/,
+  argTypes: {
+    onChange: {},
+  },
 } satisfies Meta<typeof CheckboxGroup>;
 
 export default meta;
 type Story = StoryObj<typeof CheckboxGroup>;
 
-export const actionsData = {
-  onClick: action("click"),
-};
-
 export const BasicUsage: Story = {
   render: (args) => ({
     components: { Checkbox: CheckboxGroup },
     setup: () => ({ args }),
-    template: '<Checkbox v-bind="args" v-model:checked="args.checked" />',
+    template: '<Checkbox v-model="args.modelValue" v-bind="args" />',
   }),
   args: {
     modelValue: new Set<string>(),
@@ -46,11 +41,23 @@ export const BasicUsage: Story = {
   },
 };
 
+export const Checked: Story = {
+  render: (args) => ({
+    components: { CheckboxGroup },
+    setup: () => ({ args }),
+    template: '<CheckboxGroup v-model="args.modelValue" v-bind="args" />',
+  }),
+  args: {
+    ...BasicUsage.args,
+    modelValue: new Set(["option1", "option2"]),
+  },
+};
+
 export const Disabled: Story = {
   render: (args) => ({
     components: { CheckboxGroup },
     setup: () => ({ args }),
-    template: '<CheckboxGroup v-bind="args" v-model:checked="args.checked" />',
+    template: '<CheckboxGroup v-model="args.modelValue" v-bind="args" />',
   }),
   args: {
     ...BasicUsage.args,
@@ -62,7 +69,7 @@ export const Inline: Story = {
   render: (args) => ({
     components: { CheckboxGroup },
     setup: () => ({ args }),
-    template: '<CheckboxGroup v-bind="args" v-model:checked="args.checked" />',
+    template: '<CheckboxGroup v-model="args.modelValue" v-bind="args" />',
   }),
   args: {
     ...BasicUsage.args,

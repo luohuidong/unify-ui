@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import { action } from "@storybook/addon-actions";
 
 import UniButton from "./index.vue";
 
@@ -13,16 +12,10 @@ const meta = {
     htmlType: { control: "radio", options: ["button", "submit", "reset"] },
     onClick: {},
   },
-
-  excludeStories: /.*Data$/,
 } satisfies Meta<typeof UniButton>;
 
 export default meta;
 type Story = StoryObj<typeof UniButton>;
-
-export const actionsData = {
-  onClick: action("click"),
-};
 
 export const SoftButton: Story = {
   render: (args) => ({
