@@ -103,7 +103,7 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 
 .input:disabled ~ .indeterminate {
   color: form.$font-color-disabled;
-  background-color: form.$background-color;
+  background-color: form.$background-color-disabled;
   border-color: form.$border-color;
   cursor: not-allowed;
 }
