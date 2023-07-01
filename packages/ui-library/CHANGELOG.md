@@ -1,5 +1,16 @@
 # unify-ui
 
+## 0.13.2
+
+### Patch Changes
+
+- e289c19: Revise the SCSS variables for colors.
+- d3bced0: Move all frequently used icon components into the 'icons' folder.
+- 846bb22: Modify the CSS style of the Checkbox component
+- 1781b73: Resolve the issue of the Checkbox component displaying the wrong background when it is disabled.
+- 503479f: Create a set of predefined colorful tag styles for various usage scenarios.
+- 2e21ce9: Modify the default type of the Button component to 'soft'
+
 ## 0.13.1
 
 ### Patch Changes
