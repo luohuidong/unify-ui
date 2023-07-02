@@ -3,7 +3,9 @@ import { UniTag } from "unify-ui";
 </script>
 
 <template>
-  <UniTag>test</UniTag>
+  <div>
+    <UniTag>test</UniTag>
+  </div>
 </template>
 
 <style lang="scss" module></style>
