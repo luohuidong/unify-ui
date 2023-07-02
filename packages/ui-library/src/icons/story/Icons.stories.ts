@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/vue3";
 import AllIcons from "./AllIcons.vue";
 
 const meta = {
-  title: "Icons",
+  title: "General/Icons",
   component: AllIcons,
   tags: ["autodocs"],
 } satisfies Meta<typeof AllIcons>;
