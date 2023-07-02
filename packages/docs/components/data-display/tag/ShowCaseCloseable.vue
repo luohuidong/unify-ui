@@ -18,7 +18,8 @@ function handleClose(tag: (typeof originPreset)[number]) {
       :type="preset"
       closable
       @close="handleClose(preset)"
-      >{{ preset }}</UniTag
     >
+      {{ preset }}
+    </UniTag>
   </div>
 </template>
