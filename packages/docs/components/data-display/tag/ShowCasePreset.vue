@@ -1,0 +1,13 @@
+<script setup lang="ts">
+import { UniTag } from "unify-ui";
+
+const presets = ["default", "info", "success", "warning", "error"] as const;
+</script>
+
+<template>
+  <div>
+    <UniTag v-for="preset in presets" :key="preset" :type="preset">{{ preset }}</UniTag>
+  </div>
+</template>
+
+<style lang="scss" module></style>
