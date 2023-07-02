@@ -7,18 +7,29 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+import { Close } from "@/icons";
+
 withDefaults(
   defineProps<{
-    type: "default" | "success" | "info" | "warning" | "error";
+    type?: "default" | "success" | "info" | "warning" | "error";
+    closable?: boolean;
   }>(),
   {
     type: "default",
   }
 );
 
+const emit = defineEmits<{
+  (e: "close"): void;
+}>();
+
 defineSlots<{
   default(props: {}): any;
 }>();
+
+function handleClose() {
+  emit("close");
+}
 </script>
 
 <template>
@@ -35,6 +46,8 @@ defineSlots<{
     ]"
   >
     <slot></slot>
+
+    <Close v-if="closable" :class="$style['close-icon']" @click.stop="handleClose"></Close>
   </span>
 </template>
 
@@ -42,6 +55,8 @@ defineSlots<{
 @use "@/styles/color";
 
 .tag {
+  display: inline-flex;
+  align-items: center;
   margin-right: 6px;
   padding: 4px 8px;
   font-size: 12px;
@@ -78,5 +93,12 @@ defineSlots<{
   color: color.$warning-font;
   background: color.$warning-background;
   border-color: color.$warning-border;
+}
+
+.close-icon {
+  height: 14px;
+  width: 14px;
+  margin-left: 6px;
+  cursor: pointer;
 }
 </style>
