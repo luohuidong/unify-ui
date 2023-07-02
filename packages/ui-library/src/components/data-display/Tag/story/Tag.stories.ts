@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import { action } from "@storybook/addon-actions";
 
-import Tag from "./index.vue";
+import Tag from "../index.vue";
+import CloseTags from "./CloseTags.vue";
 
 const meta = {
   title: "Data Display/Tag",
@@ -9,6 +9,7 @@ const meta = {
   tags: ["autodocs"],
   argTypes: {
     type: { control: "radio", options: ["default", "info", "success", "warning", "error"] },
+    onClose: {},
   },
   excludeStories: /.*Data$/,
 } satisfies Meta<typeof Tag>;
@@ -32,9 +33,18 @@ export const Presets: Story = {
       const presets = ["default", "info", "success", "warning", "error"];
 
       return {
+        args,
         presets,
       };
     },
-    template: '<Tag v-for="preset in presets" :key="preset" :type="preset">{{ preset }}</Tag>',
+    template: '<Tag v-for="preset in presets" :key="preset" :type="preset" v-bind="args">{{ preset }}</Tag>',
+  }),
+};
+
+export const Closable: Story = {
+  render: (args) => ({
+    components: { CloseTags },
+    setup: () => ({ args }),
+    template: "<CloseTags />",
   }),
 };
