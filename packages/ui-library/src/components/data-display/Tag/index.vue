@@ -53,13 +53,16 @@ function handleClose() {
 
 <style lang="scss" module>
 @use "@/styles/color";
+@use "@/styles/type";
 
 .tag {
+  @include type.text-xs;
+
   display: inline-flex;
   align-items: center;
   margin-right: 6px;
   padding: 4px 8px;
-  font-size: 12px;
+
   border-width: 1px;
   border-style: solid;
   border-radius: 6px;
