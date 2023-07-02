@@ -1,5 +1,12 @@
 # unify-ui
 
+## 0.13.3
+
+### Patch Changes
+
+- 61918bd: Adjust the font style of the Tag component
+- bc8a026: The Tag component supports closing
+
 ## 0.13.2
 
 ### Patch Changes
