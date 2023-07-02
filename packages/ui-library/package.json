@@ -16,7 +16,7 @@
     "test:dev": "vitest dev",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest run --coverage",
-    "storybook:dev": "storybook dev -p 6006",
+    "storybook:dev": "storybook dev -p 6006 --no-open",
     "storybook:build": "storybook build",
     "icons:generate": "node scripts/generate-icons/generate.cjs"
   },
