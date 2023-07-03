@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
 import ShowCaseCustomizedFormControl from './ShowCaseCustomizedFormControl.vue'
+import ShowCaseLayout from './ShowCaseLayout.vue'
 </script>
 
 # Form
@@ -31,20 +32,32 @@ In some cases, you might have to use a form control that is not supplied by Unif
 <<< @/components/data-entry/form/ShowCaseCustomizedFormControl.vue
 :::
 
+## Layout
+
+The form layout can be set using the `layout` property. The default value is `vertical`.
+
+:::raw
+<ShowCaseLayout class="vp-raw" />
+:::
+
+::: details View Source
+<<< @/components/data-entry/form/ShowCaseLayout.vue
+:::
+
 ## Form API
 
 ### Properties
 
 ```ts
-const props = withDefaults(
-  defineProps<{
-    model: Model;
-    layout?: "horizontal" | "vertical" | "inline";
-  }>(),
-  {
-    layout: "horizontal",
-  }
-);
+export interface FormProps {
+  model: Model;
+  layout?: "horizontal" | "vertical" | "inline";
+  labelWidth?: string;
+}
+
+const props = withDefaults(defineProps<FormProps>(), {
+  layout: "vertical",
+});
 ```
 
 ### Events
@@ -82,11 +95,13 @@ import type { RuleItem } from "async-validator";
 
 const props = withDefaults(
   defineProps<{
-    label: string;
-    name: string;
+    label?: string;
+    name?: string;
     rules?: RuleItem[];
   }>(),
   {
+    label: undefined,
+    name: undefined,
     rules: () => [],
   }
 );
