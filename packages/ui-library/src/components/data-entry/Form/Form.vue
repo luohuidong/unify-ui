@@ -12,17 +12,11 @@ import type { Rules } from "async-validator";
 import { cloneDeep } from "lodash-es";
 
 import { useFormStoreProvider } from "./composables";
-import type { Model } from "./types";
+import type { Model, FormProps } from "./types";
 
-const props = withDefaults(
-  defineProps<{
-    model: Model;
-    layout?: "horizontal" | "vertical" | "inline";
-  }>(),
-  {
-    layout: "horizontal",
-  }
-);
+const props = withDefaults(defineProps<FormProps>(), {
+  layout: "vertical",
+});
 
 const emits = defineEmits<{
   (e: "update:model", value: Model): void;
@@ -84,15 +78,21 @@ defineExpose({
 </script>
 
 <template>
-  <form ref="formRef" :class="$style.form" @submit.prevent="" @reset.prevent="">
+  <form
+    ref="formRef"
+    :class="{
+      [$style['form--layout-flex']]: ['horizontal', 'vertical'].includes(layout),
+    }"
+    @submit.prevent=""
+    @reset.prevent=""
+  >
     <slot></slot>
   </form>
 </template>
 
 <style lang="scss" module>
-.form {
+.form--layout-flex {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 </style>

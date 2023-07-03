@@ -6,7 +6,8 @@ export type Model = Record<string, unknown>;
 
 export interface FormProps {
   model: Model;
-  layout: "horizontal" | "vertical" | "inline";
+  layout?: "horizontal" | "vertical" | "inline";
+  labelWidth?: string;
 }
 
 export interface FormItemInfo {
