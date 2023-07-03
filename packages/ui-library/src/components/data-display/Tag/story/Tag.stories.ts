@@ -1,7 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 import Tag from "../index.vue";
-import CloseTags from "./CloseTags.vue";
+import CloseableTags from "./CloseableTags.vue";
 
 const meta = {
   title: "Data Display/Tag",
@@ -43,8 +43,8 @@ export const Presets: Story = {
 
 export const Closable: Story = {
   render: (args) => ({
-    components: { CloseTags },
+    components: { CloseableTags },
     setup: () => ({ args }),
-    template: "<CloseTags />",
+    template: "<CloseableTags />",
   }),
 };
