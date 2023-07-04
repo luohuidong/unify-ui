@@ -43,7 +43,7 @@ const layout = ref<InstanceType<typeof UniForm>["$props"]["layout"]>("horizontal
         :rules="[{ required: true, message: 'Username is required' }]"
         label="Username"
       >
-        <UniInput v-model="model.username" />
+        <UniInput v-model="model.username" class="input" />
       </UniFormItem>
 
       <UniFormItem
@@ -51,11 +51,11 @@ const layout = ref<InstanceType<typeof UniForm>["$props"]["layout"]>("horizontal
         :rules="[{ required: true, message: 'Password is required' }]"
         label="Password"
       >
-        <UniPassword v-model="model.password" />
+        <UniPassword v-model="model.password" class="input" />
       </UniFormItem>
 
       <UniFormItem name="address" label="Address">
-        <UniInput v-model="model.address" />
+        <UniInput v-model="model.address" class="input" />
       </UniFormItem>
 
       <UniFormItem>
@@ -74,5 +74,9 @@ const layout = ref<InstanceType<typeof UniForm>["$props"]["layout"]>("horizontal
 .button {
   width: 100px;
   margin-right: 20px;
+}
+
+.input {
+  width: 150px;
 }
 </style>
