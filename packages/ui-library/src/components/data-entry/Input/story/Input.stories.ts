@@ -1,6 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 import Input from "./index.vue";
+import ShowCaseAddOn from "./story/ShowCaseAddOn.vue";
+import ShowCaseInlineAddOn from "./story/ShowCaseInlineAddOn.vue";
 
 const meta = {
   title: "Data Entry/Input",
@@ -25,4 +27,18 @@ export const BasicUsage: Story = {
   args: {
     modelValue: "",
   },
+};
+
+export const AddOn: Story = {
+  render: (args) => ({
+    components: { ShowCaseAddOn },
+    template: "<ShowCaseAddOn />",
+  }),
+};
+
+export const InlineAddOn: Story = {
+  render: (args) => ({
+    components: { ShowCaseInlineAddOn },
+    template: "<ShowCaseInlineAddOn />",
+  }),
 };

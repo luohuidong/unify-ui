@@ -80,17 +80,22 @@ const existAddOn = computed(() => {
 
 <template>
   <span
-    class="input-group"
-    :class="{
-      'input-group--without-add-on': !existAddOn,
-      'input-group--error': !existAddOn && statusValue === 'error',
-      'input-group--disabled': !existAddOn && disabled,
-    }"
+    :class="[
+      $style['input-group'],
+      {
+        [$style['input-group--without-add-on']]: !existAddOn,
+        [$style['input-group--error']]: !existAddOn && statusValue === 'error',
+        [$style['input-group--disabled']]: !existAddOn && disabled,
+      },
+    ]"
   >
     <span
       v-if="$slots['leading-add-on']"
-      class="add-on add-on--leading"
-      :class="{ 'add-on--disabled': disabled, 'add-on--error': statusValue === 'error' }"
+      :class="[
+        $style['add-on'],
+        $style['add-on--leading'],
+        { [$style['add-on--disabled']]: disabled, [$style['add-on--error']]: statusValue === 'error' },
+      ]"
     >
       <slot name="leading-add-on"></slot>
     </span>
@@ -98,8 +103,11 @@ const existAddOn = computed(() => {
     <span
       v-if="$slots['inline-leading-add-on']"
       :tabindex="disabled ? '' : '1'"
-      class="inline-add-on inline-add-on--leading"
-      :class="{ 'inline-add-on--error': statusValue === 'error' }"
+      :class="[
+        $style['inline-add-on'],
+        $style['inline-add-on--leading'],
+        { [$style['inline-add-on--error']]: statusValue === 'error' },
+      ]"
       @click.stop="handleInlineAddOnClick"
     >
       <slot name="inline-leading-add-on"></slot>
@@ -108,13 +116,15 @@ const existAddOn = computed(() => {
     <input
       ref="inputRef"
       :value="modelValue"
-      class="input"
-      :class="{
-        'input--with-add-on': existAddOn,
-        'input--left-rounded': $slots['trailing-add-on'] && !$slots['leading-add-on'],
-        'input--right-rounded': $slots['leading-add-on'] && !$slots['trailing-add-on'],
-        'input--error': existAddOn && statusValue === 'error',
-      }"
+      :class="[
+        $style.input,
+        {
+          [$style['input--with-add-on']]: existAddOn,
+          [$style['input--left-rounded']]: $slots['trailing-add-on'] && !$slots['leading-add-on'],
+          [$style['input--right-rounded']]: $slots['leading-add-on'] && !$slots['trailing-add-on'],
+          [$style['input--error']]: existAddOn && statusValue === 'error',
+        },
+      ]"
       :placeholder="placeholder"
       :disabled="disabled"
       :readonly="readonly"
@@ -126,8 +136,11 @@ const existAddOn = computed(() => {
     <span
       v-if="$slots['inline-trailing-add-on']"
       :tabindex="disabled ? '' : '1'"
-      class="inline-add-on inline-add-on--trailing"
-      :class="{ 'inline-add-on--error': statusValue === 'error' }"
+      :class="[
+        $style['inline-add-on'],
+        $style['inline-add-on--trailing'],
+        { [$style['inline-add-on--error']]: statusValue === 'error' },
+      ]"
       @click.stop="handleInlineAddOnClick"
     >
       <slot name="inline-trailing-add-on"></slot>
@@ -135,22 +148,25 @@ const existAddOn = computed(() => {
 
     <span
       v-if="$slots['trailing-add-on']"
-      class="add-on add-on--trailing"
-      :class="{ 'add-on--disabled': disabled, 'add-on--error': statusValue === 'error' }"
+      :class="[
+        $style['add-on'],
+        $style['add-on--trailing'],
+        { [$style['add-on--disabled']]: disabled, [$style['add-on--error']]: statusValue === 'error' },
+      ]"
     >
       <slot name="trailing-add-on"></slot>
     </span>
   </span>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @use "@/styles/form";
 
 .input-group {
   box-sizing: border-box;
 
   height: form.$control-height;
-  min-width: form.$control-min-width;
+  width: form.$control-default-width;
 
   display: inline-flex;
   align-items: center;
