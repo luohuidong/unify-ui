@@ -39,13 +39,7 @@ function handleSortChange(sort: TableType["sort"]) {
 </script>
 
 <template>
-  <UniTable
-    v-model:sort="sort"
-    row-key="id"
-    :columns="columns"
-    :data="data"
-    @sort-change="handleSortChange"
-  >
+  <UniTable v-model:sort="sort" row-key="id" :columns="columns" :data="data" @sort-change="handleSortChange">
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
   </UniTable>
 </template>
