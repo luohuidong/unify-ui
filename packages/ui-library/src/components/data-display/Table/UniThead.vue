@@ -6,7 +6,13 @@ import { ColumnData } from "./types";
 import UniTheadSelection from "./UniTheadSelection.vue";
 import UniTheadSort from "./UniTheadSort.vue";
 
-const { columnsInfo, showShadow, tableProps, rootSlotKeys, tableState } = useInject();
+const {
+  columnsInfo: { columnsData },
+  showShadow,
+  tableProps,
+  rootSlotKeys,
+  tableState,
+} = useInject();
 const { handleSortEmit } = useSortEmit();
 
 function handleSort(column: ColumnData) {
@@ -52,7 +58,7 @@ function handleSort(column: ColumnData) {
       </template>
 
       <th
-        v-for="col in columnsInfo.columnsData.value"
+        v-for="col in columnsData"
         :key="col.key"
         scope="col"
         :style="{

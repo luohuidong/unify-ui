@@ -30,6 +30,7 @@ useWatchData(props, emit);
 
 const { state } = useState(props);
 const columnsInfo = useGetColumnsInfo(props, state);
+const { columnCount } = columnsInfo;
 
 const slots = useSlots();
 useGetSlotKey(slots);
@@ -55,7 +56,7 @@ useShowShadow({ containerRef, tableRef, columnsInfo, tableProps: props });
       <tbody>
         <!-- render the data -->
         <template v-if="props.data.length > 0">
-          <UniTbodyRow v-for="(record, index) in props.data" :key="(record[props.rowKey] as string)" :record="record">
+          <UniTbodyRow v-for="(record, index) in props.data" :key="record[props.rowKey] as string" :record="record">
             <template #rowCell="{ columnKey }">
               <slot :name="columnKey" :record="record" :index="index"></slot>
             </template>
@@ -67,7 +68,7 @@ useShowShadow({ containerRef, tableRef, columnsInfo, tableProps: props });
         </template>
         <template v-else>
           <tr>
-            <td :colspan="columnsInfo.columnCount.value" class="empty-row__cell">
+            <td :colspan="columnCount" class="empty-row__cell">
               <slot name="empty">
                 <UniEmpty></UniEmpty>
               </slot>
@@ -78,7 +79,7 @@ useShowShadow({ containerRef, tableRef, columnsInfo, tableProps: props });
 
       <tfoot v-if="showFoot">
         <tr>
-          <td :colspan="columnsInfo.columnCount.value">
+          <td :colspan="columnCount">
             <slot name="foot"> </slot>
           </td>
         </tr>

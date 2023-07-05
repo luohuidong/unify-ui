@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { reactive, computed } from "vue";
 
-import { UniCheckbox, UniRadio } from '@/components'
+import { UniCheckbox, UniRadio } from "@/components";
 import { useInject, useSelection } from "./composables";
 import type { Record, Key } from "./types";
 import commonStyle from "./commonStyle.module.scss";
@@ -14,7 +14,13 @@ defineProps<{
   record: Record;
 }>();
 
-const { tableProps, columnsInfo, rootSlotKeys, showShadow, tableState } = useInject();
+const {
+  tableProps,
+  columnsInfo: { columnsData },
+  rootSlotKeys,
+  showShadow,
+  tableState,
+} = useInject();
 const { handleCheckboxChange, handleRadioClick } = useSelection();
 
 const state = reactive({
@@ -78,7 +84,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
         <UniRadio
           v-else
           name="unitable-single-selection"
-          :value="(record[tableProps.rowKey] as Key)"
+          :value="record[tableProps.rowKey] as Key"
           :checked="tableProps.selectedRowKeys?.has(record[tableProps.rowKey])"
           :disabled="tableProps.selection?.disabledCondition?.(record)"
           @change="() => handleRadioClick(record)"
@@ -87,7 +93,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
     </td>
 
     <td
-      v-for="col in  columnsInfo.columnsData.value"
+      v-for="col in columnsData"
       :key="col.key"
       :style="{
         position: col.fixed && 'sticky',
@@ -98,10 +104,8 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
       class="normal-row__cell"
       :class="[
         {
-          [commonStyle['cell--shadow-right']]:
-            col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-          [commonStyle['cell--shadow-left']]:
-            col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
+          [commonStyle['cell--shadow-right']]: col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
+          [commonStyle['cell--shadow-left']]: col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
           ['normal-row__cell--text-ellipsis']: col.ellipsis,
         },
         tableProps.tbodyCellClass,
@@ -118,10 +122,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
   </tr>
 
   <!-- expand row -->
-  <UniTbodyExpandRow
-    v-if="state.showExpandRow && tableProps.rowExpand?.expandCondition(record)"
-    :record="record"
-  >
+  <UniTbodyExpandRow v-if="state.showExpandRow && tableProps.rowExpand?.expandCondition(record)" :record="record">
     <slot name="rowExpand"></slot>
   </UniTbodyExpandRow>
 </template>

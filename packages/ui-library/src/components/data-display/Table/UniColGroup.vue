@@ -2,7 +2,11 @@
 import { useInject } from "./composables";
 import { expandColumnWidth, selectionColumnWidth } from "./constant";
 
-const { tableProps, columnsInfo, tableState } = useInject();
+const {
+  tableProps,
+  columnsInfo: { columnsData },
+  tableState,
+} = useInject();
 </script>
 
 <template>
@@ -16,7 +20,7 @@ const { tableProps, columnsInfo, tableState } = useInject();
     </template>
 
     <col
-      v-for="col in columnsInfo.columnsData.value"
+      v-for="col in columnsData"
       :key="col.key"
       :style="{
         width: col.width ? `${col.width}px` : undefined,
