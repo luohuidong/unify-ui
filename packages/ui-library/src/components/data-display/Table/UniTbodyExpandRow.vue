@@ -2,7 +2,7 @@
 import { useInject } from "./composables";
 import type { Record } from "./types";
 
-const { columnCount } = useInject();
+const { columnsInfo } = useInject();
 
 defineProps<{
   record: Record;
@@ -11,7 +11,7 @@ defineProps<{
 
 <template>
   <tr>
-    <td :colspan="columnCount" class="expand-row__cell" :style="{ padding: '16px' }">
+    <td :colspan="columnsInfo.columnCount.value" class="expand-row__cell" :style="{ padding: '16px' }">
       <slot></slot>
     </td>
   </tr>

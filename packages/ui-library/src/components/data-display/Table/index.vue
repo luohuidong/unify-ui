@@ -11,14 +11,7 @@ import { useSlots, provide, ref } from "vue";
 import { UniEmpty } from "@/components";
 
 import * as injectKeys from "./injectKeys";
-import {
-  useGetColumnsInfo,
-  useShowShadow,
-  useState,
-  useGetColumnCount,
-  useGetSlotKey,
-  useWatchData,
-} from "./composables";
+import { useGetColumnsInfo, useShowShadow, useState, useGetSlotKey, useWatchData } from "./composables";
 import type { Key, Record, TableProps, TableEmits } from "./types";
 
 import UniColGroup from "./UniColGroup.vue";
@@ -36,8 +29,7 @@ provide(injectKeys.tableEmitsKey, emit);
 useWatchData(props, emit);
 
 const { state } = useState(props);
-const columnCount = useGetColumnCount(props, state);
-const { columnsData } = useGetColumnsInfo(props, state);
+const columnsInfo = useGetColumnsInfo(props, state);
 
 const slots = useSlots();
 useGetSlotKey(slots);
@@ -46,7 +38,7 @@ const containerRef = ref<HTMLDivElement>();
 const tableRef = ref<HTMLTableElement>();
 provide(injectKeys.containerRefKey, containerRef);
 provide(injectKeys.tableRefKey, tableRef);
-useShowShadow({ containerRef, tableRef, columnsData, tableProps: props });
+useShowShadow({ containerRef, tableRef, columnsInfo, tableProps: props });
 </script>
 
 <template>
@@ -75,7 +67,7 @@ useShowShadow({ containerRef, tableRef, columnsData, tableProps: props });
         </template>
         <template v-else>
           <tr>
-            <td :colspan="columnCount" class="empty-row__cell">
+            <td :colspan="columnsInfo.columnCount.value" class="empty-row__cell">
               <slot name="empty">
                 <UniEmpty></UniEmpty>
               </slot>
@@ -86,7 +78,7 @@ useShowShadow({ containerRef, tableRef, columnsData, tableProps: props });
 
       <tfoot v-if="showFoot">
         <tr>
-          <td :colspan="columnCount">
+          <td :colspan="columnsInfo.columnCount.value">
             <slot name="foot"> </slot>
           </td>
         </tr>

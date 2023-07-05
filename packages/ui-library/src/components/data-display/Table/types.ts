@@ -1,3 +1,5 @@
+import type { ComputedRef } from "vue";
+
 export type Record = any;
 
 export type Key = string | number;
@@ -115,4 +117,9 @@ export interface ShowShadow {
   showLeftFixedColumnShadow: boolean;
 
   showRightFixedColumnShadow: boolean;
+}
+
+export interface ColumnsInfo {
+  columnsData: ComputedRef<ColumnData[]>;
+  columnCount: ComputedRef<number>;
 }

@@ -1,21 +1,13 @@
-import {
-  onMounted,
-  onUnmounted,
-  reactive,
-  provide,
-  type Ref,
-  type ComputedRef,
-  watchEffect,
-} from "vue";
+import { onMounted, onUnmounted, reactive, provide, type Ref, type ComputedRef, watchEffect } from "vue";
 import { throttle } from "lodash-es";
 
 import * as injectKeys from "../injectKeys";
-import type { ShowShadow, ColumnData, TableProps } from "../types";
+import type { ShowShadow, ColumnsInfo, TableProps } from "../types";
 
 export function useShowShadow(params: {
   containerRef: Ref<HTMLDivElement | undefined>;
   tableRef: Ref<HTMLTableElement | undefined>;
-  columnsData: ComputedRef<ColumnData[]>;
+  columnsInfo: ColumnsInfo;
   tableProps: TableProps;
 }) {
   const state: ShowShadow = reactive({
@@ -70,7 +62,7 @@ export function useShowShadow(params: {
   });
 
   watchEffect(() => {
-    const firstColumnData = params.columnsData.value[0];
+    const firstColumnData = params.columnsInfo.columnsData.value[0];
 
     // if user has defined some column fix to left, then hide selection column shadow
     if (firstColumnData.fixed === "left") {
@@ -81,7 +73,7 @@ export function useShowShadow(params: {
   });
 
   watchEffect(() => {
-    const firstColumnData = params.columnsData.value[0];
+    const firstColumnData = params.columnsInfo.columnsData.value[0];
 
     // if user has defined some column fix to left, then hide expand column shadow
     // or if show selection column, then hide expand column shadow
