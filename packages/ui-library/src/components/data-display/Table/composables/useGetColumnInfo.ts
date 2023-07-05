@@ -1,13 +1,10 @@
-import { computed, provide, type ComputedRef } from "vue";
+import { computed, provide } from "vue";
 
-import type { TableProps, ColumnData, TableState } from "../types";
+import type { TableProps, ColumnData, TableState, ColumnsInfo } from "../types";
 import * as injectKeys from "../injectKeys";
 import { selectionColumnWidth, expandColumnWidth } from "../constant";
 
-export function useGetColumnsInfo(
-  tableProps: TableProps,
-  tableState: TableState
-): { columnsData: ComputedRef<ColumnData[]> } {
+export function useGetColumnsInfo(tableProps: TableProps, tableState: TableState): ColumnsInfo {
   const columnsData = computed(() => {
     const leftFixedColumns: ColumnData[] = [];
     let left = 0;
@@ -40,9 +37,24 @@ export function useGetColumnsInfo(
     return [...leftFixedColumns, ...normalColumns, ...rightFixedColumns];
   });
 
-  provide(injectKeys.columnsDataKey, columnsData);
+  const columnCount = computed(() => {
+    let count = tableProps.columns.length;
+    if (tableProps.selection) count++;
+    if (tableProps.rowExpand && tableState.showExpandToggleCell) count++;
+    return count;
+  });
+
+  const hasLeftFixedColumn = computed(() => {
+    return columnsData.value.some((item) => item.fixed === "left");
+  });
+
+  provide(injectKeys.columnsInfoKey, {
+    columnCount,
+    columnsData,
+  });
 
   return {
     columnsData,
+    columnCount,
   };
 }

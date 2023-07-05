@@ -14,7 +14,7 @@ defineProps<{
   record: Record;
 }>();
 
-const { tableProps, columnsData, rootSlotKeys, showShadow, tableState } = useInject();
+const { tableProps, columnsInfo, rootSlotKeys, showShadow, tableState } = useInject();
 const { handleCheckboxChange, handleRadioClick } = useSelection();
 
 const state = reactive({
@@ -87,7 +87,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
     </td>
 
     <td
-      v-for="col in columnsData"
+      v-for="col in  columnsInfo.columnsData.value"
       :key="col.key"
       :style="{
         position: col.fixed && 'sticky',
