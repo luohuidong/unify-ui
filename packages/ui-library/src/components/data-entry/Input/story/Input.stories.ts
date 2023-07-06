@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 import Input from "../index.vue";
-import ShowCaseAddOn from "./story/ShowCaseAddOn.vue";
-import ShowCaseInlineAddOn from "./story/ShowCaseInlineAddOn.vue";
+import ShowCaseAddOn from "./ShowCaseAddOn.vue";
+import ShowCaseInlineAddOn from "./ShowCaseInlineAddOn.vue";
 
 const meta = {
   title: "Data Entry/Input",
@@ -22,10 +22,58 @@ export const BasicUsage: Story = {
   render: (args) => ({
     components: { Input },
     setup: () => ({ args }),
-    template: '<Input v-bind="args" v-model="args.modelValue"/>',
+    template: '<Input v-bind="args" v-model="args.modelValue" />',
   }),
   args: {
     modelValue: "",
+  },
+};
+
+export const Placeholder: Story = {
+  render: (args) => ({
+    components: { Input },
+    setup: () => ({ args }),
+    template: '<Input v-bind="args" v-model="args.modelValue" />',
+  }),
+  args: {
+    modelValue: "",
+    placeholder: "placeholder",
+  },
+};
+
+export const Disabled: Story = {
+  render: (args) => ({
+    components: { Input },
+    setup: () => ({ args }),
+    template: '<Input v-bind="args" v-model="args.modelValue" />',
+  }),
+  args: {
+    modelValue: "",
+    disabled: true,
+  },
+};
+
+export const Readonly: Story = {
+  render: (args) => ({
+    components: { Input },
+    setup: () => ({ args }),
+    template: '<Input v-bind="args" v-model="args.modelValue" />',
+  }),
+  args: {
+    modelValue: "",
+    readonly: true,
+  },
+};
+
+export const ErrorStatus: Story = {
+  render: (args) => ({
+    components: { Input },
+    setup: () => ({ args }),
+    template: '<Input v-bind="args" v-model="args.modelValue" />',
+  }),
+  args: {
+    modelValue: "",
+    status: "error",
   },
 };
 
