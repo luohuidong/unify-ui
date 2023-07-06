@@ -1,5 +1,14 @@
 # unify-ui
 
+## 0.13.4
+
+### Patch Changes
+
+- 547e3de: switch the CSS style of the Empty component from scoped to CSS module
+- e852ba5: The Form component now supports the layout feature.
+- ea962c6: switch the CSS style of the Table component from scoped to CSS mdoule
+- 973d18a: Switch the CSS style of the Input components from scoped to CSS modules.
+
 ## 0.13.3
 
 ### Patch Changes
