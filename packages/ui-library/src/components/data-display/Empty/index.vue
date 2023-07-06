@@ -14,13 +14,13 @@ const { t } = useI18n();
 </script>
 
 <template>
-  <div class="empty">
-    <EmptyIcon class="empty__icon"></EmptyIcon>
-    <span class="empty__text">{{ t("empty.no_data") }}</span>
+  <div :class="$style['empty']">
+    <EmptyIcon :class="$style['empty__icon']"></EmptyIcon>
+    <span :class="$style['empty__text']">{{ t("empty.no_data") }}</span>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 $color: rgba(0, 0, 0, 0.25);
 
 .empty {
