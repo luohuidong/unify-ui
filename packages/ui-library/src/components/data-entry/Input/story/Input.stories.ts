@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import Input from "./index.vue";
+import Input from "../index.vue";
 import ShowCaseAddOn from "./story/ShowCaseAddOn.vue";
 import ShowCaseInlineAddOn from "./story/ShowCaseInlineAddOn.vue";
 
