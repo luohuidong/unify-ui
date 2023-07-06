@@ -43,29 +43,29 @@ const cursor = computed(() => (props.disabled ? "not-allowed" : "pointer"));
 </script>
 
 <template>
-  <label class="label">
+  <label :class="$style['label']">
     <input
       :checked="checked"
-      class="input"
+      :class="$style['input']"
       type="checkbox"
       :value="value"
       :disabled="disabled"
       @change="handleChange"
     />
-    <div v-if="indeterminate" class="indeterminate">
+    <div v-if="indeterminate" :class="$style['indeterminate']">
       <IndeterminateIcon :width="14" :height="14"></IndeterminateIcon>
     </div>
-    <div v-else class="checkmark">
+    <div v-else :class="$style['checkmark']">
       <Tick></Tick>
     </div>
 
-    <span v-if="label" class="label__text label__text--disabled">
+    <span v-if="label" :class="[$style['label__text'], $style['label__text--disabled']]">
       {{ label }}
     </span>
   </label>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @use "@/styles/form";
 
 %square {

@@ -49,7 +49,7 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
 </script>
 
 <template>
-  <fieldset class="checkbox-fieldset">
+  <fieldset :class="$style['checkbox-fieldset']">
     <UniCheckbox
       v-for="item in options"
       :key="item.label"
@@ -61,7 +61,7 @@ const flexDirection = computed(() => (props.inline ? "row" : "column"));
   </fieldset>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .checkbox-fieldset {
   display: flex;
   flex-direction: v-bind(flexDirection);
