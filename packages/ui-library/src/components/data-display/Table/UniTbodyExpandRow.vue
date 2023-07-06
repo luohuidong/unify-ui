@@ -13,15 +13,15 @@ defineProps<{
 
 <template>
   <tr>
-    <td :colspan="columnCount" class="expand-row__cell" :style="{ padding: '16px' }">
+    <td :colspan="columnCount" :class="$style['expand-row__cell']">
       <slot></slot>
     </td>
   </tr>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .expand-row__cell {
-  padding: 20px;
+  padding: 16px;
   border-bottom: 1px solid #f0f0f0;
   font-size: 14px;
   line-height: 20px;

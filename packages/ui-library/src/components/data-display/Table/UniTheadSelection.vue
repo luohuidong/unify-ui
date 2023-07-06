@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watchEffect, reactive, computed } from "vue";
 
-import { UniCheckbox } from '@/components'
+import { UniCheckbox } from "@/components";
 import { useInject } from "./composables";
 import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
@@ -98,7 +98,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 </script>
 
 <template>
-  <th class="th-selection-cell">
+  <th :class="$style['th-selection-cell']">
     <div
       :class="[
         commonStyle['cell__inner'],
@@ -117,7 +117,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
   </th>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .th-selection-cell {
   position: sticky;
   top: 0;
