@@ -12,11 +12,11 @@ const {
 <template>
   <colgroup>
     <template v-if="tableState.showExpandToggleCell">
-      <col :style="{ width: `${expandColumnWidth}px` }" class="column" />
+      <col :style="{ width: `${expandColumnWidth}px` }" :class="$style.column" />
     </template>
 
     <template v-if="tableProps.selection?.type">
-      <col :style="{ width: `${selectionColumnWidth}px` }" class="column" />
+      <col :style="{ width: `${selectionColumnWidth}px` }" :class="$style.column" />
     </template>
 
     <col
@@ -31,7 +31,7 @@ const {
   </colgroup>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .column {
   box-sizing: border-box;
 }

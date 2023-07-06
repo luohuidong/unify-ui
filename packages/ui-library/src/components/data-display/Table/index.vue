@@ -12,7 +12,7 @@ import { UniEmpty } from "@/components";
 
 import * as injectKeys from "./injectKeys";
 import { useGetColumnsInfo, useShowShadow, useState, useGetSlotKey, useWatchData } from "./composables";
-import type { Key, Record, TableProps, TableEmits } from "./types";
+import type { Key, TableProps, TableEmits } from "./types";
 
 import UniColGroup from "./UniColGroup.vue";
 import UniThead from "./UniThead.vue";
@@ -43,8 +43,8 @@ useShowShadow({ containerRef, tableRef, columnsInfo, tableProps: props });
 </script>
 
 <template>
-  <div ref="containerRef" class="scroll-container">
-    <table ref="tableRef" class="table">
+  <div ref="containerRef" :class="$style['scroll-container']">
+    <table ref="tableRef" :class="$style['table']">
       <UniColGroup></UniColGroup>
 
       <UniThead>
@@ -68,7 +68,7 @@ useShowShadow({ containerRef, tableRef, columnsInfo, tableProps: props });
         </template>
         <template v-else>
           <tr>
-            <td :colspan="columnCount" class="empty-row__cell">
+            <td :colspan="columnCount" :class="$style['empty-row__cell']">
               <slot name="empty">
                 <UniEmpty></UniEmpty>
               </slot>
@@ -88,7 +88,7 @@ useShowShadow({ containerRef, tableRef, columnsInfo, tableProps: props });
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .scroll-container {
   overflow: auto;
 }

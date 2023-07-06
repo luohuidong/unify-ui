@@ -36,16 +36,15 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 
 <template>
   <!-- normal row -->
-  <tr class="normal-row" :class="[tableProps.tbodyRowClass]">
+  <tr :class="[$style['normal-row'], tableProps.tbodyRowClass]">
     <!-- expand column cell -->
     <td
       v-if="tableState.showExpandToggleCell"
-      class="normal-row__cell normal-row__expand-toggle-cell"
-      :class="tableProps.tbodyCellClass"
+      :class="[tableProps.tbodyCellClass, $style['normal-row__cell'], $style['normal-row__expand-toggle-cell']]"
     >
       <div
-        class="cell__inner"
         :class="[
+          $style['cell__inner'],
           commonStyle['cell__inner--horizontal-center'],
           { [commonStyle['cell--shadow-right']]: showShadow.expandColumnShadowVisible },
         ]"
@@ -55,7 +54,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
           v-if="tableProps.rowExpand?.expandCondition(record)"
           :width="20"
           :height="20"
-          class="normal-row__expand-toggle-cell-icon"
+          :class="$style['normal-row__expand-toggle-cell-icon']"
           @click="toggleExpandRow"
         ></component>
       </div>
@@ -64,8 +63,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
     <!-- selection column cell -->
     <td
       v-if="tableProps.selection?.type"
-      class="normal-row__cell normal-row__selection-toggle-cell"
-      :class="tableProps.tbodyCellClass"
+      :class="[tableProps.tbodyCellClass, $style['normal-row__cell'], $style['normal-row__selection-toggle-cell']]"
     >
       <div
         :class="[
@@ -101,12 +99,12 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
         right: col.rightOffset && `${col.rightOffset}px`,
         zIndex: col.fixed ? 1 : 0,
       }"
-      class="normal-row__cell"
       :class="[
+        $style['normal-row__cell'],
         {
           [commonStyle['cell--shadow-right']]: col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
           [commonStyle['cell--shadow-left']]: col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
-          ['normal-row__cell--text-ellipsis']: col.ellipsis,
+          [$style['normal-row__cell--text-ellipsis']]: col.ellipsis,
         },
         tableProps.tbodyCellClass,
       ]"
@@ -127,7 +125,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
   </UniTbodyExpandRow>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .normal-row {
   text-align: left;
   font-size: 14px;

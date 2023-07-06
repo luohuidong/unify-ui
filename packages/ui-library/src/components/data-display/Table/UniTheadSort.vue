@@ -19,32 +19,36 @@ const { handleSortEmit } = useSortEmit();
 </script>
 
 <template>
-  <div class="sort-container">
-    <div v-if="sortType.includes('ascending')" class="toggle">
+  <div :class="$style['sort-container']">
+    <div v-if="sortType.includes('ascending')" :class="$style['toggle']">
       <TriangleUp
-        class="toggle-icon"
-        :class="{
-          'toggle-icon--active':
-            tableProps.sort?.columnKey === columnData.key && tableProps.sort.order === 'ascending',
-        }"
+        :class="[
+          $style['toggle-icon'],
+          {
+            [$style['toggle-icon--active']]:
+              tableProps.sort?.columnKey === columnData.key && tableProps.sort.order === 'ascending',
+          },
+        ]"
         @click.stop="handleSortEmit({ columnKey: columnData.key, order: 'ascending' })"
       ></TriangleUp>
     </div>
 
-    <div v-if="sortType.includes('descending')" class="toggle">
+    <div v-if="sortType.includes('descending')" :class="$style['toggle']">
       <TriangleDown
-        class="toggle-icon"
-        :class="{
-          'toggle-icon--active':
-            tableProps.sort?.columnKey === columnData.key && tableProps.sort.order === 'descending',
-        }"
+        :class="[
+          $style['toggle-icon'],
+          {
+            [$style['toggle-icon--active']]:
+              tableProps.sort?.columnKey === columnData.key && tableProps.sort.order === 'descending',
+          },
+        ]"
         @click.stop="handleSortEmit({ columnKey: columnData.key, order: 'descending' })"
       ></TriangleDown>
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 %child-position-center {
   display: inline-flex;
   flex-direction: column;

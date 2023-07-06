@@ -45,16 +45,19 @@ function handleSort(column: ColumnData) {
 
 <template>
   <thead>
-    <tr class="header__row">
+    <tr>
       <template v-if="tableState.showExpandToggleCell">
         <th
-          class="header__cell header__expand-column-cell"
-          :class="{ [commonStyle['cell--shadow-right']]: showShadow.expandColumnShadowVisible }"
+          :class="[
+            $style['header__cell'],
+            $style['header__expand-column-cell'],
+            { [commonStyle['cell--shadow-right']]: showShadow.expandColumnShadowVisible },
+          ]"
         ></th>
       </template>
 
       <template v-if="tableProps.selection?.type">
-        <UniTheadSelection class="header__cell"></UniTheadSelection>
+        <UniTheadSelection :class="$style['header__cell']"></UniTheadSelection>
       </template>
 
       <th
@@ -66,12 +69,14 @@ function handleSort(column: ColumnData) {
           right: col.rightOffset && `${col.rightOffset}px`,
           zIndex: col.fixed ? 3 : 2,
         }"
-        class="header__cell"
-        :class="{
-          [commonStyle['cell--shadow-right']]: col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-          [commonStyle['cell--shadow-left']]: col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
-          'head__cell--sortable': col.sortable,
-        }"
+        :class="[
+          $style['header__cell'],
+          {
+            [commonStyle['cell--shadow-right']]: col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
+            [commonStyle['cell--shadow-left']]: col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
+            [$style['head__cell--sortable']]: col.sortable,
+          },
+        ]"
         @click.stop="handleSort(col)"
       >
         <UniTheadSort v-if="col.sortable" :column-data="col"></UniTheadSort>
@@ -87,10 +92,7 @@ function handleSort(column: ColumnData) {
   </thead>
 </template>
 
-<style lang="scss" scoped>
-.header__row {
-}
-
+<style lang="scss" module>
 .header__cell {
   box-sizing: border-box;
   position: sticky;
