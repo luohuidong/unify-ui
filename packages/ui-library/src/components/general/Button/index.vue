@@ -37,20 +37,22 @@ function handleClick(e: MouseEvent) {
 
 <template>
   <button
-    class="button"
     :type="htmlType"
-    :class="{
-      'button--size-xs': size === 'xs',
-      'button--size-s': size === 's',
-      'button--size-m': size === 'm',
-      'button--size-l': size === 'l',
-      'button--size-xl': size === 'xl',
-      'button--type-primary': type === 'primary',
-      'button--type-secondary': type === 'secondary',
-      'button--type-soft': type === 'soft',
-      'button--rounded': rounded,
-      'button--disabled': disabled,
-    }"
+    :class="[
+      $style['button'],
+      {
+        [$style['button--size-xs']]: size === 'xs',
+        [$style['button--size-s']]: size === 's',
+        [$style['button--size-m']]: size === 'm',
+        [$style['button--size-l']]: size === 'l',
+        [$style['button--size-xl']]: size === 'xl',
+        [$style['button--type-primary']]: type === 'primary',
+        [$style['button--type-secondary']]: type === 'secondary',
+        [$style['button--type-soft']]: type === 'soft',
+        [$style['button--rounded']]: rounded,
+        [$style['button--disabled']]: disabled,
+      },
+    ]"
     :disabled="disabled"
     @click="handleClick"
   >
@@ -58,7 +60,7 @@ function handleClick(e: MouseEvent) {
   </button>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 $primary-color: rgb(79 70 229);
 
 .button {

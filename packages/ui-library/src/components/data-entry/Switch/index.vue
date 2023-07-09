@@ -29,23 +29,26 @@ function handleChange(event: Event) {
 </script>
 
 <template>
-  <label class="switch">
+  <label :class="$style['switch']">
     <input
       type="checkbox"
-      class="switch__checkbox"
+      :class="$style['switch__checkbox']"
       :checked="modelValue"
       :disabled="disabled"
       @input="handleInput"
       @change="handleChange"
     />
     <span
-      class="switch__slider switch__slider--rounded"
-      :class="{ 'switch__slider--disabled': disabled }"
+      :class="[
+        $style['switch__slider'],
+        $style['switch__slider--rounded'],
+        { [$style['switch__slider--disabled']]: disabled },
+      ]"
     ></span>
   </label>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 /* The switch - the box around the slider */
 .switch {
   display: inline-block;

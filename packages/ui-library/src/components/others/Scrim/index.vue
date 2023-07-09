@@ -15,12 +15,12 @@ function handleClick(event: MouseEvent) {
 </script>
 
 <template>
-  <div class="scrim" @click.self="handleClick">
+  <div :class="$style['scrim']" @click.self="handleClick">
     <slot></slot>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @use "@/styles/color";
 
 .scrim {

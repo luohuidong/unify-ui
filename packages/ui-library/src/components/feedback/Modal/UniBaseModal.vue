@@ -31,22 +31,22 @@ function handleCancelButtonClick() {
 
 <template>
   <UniScrim v-show="visible">
-    <div class="modal" :class="modalClass">
-      <Close class="modal__close-icon" @click="handleCancelButtonClick"></Close>
+    <div :class="[$style['modal'], modalClass]">
+      <Close :class="$style['modal__close-icon']" @click="handleCancelButtonClick"></Close>
 
       <slot name="title">
-        <div v-if="title" class="modal__title">{{ title }}</div>
+        <div v-if="title" :class="$style['modal__title']">{{ title }}</div>
       </slot>
 
-      <div class="content">
+      <div :class="$style['content']">
         <slot>
-          <div v-if="supportingText" class="content__support-tips">{{ supportingText }}</div>
+          <div v-if="supportingText" :class="$style['content__support-tips']">{{ supportingText }}</div>
         </slot>
       </div>
 
-      <div class="actions">
+      <div :class="$style['actions']">
         <slot name="actions">
-          <UniButton type="secondary" class="cancel-button" @click="handleCancelButtonClick">
+          <UniButton type="secondary" :class="$style['cancel-button']" @click="handleCancelButtonClick">
             {{ cancelText || t("modal.cancel") }}
           </UniButton>
 
@@ -59,7 +59,7 @@ function handleCancelButtonClick() {
   </UniScrim>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @use "sass:map";
 @use "@/styles/color";
 @use "@/styles/type";
