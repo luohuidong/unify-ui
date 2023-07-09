@@ -34,11 +34,11 @@ function handleFileChange(event: Event) {
 </script>
 
 <template>
-  <div class="file-picker" @click="handleClick">
+  <div :class="$style['file-picker']" @click="handleClick">
     <slot></slot>
     <input
       ref="inputRef"
-      class="file-picker__input"
+      :class="$style['file-picker__input']"
       type="file"
       :multiple="multiple"
       @change="handleFileChange"
@@ -46,7 +46,7 @@ function handleFileChange(event: Event) {
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .file-picker {
   display: inline-block;
   cursor: pointer;

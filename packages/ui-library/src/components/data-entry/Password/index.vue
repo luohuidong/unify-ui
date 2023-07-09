@@ -56,15 +56,15 @@ function handleTriggerClick() {
     @change="(value: string) => $emit('change', value)"
   >
     <template #inline-trailing-add-on>
-      <div v-if="!props.disabled" class="password-trigger-container">
-        <EyeOn v-if="showPassword" class="password-trigger" @click="handleTriggerClick" />
-        <EyeOff v-else class="password-trigger" @click="handleTriggerClick" />
+      <div v-if="!props.disabled" :class="$style['password-trigger-container']">
+        <EyeOn v-if="showPassword" :class="$style['password-trigger']" @click="handleTriggerClick" />
+        <EyeOff v-else :class="$style['password-trigger']" @click="handleTriggerClick" />
       </div>
     </template>
   </UniInput>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .password-trigger-container {
   cursor: pointer;
   display: flex;

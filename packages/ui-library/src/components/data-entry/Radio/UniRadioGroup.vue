@@ -23,8 +23,10 @@ function handleChange(value: T) {
 
 <template>
   <fieldset
-    class="radio-fieldset"
-    :class="{ 'radio-fieldset--column': !inline, 'radio-fieldset--row': inline }"
+    :class="[
+      $style['radio-fieldset'],
+      { [$style['radio-fieldset--column']]: !inline, [$style['radio-fieldset--row']]: inline },
+    ]"
   >
     <UniRadio
       v-for="option in options"
@@ -39,7 +41,7 @@ function handleChange(value: T) {
   </fieldset>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .radio-fieldset {
   display: flex;
   width: fit-content;

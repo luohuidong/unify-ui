@@ -18,9 +18,9 @@ function handleChange(e: Event) {
 </script>
 
 <template>
-  <label class="label" :class="{ 'label--disabled': disabled }">
+  <label :class="[$style['label'], { [$style['label--disabled']]: disabled }]">
     <input
-      class="input"
+      :class="$style['input']"
       type="radio"
       :name="name"
       :value="value"
@@ -28,12 +28,12 @@ function handleChange(e: Event) {
       :disabled="disabled"
       @change="handleChange"
     />
-    <div class="checkmark"></div>
-    <span class="text">{{ label }}</span>
+    <div :class="$style['checkmark']"></div>
+    <span :class="$style['text']">{{ label }}</span>
   </label>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 @use "@/styles/form";
 
 /* Customize the label (the container) */

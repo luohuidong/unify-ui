@@ -5,10 +5,10 @@ defineProps<{
 </script>
 
 <template>
-  <div :id="id" class="messages"></div>
+  <div :id="id" :class="$style['messages']"></div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .messages {
   position: absolute;
   top: 0;

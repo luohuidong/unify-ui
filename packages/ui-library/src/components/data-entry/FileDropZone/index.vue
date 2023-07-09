@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { UniFilePicker } from '@/components'
+import { UniFilePicker } from "@/components";
 import PhotoIcon from "./icons/PhotoIcon.vue";
 
 const props = defineProps<{
@@ -48,30 +48,25 @@ function handleDrop(e: DragEvent) {
 </script>
 
 <template>
-  <div
-    class="drop-area"
-    @dragenter.stop.prevent
-    @dragover.stop.prevent
-    @drop.stop.prevent="handleDrop"
-  >
+  <div :class="$style['drop-area']" @dragenter.stop.prevent @dragover.stop.prevent @drop.stop.prevent="handleDrop">
     <slot>
-      <PhotoIcon class="icon" />
+      <PhotoIcon :class="$style['icon']" />
 
-      <div class="tips">
-        <span class="tips__first-line">
+      <div :class="$style['tips']">
+        <span :class="$style['tips__first-line']">
           <UniFilePicker :multiple="multiple" @file-change="handleFileChange">
-            <span>Upload a file</span>
+            <span :class="$style['file-picker-text']">Upload a file</span>
           </UniFilePicker>
           <span> or drag and drop</span>
         </span>
 
-        <span class="tips__second-line">{{ promptText }}</span>
+        <span :class="$style['tips__second-line']">{{ promptText }}</span>
       </div>
     </slot>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .drop-area {
   box-sizing: border-box;
 
@@ -110,14 +105,9 @@ function handleDrop(e: DragEvent) {
   font-size: 14px;
 }
 
-.file-picker {
+.file-picker-text {
   color: rgb(79 70 229);
   font-weight: 600;
-  cursor: pointer;
-
-  .file-picker__input {
-    display: none;
-  }
 }
 
 .tips__second-line {

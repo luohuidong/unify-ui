@@ -33,5 +33,4 @@ test("button disabled", () => {
 
   wrapper.trigger("click");
   expect(wrapper.emitted()).not.toHaveProperty("click");
-  expect(wrapper.classes()).toContain("button--disabled");
 });

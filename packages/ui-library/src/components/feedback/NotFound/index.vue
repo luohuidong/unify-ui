@@ -23,20 +23,22 @@ const { t } = useI18n();
 
 <template>
   <div
-    class="not-found"
-    :class="{
-      ['not-found--align-left']: align === 'left',
-      ['not-found--align-center']: align === 'center',
-      ['not-found--align-right']: align === 'right',
-    }"
+    :class="[
+      $style['not-found'],
+      {
+        [$style['not-found--align-left']]: align === 'left',
+        [$style['not-found--align-center']]: align === 'center',
+        [$style['not-found--align-right']]: align === 'right',
+      },
+    ]"
   >
-    <p class="not-found__text">404</p>
-    <h1 class="not-found__heading">{{ t("not_found.title") }}</h1>
-    <p class="not-found__hint">{{ t("not_found.prompt") }}</p>
+    <p :class="$style['not-found__text']">404</p>
+    <h1 :class="$style['not-found__heading']">{{ t("not_found.title") }}</h1>
+    <p :class="$style['not-found__hint']">{{ t("not_found.prompt") }}</p>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss" module>
 .not-found {
   display: flex;
   flex-direction: column;
