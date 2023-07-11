@@ -46,3 +46,10 @@ test("input type password", async () => {
 
   expect(wrapper.find("input").attributes("type")).toBe("password");
 });
+
+test("event", async () => {
+  const wrapper = mount(UniInput);
+  await wrapper.find("input").setValue("text");
+  expect(wrapper.emitted()).toHaveProperty("input");
+  expect(wrapper.emitted()).toHaveProperty("change");
+});
