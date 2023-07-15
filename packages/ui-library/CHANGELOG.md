@@ -1,5 +1,16 @@
 # unify-ui
 
+## 0.14.0
+
+### Minor Changes
+
+- 0fa5eda: add the Calendar component
+
+### Patch Changes
+
+- dc8c048: switch the CSS style of components from scoped to CSS module
+- f1b2a74: switch the CSS style of the Checkbox and CheckboxGroup components from scoped to CSS module
+
 ## 0.13.4
 
 ### Patch Changes
