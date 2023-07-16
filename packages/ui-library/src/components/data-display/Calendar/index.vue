@@ -8,11 +8,19 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { useProvide } from "./composables";
+import type { RootProps } from "./types";
+
 import Header from "./Header.vue";
 import Weeks from "./Weeks.vue";
 import Days from "./Days.vue";
 
-useProvide();
+const props = defineProps<RootProps>();
+
+const emit = defineEmits<{
+  (e: "update:modelValue", value: Date): void;
+}>();
+
+useProvide(props, emit);
 </script>
 
 <template>

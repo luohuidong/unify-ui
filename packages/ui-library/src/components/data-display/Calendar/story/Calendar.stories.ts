@@ -13,8 +13,12 @@ export default meta;
 type Story = StoryObj<typeof UniDatePicker>;
 
 export const BasicUsage: Story = {
-  render: () => ({
+  render: (args) => ({
     components: { UniDatePicker },
-    template: "<UniDatePicker />",
+    setup: () => ({ args }),
+    template: '<UniDatePicker v-model="args.modelValue" />',
   }),
+  args: {
+    modelValue: undefined,
+  },
 };

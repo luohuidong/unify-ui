@@ -1,9 +1,19 @@
 import type { Ref, ComputedRef } from "vue";
 
-export interface Store {
-  state: {
-    selectedDate: Ref<Date>;
+export interface RootProps {
+  readonly modelValue: Date | null | undefined;
+}
 
+export interface RootEmit {
+  (e: "update:modelValue", value: Date): void;
+}
+
+export interface Store {
+  rootProps: RootProps;
+
+  rootEmit: RootEmit;
+
+  state: {
     yearOfCurrentDate: Ref<number>;
     monthOfCurrentDate: Ref<number>;
     lastDateOfCurrentMonth: ComputedRef<number>;
