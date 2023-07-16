@@ -11,8 +11,18 @@ import { useStore } from "./composables";
 import DaysButton from "./DaysButton.vue";
 
 const store = useStore();
-const { dayOfCurrentMonthFirstDate, lastDateOfCurrentMonth, lastDateOfPreviousMonth, dayOfCurrentMonthLastDate } =
-  store.state;
+const {
+  dayOfCurrentMonthFirstDate,
+  lastDateOfCurrentMonth,
+  lastDateOfPreviousMonth,
+  dayOfCurrentMonthLastDate,
+  yearOfCurrentDate,
+  monthOfCurrentDate,
+  nextYear,
+  nextMonth,
+  previousYear,
+  previousMonth,
+} = store.state;
 </script>
 
 <template>
@@ -21,11 +31,30 @@ const { dayOfCurrentMonthFirstDate, lastDateOfCurrentMonth, lastDateOfPreviousMo
       v-for="i of dayOfCurrentMonthFirstDate"
       :key="i"
       :display-text="lastDateOfPreviousMonth - (dayOfCurrentMonthFirstDate - i)"
+      :year="previousYear"
+      :month="previousMonth"
+      :date="lastDateOfPreviousMonth - (dayOfCurrentMonthFirstDate - i)"
     />
 
-    <DaysButton v-for="i of lastDateOfCurrentMonth" :key="i" :display-text="i" is-current-month> </DaysButton>
+    <DaysButton
+      v-for="i of lastDateOfCurrentMonth"
+      :key="i"
+      :display-text="i"
+      is-current-month
+      :year="yearOfCurrentDate"
+      :month="monthOfCurrentDate"
+      :date="i"
+    >
+    </DaysButton>
 
-    <DaysButton v-for="i of 6 - dayOfCurrentMonthLastDate" :key="i" :display-text="i" />
+    <DaysButton
+      v-for="i of 6 - dayOfCurrentMonthLastDate"
+      :key="i"
+      :display-text="i"
+      :year="nextYear"
+      :month="nextMonth"
+      :date="i"
+    />
   </div>
 </template>
 

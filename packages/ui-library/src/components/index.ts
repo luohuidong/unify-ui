@@ -18,6 +18,7 @@ export { default as UniToolTip } from "./data-display/Tooltip/index.vue";
 export { default as UniTable } from "./data-display/Table/index.vue";
 export { default as UniEmpty } from "./data-display/Empty/index.vue";
 export { default as UniTag } from "./data-display/Tag/index.vue";
+export { default as UniCalendar } from "./data-display/Calendar/index.vue";
 
 // Feedback Components
 export { UniModal, useUniConfirmModal } from "./feedback/Modal";
