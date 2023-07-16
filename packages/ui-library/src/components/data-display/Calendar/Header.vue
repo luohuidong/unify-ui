@@ -41,6 +41,7 @@ const formatDate = computed(() => {
   align-items: center;
   padding: 25px 30px 10px;
   justify-content: space-between;
+  user-select: none;
 }
 
 .header__current-date {
@@ -50,6 +51,7 @@ const formatDate = computed(() => {
 
 .header__icons {
   display: flex;
+  user-select: none;
 }
 
 .header__icon {

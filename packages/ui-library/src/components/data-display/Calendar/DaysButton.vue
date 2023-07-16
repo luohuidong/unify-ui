@@ -85,6 +85,7 @@ $border-color: #e5e7eb;
   width: 30px;
 
   border-radius: 50%;
+  user-select: none;
 }
 
 .time--today {
