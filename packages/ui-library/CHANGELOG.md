@@ -1,5 +1,13 @@
 # unify-ui
 
+## 0.14.1
+
+### Patch Changes
+
+- 223192b: Always display 42 dates in the Calendar component
+- 64b9e09: Highlight the selected date in the Calendar component.
+- ba64b71: Prevent text selection in the Calendar component.
+
 ## 0.14.0
 
 ### Minor Changes
