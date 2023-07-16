@@ -24,7 +24,10 @@ const isToday = computed(() => {
 });
 
 const isSelected = computed(() => {
-  const selectedDate = store.state.selectedDate.value;
+  const selectedDate = store.rootProps.modelValue;
+
+  if (!selectedDate) return false;
+
   return (
     props.year === selectedDate.getFullYear() &&
     props.month === selectedDate.getMonth() &&
@@ -33,14 +36,18 @@ const isSelected = computed(() => {
 });
 
 function handleClick() {
-  store.state.selectedDate.value = new Date(props.year, props.month, props.date);
+  store.rootEmit("update:modelValue", new Date(props.year, props.month, props.date));
   store.state.yearOfCurrentDate.value = props.year;
   store.state.monthOfCurrentDate.value = props.month;
 }
 </script>
 
 <template>
-  <button :class="[$style.day, { [$style['day__button--not-current-month']]: !isCurrentMonth }]" @click="handleClick">
+  <button
+    :class="[$style.day, { [$style['day__button--not-current-month']]: !isCurrentMonth }]"
+    :data-test="`${props.year}-${props.month + 1}-${props.date}`"
+    @click="handleClick"
+  >
     <time :class="[$style['time'], { [$style['time--today']]: isToday, [$style['time--selected']]: isSelected }]">
       {{ displayText }}
     </time>

@@ -1,13 +1,11 @@
 import { ref, computed, provide } from "vue";
 
 import { storeKeys } from "../injectKeys";
+import { RootProps, RootEmit } from "../types";
 
-export function useProvide() {
-  const selectedDate = ref(new Date());
-
+export function useProvide(rootProps: RootProps, rootEmit: RootEmit) {
   const yearOfCurrentDate = ref(new Date().getFullYear());
   const monthOfCurrentDate = ref(new Date().getMonth());
-  const dateOfCurrentDate = new Date().getDate();
   const lastDateOfCurrentMonth = computed(() =>
     new Date(yearOfCurrentDate.value, monthOfCurrentDate.value + 1, 0).getDate()
   );
@@ -46,9 +44,10 @@ export function useProvide() {
   }
 
   provide(storeKeys, {
-    state: {
-      selectedDate,
+    rootProps,
+    rootEmit,
 
+    state: {
       yearOfCurrentDate,
       monthOfCurrentDate,
       lastDateOfCurrentMonth,
@@ -62,6 +61,7 @@ export function useProvide() {
       nextYear,
       nextMonth,
     },
+
     actions: {
       handleChangeToPreviousMonth,
       handleChangeToNextMonth,
