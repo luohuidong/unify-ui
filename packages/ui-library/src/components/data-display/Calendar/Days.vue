@@ -7,6 +7,8 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
+import { computed } from "vue";
+
 import { useStore } from "./composables";
 import DaysButton from "./DaysButton.vue";
 
@@ -15,7 +17,6 @@ const {
   dayOfCurrentMonthFirstDate,
   lastDateOfCurrentMonth,
   lastDateOfPreviousMonth,
-  dayOfCurrentMonthLastDate,
   yearOfCurrentDate,
   monthOfCurrentDate,
   nextYear,
@@ -23,6 +24,12 @@ const {
   previousYear,
   previousMonth,
 } = store.state;
+
+function getPreviousDate(index: number) {
+  return lastDateOfPreviousMonth.value - (dayOfCurrentMonthFirstDate.value - index);
+}
+
+const totalNextMonthDates = computed(() => 6 * 7 - (dayOfCurrentMonthFirstDate.value + lastDateOfCurrentMonth.value));
 </script>
 
 <template>
@@ -30,10 +37,10 @@ const {
     <DaysButton
       v-for="i of dayOfCurrentMonthFirstDate"
       :key="i"
-      :display-text="lastDateOfPreviousMonth - (dayOfCurrentMonthFirstDate - i)"
+      :display-text="getPreviousDate(i)"
       :year="previousYear"
       :month="previousMonth"
-      :date="lastDateOfPreviousMonth - (dayOfCurrentMonthFirstDate - i)"
+      :date="getPreviousDate(i)"
     />
 
     <DaysButton
@@ -48,7 +55,7 @@ const {
     </DaysButton>
 
     <DaysButton
-      v-for="i of 6 - dayOfCurrentMonthLastDate"
+      v-for="i of totalNextMonthDates"
       :key="i"
       :display-text="i"
       :year="nextYear"
@@ -65,6 +72,7 @@ $border-color: #e5e7eb;
 .days {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(6, 50px);
   justify-items: center;
   align-items: center;
   gap: 1px;
@@ -72,36 +80,5 @@ $border-color: #e5e7eb;
   overflow: hidden;
   border-radius: 5px;
   border: 1px solid $border-color;
-}
-
-.day {
-  height: 50px;
-  width: 100%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  cursor: pointer;
-  border: none;
-  outline: 1px solid $border-color;
-  background: none;
-
-  &:hover {
-    background: color.$gray-100;
-  }
-}
-
-.day__button--current {
-  color: color.$primary-font;
-  font-weight: 600;
-}
-
-.day__button--not-current-month {
-  color: color.$gray-400;
-  background: color.$gray-50;
-}
-
-.day__button-selected {
 }
 </style>
