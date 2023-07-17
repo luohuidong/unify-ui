@@ -36,7 +36,7 @@ useProvide(props, emit);
 
 <style lang="scss" module>
 .calendar {
-  width: 450px;
+  width: 400px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
@@ -44,5 +44,6 @@ useProvide(props, emit);
 
 .calendar__main {
   padding: 20px;
+  padding-top: 0px;
 }
 </style>
