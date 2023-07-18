@@ -12,9 +12,9 @@ import { useStore } from "./composables";
 import { BaseHeader } from "./components";
 
 const { state, actions } = useStore();
-const { yearOfCurrentDate, monthOfCurrentDate, displayYearOptions, displayMonthOptions } = state;
+const { selectedYear, selectedMonth, displayYearOptions, displayMonthOptions } = state;
 const { handleChangeToNextMonth, handleChangeToPreviousMonth } = actions;
-const currentDate = computed(() => new Date(yearOfCurrentDate.value, monthOfCurrentDate.value, 1));
+const currentDate = computed(() => new Date(selectedYear.value, selectedMonth.value, 1));
 
 const month = computed(() => currentDate.value.toLocaleString("default", { month: "long" }));
 const year = computed(() => currentDate.value.getFullYear());
@@ -24,8 +24,8 @@ const year = computed(() => currentDate.value.getFullYear());
   <BaseHeader
     @arrow-left-click="handleChangeToPreviousMonth"
     @arrow-right-click="handleChangeToNextMonth"
-    @dobule-arrow-left-click="yearOfCurrentDate -= 10"
-    @dobule-arrow-right-click="yearOfCurrentDate += 10"
+    @dobule-arrow-left-click="selectedYear -= 10"
+    @dobule-arrow-right-click="selectedYear += 10"
   >
     <div :class="$style['header__current-date']">
       <span :class="$style['header__month']" @click="displayMonthOptions = true">{{ month }}</span> &nbsp;

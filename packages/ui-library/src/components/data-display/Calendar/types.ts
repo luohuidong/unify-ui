@@ -13,8 +13,8 @@ export interface Store {
   rootProps: RootProps;
   rootEmit: RootEmit;
   state: {
-    yearOfCurrentDate: Ref<number>;
-    monthOfCurrentDate: Ref<number>;
+    selectedYear: Ref<number>;
+    selectedMonth: Ref<number>;
     displayYearOptions: Ref<boolean>;
     displayMonthOptions: Ref<boolean>;
   };
