@@ -17,6 +17,12 @@ const props = withDefaults(
 );
 
 const store = useStore();
+const date = computed(() => new Date(props.year, props.month, props.date));
+
+const disabled = computed(() => {
+  if (!store.rootProps.disabledDate) return false;
+  return store.rootProps.disabledDate(date.value);
+});
 
 const isToday = computed(() => {
   const today = new Date();
@@ -36,7 +42,11 @@ const isSelected = computed(() => {
 });
 
 function handleClick() {
-  store.rootEmit("update:modelValue", new Date(props.year, props.month, props.date));
+  if (disabled.value) {
+    return;
+  }
+
+  store.rootEmit("update:modelValue", date.value);
   store.state.yearOfCurrentDate.value = props.year;
   store.state.monthOfCurrentDate.value = props.month;
 }
@@ -44,11 +54,21 @@ function handleClick() {
 
 <template>
   <button
-    :class="[$style.day, { [$style['day__button--not-current-month']]: !isCurrentMonth }]"
+    :class="[$style.day, { [$style['day--not-current-month']]: !isCurrentMonth, [$style['day--disabled']]: disabled }]"
     :data-test="`${props.year}-${props.month + 1}-${props.date}`"
     @click="handleClick"
   >
-    <time :class="[$style['time'], { [$style['time--today']]: isToday, [$style['time--selected']]: isSelected }]">
+    <time
+      :class="[
+        $style['time'],
+        {
+          [$style['time--today']]: isToday,
+          [$style['time--today-disabled']]: isToday && disabled,
+          [$style['time--selected']]: isSelected,
+          [$style['time--selected-disabled']]: isSelected && disabled,
+        },
+      ]"
+    >
       {{ displayText }}
     </time>
   </button>
@@ -80,7 +100,12 @@ $border-color: #e5e7eb;
   }
 }
 
-.day__button--not-current-month {
+.day--not-current-month {
+  color: color.$gray-400;
+}
+
+.day--disabled {
+  cursor: not-allowed;
   color: color.$gray-400;
   background: color.$gray-50;
 }
@@ -101,9 +126,21 @@ $border-color: #e5e7eb;
   background: color.$dark;
 }
 
+.time--today-disabled {
+  font-weight: bold;
+  color: color.$light;
+  background: color.$gray-500;
+}
+
 .time--selected {
   font-weight: bold;
   color: color.$light;
   background: color.$primary;
+}
+
+.time--selected-disabled {
+  font-weight: bold;
+  color: color.$light;
+  background: color.$primary-disabled;
 }
 </style>

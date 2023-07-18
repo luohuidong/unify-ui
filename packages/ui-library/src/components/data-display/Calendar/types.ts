@@ -2,6 +2,7 @@ import type { Ref, ComputedRef } from "vue";
 
 export interface RootProps {
   readonly modelValue: Date | null | undefined;
+  readonly disabledDate?: (date: Date) => boolean;
 }
 
 export interface RootEmit {
