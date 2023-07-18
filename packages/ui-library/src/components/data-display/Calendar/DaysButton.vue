@@ -47,6 +47,7 @@ function handleClick() {
   }
 
   store.rootEmit("update:modelValue", date.value);
+  store.rootEmit("select", date.value);
   store.state.selectedYear.value = props.year;
   store.state.selectedMonth.value = props.month;
 }

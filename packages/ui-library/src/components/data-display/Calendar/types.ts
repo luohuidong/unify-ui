@@ -1,4 +1,4 @@
-import type { Ref, ComputedRef } from "vue";
+import type { Ref } from "vue";
 
 export interface RootProps {
   readonly modelValue: Date | null | undefined;
@@ -7,6 +7,7 @@ export interface RootProps {
 
 export interface RootEmit {
   (e: "update:modelValue", value: Date): void;
+  (e: "select", value: Date): void;
 }
 
 export interface Store {
