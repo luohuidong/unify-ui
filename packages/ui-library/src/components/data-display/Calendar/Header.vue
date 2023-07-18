@@ -8,65 +8,46 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { ArrowLeft, ArrowRight } from "@/icons";
 import { useStore } from "./composables";
+import { BaseHeader } from "./components";
 
 const { state, actions } = useStore();
-const { yearOfCurrentDate, monthOfCurrentDate } = state;
+const { yearOfCurrentDate, monthOfCurrentDate, displayYearOptions, displayMonthOptions } = state;
 const { handleChangeToNextMonth, handleChangeToPreviousMonth } = actions;
 const currentDate = computed(() => new Date(yearOfCurrentDate.value, monthOfCurrentDate.value, 1));
 
-// format date to "Month Year"
-const formatDate = computed(() => {
-  const month = currentDate.value.toLocaleString("default", { month: "long" });
-  const year = currentDate.value.getFullYear();
-  return `${month} ${year}`;
-});
+const month = computed(() => currentDate.value.toLocaleString("default", { month: "long" }));
+const year = computed(() => currentDate.value.getFullYear());
 </script>
 
 <template>
-  <div :class="$style.header">
-    <div :class="$style['header__current-date']">{{ formatDate }}</div>
-
-    <div :class="$style['header__icons']">
-      <ArrowLeft :class="$style.header__icon" @click="handleChangeToPreviousMonth" />
-      <ArrowRight :class="[$style.header__icon, $style['header__icon--right']]" @click="handleChangeToNextMonth" />
+  <BaseHeader
+    @arrow-left-click="handleChangeToPreviousMonth"
+    @arrow-right-click="handleChangeToNextMonth"
+    @dobule-arrow-left-click="yearOfCurrentDate -= 10"
+    @dobule-arrow-right-click="yearOfCurrentDate += 10"
+  >
+    <div :class="$style['header__current-date']">
+      <span :class="$style['header__month']" @click="displayMonthOptions = true">{{ month }}</span> &nbsp;
+      <span :class="$style['header__year']" @click="displayYearOptions = true">{{ year }}</span>
     </div>
-  </div>
+  </BaseHeader>
 </template>
 
 <style lang="scss" module>
-.header {
-  display: flex;
-  align-items: center;
-  padding: 25px 30px 10px;
-  justify-content: space-between;
-  user-select: none;
-}
+@use "@/styles/color";
 
 .header__current-date {
   font-size: 1.45rem;
   font-weight: 500;
 }
 
-.header__icons {
-  display: flex;
-  user-select: none;
-}
-
-.header__icon {
-  height: 14px;
-  width: 14px;
+.header__year,
+.header__month {
   cursor: pointer;
-  color: rgb(156, 163, 175);
-  text-align: center;
 
   &:hover {
-    color: rgb(107 114 128);
+    color: color.$primary;
   }
-}
-
-.header__icon--right {
-  margin-left: 18px;
 }
 </style>
