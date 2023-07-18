@@ -22,3 +22,15 @@ export const BasicUsage: Story = {
     modelValue: undefined,
   },
 };
+
+export const DisabledDate: Story = {
+  render: (args) => ({
+    components: { UniDatePicker },
+    setup: () => ({ args }),
+    template: '<UniDatePicker v-bind="args" v-model="args.modelValue" />',
+  }),
+  args: {
+    modelValue: new Date(),
+    disabledDate: (date) => date.getDate() === 18,
+  },
+};
