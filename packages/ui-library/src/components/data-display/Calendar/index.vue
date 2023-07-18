@@ -8,7 +8,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { useProvide } from "./composables";
-import type { RootProps } from "./types";
+import type { RootProps, RootEmit } from "./types";
 
 import Header from "./Header.vue";
 import Weeks from "./Weeks.vue";
@@ -17,10 +17,7 @@ import YearOptions from "./OptionsYear.vue";
 import MonthOptions from "./OptionsMonth.vue";
 
 const props = defineProps<RootProps>();
-
-const emit = defineEmits<{
-  (e: "update:modelValue", value: Date): void;
-}>();
+const emit = defineEmits<RootEmit>();
 
 useProvide(props, emit);
 </script>
