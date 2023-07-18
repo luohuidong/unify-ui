@@ -47,8 +47,8 @@ function handleClick() {
   }
 
   store.rootEmit("update:modelValue", date.value);
-  store.state.yearOfCurrentDate.value = props.year;
-  store.state.monthOfCurrentDate.value = props.month;
+  store.state.selectedYear.value = props.year;
+  store.state.selectedMonth.value = props.month;
 }
 </script>
 

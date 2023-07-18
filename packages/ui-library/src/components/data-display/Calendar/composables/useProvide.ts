@@ -4,26 +4,26 @@ import { storeKeys } from "../injectKeys";
 import { RootProps, RootEmit } from "../types";
 
 export function useProvide(rootProps: RootProps, rootEmit: RootEmit) {
-  const yearOfCurrentDate = ref(rootProps.modelValue ? rootProps.modelValue.getFullYear() : new Date().getFullYear());
-  const monthOfCurrentDate = ref(rootProps.modelValue ? rootProps.modelValue.getMonth() : new Date().getMonth());
+  const selectedYear = ref(rootProps.modelValue ? rootProps.modelValue.getFullYear() : new Date().getFullYear());
+  const selectedMonth = ref(rootProps.modelValue ? rootProps.modelValue.getMonth() : new Date().getMonth());
   const displayYearOptions = ref(false);
   const displayMonthOptions = ref(false);
 
   function handleChangeToPreviousMonth() {
-    if (monthOfCurrentDate.value === 0) {
-      yearOfCurrentDate.value--;
-      monthOfCurrentDate.value = 11;
+    if (selectedMonth.value === 0) {
+      selectedYear.value--;
+      selectedMonth.value = 11;
     } else {
-      monthOfCurrentDate.value--;
+      selectedMonth.value--;
     }
   }
 
   function handleChangeToNextMonth() {
-    if (monthOfCurrentDate.value === 11) {
-      yearOfCurrentDate.value++;
-      monthOfCurrentDate.value = 0;
+    if (selectedMonth.value === 11) {
+      selectedYear.value++;
+      selectedMonth.value = 0;
     } else {
-      monthOfCurrentDate.value++;
+      selectedMonth.value++;
     }
   }
 
@@ -32,8 +32,8 @@ export function useProvide(rootProps: RootProps, rootEmit: RootEmit) {
     rootEmit,
 
     state: {
-      yearOfCurrentDate,
-      monthOfCurrentDate,
+      selectedYear,
+      selectedMonth,
       displayYearOptions,
       displayMonthOptions,
     },

@@ -13,16 +13,10 @@ import { useStore, useCurrentMonthInfo, useNextMonthInfo, usePreviousMonthInfo }
 import DaysButton from "./DaysButton.vue";
 
 const store = useStore();
-const { yearOfCurrentDate, monthOfCurrentDate } = store.state;
-const { dayOfCurrentMonthFirstDate, lastDateOfCurrentMonth } = useCurrentMonthInfo(
-  yearOfCurrentDate,
-  monthOfCurrentDate
-);
-const { previousYear, previousMonth, lastDateOfPreviousMonth } = usePreviousMonthInfo(
-  yearOfCurrentDate,
-  monthOfCurrentDate
-);
-const { nextYear, nextMonth } = useNextMonthInfo(yearOfCurrentDate, monthOfCurrentDate);
+const { selectedYear, selectedMonth } = store.state;
+const { dayOfCurrentMonthFirstDate, lastDateOfCurrentMonth } = useCurrentMonthInfo(selectedYear, selectedMonth);
+const { previousYear, previousMonth, lastDateOfPreviousMonth } = usePreviousMonthInfo(selectedYear, selectedMonth);
+const { nextYear, nextMonth } = useNextMonthInfo(selectedYear, selectedMonth);
 
 function getPreviousDate(index: number) {
   return lastDateOfPreviousMonth.value - (dayOfCurrentMonthFirstDate.value - index);
@@ -47,8 +41,8 @@ const totalNextMonthDates = computed(() => 6 * 7 - (dayOfCurrentMonthFirstDate.v
       :key="i"
       :display-text="i"
       is-current-month
-      :year="yearOfCurrentDate"
-      :month="monthOfCurrentDate"
+      :year="selectedYear"
+      :month="selectedMonth"
       :date="i"
     >
     </DaysButton>

@@ -5,7 +5,7 @@ import { useStore } from "./composables";
 import { BaseHeader } from "./components";
 
 const store = useStore();
-const { displayYearOptions, yearOfCurrentDate } = store.state;
+const { displayYearOptions, selectedYear } = store.state;
 
 const interval = ref(0);
 
@@ -13,14 +13,14 @@ const years = computed(() => {
   const tmpYears = [];
 
   for (let i = 0; i < 10; i++) {
-    tmpYears.push(Math.floor(yearOfCurrentDate.value / 10) * 10 + interval.value + i);
+    tmpYears.push(Math.floor(selectedYear.value / 10) * 10 + interval.value + i);
   }
 
   return tmpYears;
 });
 
 const displayHeaderText = computed(() => {
-  const startYear = Math.floor(yearOfCurrentDate.value / 10) * 10 + interval.value;
+  const startYear = Math.floor(selectedYear.value / 10) * 10 + interval.value;
   const endYear = startYear + 9;
 
   return `${startYear} - ${endYear}`;
@@ -28,7 +28,7 @@ const displayHeaderText = computed(() => {
 
 function handleYearClick(year: number) {
   interval.value = 0;
-  yearOfCurrentDate.value = year;
+  selectedYear.value = year;
   displayYearOptions.value = false;
 }
 </script>

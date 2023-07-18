@@ -5,7 +5,7 @@ import { useStore } from "./composables";
 import { BaseHeader } from "./components";
 
 const store = useStore();
-const { displayMonthOptions, monthOfCurrentDate } = store.state;
+const { displayMonthOptions, selectedMonth } = store.state;
 
 const months: { text: string; value: number }[] = [
   {
@@ -59,7 +59,7 @@ const months: { text: string; value: number }[] = [
 ];
 
 function handleMonthClick(month: number) {
-  monthOfCurrentDate.value = month;
+  selectedMonth.value = month;
   displayMonthOptions.value = false;
 }
 </script>
