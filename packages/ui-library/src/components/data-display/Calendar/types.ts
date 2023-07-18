@@ -15,6 +15,8 @@ export interface Store {
   state: {
     yearOfCurrentDate: Ref<number>;
     monthOfCurrentDate: Ref<number>;
+    displayYearOptions: Ref<boolean>;
+    displayMonthOptions: Ref<boolean>;
   };
   actions: {
     handleChangeToPreviousMonth: () => void;

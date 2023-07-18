@@ -13,6 +13,8 @@ import type { RootProps } from "./types";
 import Header from "./Header.vue";
 import Weeks from "./Weeks.vue";
 import Days from "./Days.vue";
+import YearOptions from "./OptionsYear.vue";
+import MonthOptions from "./OptionsMonth.vue";
 
 const props = defineProps<RootProps>();
 
@@ -31,11 +33,15 @@ useProvide(props, emit);
       <Weeks></Weeks>
       <Days></Days>
     </div>
+
+    <YearOptions></YearOptions>
+    <MonthOptions></MonthOptions>
   </div>
 </template>
 
 <style lang="scss" module>
 .calendar {
+  position: relative;
   width: 400px;
   background: #fff;
   border-radius: 10px;

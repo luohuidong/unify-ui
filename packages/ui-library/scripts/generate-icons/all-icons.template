@@ -18,8 +18,8 @@ import <%= iconInfo.iconName %> from '../assets/<%= iconInfo.iconFileName %>'
 <style scoped>
 .container {
   display: grid;
-  grid-template-columns: repeat(auto-fill, 80px);
-  grid-template-rows: 80px;
+  grid-template-columns: repeat(auto-fill, 200px);
+  grid-template-rows: 120px;
 }
 
 .icon-wrapper {
