@@ -1,5 +1,16 @@
 # unify-ui
 
+## 0.14.2
+
+### Patch Changes
+
+- 0940851: Users can easily change the year and month when using the Calendar component
+- 8b90ce2: Emit the 'select' event after selecting a date
+- 03afae6: The Calendar component supports the use of v-model
+- dbb75cb: Refactor the logic of the Calendar component.
+- 4144288: Modify the CSS style of the Calendar component
+- ad5df63: The Calendar component allows setting disabled dates.
+
 ## 0.14.1
 
 ### Patch Changes
