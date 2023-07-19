@@ -20,9 +20,7 @@ const props = withDefaults(defineProps<RootProps>(), {
   offset: 6,
 });
 
-const emits: RootEmits = defineEmits<{
-  (e: "update:visible", visible: boolean): void;
-}>();
+const emits = defineEmits<RootEmits>();
 
 const { referenceRef, floatingRef, floatingArrowRef } = useProvide(props);
 
@@ -60,6 +58,11 @@ watch(
     }
   }
 );
+
+defineExpose({
+  showTooltip, // () => void
+  hideTooltip, // () => void
+});
 </script>
 
 <template>
