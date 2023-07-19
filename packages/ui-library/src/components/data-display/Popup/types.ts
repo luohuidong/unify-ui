@@ -5,7 +5,7 @@ export interface RootProps {
   overlayClassName?: string;
   /** Whether to show the arrow */
   showArrow?: boolean;
-  trigger?: "hover" | "click" | "focus" | "controlled";
+  trigger?: "hover" | "click" | "controlled";
   /** Whether the popup is visible */
   visible?: boolean;
   /** Whether the popup is disabled */
@@ -14,6 +14,8 @@ export interface RootProps {
   offset?: number;
 }
 
-export type RootEmits = (e: "update:visible", visible: boolean) => void;
+export interface RootEmits {
+  (e: "update:visible", visible: boolean): void;
+}
 
 export type ElementRef = Ref<HTMLElement | undefined>;

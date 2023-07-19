@@ -35,7 +35,7 @@ interface RootProps {
   overlayClassName?: string;
   /** Whether to show the arrow */
   showArrow?: boolean;
-  trigger?: "hover" | "click" | "focus" | "controlled";
+  trigger?: "hover" | "click" | "controlled";
   /** Whether the popup is visible */
   visible?: boolean;
   /** Whether the popup is disabled */
@@ -58,4 +58,13 @@ const props = withDefaults(defineProps<RootProps>(), {
 const emits: RootEmits = defineEmits<{
   (e: "update:visible", visible: boolean): void;
 }>();
+```
+
+### Expose
+
+```ts
+defineExpose({
+  showTooltip, // () => void
+  hideTooltip, // () => void
+});
 ```
