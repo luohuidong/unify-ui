@@ -30,11 +30,6 @@ export function useAddEventListener({
     const reference = referenceRef.value;
     if (!reference) return;
 
-    if (props.trigger === "focus") {
-      reference.addEventListener("focus", showTooltip);
-      reference.addEventListener("blur", hideTooltip);
-    }
-
     if (props.trigger === "hover") {
       reference.addEventListener("mouseenter", showTooltip);
       reference.addEventListener("mouseleave", hideTooltip);
