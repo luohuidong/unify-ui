@@ -24,8 +24,8 @@ const year = computed(() => currentDate.value.getFullYear());
   <BaseHeader
     @arrow-left-click="handleChangeToPreviousMonth"
     @arrow-right-click="handleChangeToNextMonth"
-    @dobule-arrow-left-click="selectedYear -= 10"
-    @dobule-arrow-right-click="selectedYear += 10"
+    @dobule-arrow-left-click="selectedYear -= 1"
+    @dobule-arrow-right-click="selectedYear += 1"
   >
     <div :class="$style['header__current-date']">
       <span :class="$style['header__month']" @click="displayMonthOptions = true">{{ month }}</span> &nbsp;
