@@ -3,7 +3,7 @@ import type { Meta, StoryObj } from "@storybook/vue3";
 import UniDatePicker from "../index.vue";
 
 const meta = {
-  title: "Data Display/DatePicker",
+  title: "Data Display/Calendar",
   component: UniDatePicker,
   tags: ["autodocs"],
   argTypes: {},
