@@ -41,6 +41,7 @@ export default defineConfig({
           {
             text: "Data Display",
             items: [
+              { text: "Calendar", link: "/components/data-display/calendar/" },
               { text: "Empty", link: "/components/data-display/empty/" },
               { text: "Popup", link: "/components/data-display/popup/" },
               { text: "Table", link: "/components/data-display/table/" },
@@ -53,6 +54,7 @@ export default defineConfig({
             items: [
               { text: "Checkbox", link: "/components/data-entry/checkbox/" },
               { text: "CheckboxGroup", link: "/components/data-entry/checkbox-group/" },
+              { text: "DatePicker", link: "/components/data-entry/date-picker/" },
               { text: "FileDropZone", link: "/components/data-entry/file-drop-zone/" },
               { text: "FilePicker", link: "/components/data-entry/file-picker/" },
               { text: "Form", link: "/components/data-entry/form/" },
