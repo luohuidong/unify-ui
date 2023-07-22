@@ -1,5 +1,4 @@
 import { defineConfig } from "vitepress";
-import path from "node:path";
 
 export default defineConfig({
   title: "Unify UI",
