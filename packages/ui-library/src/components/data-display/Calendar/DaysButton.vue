@@ -56,10 +56,12 @@ function handleClick() {
 <template>
   <button
     :class="[$style.day, { [$style['day--not-current-month']]: !isCurrentMonth, [$style['day--disabled']]: disabled }]"
-    :data-test="`${props.year}-${props.month + 1}-${props.date}`"
+    :data-testid="`${props.year}-${props.month + 1}-${props.date}`"
     @click="handleClick"
   >
     <time
+      :datetime="`${props.year}-${props.month + 1}-${props.date}`"
+      :data-test-selected="isSelected"
       :class="[
         $style['time'],
         {

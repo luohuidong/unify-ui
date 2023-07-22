@@ -56,7 +56,7 @@
     "@storybook/vue3": "^7.1.0",
     "@storybook/vue3-vite": "^7.1.0",
     "@types/lodash-es": "^4.17.8",
-    "@types/node": "^20.4.2",
+    "@types/node": "^20.4.4",
     "@typescript-eslint/parser": "^6.1.0",
     "@vitejs/plugin-vue": "^4.2.3",
     "@vitejs/plugin-vue-jsx": "^3.0.1",
@@ -79,13 +79,13 @@
     "prettier": "^3.0.0",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "sass": "^1.64.0",
+    "sass": "^1.64.1",
     "storybook": "^7.1.0",
     "typescript": "^5.1.6",
     "vite": "^4.4.6",
     "vitest": "^0.33.0",
     "vue": "^3.3.4",
-    "vue-tsc": "^1.8.5"
+    "vue-tsc": "^1.8.6"
   },
   "peerDependencies": {
     "@floating-ui/dom": "^1.2.1",
