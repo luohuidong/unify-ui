@@ -46,7 +46,13 @@ function handleYearClick(year: number) {
     </div>
 
     <div :class="$style.years">
-      <button v-for="year in years" :key="year" :class="$style.year" @click="handleYearClick(year)">
+      <button
+        v-for="year in years"
+        :key="year"
+        :data-testid="`year-option-${year}`"
+        :class="$style.year"
+        @click="handleYearClick(year)"
+      >
         {{ year }}
       </button>
     </div>

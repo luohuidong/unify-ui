@@ -71,7 +71,13 @@ function handleMonthClick(month: number) {
     </div>
 
     <div :class="$style.months">
-      <button v-for="month in months" :key="month.value" :class="$style.month" @click="handleMonthClick(month.value)">
+      <button
+        v-for="month in months"
+        :key="month.value"
+        :data-testid="`month-option-${month.value}`"
+        :class="$style.month"
+        @click="handleMonthClick(month.value)"
+      >
         {{ month.text }}
       </button>
     </div>

@@ -24,6 +24,72 @@ test("modelValue should be updated", async () => {
   expect(wrapper.find('time[datetime="2023-8-2"]').attributes("data-test-selected")).toContain("true");
 });
 
+test("switching between adjacent months", async () => {
+  const wrapper = mount(UniCalender, {
+    props: {
+      modelValue: new Date(2023, 6, 23),
+    },
+  });
+
+  await wrapper.find('[data-testid="header-arrow-left"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-month-options-trigger]").text()).toEqual("June");
+
+  await wrapper.find('[data-testid="header-arrow-right"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-month-options-trigger]").text()).toEqual("July");
+
+  await wrapper.find('[data-testid="header-arrow-right"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-month-options-trigger]").text()).toEqual("August");
+});
+
+test("switching between adjacent years", async () => {
+  const wrapper = mount(UniCalender, {
+    props: {
+      modelValue: new Date(2023, 6, 23),
+    },
+  });
+
+  await wrapper.find('[data-testid="header-double-arrow-left"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-year-options-trigger]").text()).toEqual("2022");
+
+  await wrapper.find('[data-testid="header-double-arrow-right"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-year-options-trigger]").text()).toEqual("2023");
+
+  await wrapper.find('[data-testid="header-double-arrow-right"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-year-options-trigger]").text()).toEqual("2024");
+});
+
+test("select month", async () => {
+  const wrapper = mount(UniCalender, {
+    props: {
+      modelValue: new Date(2023, 6, 23),
+    },
+  });
+
+  await wrapper.find("[data-testid=header-month-options-trigger]").trigger("click");
+  await wrapper.find('[data-testid="month-option-0"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-month-options-trigger]").text()).toEqual("January");
+
+  await wrapper.find("[data-testid=header-month-options-trigger]").trigger("click");
+  await wrapper.find('[data-testid="month-option-11"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-month-options-trigger]").text()).toEqual("December");
+});
+
+test("select year", async () => {
+  const wrapper = mount(UniCalender, {
+    props: {
+      modelValue: new Date(2023, 6, 23),
+    },
+  });
+
+  await wrapper.find("[data-testid=header-year-options-trigger]").trigger("click");
+  await wrapper.find('[data-testid="year-option-2020"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-year-options-trigger]").text()).toEqual("2020");
+
+  await wrapper.find("[data-testid=header-year-options-trigger]").trigger("click");
+  await wrapper.find('[data-testid="year-option-2029"]').trigger("click");
+  expect(wrapper.find("[data-testid=header-year-options-trigger]").text()).toEqual("2029");
+});
+
 test("useCurrentMonthInfo, current date: 2023-07", () => {
   const { dayOfCurrentMonthFirstDate, dayOfCurrentMonthLastDate, lastDateOfCurrentMonth } = useCurrentMonthInfo(
     ref(2023),
