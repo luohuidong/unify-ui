@@ -28,8 +28,21 @@ const year = computed(() => currentDate.value.getFullYear());
     @dobule-arrow-right-click="selectedYear += 1"
   >
     <div :class="$style['header__current-date']">
-      <span :class="$style['header__month']" @click="displayMonthOptions = true">{{ month }}</span> &nbsp;
-      <span :class="$style['header__year']" @click="displayYearOptions = true">{{ year }}</span>
+      <span
+        :class="$style['header__month']"
+        data-testid="header-month-options-trigger"
+        @click="displayMonthOptions = true"
+      >
+        {{ month }}
+      </span>
+      &nbsp;
+      <span
+        :class="$style['header__year']"
+        data-testid="header-year-options-trigger"
+        @click="displayYearOptions = true"
+      >
+        {{ year }}
+      </span>
     </div>
   </BaseHeader>
 </template>

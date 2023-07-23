@@ -31,10 +31,16 @@ defineEmits<{
     <div :class="$style['header__icons']">
       <DoubleArrowLeft
         v-if="arrows.includes('double')"
+        data-testid="header-double-arrow-left"
         :class="$style.header__icon"
         @click="$emit('dobuleArrowLeftClick')"
       />
-      <ArrowLeft v-if="arrows.includes('single')" :class="$style.header__icon" @click="$emit('arrowLeftClick')" />
+      <ArrowLeft
+        v-if="arrows.includes('single')"
+        data-testid="header-arrow-left"
+        :class="$style.header__icon"
+        @click="$emit('arrowLeftClick')"
+      />
     </div>
 
     <div :class="$style['header__center']">
@@ -42,9 +48,15 @@ defineEmits<{
     </div>
 
     <div :class="$style['header__icons']">
-      <ArrowRight v-if="arrows.includes('single')" :class="[$style.header__icon]" @click="$emit('arrowRightClick')" />
+      <ArrowRight
+        v-if="arrows.includes('single')"
+        data-testid="header-arrow-right"
+        :class="[$style.header__icon]"
+        @click="$emit('arrowRightClick')"
+      />
       <DoubleArrowRight
         v-if="arrows.includes('double')"
+        data-testid="header-double-arrow-right"
         :class="[$style.header__icon]"
         @click="$emit('dobuleArrowRightClick')"
       />
