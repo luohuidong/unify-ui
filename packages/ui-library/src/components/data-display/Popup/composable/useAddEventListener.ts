@@ -5,14 +5,14 @@ export function useAddEventListener({
   referenceRef,
   floatingRef,
   rootProps: props,
-  showTooltip,
-  hideTooltip,
+  showPopup,
+  hidePopup,
 }: {
   referenceRef: ElementRef;
   floatingRef: ElementRef;
   rootProps: RootProps;
-  showTooltip: () => void;
-  hideTooltip: () => void;
+  showPopup: () => void;
+  hidePopup: () => void;
 }) {
   // if trigger value is "click", when click outside of reference and floating, hide tooltip
   function handleBodyClick(e: MouseEvent) {
@@ -22,7 +22,7 @@ export function useAddEventListener({
     const floating = floatingRef.value;
     if (!reference || !floating) return;
     if (!path.includes(reference) && !path.includes(floating)) {
-      hideTooltip();
+      hidePopup();
     }
   }
 
@@ -31,12 +31,12 @@ export function useAddEventListener({
     if (!reference) return;
 
     if (props.trigger === "hover") {
-      reference.addEventListener("mouseenter", showTooltip);
-      reference.addEventListener("mouseleave", hideTooltip);
+      reference.addEventListener("mouseenter", showPopup);
+      reference.addEventListener("mouseleave", hidePopup);
     }
 
     if (props.trigger === "click") {
-      reference.addEventListener("click", showTooltip);
+      reference.addEventListener("click", showPopup);
       document.body.addEventListener("click", handleBodyClick);
     }
   }
@@ -45,13 +45,13 @@ export function useAddEventListener({
     const reference = referenceRef.value;
     if (!reference) return;
 
-    reference.removeEventListener("focus", showTooltip);
-    reference.removeEventListener("blur", hideTooltip);
+    reference.removeEventListener("focus", showPopup);
+    reference.removeEventListener("blur", hidePopup);
 
-    reference.removeEventListener("mouseenter", showTooltip);
-    reference.removeEventListener("mouseleave", hideTooltip);
+    reference.removeEventListener("mouseenter", showPopup);
+    reference.removeEventListener("mouseleave", hidePopup);
 
-    reference.removeEventListener("click", showTooltip);
+    reference.removeEventListener("click", showPopup);
     document.body.removeEventListener("click", handleBodyClick);
   }
 

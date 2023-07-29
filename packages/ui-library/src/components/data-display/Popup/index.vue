@@ -24,7 +24,7 @@ const emits = defineEmits<RootEmits>();
 
 const { referenceRef, floatingRef, floatingArrowRef } = useProvide(props);
 
-const { showTooltip, hideTooltip } = useTooltipUtils({
+const { showPopup, hidePopup } = useTooltipUtils({
   referenceRef,
   floatingRef,
   floatingArrowRef,
@@ -36,15 +36,15 @@ useAddEventListener({
   referenceRef,
   floatingRef,
   rootProps: props,
-  showTooltip,
-  hideTooltip,
+  showPopup,
+  hidePopup,
 });
 
 onMounted(() => {
   if (props.visible) {
-    showTooltip();
+    showPopup();
   } else {
-    hideTooltip();
+    hidePopup();
   }
 });
 
@@ -52,16 +52,16 @@ watch(
   () => props.visible,
   (visible) => {
     if (visible) {
-      showTooltip();
+      showPopup();
     } else {
-      hideTooltip();
+      hidePopup();
     }
   }
 );
 
 defineExpose({
-  showTooltip, // () => void
-  hideTooltip, // () => void
+  showPopup, // () => void
+  hidePopup, // () => void
 });
 </script>
 
