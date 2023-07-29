@@ -50,8 +50,8 @@ import Popup from "../index.vue";
 <style lang="scss" scoped>
 .container {
   display: grid;
-  grid-template-columns: 400px 400px;
-  grid-template-rows: 400px;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 300px);
   align-items: center;
   justify-items: center;
 }

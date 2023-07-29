@@ -10,8 +10,8 @@ function handleClick() {
 </script>
 
 <template>
-  <div :style="{ height: '100vh' }">
-    <div :style="{ marginBottom: '100px' }">
+  <div class="container">
+    <div>
       <UniPopup placement="bottom" trigger="click">
         <UniButton>Trigger: click</UniButton>
 
@@ -21,7 +21,7 @@ function handleClick() {
       </UniPopup>
     </div>
 
-    <div :style="{ marginBottom: '100px' }">
+    <div>
       <UniPopup placement="bottom">
         <UniButton>Trigger: hover</UniButton>
 
@@ -44,6 +44,15 @@ function handleClick() {
 </template>
 
 <style lang="scss" scoped>
+.container {
+  height: 500px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 300px);
+  justify-items: center;
+  align-items: center;
+}
+
 .box {
   height: 100px;
   width: 100px;
