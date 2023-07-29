@@ -26,7 +26,7 @@ const inputValue = ref();
 function handleSelect(date: Date) {
   emits("update:modelValue", date);
   inputValue.value = dayjs(date).format("YYYY-MM-DD");
-  popupRef.value?.hideTooltip();
+  popupRef.value?.hidePopup();
 }
 </script>
 

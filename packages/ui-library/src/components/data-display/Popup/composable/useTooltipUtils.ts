@@ -23,12 +23,7 @@ export function useTooltipUtils({
     if (reference && floating && floatingArrow) {
       computePosition(reference, floating, {
         placement: rootProps.placement,
-        middleware: [
-          offset(rootProps.offset),
-          flip(),
-          shift({ padding: 5 }),
-          arrow({ element: floatingArrow }),
-        ],
+        middleware: [offset(rootProps.offset), flip(), shift({ padding: 5 }), arrow({ element: floatingArrow })],
       }).then(({ x, y, middlewareData, placement }) => {
         Object.assign(floating.style, {
           left: `${x}px`,
@@ -59,7 +54,7 @@ export function useTooltipUtils({
 
   let cleanup: (() => void) | null = null;
 
-  function showTooltip() {
+  function showPopup() {
     if (rootProps.disabled) return;
 
     const reference = referenceRef.value;
@@ -74,7 +69,7 @@ export function useTooltipUtils({
     updatePosition();
   }
 
-  function hideTooltip() {
+  function hidePopup() {
     const reference = referenceRef.value;
     const floating = floatingRef.value;
 
@@ -86,7 +81,7 @@ export function useTooltipUtils({
   }
 
   return {
-    showTooltip,
-    hideTooltip,
+    showPopup,
+    hidePopup,
   };
 }
