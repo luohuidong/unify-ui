@@ -64,7 +64,7 @@ const emits: RootEmits = defineEmits<{
 
 ```ts
 defineExpose({
-  showTooltip, // () => void
-  hideTooltip, // () => void
+  showPopup, // () => void
+  hidePopup, // () => void
 });
 ```
