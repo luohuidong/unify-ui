@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import UniEmpty from "./index.vue";
+import UniEmpty from "../index.vue";
 
 const meta = {
   title: "Data Display/Empty",

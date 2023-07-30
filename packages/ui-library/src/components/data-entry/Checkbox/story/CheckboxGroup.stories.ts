@@ -1,22 +1,22 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import CheckboxGroup from "./UniCheckboxGroup.vue";
+import { UniCheckboxGroup } from "@/components";
 
 const meta = {
   title: "Data Entry/CheckboxGroup",
-  component: CheckboxGroup,
+  component: UniCheckboxGroup,
   tags: ["autodocs"],
   argTypes: {
     onChange: {},
   },
-} satisfies Meta<typeof CheckboxGroup>;
+} satisfies Meta<typeof UniCheckboxGroup>;
 
 export default meta;
-type Story = StoryObj<typeof CheckboxGroup>;
+type Story = StoryObj<typeof UniCheckboxGroup>;
 
 export const BasicUsage: Story = {
   render: (args) => ({
-    components: { Checkbox: CheckboxGroup },
+    components: { Checkbox: UniCheckboxGroup },
     setup: () => ({ args }),
     template: '<Checkbox v-model="args.modelValue" v-bind="args" />',
   }),
@@ -43,9 +43,9 @@ export const BasicUsage: Story = {
 
 export const Checked: Story = {
   render: (args) => ({
-    components: { CheckboxGroup },
+    components: { UniCheckboxGroup },
     setup: () => ({ args }),
-    template: '<CheckboxGroup v-model="args.modelValue" v-bind="args" />',
+    template: '<UniCheckboxGroup v-model="args.modelValue" v-bind="args" />',
   }),
   args: {
     ...BasicUsage.args,
@@ -55,9 +55,9 @@ export const Checked: Story = {
 
 export const Disabled: Story = {
   render: (args) => ({
-    components: { CheckboxGroup },
+    components: { UniCheckboxGroup },
     setup: () => ({ args }),
-    template: '<CheckboxGroup v-model="args.modelValue" v-bind="args" />',
+    template: '<UniCheckboxGroup v-model="args.modelValue" v-bind="args" />',
   }),
   args: {
     ...BasicUsage.args,
@@ -67,9 +67,9 @@ export const Disabled: Story = {
 
 export const Inline: Story = {
   render: (args) => ({
-    components: { CheckboxGroup },
+    components: { UniCheckboxGroup },
     setup: () => ({ args }),
-    template: '<CheckboxGroup v-model="args.modelValue" v-bind="args" />',
+    template: '<UniCheckboxGroup v-model="args.modelValue" v-bind="args" />',
   }),
   args: {
     ...BasicUsage.args,

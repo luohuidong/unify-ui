@@ -1,36 +1,28 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
 import UniDatePicker from "../index.vue";
+import ShowCaseBasicUsage from "./ShowCaseBasicUsage.vue";
+import ShowCaseDisabledDate from "./ShowCaseDisabledDate.vue";
 
 const meta = {
   title: "Data Display/Calendar",
   component: UniDatePicker,
   tags: ["autodocs"],
-  argTypes: {},
 } satisfies Meta<typeof UniDatePicker>;
 
 export default meta;
 type Story = StoryObj<typeof UniDatePicker>;
 
 export const BasicUsage: Story = {
-  render: (args) => ({
-    components: { UniDatePicker },
-    setup: () => ({ args }),
-    template: '<UniDatePicker v-model="args.modelValue" />',
+  render: () => ({
+    components: { ShowCaseBasicUsage },
+    template: "<ShowCaseBasicUsage  />",
   }),
-  args: {
-    modelValue: undefined,
-  },
 };
 
 export const DisabledDate: Story = {
-  render: (args) => ({
-    components: { UniDatePicker },
-    setup: () => ({ args }),
-    template: '<UniDatePicker v-bind="args" v-model="args.modelValue" />',
+  render: () => ({
+    components: { ShowCaseDisabledDate },
+    template: "<ShowCaseDisabledDate />",
   }),
-  args: {
-    modelValue: new Date(),
-    disabledDate: (date) => date.getDate() === 18,
-  },
 };
