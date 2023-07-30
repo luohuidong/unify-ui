@@ -1,25 +1,25 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import Checkbox from "./UniCheckbox.vue";
+import { UniCheckbox } from "@/components";
 
 const meta = {
   title: "Data Entry/Checkbox",
-  component: Checkbox,
+  component: UniCheckbox,
   tags: ["autodocs"],
   argTypes: {
     value: { control: "text" },
     onChange: {},
   },
-} satisfies Meta<typeof Checkbox>;
+} satisfies Meta<typeof UniCheckbox>;
 
 export default meta;
-type Story = StoryObj<typeof Checkbox>;
+type Story = StoryObj<typeof UniCheckbox>;
 
 export const BasicUsage: Story = {
   render: (args) => ({
-    components: { Checkbox },
+    components: { UniCheckbox },
     setup: () => ({ args }),
-    template: "<Checkbox v-bind='args'/>",
+    template: "<UniCheckbox v-bind='args'/>",
   }),
   args: {
     label: "option",
@@ -32,11 +32,11 @@ export const BasicUsage: Story = {
 
 export const Checked: Story = {
   render: (args) => ({
-    components: { Checkbox },
+    components: { UniCheckbox },
     setup: () => {
       return { args };
     },
-    template: '<Checkbox  v-model:checked="args.checked" v-bind="args">Checkbox</Checkbox>',
+    template: '<UniCheckbox  v-model:checked="args.checked" v-bind="args">UniCheckbox</UniCheckbox>',
   }),
   args: {
     ...BasicUsage.args,
@@ -46,9 +46,9 @@ export const Checked: Story = {
 
 export const Disabled: Story = {
   render: (args) => ({
-    components: { Checkbox },
+    components: { UniCheckbox },
     setup: () => ({ args }),
-    template: '<Checkbox v-model:checked="args.checked" v-bind="args">Checkbox</Checkbox>',
+    template: '<UniCheckbox v-model:checked="args.checked" v-bind="args">UniCheckbox</UniCheckbox>',
   }),
   args: {
     ...BasicUsage.args,
@@ -58,9 +58,9 @@ export const Disabled: Story = {
 
 export const Indeterminate: Story = {
   render: (args) => ({
-    components: { Checkbox },
+    components: { UniCheckbox },
     setup: () => ({ args }),
-    template: '<Checkbox v-model:checked="args.checked" v-bind="args">Checkbox</Checkbox>',
+    template: '<UniCheckbox v-model:checked="args.checked" v-bind="args">UniCheckbox</UniCheckbox>',
   }),
   args: {
     ...BasicUsage.args,
