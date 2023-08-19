@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useInject } from "./composables";
 import type { Record } from "./types";
-import commonStyle from "./commonStyle.module.scss";
 
 import Add from "./icons/Add.vue";
 import Minus from "./icons/Minus.vue";
@@ -29,7 +28,7 @@ const { hasLeftFixedColumn } = columnsInfo;
       tableProps.tbodyCellClass,
     ]"
   >
-    <div :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]">
+    <div :class="$style['cell__inner-container']">
       <component
         :is="showExpandRow ? Minus : Add"
         v-if="tableProps.rowExpand?.expandCondition(record)"
@@ -43,6 +42,7 @@ const { hasLeftFixedColumn } = columnsInfo;
 </template>
 
 <style lang="scss" module>
+@use "./styles/common";
 @use "./styles/tbody";
 
 .cell {
@@ -63,5 +63,9 @@ const { hasLeftFixedColumn } = columnsInfo;
   &:hover {
     color: #409eff;
   }
+}
+
+.cell__inner-container {
+  @include common.cell__inner-container;
 }
 </style>

@@ -2,7 +2,6 @@
 import { useInject, useSortEmit } from "./composables";
 import commonStyle from "./commonStyle.module.scss";
 import { ColumnData } from "./types";
-import { watchEffect } from "vue";
 
 const props = defineProps<{
   col: ColumnData;
@@ -37,10 +36,6 @@ function handleSort(column: ColumnData) {
     handleSortEmit({ columnKey: column.key, order: sortTypes[index + 1] });
   }
 }
-
-watchEffect(() => {
-  console.log("col", props.col);
-});
 </script>
 
 <template>

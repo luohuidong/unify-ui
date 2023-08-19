@@ -5,7 +5,6 @@ import { UniCheckbox } from "@/components";
 import { useInject } from "./composables";
 import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
-import commonStyle from "./commonStyle.module.scss";
 
 const { tableProps, tableState, tableEmits, showShadow, columnsInfo } = useInject();
 const { hasLeftFixedColumn } = columnsInfo;
@@ -107,7 +106,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
       },
     ]"
   >
-    <div :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]">
+    <div :class="$style['cell--inner-container']">
       <UniCheckbox
         v-if="tableProps.selection?.type === 'multiple'"
         v-model:checked="state.checkboxValue"
@@ -121,6 +120,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 
 <style lang="scss" module>
 @use "./styles/thead";
+@use "./styles/common";
 
 .cell {
   @include thead.cell;
@@ -130,5 +130,9 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 .cell--left-sticky {
   left: v-bind(selectionColumnOffset);
   z-index: 3;
+}
+
+.cell__inner-container {
+  @include common.cell__inner-container;
 }
 </style>
