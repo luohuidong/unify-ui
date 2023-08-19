@@ -1,14 +1,13 @@
 <script setup lang="ts">
-import { reactive, computed } from "vue";
+import { reactive } from "vue";
 
-import { UniCheckbox, UniRadio } from "@/components";
-import { useInject, useSelection } from "./composables";
-import type { Record, Key } from "./types";
-import commonStyle from "./commonStyle.module.scss";
+import { useInject } from "./composables";
+import type { Record } from "./types";
 
-import Add from "./icons/Add.vue";
-import Minus from "./icons/Minus.vue";
 import UniTbodyExpandRow from "./UniTbodyExpandRow.vue";
+import UniTbodyExpandToggleCell from "./UniTbodyExpandToggleCell.vue";
+import UniTbodySelectionCell from "./UniTbodySelectionCell.vue";
+import UniTbodyNormalCell from "./UniTbodyNormalCell.vue";
 
 defineProps<{
   record: Record;
@@ -16,12 +15,10 @@ defineProps<{
 
 const {
   tableProps,
-  columnsInfo: { columnsData, hasLeftFixedColumn },
+  columnsInfo: { columnsData },
   rootSlotKeys,
-  showShadow,
   tableState,
 } = useInject();
-const { handleCheckboxChange, handleRadioClick } = useSelection();
 
 const state = reactive({
   showExpandRow: tableProps.rowExpand?.showExpandRowDefault || false,
@@ -30,87 +27,23 @@ const state = reactive({
 function toggleExpandRow() {
   state.showExpandRow = !state.showExpandRow;
 }
-
-const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + "px");
 </script>
 
 <template>
   <!-- normal row -->
   <tr :class="[$style['normal-row'], tableProps.tbodyRowClass]">
     <!-- expand column cell -->
-    <td
+    <UniTbodyExpandToggleCell
       v-if="tableState.showExpandToggleCell"
-      :class="[
-        tableProps.tbodyCellClass,
-        $style['normal-row__cell'],
-        $style['normal-row__expand-toggle-cell'],
-        {
-          [$style['normal-row__expand-toggle-cell--sticky']]: hasLeftFixedColumn,
-        },
-      ]"
-    >
-      <div :class="[$style['cell__inner'], commonStyle['cell__inner--horizontal-center']]">
-        <component
-          :is="state.showExpandRow ? Minus : Add"
-          v-if="tableProps.rowExpand?.expandCondition(record)"
-          :width="20"
-          :height="20"
-          :class="$style['normal-row__expand-toggle-cell-icon']"
-          @click="toggleExpandRow"
-        ></component>
-      </div>
-    </td>
+      :record="record"
+      :show-expand-row="state.showExpandRow"
+      @icon-click="toggleExpandRow"
+    />
 
     <!-- selection column cell -->
-    <td
-      v-if="tableProps.selection?.type"
-      :class="[
-        tableProps.tbodyCellClass,
-        $style['normal-row__cell'],
-        $style['normal-row__selection-toggle-cell'],
-        {
-          [$style['normal-row__selection-toggle-cell--sticky']]: hasLeftFixedColumn,
-        },
-      ]"
-    >
-      <div :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]">
-        <UniCheckbox
-          v-if="tableProps.selection?.type === 'multiple'"
-          :checked="tableProps.selectedRowKeys?.has(record[tableProps.rowKey])"
-          :disabled="tableProps.selection?.disabledCondition?.(record)"
-          @change="(checked: boolean) => handleCheckboxChange(record, checked)"
-        ></UniCheckbox>
+    <UniTbodySelectionCell v-if="tableProps.selection?.type" :record="record" />
 
-        <UniRadio
-          v-else
-          name="unitable-single-selection"
-          :value="record[tableProps.rowKey] as Key"
-          :checked="tableProps.selectedRowKeys?.has(record[tableProps.rowKey])"
-          :disabled="tableProps.selection?.disabledCondition?.(record)"
-          @change="() => handleRadioClick(record)"
-        ></UniRadio>
-      </div>
-    </td>
-
-    <td
-      v-for="col in columnsData"
-      :key="col.key"
-      :style="{
-        position: col.fixed && 'sticky',
-        left: col.leftOffset && `${col.leftOffset}px`,
-        right: col.rightOffset && `${col.rightOffset}px`,
-        zIndex: col.fixed ? 1 : 0,
-      }"
-      :class="[
-        $style['normal-row__cell'],
-        {
-          [commonStyle['cell--shadow-right']]: col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-          [commonStyle['cell--shadow-left']]: col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
-          [$style['normal-row__cell--text-ellipsis']]: col.ellipsis,
-        },
-        tableProps.tbodyCellClass,
-      ]"
-    >
+    <UniTbodyNormalCell v-for="col in columnsData" :key="col.key" :col="col">
       <template v-if="rootSlotKeys.has(col.key)">
         <slot name="rowCell" :column-key="col.key"></slot>
       </template>
@@ -118,7 +51,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
       <template v-else>
         <span :title="col.ellipsis && record[col.key]">{{ record[col.key] }}</span>
       </template>
-    </td>
+    </UniTbodyNormalCell>
   </tr>
 
   <!-- expand row -->
@@ -135,48 +68,5 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
   color: rgb(75 85 99);
   background-color: white;
   border-top: 1px solid rgb(229 231 235);
-}
-
-.normal-row__cell {
-  position: relative;
-  padding: 16px 12px;
-
-  font-size: 14px;
-  line-height: 20px;
-  box-sizing: border-box;
-  background: inherit;
-}
-
-.normal-row__cell--text-ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.normal-row__expand-toggle-cell {
-  z-index: 1;
-}
-
-.normal-row__expand-toggle-cell--sticky {
-  position: sticky;
-  left: 0;
-}
-
-.normal-row__expand-toggle-cell-icon {
-  color: grey;
-  cursor: pointer;
-
-  &:hover {
-    color: #409eff;
-  }
-}
-
-.normal-row__selection-toggle-cell {
-  z-index: 1;
-}
-
-.normal-row__selection-toggle-cell--sticky {
-  position: sticky;
-  left: v-bind(selectionColumnOffset);
 }
 </style>

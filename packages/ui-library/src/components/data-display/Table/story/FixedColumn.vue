@@ -32,8 +32,7 @@ const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
 
 <template>
   <UniTable row-key="id" class="container" :columns="columns" :data="data">
-    <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
-    <template #actions>删除</template>
+    <template #actions>Delete</template>
   </UniTable>
 </template>
 
