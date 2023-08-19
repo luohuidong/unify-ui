@@ -1,5 +1,12 @@
 # unify-ui
 
+## 0.14.5
+
+### Patch Changes
+
+- 040d00d: Optimize the implementation of the table header
+- 7558f0e: optimize the implementation of the table tbody
+
 ## 0.14.4
 
 ### Patch Changes
