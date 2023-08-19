@@ -1,0 +1,9 @@
+@mixin cell {
+  position: relative;
+  padding: 16px 12px;
+
+  font-size: 14px;
+  line-height: 20px;
+  box-sizing: border-box;
+  background: inherit;
+}
