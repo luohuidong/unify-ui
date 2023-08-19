@@ -3,8 +3,9 @@ import { useInject, useSortEmit } from "./composables";
 import commonStyle from "./commonStyle.module.scss";
 import { ColumnData } from "./types";
 
-import UniTheadSelection from "./UniTheadSelection.vue";
+import UniTheadSelectionCell from "./UniTheadSelectionCell.vue";
 import UniTheadSort from "./UniTheadSort.vue";
+import UniTheadExpandColumnCell from "./UniTheadExpandColumnCell.vue";
 
 const {
   columnsInfo: { columnsData },
@@ -47,17 +48,11 @@ function handleSort(column: ColumnData) {
   <thead>
     <tr>
       <template v-if="tableState.showExpandToggleCell">
-        <th
-          :class="[
-            $style['header__cell'],
-            $style['header__expand-column-cell'],
-            { [commonStyle['cell--shadow-right']]: showShadow.expandColumnShadowVisible },
-          ]"
-        ></th>
+        <UniTheadExpandColumnCell :class="$style['header__cell']"></UniTheadExpandColumnCell>
       </template>
 
       <template v-if="tableProps.selection?.type">
-        <UniTheadSelection :class="$style['header__cell']"></UniTheadSelection>
+        <UniTheadSelectionCell :class="$style['header__cell']"></UniTheadSelectionCell>
       </template>
 
       <th
@@ -113,11 +108,5 @@ function handleSort(column: ColumnData) {
 .head__cell--sortable {
   cursor: pointer;
   padding-left: 24px;
-}
-
-.header__expand-column-cell {
-  position: sticky;
-  left: 0;
-  z-index: 3;
 }
 </style>

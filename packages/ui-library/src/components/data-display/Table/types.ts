@@ -110,16 +110,12 @@ export interface ColumnData extends Column {
 }
 
 export interface ShowShadow {
-  expandColumnShadowVisible: boolean;
-
-  selectionColumnShadowVisible: boolean;
-
   showLeftFixedColumnShadow: boolean;
-
   showRightFixedColumnShadow: boolean;
 }
 
 export interface ColumnsInfo {
   columnsData: ComputedRef<ColumnData[]>;
   columnCount: ComputedRef<number>;
+  hasLeftFixedColumn: ComputedRef<boolean>;
 }

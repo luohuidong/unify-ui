@@ -13,8 +13,6 @@ export function useShowShadow(params: {
   const state: ShowShadow = reactive({
     showLeftFixedColumnShadow: false,
     showRightFixedColumnShadow: false,
-    selectionColumnShadowVisible: false,
-    expandColumnShadowVisible: false,
   });
 
   provide(injectKeys.shadowShow, state);
@@ -58,29 +56,6 @@ export function useShowShadow(params: {
 
     if (container && table) {
       container.removeEventListener("scroll", throttleHandleContainerScroll);
-    }
-  });
-
-  watchEffect(() => {
-    const firstColumnData = params.columnsInfo.columnsData.value[0];
-
-    // if user has defined some column fix to left, then hide selection column shadow
-    if (firstColumnData.fixed === "left") {
-      state.selectionColumnShadowVisible = false;
-    } else {
-      state.selectionColumnShadowVisible = state.showLeftFixedColumnShadow;
-    }
-  });
-
-  watchEffect(() => {
-    const firstColumnData = params.columnsInfo.columnsData.value[0];
-
-    // if user has defined some column fix to left, then hide expand column shadow
-    // or if show selection column, then hide expand column shadow
-    if (firstColumnData.fixed === "left" || params.tableProps.selection) {
-      state.expandColumnShadowVisible = false;
-    } else {
-      state.expandColumnShadowVisible = state.showLeftFixedColumnShadow;
     }
   });
 }

@@ -7,7 +7,8 @@ import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
 import commonStyle from "./commonStyle.module.scss";
 
-const { tableProps, tableState, tableEmits, showShadow } = useInject();
+const { tableProps, tableState, tableEmits, showShadow, columnsInfo } = useInject();
+const { hasLeftFixedColumn } = columnsInfo;
 
 const state = reactive({
   checkboxValue: false,
@@ -98,14 +99,15 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 </script>
 
 <template>
-  <th :class="$style['th-selection-cell']">
-    <div
-      :class="[
-        commonStyle['cell__inner'],
-        commonStyle['cell__inner--horizontal-center'],
-        { [commonStyle['cell--shadow-right']]: showShadow.selectionColumnShadowVisible },
-      ]"
-    >
+  <th
+    :class="[
+      $style['th-selection-cell'],
+      {
+        [$style['th-selection-cell--left-fixed']]: hasLeftFixedColumn,
+      },
+    ]"
+  >
+    <div :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]">
       <UniCheckbox
         v-if="tableProps.selection?.type === 'multiple'"
         v-model:checked="state.checkboxValue"
@@ -122,7 +124,10 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
   position: sticky;
   top: 0;
   height: 44px;
-  left: v-bind(selectionColumnOffset);
   z-index: 3;
+}
+
+.th-selection-cell--left-fixed {
+  left: v-bind(selectionColumnOffset);
 }
 </style>
