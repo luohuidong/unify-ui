@@ -1,5 +1,12 @@
 # unify-ui
 
+## 0.14.4
+
+### Patch Changes
+
+- 9b1f31e: Rename the function
+- 6dadbff: If no right fixed column is defined, the expand and selection columns of the table won't be fixed.
+
 ## 0.14.3
 
 ### Patch Changes
