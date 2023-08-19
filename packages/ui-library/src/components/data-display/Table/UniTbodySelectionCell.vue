@@ -4,7 +4,6 @@ import { computed } from "vue";
 import { UniCheckbox, UniRadio } from "@/components";
 import { useInject, useSelection } from "./composables";
 import type { Record } from "./types";
-import commonStyle from "./commonStyle.module.scss";
 
 defineProps<{
   record: Record;
@@ -31,7 +30,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
       tableProps.tbodyCellClass,
     ]"
   >
-    <div :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]">
+    <div :class="$style['cell__inner-container']">
       <UniCheckbox
         v-if="tableProps.selection?.type === 'multiple'"
         :checked="tableProps.selectedRowKeys?.has(record[tableProps.rowKey])"
@@ -53,6 +52,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 
 <style lang="scss" module>
 @use "./styles/tbody";
+@use "./styles/common";
 
 .cell {
   @include tbody.cell;
@@ -62,5 +62,9 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 .cell--sticky {
   position: sticky;
   left: v-bind(selectionColumnOffset);
+}
+
+.cell__inner-container {
+  @include common.cell__inner-container;
 }
 </style>
