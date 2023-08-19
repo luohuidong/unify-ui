@@ -5,11 +5,17 @@ import * as injectKeys from "../injectKeys";
 import { selectionColumnWidth, expandColumnWidth } from "../constant";
 
 export function useGetColumnsInfo(tableProps: TableProps, tableState: TableState): ColumnsInfo {
+  const hasLeftFixedColumn = computed(() => {
+    return tableProps.columns.some((item) => item.fixed === "left");
+  });
+
   const columnsData = computed(() => {
     const leftFixedColumns: ColumnData[] = [];
     let left = 0;
-    if (tableProps.selection) left += selectionColumnWidth;
-    if (tableState.showExpandToggleCell) left += expandColumnWidth;
+    if (hasLeftFixedColumn.value) {
+      if (tableProps.selection) left += selectionColumnWidth;
+      if (tableState.showExpandToggleCell) left += expandColumnWidth;
+    }
 
     const normalColumns: ColumnData[] = [];
 
@@ -44,17 +50,15 @@ export function useGetColumnsInfo(tableProps: TableProps, tableState: TableState
     return count;
   });
 
-  const hasLeftFixedColumn = computed(() => {
-    return columnsData.value.some((item) => item.fixed === "left");
-  });
-
   provide(injectKeys.columnsInfoKey, {
     columnCount,
     columnsData,
+    hasLeftFixedColumn,
   });
 
   return {
     columnsData,
     columnCount,
+    hasLeftFixedColumn,
   };
 }

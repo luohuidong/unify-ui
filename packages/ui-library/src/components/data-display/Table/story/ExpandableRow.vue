@@ -34,7 +34,7 @@ const rowExpand: InstanceType<typeof UniTable>["$props"]["rowExpand"] = {
 </script>
 
 <template>
-  <UniTable row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
+  <UniTable class="container" row-key="id" :columns="columns" :data="data" :row-expand="rowExpand">
     <template #userId="{ record }"> 用户标识：{{ record.userId }} </template>
 
     <template #rowExpand="{ record }">
@@ -43,4 +43,9 @@ const rowExpand: InstanceType<typeof UniTable>["$props"]["rowExpand"] = {
   </UniTable>
 </template>
 
-<style scoped></style>
+<style scoped>
+.container {
+  width: 100%;
+  height: 500px;
+}
+</style>

@@ -15,7 +15,7 @@ export default function useFetchData() {
       title: faker.lorem.word(),
       author: faker.person.fullName(),
       post: faker.lorem.paragraph(),
-      description: Math.random() > 0.7 ? faker.lorem.paragraph() : "",
+      description: faker.lorem.paragraph(),
     }));
   }
 

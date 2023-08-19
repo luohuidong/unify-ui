@@ -1,5 +1,5 @@
-import type { InjectionKey, ComputedRef, Ref } from "vue";
-import type { TableProps, ColumnData, ShowShadow, TableState, TableEmits, ColumnsInfo } from "./types";
+import type { InjectionKey, Ref } from "vue";
+import type { TableProps, ShowShadow, TableState, TableEmits, ColumnsInfo } from "./types";
 
 export const tablePropsKey = Symbol() as InjectionKey<TableProps>;
 export const tableEmitsKey = Symbol() as InjectionKey<TableEmits>;

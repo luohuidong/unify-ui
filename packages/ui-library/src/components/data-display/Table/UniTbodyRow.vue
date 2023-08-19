@@ -16,7 +16,7 @@ defineProps<{
 
 const {
   tableProps,
-  columnsInfo: { columnsData },
+  columnsInfo: { columnsData, hasLeftFixedColumn },
   rootSlotKeys,
   showShadow,
   tableState,
@@ -40,15 +40,16 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
     <!-- expand column cell -->
     <td
       v-if="tableState.showExpandToggleCell"
-      :class="[tableProps.tbodyCellClass, $style['normal-row__cell'], $style['normal-row__expand-toggle-cell']]"
+      :class="[
+        tableProps.tbodyCellClass,
+        $style['normal-row__cell'],
+        $style['normal-row__expand-toggle-cell'],
+        {
+          [$style['normal-row__expand-toggle-cell--sticky']]: hasLeftFixedColumn,
+        },
+      ]"
     >
-      <div
-        :class="[
-          $style['cell__inner'],
-          commonStyle['cell__inner--horizontal-center'],
-          { [commonStyle['cell--shadow-right']]: showShadow.expandColumnShadowVisible },
-        ]"
-      >
+      <div :class="[$style['cell__inner'], commonStyle['cell__inner--horizontal-center']]">
         <component
           :is="state.showExpandRow ? Minus : Add"
           v-if="tableProps.rowExpand?.expandCondition(record)"
@@ -63,15 +64,16 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
     <!-- selection column cell -->
     <td
       v-if="tableProps.selection?.type"
-      :class="[tableProps.tbodyCellClass, $style['normal-row__cell'], $style['normal-row__selection-toggle-cell']]"
+      :class="[
+        tableProps.tbodyCellClass,
+        $style['normal-row__cell'],
+        $style['normal-row__selection-toggle-cell'],
+        {
+          [$style['normal-row__selection-toggle-cell--sticky']]: hasLeftFixedColumn,
+        },
+      ]"
     >
-      <div
-        :class="[
-          commonStyle['cell__inner'],
-          commonStyle['cell__inner--horizontal-center'],
-          { [commonStyle['cell--shadow-right']]: showShadow.selectionColumnShadowVisible },
-        ]"
-      >
+      <div :class="[commonStyle['cell__inner'], commonStyle['cell__inner--horizontal-center']]">
         <UniCheckbox
           v-if="tableProps.selection?.type === 'multiple'"
           :checked="tableProps.selectedRowKeys?.has(record[tableProps.rowKey])"
@@ -152,9 +154,12 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 }
 
 .normal-row__expand-toggle-cell {
+  z-index: 1;
+}
+
+.normal-row__expand-toggle-cell--sticky {
   position: sticky;
   left: 0;
-  z-index: 1;
 }
 
 .normal-row__expand-toggle-cell-icon {
@@ -167,8 +172,11 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 }
 
 .normal-row__selection-toggle-cell {
+  z-index: 1;
+}
+
+.normal-row__selection-toggle-cell--sticky {
   position: sticky;
   left: v-bind(selectionColumnOffset);
-  z-index: 1;
 }
 </style>
