@@ -1,0 +1,20 @@
+@mixin cell {
+  box-sizing: border-box;
+  padding: 14px 12px;
+
+  word-wrap: break-word;
+  text-align: left;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 600;
+  color: rgb(17 24 39);
+  background: white;
+  border-bottom: 1px solid rgb(226 232 240);
+  user-select: none;
+}
+
+@mixin cell--sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 2;
+}

@@ -101,9 +101,9 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 <template>
   <th
     :class="[
-      $style['th-selection-cell'],
+      $style['cell'],
       {
-        [$style['th-selection-cell--left-fixed']]: hasLeftFixedColumn,
+        [$style['cell--left-sticky']]: hasLeftFixedColumn,
       },
     ]"
   >
@@ -120,14 +120,15 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
 </template>
 
 <style lang="scss" module>
-.th-selection-cell {
-  position: sticky;
-  top: 0;
-  height: 44px;
-  z-index: 3;
+@use "./styles/thead";
+
+.cell {
+  @include thead.cell;
+  @include thead.cell--sticky-top;
 }
 
-.th-selection-cell--left-fixed {
+.cell--left-sticky {
   left: v-bind(selectionColumnOffset);
+  z-index: 3;
 }
 </style>

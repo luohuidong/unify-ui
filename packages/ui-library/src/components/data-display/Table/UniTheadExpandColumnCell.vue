@@ -8,21 +8,24 @@ const { hasLeftFixedColumn } = columnsInfo;
 <template>
   <th
     :class="[
-      $style['header__expand-column-cell'],
+      $style['cell'],
       {
-        [$style['header__expand-column-cell--left-sticky']]: hasLeftFixedColumn,
+        [$style['cell--left-sticky']]: hasLeftFixedColumn,
       },
     ]"
   ></th>
 </template>
 
 <style lang="scss" module>
-.header__expand-column-cell {
-  z-index: 3;
+@use "./styles/thead";
+
+.cell {
+  @include thead.cell;
+  @include thead.cell--sticky-top;
 }
 
-.header__expand-column-cell--left-sticky {
-  position: sticky;
+.cell--left-sticky {
   left: 0;
+  z-index: 3;
 }
 </style>

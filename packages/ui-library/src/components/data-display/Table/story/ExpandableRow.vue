@@ -9,6 +9,7 @@ const columns: InstanceType<typeof UniTable>["$props"]["columns"] = [
     title: "Title",
     key: "title",
     width: 120,
+    fixed: "left",
   },
   {
     title: "Author",
