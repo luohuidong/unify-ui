@@ -13,9 +13,9 @@
   "license": "ISC",
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
-    "postcss": "^8.4.28",
+    "postcss": "^8.4.29",
     "postcss-prefix-selector": "^1.16.0",
-    "vitepress": "1.0.0-rc.4",
+    "vitepress": "1.0.0-rc.10",
     "vue": "^3.3.4"
   },
   "dependencies": {
