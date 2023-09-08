@@ -1,5 +1,5 @@
 import { onMounted, onUnmounted, watch } from "vue";
-import { debounce } from "lodash-es";
+import { throttle } from "lodash-es";
 
 import type { RootProps, ElementRef } from "../types";
 
@@ -38,7 +38,7 @@ export function useAddEventListener({
       hidePopup();
     }
   }
-  const debounceHandlePopupVisible = debounce(handlePopupVisible, 300);
+  const debounceHandlePopupVisible = throttle(handlePopupVisible, 300);
 
   function handleMouseMove(e: MouseEvent) {
     const path = e.composedPath();
