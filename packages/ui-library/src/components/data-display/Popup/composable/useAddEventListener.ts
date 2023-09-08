@@ -1,4 +1,6 @@
 import { onMounted, onUnmounted, watch } from "vue";
+import { debounce } from "lodash-es";
+
 import type { RootProps, ElementRef } from "../types";
 
 export function useAddEventListener({
@@ -26,13 +28,29 @@ export function useAddEventListener({
     }
   }
 
+  function handlePopupVisible(path: EventTarget[]) {
+    if (
+      (referenceRef.value && path.includes(referenceRef.value)) ||
+      (floatingRef.value && path.includes(floatingRef.value))
+    ) {
+      showPopup();
+    } else {
+      hidePopup();
+    }
+  }
+  const debounceHandlePopupVisible = debounce(handlePopupVisible, 300);
+
+  function handleMouseMove(e: MouseEvent) {
+    const path = e.composedPath();
+    debounceHandlePopupVisible(path);
+  }
+
   function handleAddEventListener() {
     const reference = referenceRef.value;
     if (!reference) return;
 
     if (props.trigger === "hover") {
-      reference.addEventListener("mouseenter", showPopup);
-      reference.addEventListener("mouseleave", hidePopup);
+      document.addEventListener("mousemove", handleMouseMove);
     }
 
     if (props.trigger === "click") {
@@ -48,8 +66,7 @@ export function useAddEventListener({
     reference.removeEventListener("focus", showPopup);
     reference.removeEventListener("blur", hidePopup);
 
-    reference.removeEventListener("mouseenter", showPopup);
-    reference.removeEventListener("mouseleave", hidePopup);
+    document.removeEventListener("mousemove", handleMouseMove);
 
     reference.removeEventListener("click", showPopup);
     document.body.removeEventListener("click", handleBodyClick);
