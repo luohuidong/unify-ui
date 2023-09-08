@@ -1,5 +1,12 @@
 # unify-ui
 
+## 0.14.6
+
+### Patch Changes
+
+- 6613a50: The Popup component does not hide the floating element when moving the mouse into the floating element.
+- 12431ad: Inside the Popup component, encapsulate the mouse movement event handler using throttle instead of debounce.
+
 ## 0.14.5
 
 ### Patch Changes
