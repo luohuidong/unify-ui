@@ -6,6 +6,8 @@ pnpm changeset version
 is_modify=$(git status --porcelain)
 
 if [ ! -z "$is_modify" ]; then
+    echo "packages version changed"
+
     git config user.name "luohuidong"
     git config user.email "luohuidong01@126.com"
     git add .
@@ -14,4 +16,6 @@ if [ ! -z "$is_modify" ]; then
     pnpm release
 
     git push
+else
+    echo "packages version not changed"
 fi
