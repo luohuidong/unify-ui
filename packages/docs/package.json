@@ -15,7 +15,7 @@
     "@faker-js/faker": "^8.0.2",
     "postcss": "^8.4.29",
     "postcss-prefix-selector": "^1.16.0",
-    "vitepress": "1.0.0-rc.12",
+    "vitepress": "1.0.0-rc.13",
     "vue": "^3.3.4"
   },
   "dependencies": {
