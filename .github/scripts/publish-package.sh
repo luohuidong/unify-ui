@@ -1,6 +1,8 @@
 #!/bin/bash
 
 pnpm install
+pnpm test
+
 pnpm changeset version
 
 is_modify=$(git status --porcelain)
