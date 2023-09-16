@@ -12,6 +12,8 @@ export interface RootProps {
   disabled?: boolean;
   /** Offset of the popup  */
   offset?: number;
+  /** To enable the floating element to be appended to the body */
+  appendToBody?: boolean;
 }
 
 export interface RootEmits {

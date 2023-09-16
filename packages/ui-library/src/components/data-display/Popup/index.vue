@@ -18,6 +18,7 @@ const props = withDefaults(defineProps<RootProps>(), {
   showArrow: true,
   trigger: "hover",
   offset: 6,
+  appendToBody: true,
 });
 
 const emits = defineEmits<RootEmits>();
@@ -69,7 +70,7 @@ defineExpose({
   <div ref="referenceRef" :class="$style.popup">
     <slot></slot>
 
-    <Teleport to="body">
+    <Teleport to="body" :disabled="!appendToBody">
       <FloatingElement>
         <slot name="content"></slot>
       </FloatingElement>
@@ -79,6 +80,7 @@ defineExpose({
 
 <style module>
 .popup {
+  position: relative;
   display: inline-block;
 }
 </style>

@@ -1,7 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 import { UniPopup, UniButton } from "@/components";
 
-import ShowCaseBaseUsage from "./CaseBaseUsage.vue";
 import ShowCaseTriggerMethod from "./CaseTriggerMethod.vue";
 
 const meta = {
@@ -43,6 +42,7 @@ export const BasicUsage: Story = {
     trigger: "hover",
     offset: 10,
     disabled: false,
+    appendToBody: true,
   },
 };
 

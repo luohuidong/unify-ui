@@ -42,6 +42,8 @@ interface RootProps {
   disabled?: boolean;
   /** Offset of the popup  */
   offset?: number;
+  /** To enable the floating element to be appended to the body */
+  appendToBody?: boolean;
 }
 
 const props = withDefaults(defineProps<RootProps>(), {
@@ -49,6 +51,7 @@ const props = withDefaults(defineProps<RootProps>(), {
   showArrow: true,
   trigger: "hover",
   offset: 6,
+  appendToBody: true,
 });
 ```
 
