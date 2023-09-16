@@ -1,5 +1,12 @@
 # unify-ui
 
+## 0.14.7
+
+### Patch Changes
+
+- 87482af: the Tooltip component allows the floating element to be appended to the body
+- 22e94cf: The Popup component allows the floating element to be appended to the body.
+
 ## 0.14.6
 
 ### Patch Changes
