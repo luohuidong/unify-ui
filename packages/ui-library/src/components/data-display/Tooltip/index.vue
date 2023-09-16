@@ -17,7 +17,7 @@ withDefaults(
     placement: "top" | "bottom" | "left" | "right";
     /** Whether the tooltip is disabled */
     disabled?: boolean;
-    /** Append */
+    /** To enable the floating element to be appended to the body */
     appendToBody?: boolean;
   }>(),
   {

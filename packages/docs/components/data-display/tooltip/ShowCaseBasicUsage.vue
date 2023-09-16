@@ -1,30 +1,27 @@
 <script setup lang="ts">
-import { UniButton, UniToolTip } from "unify-ui";
+import { ref } from "vue";
+import { UniButton, UniToolTip, UniRadioGroup } from "unify-ui";
+
+const options = [
+  { label: "Top", value: "top" },
+  { label: "Bottom", value: "bottom" },
+  { label: "Left", value: "left" },
+  { label: "Right", value: "right" },
+];
+
+const placement = ref<InstanceType<typeof UniToolTip>["$props"]["placement"]>("top");
 </script>
 
 <template>
   <div class="container">
-    <div>
-      <UniToolTip title="Tooltip text" placement="top">
+    <span>
+      placement:
+      <UniRadioGroup v-model="placement" :options="options" name="radio-placement" inline />
+    </span>
+
+    <div class="show-case">
+      <UniToolTip title="Tooltip text" :placement="placement">
         <UniButton type="soft">Hover over me!</UniButton>
-      </UniToolTip>
-    </div>
-
-    <div>
-      <UniToolTip title="Tooltip text" placement="bottom">
-        <UniButton type="soft">Tooltip append to body</UniButton>
-      </UniToolTip>
-    </div>
-
-    <div>
-      <UniToolTip title="Tooltip text" placement="left">
-        <UniButton type="soft">Hover over me!</UniButton>
-      </UniToolTip>
-    </div>
-
-    <div>
-      <UniToolTip title="Tooltip text" placement="right">
-        <UniButton type="soft">Tooltip append to body</UniButton>
       </UniToolTip>
     </div>
   </div>
@@ -32,10 +29,14 @@ import { UniButton, UniToolTip } from "unify-ui";
 
 <style lang="scss" scoped>
 .container {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 200px);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.show-case {
+  display: flex;
   align-items: center;
-  justify-items: center;
+  height: 100px;
 }
 </style>
