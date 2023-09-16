@@ -9,18 +9,30 @@ export default defineComponent({
 <script lang="ts" setup>
 import { UniPopup } from "@/components";
 
-defineProps<{
-  /** The content of the tooltip */
-  title: string;
-  /** The placement of the tooltip */
-  placement: "top" | "bottom" | "left" | "right";
-  /** Whether the tooltip is disabled */
-  disabled?: boolean;
-}>();
+withDefaults(
+  defineProps<{
+    /** The content of the tooltip */
+    title: string;
+    /** The placement of the tooltip */
+    placement: "top" | "bottom" | "left" | "right";
+    /** Whether the tooltip is disabled */
+    disabled?: boolean;
+    /** Append */
+    appendToBody?: boolean;
+  }>(),
+  {
+    appendToBody: true,
+  }
+);
 </script>
 
 <template>
-  <UniPopup :placement="placement" :disabled="disabled" :overlay-class-name="$style.overlay">
+  <UniPopup
+    :placement="placement"
+    :disabled="disabled"
+    :overlay-class-name="$style.overlay"
+    :append-to-body="appendToBody"
+  >
     <slot></slot>
 
     <template #content>

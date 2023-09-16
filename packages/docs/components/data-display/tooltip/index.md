@@ -30,12 +30,19 @@ import ShowCaseDisabled from './ShowCaseDisabled.vue'
 ### Properties
 
 ```ts
-defineProps<{
-  /** The content of the tooltip */
-  title: string;
-  /** The placement of the tooltip */
-  placement: "top" | "bottom" | "left" | "right";
-  /** Whether the tooltip is disabled */
-  disabled?: boolean;
-}>();
+withDefaults(
+  defineProps<{
+    /** The content of the tooltip */
+    title: string;
+    /** The placement of the tooltip */
+    placement: "top" | "bottom" | "left" | "right";
+    /** Whether the tooltip is disabled */
+    disabled?: boolean;
+    /** Append */
+    appendToBody?: boolean;
+  }>(),
+  {
+    appendToBody: true,
+  }
+);
 ```
