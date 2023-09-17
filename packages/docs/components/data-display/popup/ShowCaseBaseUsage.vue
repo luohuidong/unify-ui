@@ -6,7 +6,7 @@ import { UniButton, UniPopup } from "unify-ui";
   <div class="container">
     <div>
       <UniPopup placement="top">
-        <UniButton type="soft">top black</UniButton>
+        <UniButton type="soft">top</UniButton>
 
         <template #content>
           <div class="box">top</div>
@@ -16,7 +16,7 @@ import { UniButton, UniPopup } from "unify-ui";
 
     <div>
       <UniPopup placement="bottom" background-color="green">
-        <UniButton type="soft">bottom green</UniButton>
+        <UniButton type="soft">bottom</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -26,7 +26,7 @@ import { UniButton, UniPopup } from "unify-ui";
 
     <div>
       <UniPopup placement="left" background-color="red">
-        <UniButton type="soft">left red </UniButton>
+        <UniButton type="soft">left</UniButton>
 
         <template #content>
           <div class="box">bottom</div>
@@ -36,7 +36,7 @@ import { UniButton, UniPopup } from "unify-ui";
 
     <div>
       <UniPopup placement="right" background-color="blue">
-        <UniButton type="soft">right blue</UniButton>
+        <UniButton type="soft">right</UniButton>
 
         <template #content>
           <div class="box">right</div>
