@@ -1,5 +1,7 @@
 #!/bin/bash
 
+source ./publish-package.sh
+
 pnpm install
 pnpm test
 
@@ -15,9 +17,9 @@ if [ ! -z "$is_modify" ]; then
     git add .
     git commit -m "build: update packages version"
 
-    pnpm release
+    pnpm release || utils::check_fail $? "release failed"
 
-    git push
+    git push || utils::check_fail $? "git push failed"
 else
     echo "packages version not changed"
 fi
