@@ -15,11 +15,9 @@ const value = ref();
 </script>
 
 <template>
-  <Story title="Data Entry/Select">
-    <div class="container">
-      <UniSelect v-model="value" :options="options"> </UniSelect>
-    </div>
-  </Story>
+  <div class="container">
+    <UniSelect v-model="value" :options="options"> </UniSelect>
+  </div>
 </template>
 
 <style scoped>
