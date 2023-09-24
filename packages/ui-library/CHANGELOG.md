@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.8
+
+### Patch Changes
+
+- a7be60c: refactor the Selection component
+
 ## 0.14.7
 
 ### Patch Changes
