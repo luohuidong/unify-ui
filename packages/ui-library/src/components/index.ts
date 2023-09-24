@@ -10,7 +10,7 @@ export { default as UniSwitch } from "./data-entry/Switch/index.vue";
 export { UniRadio, UniRadioGroup } from "./data-entry/Radio";
 export { default as UniPassword } from "./data-entry/Password/index.vue";
 export { UniForm, UniFormItem } from "./data-entry/Form";
-export { default as UniSelect } from "./data-entry/Select/index.vue";
+export { UniSelect, UniSelectOption } from "./data-entry/Select";
 export { default as UniDatePicker } from "./data-entry/DatePicker/index.vue";
 
 // Data Display Components

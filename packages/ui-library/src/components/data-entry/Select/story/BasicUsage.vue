@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { UniSelect } from "@/components";
+import { UniSelect, UniSelectOption } from "@/components";
 
 const options = [
   { label: "A", value: "a" },
@@ -16,7 +16,14 @@ const value = ref();
 
 <template>
   <div class="container">
-    <UniSelect v-model="value" :options="options"> </UniSelect>
+    <UniSelect v-model="value">
+      <UniSelectOption
+        v-for="item in options"
+        :key="item.value"
+        :label="item.label"
+        :value="item.value"
+      ></UniSelectOption>
+    </UniSelect>
   </div>
 </template>
 
