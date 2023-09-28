@@ -46,7 +46,6 @@ function handleTriggerClick() {
 </template>
 
 <style lang="scss" module>
-@use "@/styles/color";
 @use "@/styles/form";
 
 .trigger {

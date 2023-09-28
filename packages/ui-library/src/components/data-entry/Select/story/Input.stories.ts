@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/vue3";
 import { UniSelect } from "@/components";
 
 import ShowCaseBasicUsage from "./BasicUsage.vue";
+import ShowCaseDisabledOption from "./DisabledOption.vue";
 
 const meta = {
   title: "Data Entry/Select",
@@ -19,5 +20,13 @@ export const BasicUsage: Story = {
     components: { ShowCaseBasicUsage },
     setup: () => ({ args }),
     template: "<ShowCaseBasicUsage />",
+  }),
+};
+
+export const DisabledOption: Story = {
+  render: (args) => ({
+    components: { ShowCaseDisabledOption },
+    setup: () => ({ args }),
+    template: "<ShowCaseDisabledOption />",
   }),
 };

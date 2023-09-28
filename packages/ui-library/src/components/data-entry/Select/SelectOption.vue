@@ -15,6 +15,7 @@ import type { Value } from "./types";
 const props = defineProps<{
   label: string;
   value: Value;
+  disabled?: boolean;
 }>();
 
 const { actions, rootEmits, rootProps, state } = useStore();
@@ -30,6 +31,7 @@ watch(
 );
 
 function handleItemClick(value: Value | Value[]) {
+  if (props.disabled) return;
   rootEmits("update:modelValue", value);
   rootEmits("change", value);
   actions.visibleChange();
@@ -37,18 +39,27 @@ function handleItemClick(value: Value | Value[]) {
 </script>
 
 <template>
-  <li :class="$style['option']" @click="handleItemClick(value)">
+  <li
+    :class="[$style['option'], { [$style['option--hover']]: !disabled, [$style['option--disabled']]: disabled }]"
+    @click="handleItemClick(value)"
+  >
     <slot name="option">
-      <div :class="$style['option__default-content']">
+      <div :class="[$style['content'], { [$style['content--hover']]: !disabled }]">
         <span
-          :class="{
-            [$style['option__default-content-label']]: true,
-            [$style['option__default-content-label--active']]: value === rootProps.modelValue,
-          }"
+          :class="[
+            $style['content__label'],
+            {
+              [$style['content__label--active']]: !disabled && value === rootProps.modelValue,
+              [$style['content__label--disabled']]: disabled,
+            },
+          ]"
         >
           {{ label }}
         </span>
-        <tick-icon v-if="value === rootProps.modelValue" :class="$style['option__default-content-icon']"></tick-icon>
+        <tick-icon
+          v-if="value === rootProps.modelValue"
+          :class="[$style['content__icon'], { [$style['content__icon--disabled']]: disabled }]"
+        ></tick-icon>
       </div>
     </slot>
   </li>
@@ -70,40 +81,52 @@ function handleItemClick(value: Value | Value[]) {
   font-weight: normal;
   align-content: center;
   cursor: pointer;
-
-  &:hover {
-    color: #ffffff;
-    background: form.$background-color-active;
-  }
 }
 
-.option__default-content {
+.option--hover:hover {
+  color: #ffffff;
+  background: form.$background-color-active;
+}
+
+.option--disabled {
+  cursor: not-allowed;
+}
+
+.content {
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+}
 
-  &:hover .option__default-content-icon {
-    color: #ffffff;
-  }
+.content--hover:hover .content__icon {
+  color: #ffffff;
+}
 
-  .option__default-content-label {
-    flex: 1;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
+.content__label {
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
 
-  .option__default-content-label--active {
-    font-weight: bolder;
-  }
+.content__label--active {
+  font-weight: bolder;
+}
 
-  .option__default-content-icon {
-    width: 16px;
-    height: 16px;
-    margin-left: 8px;
-    color: color.$indigo-600;
-  }
+.content__label--disabled {
+  color: form.$font-color-disabled;
+}
+
+.content__icon {
+  width: 16px;
+  height: 16px;
+  margin-left: 8px;
+  color: color.$indigo-600;
+}
+
+.content__icon--disabled {
+  color: form.$font-color-disabled;
 }
 </style>
