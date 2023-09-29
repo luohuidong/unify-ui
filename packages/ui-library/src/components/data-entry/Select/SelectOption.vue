@@ -8,9 +8,10 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { watch } from "vue";
-import { Tick as TickIcon } from "@/icons";
+
 import { useStore } from "./composables/useStore";
 import type { Value } from "./types";
+import SelectOptionFallbackContent from "./SelectOptionFallbackContent.vue";
 
 const props = defineProps<{
   label: string;
@@ -44,23 +45,11 @@ function handleItemClick(value: Value | Value[]) {
     @click="handleItemClick(value)"
   >
     <slot name="option">
-      <div :class="[$style['content'], { [$style['content--hover']]: !disabled }]">
-        <span
-          :class="[
-            $style['content__label'],
-            {
-              [$style['content__label--active']]: !disabled && value === rootProps.modelValue,
-              [$style['content__label--disabled']]: disabled,
-            },
-          ]"
-        >
-          {{ label }}
-        </span>
-        <tick-icon
-          v-if="value === rootProps.modelValue"
-          :class="[$style['content__icon'], { [$style['content__icon--disabled']]: disabled }]"
-        ></tick-icon>
-      </div>
+      <SelectOptionFallbackContent
+        :label="label"
+        :disabled="disabled"
+        :is-active="value === rootProps.modelValue"
+      ></SelectOptionFallbackContent>
     </slot>
   </li>
 </template>
@@ -90,43 +79,5 @@ function handleItemClick(value: Value | Value[]) {
 
 .option--disabled {
   cursor: not-allowed;
-}
-
-.content {
-  height: 100%;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.content--hover:hover .content__icon {
-  color: #ffffff;
-}
-
-.content__label {
-  flex: 1;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
-.content__label--active {
-  font-weight: bolder;
-}
-
-.content__label--disabled {
-  color: form.$font-color-disabled;
-}
-
-.content__icon {
-  width: 16px;
-  height: 16px;
-  margin-left: 8px;
-  color: color.$indigo-600;
-}
-
-.content__icon--disabled {
-  color: form.$font-color-disabled;
 }
 </style>
