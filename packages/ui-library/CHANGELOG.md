@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.9
+
+### Patch Changes
+
+- 3d66508: Select Options can be disabled
+
 ## 0.14.8
 
 ### Patch Changes
