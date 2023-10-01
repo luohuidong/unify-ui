@@ -1,26 +1,12 @@
 import { ref, provide, inject, reactive } from "vue";
-import type { Ref, InjectionKey } from "vue";
-import type { SelectProps, SelectEmits, Value } from "../types";
-
-interface Store {
-  rootProps: SelectProps;
-  rootEmits: SelectEmits;
-  triggerRef: Ref<HTMLSpanElement | undefined>;
-  state: {
-    valueLabelMap: Map<Value, string>;
-    popupVisible: boolean;
-    floatingElementWidth: number;
-  };
-  actions: {
-    handleClear: () => void;
-    visibleChange: () => void;
-  };
-}
+import type { InjectionKey } from "vue";
+import type { SelectProps, SelectEmits, Store } from "../types";
 
 const injectKey = Symbol("selectInjectKey") as InjectionKey<Store>;
 
 export function useProvideStore(rootProps: SelectProps, rootEmits: SelectEmits) {
   const triggerRef = ref<HTMLSpanElement>();
+  const optionsRef = ref<HTMLUListElement>();
 
   const state: Store["state"] = reactive({
     popupVisible: false,
@@ -39,6 +25,7 @@ export function useProvideStore(rootProps: SelectProps, rootEmits: SelectEmits) 
 
   const store: Store = {
     triggerRef,
+    optionsRef,
     rootProps,
     rootEmits,
     state,

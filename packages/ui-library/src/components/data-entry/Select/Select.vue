@@ -7,33 +7,21 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { onMounted, onUnmounted, ref } from "vue";
-
 import { UniPopup } from "@/components";
 import type { SelectProps, SelectEmits } from "./types";
+import { useProvideStore, useDocumentClick } from "./composables";
+
 import SelectTrigger from "./SelectTrigger.vue";
-import { useProvideStore } from "./composables/useStore";
 
 const props = defineProps<SelectProps>();
 const emit = defineEmits<SelectEmits>();
 
-const { triggerRef, state } = useProvideStore(props, emit);
+const { state, triggerRef, optionsRef } = useProvideStore(props, emit);
 
-const optionsRef = ref<HTMLUListElement>();
-
-function handleDocumentClick(e: MouseEvent) {
-  if (!triggerRef.value || !optionsRef.value) return;
-
-  const path = e.composedPath();
-  if (!path.includes(triggerRef.value) && !path.includes(optionsRef.value)) {
-    state.popupVisible = false;
-  }
-}
-onMounted(() => {
-  document.addEventListener("click", handleDocumentClick);
-});
-onUnmounted(() => {
-  document.removeEventListener("click", handleDocumentClick);
+useDocumentClick({
+  triggerRef,
+  optionsRef,
+  state,
 });
 </script>
 
@@ -42,7 +30,11 @@ onUnmounted(() => {
     <select-trigger></select-trigger>
 
     <template #content>
-      <ul ref="optionsRef" :class="$style['options']" :style="{ width: `${state.floatingElementWidth}px` }">
+      <ul
+        :ref="(el) => (optionsRef = el as HTMLUListElement)"
+        :class="$style['options']"
+        :style="{ width: `${state.floatingElementWidth}px` }"
+      >
         <slot></slot>
       </ul>
     </template>
