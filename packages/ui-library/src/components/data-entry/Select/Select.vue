@@ -12,6 +12,7 @@ import type { SelectProps, SelectEmits } from "./types";
 import { useProvideStore, useDocumentClick } from "./composables";
 
 import SelectTrigger from "./SelectTrigger.vue";
+import SelectSearchbox from "./SelectSearchbox.vue";
 
 const props = defineProps<SelectProps>();
 const emit = defineEmits<SelectEmits>();
@@ -35,6 +36,7 @@ useDocumentClick({
         :class="$style['options']"
         :style="{ width: `${state.floatingElementWidth}px` }"
       >
+        <select-searchbox></select-searchbox>
         <slot></slot>
       </ul>
     </template>

@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { watch } from "vue";
+import { watch, computed } from "vue";
 
 import { useStore } from "./composables/useStore";
 import type { Value } from "./types";
@@ -37,10 +37,15 @@ function handleItemClick(value: Value | Value[]) {
   rootEmits("change", value);
   actions.visibleChange();
 }
+
+const hiddenOption = computed(
+  () => rootProps.localSearch && state.searchInputValue && !props.label.includes(state.searchInputValue)
+);
 </script>
 
 <template>
   <li
+    v-show="!hiddenOption"
     :class="[$style['option'], { [$style['option--hover']]: !disabled, [$style['option--disabled']]: disabled }]"
     @click="handleItemClick(value)"
   >

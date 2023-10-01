@@ -3,6 +3,7 @@ import { UniSelect } from "@/components";
 
 import ShowCaseBasicUsage from "./BasicUsage.vue";
 import ShowCaseDisabledOption from "./DisabledOption.vue";
+import ShowCaseLocalSearch from "./LocalSearch.vue";
 
 const meta = {
   title: "Data Entry/Select",
@@ -28,5 +29,12 @@ export const DisabledOption: Story = {
     components: { ShowCaseDisabledOption },
     setup: () => ({ args }),
     template: "<ShowCaseDisabledOption />",
+  }),
+};
+
+export const LocalSearch: Story = {
+  render: () => ({
+    components: { ShowCaseLocalSearch },
+    template: "<ShowCaseLocalSearch />",
   }),
 };

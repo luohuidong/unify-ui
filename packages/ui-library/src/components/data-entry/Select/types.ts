@@ -1,6 +1,6 @@
 import type { Ref } from "vue";
 
-export type Value = string | number | boolean;
+export type Value = string | number;
 
 export interface Store {
   rootProps: SelectProps;
@@ -11,6 +11,7 @@ export interface Store {
     valueLabelMap: Map<Value, string>;
     popupVisible: boolean;
     floatingElementWidth: number;
+    searchInputValue: string;
   };
   actions: {
     handleClear: () => void;
@@ -21,6 +22,7 @@ export interface Store {
 export interface SelectProps {
   modelValue: Value | undefined;
   placeholder?: string;
+  localSearch?: boolean;
 }
 
 export interface SelectEmits {
