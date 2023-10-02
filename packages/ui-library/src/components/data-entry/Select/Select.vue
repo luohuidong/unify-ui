@@ -13,6 +13,7 @@ import { useProvideStore, useDocumentClick } from "./composables";
 
 import SelectTrigger from "./SelectTrigger.vue";
 import SelectSearchbox from "./SelectSearchbox.vue";
+import SelectLoading from "./SelectLoading.vue";
 
 const props = defineProps<SelectProps>();
 const emit = defineEmits<SelectEmits>();
@@ -36,13 +37,14 @@ useDocumentClick({
         :class="$style['options']"
         :style="{ width: `${state.floatingElementWidth}px` }"
       >
+        <select-searchbox v-if="localSearch || remoteSearch"></select-searchbox>
 
         <template v-if="loading">
           <select-loading></select-loading>
         </template>
 
         <template v-else>
-        <slot></slot>
+          <slot></slot>
         </template>
       </ul>
     </template>

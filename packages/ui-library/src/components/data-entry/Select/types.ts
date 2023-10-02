@@ -7,6 +7,7 @@ export interface SelectProps {
   placeholder?: string;
   localSearch?: boolean;
   loading?: boolean;
+  remoteSearch?: boolean;
 }
 
 export interface SelectEmits {
