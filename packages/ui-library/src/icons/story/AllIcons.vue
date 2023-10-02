@@ -4,6 +4,7 @@ import ArrowRight from '../assets/ArrowRight.vue'
 import Close from '../assets/Close.vue'
 import DoubleArrowLeft from '../assets/DoubleArrowLeft.vue'
 import DoubleArrowRight from '../assets/DoubleArrowRight.vue'
+import Loading from '../assets/Loading.vue'
 import Tick from '../assets/Tick.vue'
 
 </script>
@@ -29,6 +30,10 @@ import Tick from '../assets/Tick.vue'
     <div class="icon-wrapper">
     <div><DoubleArrowRight class="icon" /></div>
     <div>DoubleArrowRight</div>
+  </div>
+    <div class="icon-wrapper">
+    <div><Loading class="icon" /></div>
+    <div>Loading</div>
   </div>
     <div class="icon-wrapper">
     <div><Tick class="icon" /></div>

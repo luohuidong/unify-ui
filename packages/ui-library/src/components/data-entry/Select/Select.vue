@@ -36,8 +36,14 @@ useDocumentClick({
         :class="$style['options']"
         :style="{ width: `${state.floatingElementWidth}px` }"
       >
-        <select-searchbox v-if="localSearch"></select-searchbox>
+
+        <template v-if="loading">
+          <select-loading></select-loading>
+        </template>
+
+        <template v-else>
         <slot></slot>
+        </template>
       </ul>
     </template>
   </uni-popup>

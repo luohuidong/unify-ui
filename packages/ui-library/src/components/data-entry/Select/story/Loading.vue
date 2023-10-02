@@ -3,10 +3,12 @@ import { ref } from "vue";
 import { UniSelect, UniSelectOption } from "@/components";
 
 const options = [
-  { label: "Apple", value: "apple" },
-  { label: "Banana", value: "banana" },
-  { label: "Cat", value: "cat" },
-  { label: "Dog", value: "dog" },
+  { label: "A", value: "a" },
+  { label: "B", value: "b" },
+  { label: "C", value: "c" },
+  { label: "D", value: "d" },
+  { label: "E", value: "e" },
+  { label: "F", value: "f" },
 ];
 
 const value = ref();
@@ -14,7 +16,7 @@ const value = ref();
 
 <template>
   <div class="container">
-    <UniSelect v-model="value" local-search>
+    <UniSelect v-model="value" loading>
       <UniSelectOption
         v-for="item in options"
         :key="item.value"

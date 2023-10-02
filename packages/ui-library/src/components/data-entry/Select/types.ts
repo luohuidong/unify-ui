@@ -2,6 +2,19 @@ import type { Ref } from "vue";
 
 export type Value = string | number;
 
+export interface SelectProps {
+  modelValue: Value | undefined;
+  placeholder?: string;
+  localSearch?: boolean;
+  loading?: boolean;
+}
+
+export interface SelectEmits {
+  (e: "update:modelValue", value: Value | Value[] | undefined): void;
+  (e: "change", value: Value | Value[] | undefined): void;
+  (e: "search", searchBoxInputValue: string): void;
+}
+
 export interface Store {
   rootProps: SelectProps;
   rootEmits: SelectEmits;
@@ -17,15 +30,4 @@ export interface Store {
     handleClear: () => void;
     visibleChange: () => void;
   };
-}
-
-export interface SelectProps {
-  modelValue: Value | undefined;
-  placeholder?: string;
-  localSearch?: boolean;
-}
-
-export interface SelectEmits {
-  (e: "update:modelValue", value: Value | Value[] | undefined): void;
-  (e: "change", value: Value | Value[] | undefined): void;
 }
