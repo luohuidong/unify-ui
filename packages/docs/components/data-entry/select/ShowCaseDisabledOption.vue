@@ -1,8 +1,6 @@
 <script setup lang="ts">
-import { UniSelect, UniSelectOption } from "unify-ui";
 import { ref } from "vue";
-
-const value = ref<string>();
+import { UniSelect, UniSelectOption } from "unify-ui";
 
 const options = [
   { label: "A", value: "a" },
@@ -12,6 +10,8 @@ const options = [
   { label: "E", value: "e" },
   { label: "F", value: "f" },
 ];
+
+const value = ref();
 </script>
 
 <template>
@@ -22,6 +22,7 @@ const options = [
         :key="item.value"
         :label="item.label"
         :value="item.value"
+        :disabled="item.value === 'c'"
       ></UniSelectOption>
     </UniSelect>
   </div>

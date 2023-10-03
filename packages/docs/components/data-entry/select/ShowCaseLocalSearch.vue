@@ -1,22 +1,20 @@
 <script setup lang="ts">
-import { UniSelect, UniSelectOption } from "unify-ui";
 import { ref } from "vue";
-
-const value = ref<string>();
+import { UniSelect, UniSelectOption } from "unify-ui";
 
 const options = [
-  { label: "A", value: "a" },
-  { label: "B", value: "b" },
-  { label: "C", value: "c" },
-  { label: "D", value: "d" },
-  { label: "E", value: "e" },
-  { label: "F", value: "f" },
+  { label: "Apple", value: "apple" },
+  { label: "Banana", value: "banana" },
+  { label: "Cat", value: "cat" },
+  { label: "Dog", value: "dog" },
 ];
+
+const value = ref();
 </script>
 
 <template>
   <div>
-    <UniSelect v-model="value">
+    <UniSelect v-model="value" local-search>
       <UniSelectOption
         v-for="item in options"
         :key="item.value"
