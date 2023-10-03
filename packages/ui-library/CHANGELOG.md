@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.11
+
+### Patch Changes
+
+- 20f89a5: The Select component can be disabled
+
 ## 0.14.10
 
 ### Patch Changes
