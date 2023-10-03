@@ -12,6 +12,7 @@ export function useProvideStore(rootProps: SelectProps, rootEmits: SelectEmits) 
     popupVisible: false,
     floatingElementWidth: 250,
     valueLabelMap: new Map(),
+    searchInputValue: "",
   });
 
   function handleClear() {
