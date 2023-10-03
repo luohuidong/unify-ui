@@ -1,5 +1,13 @@
 # unify-ui
 
+## 0.14.10
+
+### Patch Changes
+
+- c128fdb: The Select component can display the loading state.
+- fd219c7: The Select component adds remote search functionality
+- 7943ce4: The Selection components have the ability to filter options
+
 ## 0.14.9
 
 ### Patch Changes
