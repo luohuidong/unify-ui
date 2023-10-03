@@ -8,6 +8,7 @@ export interface SelectProps {
   localSearch?: boolean;
   loading?: boolean;
   remoteSearch?: boolean;
+  disabled?: boolean;
 }
 
 export interface SelectEmits {

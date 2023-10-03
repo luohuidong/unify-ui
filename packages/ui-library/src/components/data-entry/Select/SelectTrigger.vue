@@ -7,12 +7,18 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { ArrowLeft as ArrowIcon, Close as CloseIcon } from "@/icons";
+import { ArrowLeft as ArrowIcon, CloseOutline as CloseIcon } from "@/icons";
 import { useStore } from "./composables/useStore";
+
+const props = defineProps<{
+  disabled?: boolean;
+}>();
 
 const { rootProps, actions, triggerRef, state } = useStore();
 
 function handleTriggerClick() {
+  if (props.disabled) return;
+
   triggerRef.value && (state.floatingElementWidth = triggerRef.value.offsetWidth || 250);
   actions.visibleChange();
 }
@@ -25,14 +31,22 @@ function handleTriggerClick() {
         triggerRef = e as HTMLSpanElement;
       }
     "
-    :class="{ [$style['trigger']]: true, [$style['trigger--with-value']]: rootProps.modelValue }"
+    :class="[
+      $style['trigger'],
+      {
+        [$style['trigger--focus']]: !disabled,
+        [$style['trigger--with-value']]: !disabled && rootProps.modelValue,
+        [$style['trigger--disabled']]: disabled,
+      },
+    ]"
     @click="handleTriggerClick"
   >
     <input
-      :class="$style['trigger__input']"
+      :class="[$style['trigger__input'], { [$style['trigger__input--disabled']]: disabled }]"
       :placeholder="rootProps.placeholder"
       readonly
       :value="rootProps.modelValue && state.valueLabelMap.get(rootProps.modelValue)"
+      :disabled="disabled"
     />
 
     <span :class="$style['trigger__icons']">
@@ -62,11 +76,11 @@ function handleTriggerClick() {
   background: rgb(255, 255, 255);
   border-radius: form.$radius;
   cursor: pointer;
+}
 
-  &:focus-within {
-    border: 1px solid form.$border-color-active;
-    outline: 1px solid form.$outline-color-active;
-  }
+.trigger--focus:focus-within {
+  border: 1px solid form.$border-color-active;
+  outline: 1px solid form.$outline-color-active;
 }
 
 .trigger--with-value:hover {
@@ -76,6 +90,10 @@ function handleTriggerClick() {
   .trigger__icon-close {
     display: block;
   }
+}
+
+.trigger--disabled {
+  cursor: not-allowed;
 }
 
 .trigger__input {
@@ -88,6 +106,10 @@ function handleTriggerClick() {
   cursor: pointer;
   border: none;
   outline: none;
+}
+
+.trigger__input--disabled {
+  cursor: not-allowed;
 }
 
 .trigger__icons {

@@ -2,6 +2,7 @@ import type { Meta, StoryObj } from "@storybook/vue3";
 import { UniSelect } from "@/components";
 
 import ShowCaseBasicUsage from "./BasicUsage.vue";
+import ShowCaseDisabled from "./Disabled.vue";
 import ShowCaseDisabledOption from "./DisabledOption.vue";
 import ShowCaseLocalSearch from "./LocalSearch.vue";
 import ShowCaseLoading from "./Loading.vue";
@@ -22,6 +23,13 @@ export const BasicUsage: Story = {
   render: () => ({
     components: { ShowCaseBasicUsage },
     template: "<ShowCaseBasicUsage />",
+  }),
+};
+
+export const Disabled: Story = {
+  render: () => ({
+    components: { ShowCaseDisabled },
+    template: "<ShowCaseDisabled />",
   }),
 };
 

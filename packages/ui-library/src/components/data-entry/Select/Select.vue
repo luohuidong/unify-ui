@@ -29,7 +29,7 @@ useDocumentClick({
 
 <template>
   <uni-popup placement="bottom" trigger="controlled" :visible="state.popupVisible" :show-arrow="false">
-    <select-trigger></select-trigger>
+    <select-trigger :disabled="disabled"></select-trigger>
 
     <template #content>
       <ul
