@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
+import ShowCaseDisabled from './ShowCaseDisabled.vue'
 </script>
 
 # Select
@@ -12,6 +13,16 @@ import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
 
 :::details View source
 <<< @/components/data-entry/select/ShowCaseBasicUsage.vue
+:::
+
+## Disabled
+
+:::raw
+<ShowCaseDisabled class="vp-raw" />
+:::
+
+:::details View source
+<<< @/components/data-entry/select/ShowCaseDisabled.vue
 :::
 
 ## API
