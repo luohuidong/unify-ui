@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.12
+
+### Patch Changes
+
+- 4b90a5e: Change the background when the Selection component is disabled.
+
 ## 0.14.11
 
 ### Patch Changes
