@@ -110,6 +110,7 @@ function handleTriggerClick() {
 
 .trigger__input--disabled {
   cursor: not-allowed;
+  background-color: form.$background-color-disabled;
 }
 
 .trigger__icons {
