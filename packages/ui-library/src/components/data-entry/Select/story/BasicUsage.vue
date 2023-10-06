@@ -11,7 +11,7 @@ const options = [
   { label: "F", value: "f" },
 ];
 
-const value = ref();
+const value = ref<string>();
 </script>
 
 <template>

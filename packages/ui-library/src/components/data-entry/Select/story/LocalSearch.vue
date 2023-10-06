@@ -9,7 +9,7 @@ const options = [
   { label: "Dog", value: "dog" },
 ];
 
-const value = ref();
+const value = ref<string>();
 </script>
 
 <template>
