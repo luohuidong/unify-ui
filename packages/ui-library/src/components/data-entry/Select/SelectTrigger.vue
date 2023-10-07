@@ -9,6 +9,7 @@ export default defineComponent({
 <script setup lang="ts">
 import { ArrowLeft as ArrowIcon, CloseOutline as CloseIcon } from "@/icons";
 import { useStore } from "./composables/useStore";
+import SelectTriggerIcons from "./SelectTriggerIcons.vue";
 
 const props = defineProps<{
   disabled?: boolean;
@@ -41,21 +42,10 @@ function handleTriggerClick() {
     ]"
     @click="handleTriggerClick"
   >
-    <input
-      :class="[$style['trigger__input'], { [$style['trigger__input--disabled']]: disabled }]"
-      :placeholder="rootProps.placeholder"
-      readonly
-      :value="rootProps.modelValue && state.valueLabelMap.get(rootProps.modelValue)"
-      :disabled="disabled"
-    />
-
-    <span :class="$style['trigger__icons']">
-      <span :class="$style['trigger__icon-arrow-wrapper']">
-        <arrow-icon :class="[$style['trigger__icon-arrow'], $style['select__icon-arrow--up']]"></arrow-icon>
-        <arrow-icon :class="[$style['trigger__icon-arrow'], $style['select__icon-arrow--down']]"></arrow-icon>
-      </span>
-      <close-icon :class="$style['trigger__icon-close']" @click.stop="actions.handleClear"></close-icon>
-    </span>
+    <select-trigger-icons
+      :arrow-icons-wrapper-class="$style['trigger__icon-arrow-wrapper']"
+      :close-icon-class="$style['trigger__icon-close']"
+    ></select-trigger-icons>
   </span>
 </template>
 
@@ -111,43 +101,5 @@ function handleTriggerClick() {
 .trigger__input--disabled {
   cursor: not-allowed;
   background-color: form.$background-color-disabled;
-}
-
-.trigger__icons {
-  width: 20px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: fit-content;
-  position: absolute;
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-
-  .trigger__icon-arrow-wrapper {
-    display: flex;
-    flex-direction: column;
-
-    .trigger__icon-arrow {
-      color: form.$icon-color;
-      width: 12px;
-      height: 12px;
-
-      &.select__icon-arrow--up {
-        transform: rotate(90deg);
-      }
-      &.select__icon-arrow--down {
-        transform: rotate(-90deg);
-      }
-    }
-  }
-
-  .trigger__icon-close {
-    display: none;
-    color: form.$icon-color;
-    &:hover {
-      color: form.$icon-color-active;
-    }
-  }
 }
 </style>
