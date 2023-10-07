@@ -10,6 +10,7 @@ export default defineComponent({
 import { ArrowLeft as ArrowIcon, CloseOutline as CloseIcon } from "@/icons";
 import { useStore } from "./composables/useStore";
 import SelectTriggerIcons from "./SelectTriggerIcons.vue";
+import SelectTriggerInput from "./SelectTriggerInput.vue";
 
 const props = defineProps<{
   disabled?: boolean;
@@ -42,6 +43,7 @@ function handleTriggerClick() {
     ]"
     @click="handleTriggerClick"
   >
+      <select-trigger-input :disabled="disabled"></select-trigger-input>
     <select-trigger-icons
       :arrow-icons-wrapper-class="$style['trigger__icon-arrow-wrapper']"
       :close-icon-class="$style['trigger__icon-close']"
@@ -84,22 +86,5 @@ function handleTriggerClick() {
 
 .trigger--disabled {
   cursor: not-allowed;
-}
-
-.trigger__input {
-  box-sizing: border-box;
-  height: 100%;
-  width: 100%;
-  padding: 0 40px 0 12px;
-  color: form.$font-color;
-  font-size: form.$font-size-sm;
-  cursor: pointer;
-  border: none;
-  outline: none;
-}
-
-.trigger__input--disabled {
-  cursor: not-allowed;
-  background-color: form.$background-color-disabled;
 }
 </style>

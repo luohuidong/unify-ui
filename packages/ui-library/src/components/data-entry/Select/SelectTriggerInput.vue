@@ -1,0 +1,49 @@
+<script lang="ts">
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  name: "SelectTriggerInput",
+});
+</script>
+
+<script setup lang="ts">
+import { useStore } from "./composables/useStore";
+import type { Value } from "./types";
+
+defineProps<{
+  disabled?: boolean;
+}>();
+
+const { rootProps, state } = useStore();
+</script>
+
+<template>
+  <input
+    :class="[$style['trigger__input'], { [$style['trigger__input--disabled']]: disabled }]"
+    :placeholder="rootProps.placeholder"
+    readonly
+    :value="rootProps.modelValue && state.valueLabelMap.get(rootProps.modelValue as Value)"
+    :disabled="disabled"
+  />
+</template>
+
+<style lang="scss" module>
+@use "@/styles/form";
+
+.trigger__input {
+  box-sizing: border-box;
+  height: 100%;
+  width: 100%;
+  padding: 0 40px 0 12px;
+  color: form.$font-color;
+  font-size: form.$font-size-sm;
+  cursor: pointer;
+  border: none;
+  outline: none;
+}
+
+.trigger__input--disabled {
+  cursor: not-allowed;
+  background-color: form.$background-color-disabled;
+}
+</style>
