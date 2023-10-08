@@ -1,19 +1,23 @@
 import type { Ref } from "vue";
 
-export type Value = string | number;
+export type OptionValue = string | number;
+export type ModelValueSingle = OptionValue | undefined;
+export type ModelValueMultiple = Set<OptionValue> | undefined;
+export type ModelValue = ModelValueSingle | ModelValueMultiple;
 
 export interface SelectProps {
-  modelValue: Value | undefined;
+  modelValue: ModelValue;
   placeholder?: string;
   localSearch?: boolean;
   loading?: boolean;
   remoteSearch?: boolean;
   disabled?: boolean;
+  multiple?: boolean;
 }
 
 export interface SelectEmits {
-  (e: "update:modelValue", value: Value | Value[] | undefined): void;
-  (e: "change", value: Value | Value[] | undefined): void;
+  (e: "update:modelValue", modelValue: ModelValue): void;
+  (e: "change", modelValue: ModelValue): void;
   (e: "search", searchBoxInputValue: string): void;
 }
 
@@ -23,7 +27,7 @@ export interface Store {
   triggerRef: Ref<HTMLSpanElement | undefined>;
   optionsRef: Ref<HTMLUListElement | undefined>;
   state: {
-    valueLabelMap: Map<Value, string>;
+    valueLabelMap: Map<OptionValue, string>;
     popupVisible: boolean;
     floatingElementWidth: number;
     searchInputValue: string;

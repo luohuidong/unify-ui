@@ -7,10 +7,12 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { ArrowLeft as ArrowIcon, CloseOutline as CloseIcon } from "@/icons";
+import { computed } from "vue";
+
 import { useStore } from "./composables/useStore";
 import SelectTriggerIcons from "./SelectTriggerIcons.vue";
 import SelectTriggerInput from "./SelectTriggerInput.vue";
+import SelectTriggerTags from "./SelectTriggerTags.vue";
 
 const props = defineProps<{
   disabled?: boolean;
@@ -24,6 +26,19 @@ function handleTriggerClick() {
   triggerRef.value && (state.floatingElementWidth = triggerRef.value.offsetWidth || 250);
   actions.visibleChange();
 }
+
+const hiddenInput = computed(() => {
+  if (
+    rootProps.multiple &&
+    rootProps.modelValue &&
+    rootProps.modelValue instanceof Set &&
+    rootProps.modelValue.size > 0
+  ) {
+    return true;
+  }
+
+  return false;
+});
 </script>
 
 <template>
@@ -43,7 +58,13 @@ function handleTriggerClick() {
     ]"
     @click="handleTriggerClick"
   >
+    <template v-if="!hiddenInput">
       <select-trigger-input :disabled="disabled"></select-trigger-input>
+    </template>
+    <template v-else>
+      <select-trigger-tags></select-trigger-tags>
+    </template>
+
     <select-trigger-icons
       :arrow-icons-wrapper-class="$style['trigger__icon-arrow-wrapper']"
       :close-icon-class="$style['trigger__icon-close']"
@@ -55,9 +76,12 @@ function handleTriggerClick() {
 @use "@/styles/form";
 
 .trigger {
+  display: flex;
+  align-items: center;
+
   position: relative;
   display: inline-block;
-  height: form.$control-height;
+  min-height: form.$control-height;
   width: 250px;
   box-sizing: border-box;
   overflow: hidden;

@@ -2,7 +2,7 @@
 import { ref, onMounted } from "vue";
 import { UniSelect, UniSelectOption } from "@/components";
 
-const value = ref();
+const value = ref<string>();
 const options = ref<{ label: string; value: string }[]>([]);
 const loading = ref(false);
 

@@ -10,12 +10,12 @@ export default defineComponent({
 import { watch, computed } from "vue";
 
 import { useStore } from "./composables/useStore";
-import type { Value } from "./types";
+import type { OptionValue } from "./types";
 import SelectOptionFallbackContent from "./SelectOptionFallbackContent.vue";
 
 const props = defineProps<{
   label: string;
-  value: Value;
+  value: OptionValue;
   disabled?: boolean;
 }>();
 
@@ -31,16 +31,38 @@ watch(
   }
 );
 
-function handleItemClick(value: Value | Value[]) {
+function handleItemClick(value: OptionValue) {
   if (props.disabled) return;
-  rootEmits("update:modelValue", value);
-  rootEmits("change", value);
-  actions.visibleChange();
+
+  if (rootProps.multiple) {
+    const tmpModelValue = new Set(rootProps.modelValue as Set<OptionValue> | undefined);
+
+    if (tmpModelValue.has(value)) {
+      tmpModelValue.delete(value);
+    } else {
+      tmpModelValue.add(value);
+    }
+
+    rootEmits("update:modelValue", tmpModelValue);
+    rootEmits("change", tmpModelValue);
+  } else {
+    rootEmits("update:modelValue", value);
+    rootEmits("change", value);
+    actions.visibleChange();
+  }
 }
 
 const hiddenOption = computed(
   () => rootProps.localSearch && state.searchInputValue && !props.label.includes(state.searchInputValue)
 );
+
+const isActive = computed(() => {
+  if (rootProps.multiple) {
+    return (rootProps.modelValue as Set<OptionValue> | undefined)?.has(props.value);
+  }
+
+  return rootProps.modelValue === props.value;
+});
 </script>
 
 <template>
@@ -50,11 +72,7 @@ const hiddenOption = computed(
     @click="handleItemClick(value)"
   >
     <slot name="option">
-      <SelectOptionFallbackContent
-        :label="label"
-        :disabled="disabled"
-        :is-active="value === rootProps.modelValue"
-      ></SelectOptionFallbackContent>
+      <SelectOptionFallbackContent :label="label" :disabled="disabled" :is-active="isActive" />
     </slot>
   </li>
 </template>

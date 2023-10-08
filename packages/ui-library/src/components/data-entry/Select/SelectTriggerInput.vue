@@ -8,7 +8,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { useStore } from "./composables/useStore";
-import type { Value } from "./types";
+import type { ModelValueSingle } from "./types";
 
 defineProps<{
   disabled?: boolean;
@@ -22,7 +22,7 @@ const { rootProps, state } = useStore();
     :class="[$style['trigger__input'], { [$style['trigger__input--disabled']]: disabled }]"
     :placeholder="rootProps.placeholder"
     readonly
-    :value="rootProps.modelValue && state.valueLabelMap.get(rootProps.modelValue as Value)"
+    :value="rootProps.modelValue && state.valueLabelMap.get(rootProps.modelValue as NonNullable<ModelValueSingle>)"
     :disabled="disabled"
   />
 </template>
@@ -32,7 +32,7 @@ const { rootProps, state } = useStore();
 
 .trigger__input {
   box-sizing: border-box;
-  height: 100%;
+  height: form.$control-height;
   width: 100%;
   padding: 0 40px 0 12px;
   color: form.$font-color;

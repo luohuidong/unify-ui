@@ -7,6 +7,7 @@ import ShowCaseDisabledOption from "./DisabledOption.vue";
 import ShowCaseLocalSearch from "./LocalSearch.vue";
 import ShowCaseLoading from "./Loading.vue";
 import ShowCaseRemoteSearch from "./RemoteSearch.vue";
+import ShowCaseMultiple from "./Multiple.vue";
 
 const meta = {
   title: "Data Entry/Select",
@@ -58,5 +59,12 @@ export const RemoteSearch: Story = {
   render: () => ({
     components: { ShowCaseRemoteSearch },
     template: "<ShowCaseRemoteSearch />",
+  }),
+};
+
+export const Multiple: Story = {
+  render: () => ({
+    components: { ShowCaseMultiple },
+    template: "<ShowCaseMultiple />",
   }),
 };

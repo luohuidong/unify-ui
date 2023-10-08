@@ -52,12 +52,14 @@ useDocumentClick({
 </template>
 
 <style lang="scss" module>
+@use "@/styles/form";
+
 .options {
   max-height: 200px;
   overflow-y: auto;
   list-style: none;
   padding: 0;
   margin: 0;
-  border-radius: 4px;
+  border-radius: form.$radius;
 }
 </style>
