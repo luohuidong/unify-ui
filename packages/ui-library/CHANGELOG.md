@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.13
+
+### Patch Changes
+
+- 617d087: The Selection component supports multiple selection.
+
 ## 0.14.12
 
 ### Patch Changes
