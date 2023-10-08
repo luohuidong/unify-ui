@@ -5,6 +5,7 @@ import ShowCaseDisabledOption from './ShowCaseDisabledOption.vue'
 import ShowCaseLoading from './ShowCaseLoading.vue'
 import ShowCaseLocalSearch from './ShowCaseLocalSearch.vue'
 import ShowCaseRemoteSearch from './ShowCaseRemoteSearch.vue'
+import ShowCaseMultiple from './ShowCaseMultiple.vue'
 </script>
 
 # Select
@@ -67,6 +68,16 @@ import ShowCaseRemoteSearch from './ShowCaseRemoteSearch.vue'
 
 :::details View source
 <<< @/components/data-entry/select/ShowCaseRemoteSearch.vue
+:::
+
+## Multiple
+
+:::raw
+<ShowCaseMultiple class="vp-raw" />
+:::
+
+:::details View source
+<<< @/components/data-entry/select/ShowCaseMultiple.vue
 :::
 
 ## API

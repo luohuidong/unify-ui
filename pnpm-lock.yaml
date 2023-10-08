@@ -118,8 +118,8 @@ importers:
         specifier: ^9.0.0
         version: 9.0.0(eslint@8.51.0)
       eslint-plugin-storybook:
-        specifier: ^0.6.14
-        version: 0.6.14(eslint@8.51.0)(typescript@5.2.2)
+        specifier: ^0.6.15
+        version: 0.6.15(eslint@8.51.0)(typescript@5.2.2)
       eslint-plugin-vue:
         specifier: ^9.17.0
         version: 9.17.0(eslint@8.51.0)
@@ -6481,8 +6481,8 @@ packages:
       eslint: 8.51.0
     dev: true
 
-  /eslint-plugin-storybook@0.6.14(eslint@8.51.0)(typescript@5.2.2):
-    resolution: {integrity: sha512-IeYigPur/MvESNDo43Z+Z5UvlcEVnt0dDZmnw1odi9X2Th1R3bpGyOZsHXb9bp1pFecOpRUuoMG5xdID2TwwOg==}
+  /eslint-plugin-storybook@0.6.15(eslint@8.51.0)(typescript@5.2.2):
+    resolution: {integrity: sha512-lAGqVAJGob47Griu29KXYowI4G7KwMoJDOkEip8ujikuDLxU+oWJ1l0WL6F2oDO4QiyUFXvtDkEkISMOPzo+7w==}
     engines: {node: 12.x || 14.x || >= 16}
     peerDependencies:
       eslint: '>=6'
@@ -6509,7 +6509,7 @@ packages:
       nth-check: 2.1.1
       postcss-selector-parser: 6.0.13
       semver: 7.5.4
-      vue-eslint-parser: 9.3.1(eslint@8.51.0)
+      vue-eslint-parser: 9.3.2(eslint@8.51.0)
       xml-name-validator: 4.0.0
     transitivePeerDependencies:
       - supports-color
@@ -11403,8 +11403,8 @@ packages:
       vue-inbrowser-compiler-independent-utils: 4.71.1(vue@3.3.4)
     dev: true
 
-  /vue-eslint-parser@9.3.1(eslint@8.51.0):
-    resolution: {integrity: sha512-Clr85iD2XFZ3lJ52/ppmUDG/spxQu6+MAeHXjjyI4I1NUYZ9xmenQp4N0oaHJhrA8OOxltCVxMRfANGa70vU0g==}
+  /vue-eslint-parser@9.3.2(eslint@8.51.0):
+    resolution: {integrity: sha512-q7tWyCVaV9f8iQyIA5Mkj/S6AoJ9KBN8IeUSf3XEmBrOtxOZnfTg5s4KClbZBCK3GtnT/+RyCLZyDHuZwTuBjg==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
       eslint: '>=6.0.0'
