@@ -1,6 +1,6 @@
 {
   "name": "unify-ui",
-  "version": "0.14.13",
+  "version": "0.14.14",
   "main": "dist/unify-ui.js",
   "types": "types/index.d.ts",
   "scripts": {

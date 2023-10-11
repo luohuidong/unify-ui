@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.14
+
+### Patch Changes
+
+- 4c7e227: simplify Form composable functions for better validation access by other controls
+
 ## 0.14.13
 
 ### Patch Changes
