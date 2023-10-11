@@ -1,6 +1,6 @@
 import type { RuleItem } from "async-validator";
 
-import type { ValidateStatus } from "@/types/form";
+export type ValidateStatus = "success" | "error" | undefined;
 
 export type Model = Record<string, unknown>;
 

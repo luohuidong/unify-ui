@@ -10,7 +10,7 @@ export default defineComponent({
 import { computed, useSlots } from "vue";
 
 import type { ValidateStatus } from "@/types/form";
-import { useFormItemStoreInject } from "../Form/composables/useFormItemInject";
+import { useGetFormItemValidateStatus } from "@/components";
 
 const props = withDefaults(
   defineProps<{
@@ -54,9 +54,9 @@ defineSlots<{
 
 const slots = useSlots();
 const inputRef = ref<HTMLInputElement>();
-const formItemStore = useFormItemStoreInject();
+const validateStatus = useGetFormItemValidateStatus();
 
-const statusValue = computed(() => props.status ?? formItemStore?.formItemInfo.value?.validateStatus);
+const statusValue = computed(() => props.status ?? validateStatus?.value);
 
 function handleInput(e: Event) {
   const value = (e.target as HTMLInputElement).value;

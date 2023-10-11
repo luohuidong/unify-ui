@@ -9,7 +9,7 @@ export { default as UniFilePicker } from "./data-entry/FilePicker/index.vue";
 export { default as UniSwitch } from "./data-entry/Switch/index.vue";
 export { UniRadio, UniRadioGroup } from "./data-entry/Radio";
 export { default as UniPassword } from "./data-entry/Password/index.vue";
-export { UniForm, UniFormItem } from "./data-entry/Form";
+export { UniForm, UniFormItem, useGetFormItemValidateStatus } from "./data-entry/Form";
 export { UniSelect, UniSelectOption } from "./data-entry/Select";
 export { default as UniDatePicker } from "./data-entry/DatePicker/index.vue";
 

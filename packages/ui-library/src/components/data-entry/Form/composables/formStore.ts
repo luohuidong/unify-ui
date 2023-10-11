@@ -1,9 +1,21 @@
-import { provide, reactive } from "vue";
+import { provide, reactive, inject } from "vue";
+import type { InjectionKey } from "vue";
 import Schema from "async-validator";
 import type { RuleItem } from "async-validator";
 
-import { injectFormStoreKey, State } from "./injectKeys";
-import type { FormProps } from "../types";
+import type { FormProps, FormItemInfo } from "../types";
+
+interface State {
+  formItems: Map<string, FormItemInfo>;
+}
+
+const injectFormStoreKey = Symbol("form") as InjectionKey<{
+  state: State;
+  registerFormItem: (name: string, rules: RuleItem[]) => void;
+  unRegisterFormItem: (name: string) => void;
+  validateFormItem(name: string): Promise<void>;
+  formProps: FormProps;
+}>;
 
 export function useFormStoreProvider(props: FormProps) {
   const state: State = reactive({
@@ -59,4 +71,8 @@ export function useFormStoreProvider(props: FormProps) {
     unRegisterFormItem,
     validateFormItem,
   };
+}
+
+export function useFormStoreInject() {
+  return inject(injectFormStoreKey);
 }
