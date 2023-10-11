@@ -2,6 +2,9 @@
 import ShowCaseBasicUsage from './ShowCaseBasicUsage.vue'
 import ShowCaseCustomizedFormControl from './ShowCaseCustomizedFormControl.vue'
 import ShowCaseLayout from './ShowCaseLayout.vue'
+import { Form, CustomizedInput } from './ShowCaseCustomizedFormControl2'
+import ShowCaseCustomizedFormControl2 from './ShowCaseCustomizedFormControl2.vue'
+import ShowCaseCustomizedFormControl2Input from '!raw-loader!./ShowCaseCustomizedFormControl2Input.vue'
 </script>
 
 # Form
@@ -22,7 +25,9 @@ Internally, the form utilizes `async-validator` to validate the data entered int
 
 ## Customized Form Control
 
-In some cases, you might have to use a form control that is not supplied by Unify UI. However, `UniFormItem` has Scoped Slots that offer a `validateStatus` state, enabling you to customize the form control as needed.
+In some cases, you might need to use a custom form control not provided by Unify UI. The appearance of this customized form control may behave unexpectedly when the value is invalid. For instance, you may want the custom form control to display a red border when the value is invalid. There are two methods to achieve this.
+
+The first method involves using `UniFormItem`, which provides Scoped Slots with a `validateStatus` state. When the form control's value is invalid, validateStatus is set to `error`, and when the value is valid, it is set to `success`. You can use this to customize the appearance of the form control:
 
 :::raw
 <ShowCaseCustomizedFormControl class="vp-raw" />
@@ -30,6 +35,23 @@ In some cases, you might have to use a form control that is not supplied by Unif
 
 ::: details View Source
 <<< @/components/data-entry/form/ShowCaseCustomizedFormControl.vue
+:::
+
+The second method involves using the composable function `useGetFormItemValidateStatus`, which provides access to the `validateStatus` state. It's important to mention that when using this method, you need to wrap the form control with `UniFormItem` because the `validateStatus` state is provided by `UniFormItem` using the `provide` API:
+
+:::raw
+<ShowCaseCustomizedFormControl2 class="vp-raw" />
+:::
+
+::: details View Source
+
+Source code of customized input:
+
+<<< @/components/data-entry/form/ShowCaseCustomizedFormControl2Input.vue
+
+Source code of form example:
+
+<<< @/components/data-entry/form/ShowCaseCustomizedFormControl2.vue
 :::
 
 ## Layout
