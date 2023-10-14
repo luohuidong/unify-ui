@@ -19,7 +19,7 @@ const { rootProps, state } = useStore();
 
 <template>
   <input
-    :class="[$style['trigger__input'], { [$style['trigger__input--disabled']]: disabled }]"
+    :class="[$style['input'], { [$style['input--disabled']]: disabled, [$style['input--error']]: state.isErrorStatus }]"
     :placeholder="rootProps.placeholder"
     readonly
     :value="rootProps.modelValue && state.valueLabelMap.get(rootProps.modelValue as NonNullable<ModelValueSingle>)"
@@ -30,7 +30,7 @@ const { rootProps, state } = useStore();
 <style lang="scss" module>
 @use "@/styles/form";
 
-.trigger__input {
+.input {
   box-sizing: border-box;
   height: form.$control-height;
   width: 100%;
@@ -42,8 +42,12 @@ const { rootProps, state } = useStore();
   outline: none;
 }
 
-.trigger__input--disabled {
+.input--disabled {
   cursor: not-allowed;
   background-color: form.$background-color-disabled;
+}
+
+.input--error {
+  color: form.$font-color-error;
 }
 </style>

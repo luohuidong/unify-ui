@@ -51,9 +51,10 @@ const hiddenInput = computed(() => {
     :class="[
       $style['trigger'],
       {
-        [$style['trigger--focus']]: !disabled,
+        [$style['trigger--focus']]: !disabled && !state.isErrorStatus,
         [$style['trigger--with-value']]: !disabled && rootProps.modelValue,
         [$style['trigger--disabled']]: disabled,
+        [$style['trigger--error']]: state.isErrorStatus,
       },
     ]"
     @click="handleTriggerClick"
@@ -110,5 +111,13 @@ const hiddenInput = computed(() => {
 
 .trigger--disabled {
   cursor: not-allowed;
+}
+
+.trigger--error {
+  border: 1px solid form.$border-color-error;
+}
+.trigger--error:focus-within {
+  border: 1px solid form.$border-color-error;
+  outline: 1px solid form.$outline-color-error;
 }
 </style>

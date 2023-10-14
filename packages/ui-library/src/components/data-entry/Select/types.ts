@@ -13,6 +13,7 @@ export interface SelectProps {
   remoteSearch?: boolean;
   disabled?: boolean;
   multiple?: boolean;
+  status?: "error";
 }
 
 export interface SelectEmits {
@@ -31,6 +32,7 @@ export interface Store {
     popupVisible: boolean;
     floatingElementWidth: number;
     searchInputValue: string;
+    isErrorStatus: boolean;
   };
   actions: {
     handleClear: () => void;

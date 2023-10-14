@@ -8,6 +8,7 @@ import ShowCaseLocalSearch from "./LocalSearch.vue";
 import ShowCaseLoading from "./Loading.vue";
 import ShowCaseRemoteSearch from "./RemoteSearch.vue";
 import ShowCaseMultiple from "./Multiple.vue";
+import ShowCaseStatusError from "./StatusError.vue";
 
 const meta = {
   title: "Data Entry/Select",
@@ -66,5 +67,12 @@ export const Multiple: Story = {
   render: () => ({
     components: { ShowCaseMultiple },
     template: "<ShowCaseMultiple />",
+  }),
+};
+
+export const StatusError: Story = {
+  render: () => ({
+    components: { ShowCaseStatusError },
+    template: "<ShowCaseStatusError />",
   }),
 };

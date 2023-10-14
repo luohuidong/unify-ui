@@ -15,17 +15,46 @@ defineProps<{
   closeIconClass: string;
 }>();
 
-const { actions } = useStore();
+const { actions, state } = useStore();
 </script>
 
 <template>
   <span :class="$style['icons']">
     <span :class="[$style['icon-arrow-wrapper'], arrowIconsWrapperClass]">
-      <arrow-icon :class="[$style['icon-arrow'], $style['select__icon-arrow--up']]"></arrow-icon>
-      <arrow-icon :class="[$style['icon-arrow'], $style['select__icon-arrow--down']]"></arrow-icon>
+      <arrow-icon
+        :class="[
+          $style['icon-arrow'],
+          $style['select__icon-arrow--up'],
+          {
+            [$style['icon--normal']]: !state.isErrorStatus,
+            [$style['icon--error']]: state.isErrorStatus,
+          },
+        ]"
+      ></arrow-icon>
+      <arrow-icon
+        :class="[
+          $style['icon-arrow'],
+          $style['select__icon-arrow--down'],
+          {
+            [$style['icon--normal']]: !state.isErrorStatus,
+            [$style['icon--error']]: state.isErrorStatus,
+          },
+        ]"
+      ></arrow-icon>
     </span>
 
-    <close-icon :class="[$style['icon-close'], closeIconClass]" @click.stop="actions.handleClear"></close-icon>
+    <close-icon
+      :class="[
+        $style['icon-close'],
+        closeIconClass,
+        {
+          [$style['icon--normal']]: !state.isErrorStatus,
+          [$style['icon--error']]: state.isErrorStatus,
+          [$style['icon--hover']]: !state.isErrorStatus,
+        },
+      ]"
+      @click.stop="actions.handleClear"
+    ></close-icon>
   </span>
 </template>
 
@@ -50,7 +79,6 @@ const { actions } = useStore();
 }
 
 .icon-arrow {
-  color: form.$icon-color;
   width: 12px;
   height: 12px;
 
@@ -64,9 +92,16 @@ const { actions } = useStore();
 
 .icon-close {
   display: none;
+}
+.icon--normal {
   color: form.$icon-color;
-  &:hover {
-    color: form.$icon-color-active;
-  }
+}
+
+.icon--hover:hover {
+  color: form.$icon-color-active;
+}
+
+.icon--error {
+  color: form.$icon-color-error;
 }
 </style>
