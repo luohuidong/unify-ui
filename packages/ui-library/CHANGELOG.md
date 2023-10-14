@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.15
+
+### Patch Changes
+
+- e550bb8: add an error status to the Select component
+
 ## 0.14.14
 
 ### Patch Changes
