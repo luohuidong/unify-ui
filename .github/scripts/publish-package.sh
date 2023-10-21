@@ -12,14 +12,13 @@ is_modify=$(git status --porcelain)
 if [ ! -z "$is_modify" ]; then
     echo "packages version changed"
 
-    pnpm install || utils::check_fail $? "pnpm install failed"
-
     git config user.name "luohuidong"
     git config user.email "luohuidong01@126.com"
     git add .
     git commit -m "build: update packages version"
 
-    pnpm release || utils::check_fail $? "release failed"
+    pnpm build || utils::check_fail $? "pnpm build failed"
+    pnpm publish || utils::check_fail $? "pnpm publish failed"
 
     git push || utils::check_fail $? "git push failed"
 else
