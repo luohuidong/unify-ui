@@ -5,7 +5,7 @@ source ./.github/scripts/utils.sh
 pnpm install || utils::check_fail $? "pnpm install failed"
 pnpm test || utils::check_fail $? "pnpm test failed"
 
-pnpm changeset version
+pnpm changeset version || utils::check_fail $? "pnpm changeset version failed"
 
 is_modify=$(git status --porcelain)
 

@@ -46,6 +46,7 @@
     "url": "https://github.com/unify-ui/unify-ui.git"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@faker-js/faker": "^8.2.0",
     "@floating-ui/dom": "^1.5.3",
     "@histoire/plugin-vue": "^0.17.1",
