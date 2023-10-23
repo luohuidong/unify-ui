@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.16
+
+### Patch Changes
+
+- 98689c1: Resolve the issue where the shadow of the fixed column is displayed incorrectly when the table size changes.
+
 ## 0.14.15
 
 ### Patch Changes
