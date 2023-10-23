@@ -27,35 +27,47 @@ export function useShowShadow(params: {
     state.showRightFixedColumnShadow = maxScrollLeft > scrollLeft;
   });
 
-  function handleContainerScroll(e: Event) {
+  function getShadowState() {
     const container = params.containerRef.value;
     const table = params.tableRef.value;
 
     if (!container || !table) return;
 
-    const target = e.target as HTMLDivElement;
-    const scrollLeft = target.scrollLeft;
+    const scrollLeft = container.scrollLeft;
 
     const maxScrollLeft = table.clientWidth - container.clientWidth;
     state.showRightFixedColumnShadow = maxScrollLeft > scrollLeft;
     state.showLeftFixedColumnShadow = maxScrollLeft > 0 && scrollLeft !== 0;
   }
-  const throttleHandleContainerScroll = throttle(handleContainerScroll, 300);
+  const throttleGetShadowState = throttle(getShadowState, 300);
 
   onMounted(() => {
     const container = params.containerRef.value;
     const table = params.tableRef.value;
     if (container && table) {
-      container.addEventListener("scroll", throttleHandleContainerScroll);
+      container.addEventListener("scroll", throttleGetShadowState);
     }
   });
-
   onUnmounted(() => {
     const container = params.containerRef.value;
     const table = params.tableRef.value;
 
     if (container && table) {
-      container.removeEventListener("scroll", throttleHandleContainerScroll);
+      container.removeEventListener("scroll", throttleGetShadowState);
+    }
+  });
+
+  const resizeObserver = new ResizeObserver(throttleGetShadowState);
+  onMounted(() => {
+    const container = params.containerRef.value;
+    if (container) {
+      resizeObserver.observe(container);
+    }
+  });
+  onUnmounted(() => {
+    const container = params.containerRef.value;
+    if (container) {
+      resizeObserver.unobserve(container);
     }
   });
 }
