@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.17
+
+### Patch Changes
+
+- 1a0c808: Resolve the issue of incorrect validation status for form fields
+
 ## 0.14.16
 
 ### Patch Changes
