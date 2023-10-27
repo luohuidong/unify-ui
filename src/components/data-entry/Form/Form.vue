@@ -53,6 +53,14 @@ function validate() {
             formItem.validateMessage = error.message as string;
           }
         });
+
+        state.formItems.forEach((formItem, name) => {
+          if (!errors.find((error) => error.field === name)) {
+            formItem.validateStatus = "success";
+            formItem.validateMessage = "";
+          }
+        });
+
         reject("validate failed");
       } else {
         state.formItems.forEach((formItem, name) => {
