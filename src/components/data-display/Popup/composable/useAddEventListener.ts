@@ -54,7 +54,13 @@ export function useAddEventListener({
     }
 
     if (props.trigger === "click") {
-      reference.addEventListener("click", showPopup);
+      reference.addEventListener("click", () => {
+        if (floatingRef.value?.style.display === "block") {
+          hidePopup();
+        } else {
+          showPopup();
+        }
+      });
       document.body.addEventListener("click", handleBodyClick);
     }
   }
