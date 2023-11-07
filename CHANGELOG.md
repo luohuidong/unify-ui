@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.19
+
+### Patch Changes
+
+- 26f4f0a: modify the cursor style of the select component
+
 ## 0.14.18
 
 ### Patch Changes
