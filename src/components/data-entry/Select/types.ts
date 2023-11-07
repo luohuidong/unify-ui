@@ -37,5 +37,6 @@ export interface Store {
   actions: {
     handleClear: () => void;
     visibleChange: () => void;
+    changeMultipleModeModelValue: (params: { value: OptionValue; add: boolean }) => void;
   };
 }

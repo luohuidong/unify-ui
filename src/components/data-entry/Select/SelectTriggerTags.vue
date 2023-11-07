@@ -12,15 +12,12 @@ import { UniTag } from "@/components";
 import { useStore } from "./composables/useStore";
 
 import type { ModelValueMultiple, OptionValue } from "./types";
-const { rootProps, state, rootEmits } = useStore();
+const { rootProps, state, actions } = useStore();
 
 const datas = computed(() => rootProps.modelValue as ModelValueMultiple);
 
 function handleClose(value: OptionValue) {
-  const tmpModelValue = new Set(rootProps.modelValue as Set<OptionValue> | undefined);
-  tmpModelValue.delete(value);
-  rootEmits("update:modelValue", tmpModelValue);
-  rootEmits("change", tmpModelValue);
+  actions.changeMultipleModeModelValue({ value, add: false });
 }
 </script>
 

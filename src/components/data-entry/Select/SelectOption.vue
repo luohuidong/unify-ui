@@ -36,15 +36,7 @@ function handleItemClick(value: OptionValue) {
 
   if (rootProps.multiple) {
     const tmpModelValue = new Set(rootProps.modelValue as Set<OptionValue> | undefined);
-
-    if (tmpModelValue.has(value)) {
-      tmpModelValue.delete(value);
-    } else {
-      tmpModelValue.add(value);
-    }
-
-    rootEmits("update:modelValue", tmpModelValue);
-    rootEmits("change", tmpModelValue);
+    actions.changeMultipleModeModelValue({ value, add: !tmpModelValue.has(value) });
   } else {
     rootEmits("update:modelValue", value);
     rootEmits("change", value);
