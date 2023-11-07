@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.18
+
+### Patch Changes
+
+- 2a9a977: selected options can be removed by clicking the tag's close button
+
 ## 0.14.17
 
 ### Patch Changes
