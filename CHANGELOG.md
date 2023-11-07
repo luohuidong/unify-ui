@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.21
+
+### Patch Changes
+
+- d9f955d: Hide the floating element when the popup trigger is clicked, but only if the floating element is currently visible
+
 ## 0.14.20
 
 ### Patch Changes
