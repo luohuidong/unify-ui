@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.20
+
+### Patch Changes
+
+- 5973024: Correct the incorrect "modelValue" value after deleting all selected options.
+
 ## 0.14.19
 
 ### Patch Changes
