@@ -92,7 +92,6 @@ const hiddenInput = computed(() => {
   border: 1px solid rgb(229, 231, 235);
   background: rgb(255, 255, 255);
   border-radius: form.$radius;
-  cursor: pointer;
 }
 
 .trigger--focus:focus-within {

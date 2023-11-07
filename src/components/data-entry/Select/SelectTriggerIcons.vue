@@ -81,6 +81,7 @@ const { actions, state } = useStore();
 .icon-arrow {
   width: 12px;
   height: 12px;
+  cursor: pointer;
 
   &.select__icon-arrow--up {
     transform: rotate(90deg);
@@ -92,6 +93,7 @@ const { actions, state } = useStore();
 
 .icon-close {
   display: none;
+  cursor: pointer;
 }
 .icon--normal {
   color: form.$icon-color;
