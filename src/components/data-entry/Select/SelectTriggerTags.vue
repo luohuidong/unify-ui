@@ -11,15 +11,22 @@ import { computed } from "vue";
 import { UniTag } from "@/components";
 import { useStore } from "./composables/useStore";
 
-import type { ModelValueMultiple } from "./types";
-const { rootProps, state } = useStore();
+import type { ModelValueMultiple, OptionValue } from "./types";
+const { rootProps, state, rootEmits } = useStore();
 
 const datas = computed(() => rootProps.modelValue as ModelValueMultiple);
+
+function handleClose(value: OptionValue) {
+  const tmpModelValue = new Set(rootProps.modelValue as Set<OptionValue> | undefined);
+  tmpModelValue.delete(value);
+  rootEmits("update:modelValue", tmpModelValue);
+  rootEmits("change", tmpModelValue);
+}
 </script>
 
 <template>
   <div :class="$style.container">
-    <uni-tag v-for="value in datas" :key="value" :style="{ margin: 0 }">
+    <uni-tag v-for="value in datas" :key="value" :style="{ margin: 0 }" closable @close="handleClose(value)">
       {{ state.valueLabelMap.get(value) }}
     </uni-tag>
   </div>
