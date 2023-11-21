@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.22
+
+### Patch Changes
+
+- 304649b: Fix the issue where the checkbox in the table header is not centered.
+
 ## 0.14.21
 
 ### Patch Changes
