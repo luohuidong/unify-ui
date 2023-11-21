@@ -6,7 +6,7 @@ import { useInject } from "./composables";
 import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";
 
-const { tableProps, tableState, tableEmits, showShadow, columnsInfo } = useInject();
+const { tableProps, tableState, tableEmits, columnsInfo } = useInject();
 const { hasLeftFixedColumn } = columnsInfo;
 
 const state = reactive({
@@ -106,7 +106,7 @@ const selectionColumnOffset = computed(() => tableState.selectionColumnOffset + 
       },
     ]"
   >
-    <div :class="$style['cell--inner-container']">
+    <div :class="$style['cell__inner-container']">
       <UniCheckbox
         v-if="tableProps.selection?.type === 'multiple'"
         v-model:checked="state.checkboxValue"
