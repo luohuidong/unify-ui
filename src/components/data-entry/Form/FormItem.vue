@@ -11,7 +11,7 @@ import { computed, onMounted, onUnmounted } from "vue";
 import type { RuleItem } from "async-validator";
 
 import type { ValidateStatus } from "@/types/form";
-import { useFormStoreInject, useProviceFormItemValidateStatus } from "./composables";
+import { useFormStoreInject, useProvideFormItemValidateStatus } from "./composables";
 
 const props = withDefaults(
   defineProps<{
@@ -44,7 +44,7 @@ onUnmounted(() => {
 });
 
 const formItemInfo = computed(() => (props.name ? store?.state.formItems.get(props.name) : undefined));
-useProviceFormItemValidateStatus(formItemInfo);
+useProvideFormItemValidateStatus(formItemInfo);
 
 const isRequired = computed(() => props.rules.find((rule) => (rule as any).required));
 const layout = computed(() => store?.formProps.layout);

@@ -5,7 +5,7 @@ import type { FormItemInfo, ValidateStatus } from "../types";
 
 export const formItemValidateStateKey: InjectionKey<ComputedRef<ValidateStatus>> = Symbol("formItemValidateState");
 
-export function useProviceFormItemValidateStatus(formItemInfo: ComputedRef<FormItemInfo | undefined>) {
+export function useProvideFormItemValidateStatus(formItemInfo: ComputedRef<FormItemInfo | undefined>) {
   const state = computed(() => formItemInfo.value?.validateStatus);
 
   provide(formItemValidateStateKey, state);
