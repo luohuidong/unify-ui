@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.23
+
+### Patch Changes
+
+- 13f1ae3: optimize Button component code
+
 ## 0.14.22
 
 ### Patch Changes
