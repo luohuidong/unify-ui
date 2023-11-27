@@ -40,15 +40,9 @@ function handleClick(e: MouseEvent) {
     :type="htmlType"
     :class="[
       $style['button'],
+      $style[`button--size-${size}`],
       {
-        [$style['button--size-xs']]: size === 'xs',
-        [$style['button--size-s']]: size === 's',
-        [$style['button--size-m']]: size === 'm',
-        [$style['button--size-l']]: size === 'l',
-        [$style['button--size-xl']]: size === 'xl',
-        [$style['button--type-primary']]: type === 'primary',
-        [$style['button--type-secondary']]: type === 'secondary',
-        [$style['button--type-soft']]: type === 'soft',
+        [$style[`button--type-${type}`]]: !disabled,
         [$style['button--rounded']]: rounded,
         [$style['button--disabled']]: disabled,
       },
@@ -61,8 +55,6 @@ function handleClick(e: MouseEvent) {
 </template>
 
 <style lang="scss" module>
-$primary-color: rgb(79 70 229);
-
 .button {
   font-weight: 600;
 
@@ -110,12 +102,13 @@ $primary-color: rgb(79 70 229);
 
 .button--type-primary {
   color: white;
-  background-color: $primary-color;
-  border: 1px solid $primary-color;
+  background-color: rgb(79 70 229);
+  border: 1px solid rgb(79 70 229);
 
   &:hover,
   &:active {
     background-color: rgb(99 102 241);
+    border-color: rgb(99 102 241);
   }
 }
 
@@ -127,23 +120,19 @@ $primary-color: rgb(79 70 229);
   &:hover,
   &:active {
     background-color: rgb(249 250 251);
+    border-color: #e5e7eb;
   }
 }
 
 .button--type-soft {
-  $normal-color: rgb(238 242 255);
-  $active-color: rgb(224 231 255);
-
-  color: $primary-color;
-  background-color: $normal-color;
-  border-width: 1px;
-  border-style: solid;
-  border-color: $normal-color;
+  color: rgb(79 70 229);
+  background-color: rgb(238 242 255);
+  border: 1px solid rgb(238 242 255);
 
   &:hover,
   &:active {
-    background-color: $active-color;
-    border-color: $active-color;
+    background-color: rgb(224 231 255);
+    border-color: rgb(224 231 255);
   }
 }
 
@@ -152,18 +141,9 @@ $primary-color: rgb(79 70 229);
 }
 
 .button--disabled {
-  --background-color: rgba(0, 0, 0, 0.04);
-  --font-color: #d9d9d9;
-
   cursor: not-allowed;
-  background-color: var(--background-color);
-  border-color: var(--font-color);
-  color: var(--font-color);
-
-  &:hover {
-    background-color: var(--background-color);
-    border-color: var(--font-color);
-    color: var(--font-color);
-  }
+  background-color: rgba(0, 0, 0, 0.04);
+  border-color: #d9d9d9;
+  color: #d9d9d9;
 }
 </style>
