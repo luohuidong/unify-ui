@@ -11,7 +11,5 @@ function handleClick() {
 </script>
 
 <template>
-  <Story title="Feedback/Message">
-    <UniButton type="soft" @click="handleClick">添加 message</UniButton>
-  </Story>
+  <UniButton type="soft" @click="handleClick">添加 message</UniButton>
 </template>
