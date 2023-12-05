@@ -1,8 +1,10 @@
-<script setup lang="ts" generic="V extends string | number">
+<script setup lang="ts">
 import { provide, watch, reactive, computed } from "vue";
 
 import UniCheckbox from "./UniCheckbox.vue";
 import { SetUtils } from "./utils";
+
+type V = string | number;
 
 const props = defineProps<{
   options: { label: string; value: V }[];
