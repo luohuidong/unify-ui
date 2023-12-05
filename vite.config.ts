@@ -12,7 +12,17 @@ const peerdependencies = Object.keys(packagejson.peerDependencies);
 
 // https://vitejs.dev/config/
 export default defineConfig({
-  plugins: [vue(), vueJsx(), ViteYaml()],
+  plugins: [
+    vue({
+      template: {
+        compilerOptions: {
+          isCustomElement: (tag) => tag.startsWith("u-"),
+        },
+      },
+    }),
+    vueJsx(),
+    ViteYaml(),
+  ],
   resolve: {
     alias: {
       "@": path.join(__dirname, "src"),

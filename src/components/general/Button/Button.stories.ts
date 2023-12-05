@@ -24,6 +24,7 @@ export const SoftButton: Story = {
     template: '<UniButton v-bind="args">UniButton</UniButton>',
   }),
   args: {
+    type: "primary",
     size: "m",
     disabled: false,
     rounded: false,
