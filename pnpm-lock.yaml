@@ -51,8 +51,8 @@ devDependencies:
     specifier: ^6.13.2
     version: 6.13.2(eslint@8.55.0)(typescript@5.3.2)
   '@unify-ui/web-components':
-    specifier: ^0.1.4
-    version: 0.1.4(lit@3.1.0)
+    specifier: ^0.1.5
+    version: 0.1.5(lit@3.1.0)
   '@vitejs/plugin-vue':
     specifier: ^4.5.1
     version: 4.5.1(vite@5.0.5)(vue@3.3.10)
@@ -4138,8 +4138,8 @@ packages:
     resolution: {integrity: sha512-zuVdFrMJiuCDQUMCzQaD6KL28MjnqqN8XnAqiEq9PNm/hCPTSGfrXCOfwj1ow4LFb/tNymJPwsNbVePc1xFqrQ==}
     dev: true
 
-  /@unify-ui/web-components@0.1.4(lit@3.1.0):
-    resolution: {integrity: sha512-McLIzOnq4+dZVp0cxglUMcdnn26rxdt3v0ycYZMjc9xi0FIWYRBdMcTKUtQk7rDOHy8ygT2WBxtJYrevt3iMFg==}
+  /@unify-ui/web-components@0.1.5(lit@3.1.0):
+    resolution: {integrity: sha512-y49unlkEYQ20acSkGO7ZZigo7kgLIzBTxECLjHcl17LSVdeg/X5p5tUghSqWjNLCtDB1ZQ07RnIPenL3zFyaPw==}
     peerDependencies:
       lit: ^3.1.0
     dependencies:

@@ -9,7 +9,7 @@ export default defineComponent({
 <script setup lang="ts">
 import "@unify-ui/web-components/lib/button";
 
-withDefaults(
+const props = withDefaults(
   defineProps<{
     type?: "secondary" | "primary" | "soft";
     size?: "xs" | "s" | "m" | "l" | "xl";
@@ -31,6 +31,12 @@ const emits = defineEmits<{
 const slots = defineSlots<{
   default(props: {}): any;
 }>();
+
+function handleClick(e: MouseEvent) {
+  if (!props.disabled) {
+    emits("click", e);
+  }
+}
 </script>
 
 <template>
@@ -40,7 +46,7 @@ const slots = defineSlots<{
     :size="size"
     :disabled="disabled"
     :rounded="rounded"
-    @click="(e: MouseEvent) => $emit('click', e)"
+    @click="handleClick"
   >
     <slot></slot>
   </u-button>
