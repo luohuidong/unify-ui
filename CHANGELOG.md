@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.24
+
+### Patch Changes
+
+- d55e138: never emit the click event if the disabled property value is true
+
 ## 0.14.23
 
 ### Patch Changes
