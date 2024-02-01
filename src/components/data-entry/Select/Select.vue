@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { UniPopup } from "@/components";
+import { UniPopup, UniEmpty } from "@/components";
 import type { SelectProps, SelectEmits } from "./types";
 import { useProvideStore, useDocumentClick } from "./composables";
 
@@ -44,7 +44,11 @@ useDocumentClick({
         </template>
 
         <template v-else>
-          <slot></slot>
+          <slot>
+            <div :class="$style.empty">
+              <uni-empty></uni-empty>
+            </div>
+          </slot>
         </template>
       </ul>
     </template>
@@ -61,5 +65,9 @@ useDocumentClick({
   padding: 0;
   margin: 0;
   border-radius: form.$radius;
+}
+
+.empty {
+  padding: 20px;
 }
 </style>

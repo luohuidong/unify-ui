@@ -9,6 +9,7 @@ import ShowCaseLoading from "./Loading.vue";
 import ShowCaseRemoteSearch from "./RemoteSearch.vue";
 import ShowCaseMultiple from "./Multiple.vue";
 import ShowCaseStatusError from "./StatusError.vue";
+import ShowCaseEmpty from "./Empty.vue";
 
 const meta = {
   title: "Data Entry/Select",
@@ -74,5 +75,12 @@ export const StatusError: Story = {
   render: () => ({
     components: { ShowCaseStatusError },
     template: "<ShowCaseStatusError />",
+  }),
+};
+
+export const Empty: Story = {
+  render: () => ({
+    components: { ShowCaseEmpty },
+    template: "<ShowCaseEmpty />",
   }),
 };
