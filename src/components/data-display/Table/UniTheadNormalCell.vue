@@ -95,6 +95,7 @@ function handleSort(column: ColumnData) {
 }
 
 .resize-handle {
+  box-sizing: content-box;
   position: absolute;
   right: 0;
   top: 0;
