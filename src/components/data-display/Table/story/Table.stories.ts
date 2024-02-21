@@ -10,6 +10,7 @@ import ShowCaseCustomHeader from "./CustomHeader.vue";
 import ShowCaseNodataCase from "./Nodata.vue";
 import ShowCaseSort from "./Sort.vue";
 import ShowCaseTextEllipsis from "./TextEllipsis.vue";
+import ShowCaseColumnResize from "./ColumnResize.vue";
 
 const meta = {
   title: "Data Display/Table",
@@ -81,5 +82,12 @@ export const TextEllipsis: Story = {
   render: () => ({
     components: { ShowCaseTextEllipsis },
     template: "<ShowCaseTextEllipsis />",
+  }),
+};
+
+export const ColumnResize: Story = {
+  render: () => ({
+    components: { ShowCaseColumnResize },
+    template: "<ShowCaseColumnResize />",
   }),
 };

@@ -1,14 +1,24 @@
 <script setup lang="ts">
-import { useInject, useSortEmit } from "./composables";
+import { ref } from "vue";
+
+import { useInject, useSortEmit, useHeaderResize } from "./composables";
 import commonStyle from "./commonStyle.module.scss";
 import { ColumnData } from "./types";
+import { defaultColumnMinWidth } from "./constant";
 
 const props = defineProps<{
   col: ColumnData;
 }>();
 
-const { showShadow, tableProps, rootSlotKeys } = useInject();
+const { showShadow, tableProps } = useInject();
 const { handleSortEmit } = useSortEmit();
+
+const thRef = ref<HTMLTableCellElement>();
+const { handleMouseDown, dragging } = useHeaderResize(
+  thRef,
+  props.col.key,
+  props.col.minWidth || defaultColumnMinWidth
+);
 
 function handleSort(column: ColumnData) {
   if (!column.sortable) return;
@@ -40,6 +50,7 @@ function handleSort(column: ColumnData) {
 
 <template>
   <th
+    ref="thRef"
     scope="col"
     :class="[
       $style['cell'],
@@ -57,6 +68,12 @@ function handleSort(column: ColumnData) {
     @click.stop="handleSort(col)"
   >
     <slot></slot>
+
+    <span
+      v-if="col.resizeable"
+      :class="[$style['resize-handle'], { [$style['resize-handle--dragging']]: dragging }]"
+      @mousedown="handleMouseDown"
+    ></span>
   </th>
 </template>
 
@@ -75,5 +92,21 @@ function handleSort(column: ColumnData) {
 
 .cell--horizontal-sticky {
   z-index: 3;
+}
+
+.resize-handle {
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  cursor: col-resize;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.resize-handle:hover,
+.cell:hover > .resize-handle,
+.resize-handle--dragging {
+  background-color: rgba(0, 0, 0, 0.1);
 }
 </style>

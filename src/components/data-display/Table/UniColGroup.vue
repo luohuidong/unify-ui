@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { useInject } from "./composables";
-import { expandColumnWidth, selectionColumnWidth } from "./constant";
+import { expandColumnWidth, selectionColumnWidth, defaultColumnMinWidth } from "./constant";
 
 const {
   tableProps,
@@ -24,7 +24,7 @@ const {
       :key="col.key"
       :style="{
         width: col.width ? `${col.width}px` : undefined,
-        minWidth: col.width ? undefined : `${col.minWidth || 200}px`,
+        minWidth: col.width ? undefined : `${col.minWidth || defaultColumnMinWidth}px`,
       }"
       class="column"
     />

@@ -1,4 +1,4 @@
-import type { ComputedRef } from "vue";
+import type { ComputedRef, ModelRef } from "vue";
 
 export type Record = any;
 
@@ -36,6 +36,7 @@ export interface Column {
    * @default 200
    */
   minWidth?: number;
+  resizeable?: boolean;
 }
 
 export interface TableProps {
@@ -88,6 +89,8 @@ export interface TableEmits {
   (e: "update:selectedRowKeys", selectedRowKeys: Set<Key>): void;
 
   (e: "update:sort", params: { columnKey: Key; order: SortType } | null): void;
+
+  (e: "update:columns", columns: Column[]): void;
 
   /** Emits the "select" event when a row is selected or deselected. */
   (e: "select", params: { selected: boolean; rowKey: Key; record: Record }): void;
