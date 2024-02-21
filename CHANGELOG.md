@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.26
+
+### Patch Changes
+
+- 4f6cf4b: The table supports the resizing of th
+
 ## 0.14.25
 
 ### Patch Changes
