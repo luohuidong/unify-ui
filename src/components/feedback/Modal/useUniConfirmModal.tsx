@@ -1,5 +1,6 @@
 import { createApp, ref } from "vue";
 import type { App } from "vue";
+import "vue/jsx";
 
 import UniBaseModal from "./UniBaseModal.vue";
 

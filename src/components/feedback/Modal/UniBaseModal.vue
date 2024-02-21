@@ -2,7 +2,7 @@
 import { useI18n } from "@/i18n";
 
 import { UniButton, UniScrim } from "@/components";
-import { Close } from "@/icons/";
+import { Close } from "@/icons/index";
 
 const { t } = useI18n();
 
