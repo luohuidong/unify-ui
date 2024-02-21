@@ -102,12 +102,12 @@ function handleSort(column: ColumnData) {
   width: 2px;
   padding: 0 4px;
   cursor: col-resize;
-  background-color: rgba(0, 0, 0, 0);
+  background-color: rgb(0 0 0 / 0%);
   background-clip: content-box;
 }
 
 .resize-handle:hover,
 .resize-handle--dragging {
-  background-color: rgba(0, 0, 0, 0.1);
+  background-color: rgb(0 0 0 / 10%);
 }
 </style>
