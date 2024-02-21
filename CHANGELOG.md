@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.29
+
+### Patch Changes
+
+- dfa91b1: modify table css style
+
 ## 0.14.28
 
 ### Patch Changes
