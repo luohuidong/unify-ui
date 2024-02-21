@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.27
+
+### Patch Changes
+
+- dd768fe: modify table css style
+
 ## 0.14.26
 
 ### Patch Changes
