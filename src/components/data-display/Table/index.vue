@@ -56,7 +56,7 @@ useShowShadow({ containerRef, tableRef, columnsInfo, tableProps: props });
       <tbody>
         <!-- render the data -->
         <template v-if="props.data.length > 0">
-          <UniTbodyRow v-for="(record, index) in props.data" :key="record[props.rowKey] as string" :record="record">
+          <UniTbodyRow v-for="(record, index) in props.data" :key="record[props.rowKey]" :record="record">
             <template #rowCell="{ columnKey }">
               <slot :name="columnKey" :record="record" :index="index"></slot>
             </template>

@@ -1,7 +1,7 @@
-import { inject, type ComputedRef, type Ref } from "vue";
+import { inject, type Ref } from "vue";
 
 import * as injectKeys from "../injectKeys";
-import type { TableProps, ColumnData, ShowShadow, TableState, TableEmits, ColumnsInfo } from "../types";
+import type { TableProps, ShowShadow, TableState, TableEmits, ColumnsInfo } from "../types";
 
 export function useInject() {
   const tableProps = inject(injectKeys.tablePropsKey) as TableProps;
