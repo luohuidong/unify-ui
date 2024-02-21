@@ -100,12 +100,13 @@ function handleSort(column: ColumnData) {
   top: 0;
   bottom: 0;
   width: 2px;
+  padding: 0 4px;
   cursor: col-resize;
   background-color: rgba(0, 0, 0, 0);
+  background-clip: content-box;
 }
 
 .resize-handle:hover,
-.cell:hover > .resize-handle,
 .resize-handle--dragging {
   background-color: rgba(0, 0, 0, 0.1);
 }
