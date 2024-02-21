@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.25
+
+### Patch Changes
+
+- ea12d9d: Show the placeholder if there are no selection options in the selection
+
 ## 0.14.24
 
 ### Patch Changes
