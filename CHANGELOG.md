@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.30
+
+### Patch Changes
+
+- 6611ddf: Fix the issue where the shadow on the right side of the table component displays abnormally under different scaling ratios
+
 ## 0.14.29
 
 ### Patch Changes
