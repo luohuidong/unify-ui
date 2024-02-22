@@ -36,7 +36,8 @@ export function useShowShadow(params: {
     const scrollLeft = container.scrollLeft;
 
     const maxScrollLeft = table.clientWidth - container.clientWidth;
-    state.showRightFixedColumnShadow = maxScrollLeft > scrollLeft;
+    // The difference in scaling ratios may result in a 1px discrepancy.
+    state.showRightFixedColumnShadow = maxScrollLeft > scrollLeft + 1;
     state.showLeftFixedColumnShadow = maxScrollLeft > 0 && scrollLeft !== 0;
   }
   const throttleGetShadowState = throttle(getShadowState, 300);
