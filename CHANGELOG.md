@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.14.31
+
+### Patch Changes
+
+- 8871839: optimize table column resize logic
+
 ## 0.14.30
 
 ### Patch Changes
