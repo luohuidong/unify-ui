@@ -3,8 +3,8 @@ import type { Ref } from "vue";
 import { useInject } from "./useInject";
 
 export function useHeaderResize(thRef: Ref<HTMLTableCellElement | undefined>, columnKey: string, minWidth: number) {
-  let originBodyCursor = "";
-  let beforeWidth = 0;
+  let thOriginWidth = 0;
+  let totalMovementX = 0;
   const dragging = ref(false);
   const { tableProps, tableEmits } = useInject();
 
@@ -12,7 +12,7 @@ export function useHeaderResize(thRef: Ref<HTMLTableCellElement | undefined>, co
     const column = tableProps.columns.find((item) => item.key === columnKey);
     if (!column) return;
 
-    if (minWidth >= width && beforeWidth > width) return;
+    if (minWidth >= width && thOriginWidth > width) return;
     column.width = width;
     tableEmits("update:columns", [...tableProps.columns]);
   }
@@ -21,30 +21,45 @@ export function useHeaderResize(thRef: Ref<HTMLTableCellElement | undefined>, co
     requestAnimationFrame(() => {
       if (!thRef.value) return;
 
-      const width = thRef.value.offsetWidth;
-      const newWidth = width + e.movementX;
+      totalMovementX += e.movementX;
+      const newWidth = thOriginWidth + totalMovementX;
 
       handleChangeColumnWidth(columnKey, newWidth);
     });
   }
 
   function handleMouseUp() {
+    dragging.value = false;
+    document.body.style.cursor = "";
+    totalMovementX = 0;
     document.removeEventListener("mousemove", handleMouseMove);
     document.removeEventListener("mouseup", handleMouseUp);
-    dragging.value = false;
-    document.body.style.cursor = originBodyCursor;
+  }
+
+  function getCol() {
+    if (!thRef.value) return;
+
+    const table = thRef.value.parentElement?.parentElement?.parentElement;
+    if (!table) return;
+
+    const thIndex = thRef.value.cellIndex;
+    const columns = table.getElementsByTagName("col");
+    const col = columns[thIndex];
+
+    return col;
   }
 
   function handleMouseDown() {
     if (!thRef.value) return;
 
-    beforeWidth = thRef.value.offsetWidth;
     dragging.value = true;
+    document.body.style.cursor = "col-resize";
+
+    const col = getCol();
+    thOriginWidth = col?.style.width ? parseFloat(col.style.width) : thRef.value.offsetWidth;
 
     document.addEventListener("mousemove", handleMouseMove);
     document.addEventListener("mouseup", handleMouseUp);
-    originBodyCursor = document.body.style.cursor;
-    document.body.style.cursor = "col-resize";
   }
 
   return {

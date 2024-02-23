@@ -5,7 +5,7 @@ import useFetchData from "./useFetchData";
 
 const { data } = useFetchData();
 
-const columns: Ref<InstanceType<typeof UniTable>["$props"]["columns"]> = ref([
+const columns = ref<InstanceType<typeof UniTable>["$props"]["columns"]>([
   {
     title: "Title",
     key: "title",
@@ -15,19 +15,26 @@ const columns: Ref<InstanceType<typeof UniTable>["$props"]["columns"]> = ref([
   {
     title: "Author",
     key: "userId",
-    width: 250,
+    width: 200,
     resizeable: true,
   },
   {
     title: "Post",
     key: "post",
+    width: 250,
     resizeable: true,
+  },
+  {
+    title: "Actions",
+    key: "actions",
+    fixed: "right",
+    width: 100,
   },
 ]);
 </script>
 
 <template>
-  <UniTable row-key="id" :columns="columns" :data="data">
+  <UniTable row-key="id" :columns="columns" :data="data" :style="{ height: '500px' }">
     <template #userId="{ record }"> Author is {{ record.author }} </template>
   </UniTable>
 </template>
