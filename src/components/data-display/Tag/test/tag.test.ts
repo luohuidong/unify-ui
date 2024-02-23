@@ -22,6 +22,6 @@ test("tag close event", () => {
     },
   });
 
-  wrapper.find("svg").trigger("click");
+  wrapper.get("[data-test='close-icon']").trigger("click");
   expect(wrapper.emitted()).toHaveProperty("close");
 });
