@@ -1,5 +1,12 @@
 # unify-ui
 
+## 0.14.32
+
+### Patch Changes
+
+- 3d7e9ae: tr text can't be selected
+- b446148: optimize column resize logic
+
 ## 0.14.31
 
 ### Patch Changes
