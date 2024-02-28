@@ -20,6 +20,7 @@ export function useHeaderResize(thRef: Ref<HTMLTableCellElement | undefined>, co
   function handleMouseMove(e: MouseEvent) {
     requestAnimationFrame(() => {
       if (!thRef.value) return;
+      if (dragging.value === false) return;
 
       totalMovementX += e.movementX;
       const newWidth = thOriginWidth + totalMovementX;
