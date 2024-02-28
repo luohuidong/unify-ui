@@ -83,6 +83,7 @@ function handleSort(column: ColumnData) {
 .cell {
   @include thead.cell;
   @include thead.cell--sticky-top;
+  user-select: none;
 }
 
 .cell--sortable {
