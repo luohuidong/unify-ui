@@ -4,11 +4,11 @@
   "scripts": {
     "build": "pnpm -r build",
     "cz": "cz",
-    "cs": "changeset"
+    "cs": "changeset",
+    "test": "pnpm -r test"
   },
   "license": "MIT",
   "devDependencies": {
-    "@changesets/cli": "^2.27.1",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0"
   }
