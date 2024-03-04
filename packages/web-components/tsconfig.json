@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    /** Modules */
+    "module": "Node16",
+    "moduleResolution": "Node16",
+
+    /** Emit */
+    "declaration": true,
+    "declarationDir": "lib",
+    "declarationMap": true,
+    "outDir": "lib",
+    "target": "ES2022",
+
+    /** Language and Environment */
+    "experimentalDecorators": true,
+    "lib": ["ES2022", "DOM"],
+    "useDefineForClassFields": false,
+
+    /** Completeness */
+    "skipLibCheck": true,
+
+    /* Type Checking */
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+
+    /** Interop Constraints */
+    "isolatedModules": true
+  },
+  "include": ["src"]
+}
