@@ -1,0 +1,35 @@
+{
+  "name": "@unify-ui/docs",
+  "private": true,
+  "type": "module",
+  "description": "",
+  "scripts": {
+    "dev": "vitepress dev docs --host",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs",
+    "cz": "cz"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@faker-js/faker": "^8.4.1",
+    "commitizen": "^4.3.0",
+    "cz-conventional-changelog": "^3.3.0",
+    "postcss": "^8.4.35",
+    "postcss-prefix-selector": "^1.16.0",
+    "sass": "^1.71.1",
+    "vite-plugin-vue-devtools": "^7.0.15",
+    "vitepress": "1.0.0-rc.44",
+    "vue": "^3.4.19"
+  },
+  "dependencies": {
+    "@unify-ui/vite-plugin-vue-docs": "workspace:^",
+    "unify-ui": "workspace:^"
+  },
+  "config": {
+    "commitizen": {
+      "path": "./node_modules/cz-conventional-changelog"
+    }
+  }
+}
