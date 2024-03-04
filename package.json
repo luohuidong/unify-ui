@@ -3,10 +3,12 @@
   "private": true,
   "scripts": {
     "build": "pnpm -r build",
-    "cz": "cz"
+    "cz": "cz",
+    "cs": "changeset"
   },
   "license": "MIT",
   "devDependencies": {
+    "@changesets/cli": "^2.27.1",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0"
   }
