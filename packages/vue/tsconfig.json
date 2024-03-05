@@ -17,7 +17,7 @@
       "@/*": ["src/*"]
     },
     "declaration": true,
-    "declarationDir": "types",
+    "declarationDir": "dist",
     "types": [
       "@modyfi/vite-plugin-yaml/modules" // https://github.com/Modyfi/vite-plugin-yaml
     ],

@@ -2,7 +2,7 @@
   "name": "unify-ui",
   "version": "0.14.32",
   "main": "dist/unify-ui.js",
-  "types": "types/index.d.ts",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "storybook dev -p 6006 --no-open",
     "build": "run-p build:type build:lib",

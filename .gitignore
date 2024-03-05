@@ -3,8 +3,7 @@ node_modules
 dist
 dist-ssr
 *.local
-types
-!src/types
+
 # IDE 
 .idea
 
