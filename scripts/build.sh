@@ -9,7 +9,3 @@ pnpm \
     --filter "unify-ui" \
     build
 
-pnpm \
-    --filter "@unify-ui/vue-docs" \
-    build
-

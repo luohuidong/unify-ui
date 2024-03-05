@@ -3,6 +3,8 @@
   "private": true,
   "scripts": {
     "build": "./scripts/build.sh",
+    "build:docs": "./scripts/build-docs.sh",
+    "build:storybook": "./scripts/build-storybook.sh",
     "cz": "cz",
     "cs": "changeset",
     "test": "pnpm -r test"
