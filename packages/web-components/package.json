@@ -9,7 +9,7 @@
     "dev": "storybook dev -p 6006",
     "build": "./scripts/build.sh",
     "preview": "vite preview",
-    "build-storybook": "storybook build",
+    "storybook:build": "storybook build",
     "cz": "cz",
     "cs": "changeset",
     "csv": "changeset version"
