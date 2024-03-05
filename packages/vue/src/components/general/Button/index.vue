@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import "@unify-ui/web-components/lib/button";
+import "@unify-ui/web-components/dist/button";
 
 const props = withDefaults(
   defineProps<{
