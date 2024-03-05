@@ -6,9 +6,9 @@
 
     /** Emit */
     "declaration": true,
-    "declarationDir": "lib",
+    "declarationDir": "dist",
     "declarationMap": true,
-    "outDir": "lib",
+    "outDir": "dist",
     "target": "ES2022",
 
     /** Language and Environment */

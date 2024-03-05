@@ -2,9 +2,9 @@
   "name": "@unify-ui/web-components",
   "version": "0.3.0",
   "type": "module",
-  "main": "lib/index.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
+  "main": "dist/index.js",
+  "module": "dist/index.js",
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "storybook dev -p 6006",
     "build": "./scripts/build.sh",
