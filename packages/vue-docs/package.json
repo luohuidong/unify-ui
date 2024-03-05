@@ -19,9 +19,9 @@
     "postcss": "^8.4.35",
     "postcss-prefix-selector": "^1.16.0",
     "sass": "^1.71.1",
-    "vite-plugin-vue-devtools": "^7.0.15",
+    "vite-plugin-vue-devtools": "^7.0.16",
     "vitepress": "1.0.0-rc.44",
-    "vue": "^3.4.19"
+    "vue": "^3.4.21"
   },
   "dependencies": {
     "@unify-ui/vite-plugin-vue-docs": "workspace:^",
