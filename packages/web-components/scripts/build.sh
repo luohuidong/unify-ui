@@ -1,4 +1,4 @@
 #!/bin/bash
 
 npx tsc -p tsconfig.prod.json
-cp -r src/styles lib/styles
+cp -r src/styles dist/styles
