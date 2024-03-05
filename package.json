@@ -2,7 +2,7 @@
   "name": "unify-ui",
   "private": true,
   "scripts": {
-    "build": "pnpm -r build",
+    "build": "./scripts/build.sh",
     "cz": "cz",
     "cs": "changeset",
     "test": "pnpm -r test"
