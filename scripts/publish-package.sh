@@ -3,7 +3,7 @@
 source ./scripts/utils.sh
 
 pnpm install || utils::check_fail $? "pnpm install failed"
-./build.sh || utils::check_fail $? "build failed"
+./scripts/build.sh || utils::check_fail $? "build failed"
 pnpm test || utils::check_fail $? "pnpm test failed"
 
 pnpm changeset version || utils::check_fail $? "pnpm changeset version failed"
