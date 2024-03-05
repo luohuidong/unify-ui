@@ -19,7 +19,7 @@ if [ ! -z "$is_modify" ]; then
     git commit -m "build: update packages version"
 
     pnpm build || utils::check_fail $? "pnpm build failed"
-    pnpm publish || utils::check_fail $? "pnpm publish failed"
+    pnpm -r publish || utils::check_fail $? "pnpm -r publish failed"
 
     git push || utils::check_fail $? "git push failed"
 else
