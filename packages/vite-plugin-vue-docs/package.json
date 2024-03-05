@@ -1,6 +1,6 @@
 {
   "name": "@unify-ui/vite-plugin-vue-docs",
-  "version": "0.1.1",
+  "private": true,
   "description": "",
   "type": "module",
   "main": "dist/index.js",
