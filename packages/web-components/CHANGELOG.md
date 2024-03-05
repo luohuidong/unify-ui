@@ -1,5 +1,11 @@
 # @unify-ui/web-components
 
+## 0.3.1
+
+### Patch Changes
+
+- 42ea876: modify css style folder path
+
 ## 0.3.0
 
 ### Minor Changes

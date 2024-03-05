@@ -1,5 +1,13 @@
 # unify-ui
 
+## 0.14.33
+
+### Patch Changes
+
+- 6452bee: change components import path
+- Updated dependencies [42ea876]
+  - @unify-ui/web-components@0.3.1
+
 ## 0.14.32
 
 ### Patch Changes
