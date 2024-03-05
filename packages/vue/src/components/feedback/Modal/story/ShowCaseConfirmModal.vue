@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UniButton } from "@/components";
+import { UniButton } from "@/index";
 import { useUniConfirmModal } from "../useUniConfirmModal";
 
 const { confirm } = useUniConfirmModal();

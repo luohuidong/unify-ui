@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, onMounted } from "vue";
-import { UniSelect, UniSelectOption } from "@/components";
+import { UniSelect, UniSelectOption } from "@/index";
 
 const value = ref<string>();
 const options = ref<{ label: string; value: string }[]>([]);

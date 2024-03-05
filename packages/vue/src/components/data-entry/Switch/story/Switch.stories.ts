@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import { UniSwitch } from "@/components";
+import { UniSwitch } from "@/index";
 import ShowCaseBasicUsage from "./BasicUsage.vue";
 import ShowCaseDisabled from "./Disabled.vue";
 

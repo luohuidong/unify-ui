@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { watchEffect, reactive, computed } from "vue";
 
-import { UniCheckbox } from "@/components";
+import { UniCheckbox } from "@/index";
 import { useInject } from "./composables";
 import { SetUtils } from "./utils";
 import type { Record, Key } from "./types";

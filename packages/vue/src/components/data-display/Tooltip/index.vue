@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script lang="ts" setup>
-import { UniPopup } from "@/components";
+import { UniPopup } from "@/index";
 
 withDefaults(
   defineProps<{

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import { UniPopup, UniButton } from "@/components";
+import { UniPopup, UniButton } from "@/index";
 
 import ShowCaseTriggerMethod from "./CaseTriggerMethod.vue";
 

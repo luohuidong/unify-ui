@@ -10,7 +10,7 @@ export default defineComponent({
 import { ref } from "vue";
 
 import type { ValidateStatus } from "@/types/form";
-import { useGetFormItemValidateStatus } from "@/components";
+import { useGetFormItemValidateStatus } from "@/index";
 import UniInput from "../Input/index.vue";
 import EyeOn from "./icons/EyeOn.vue";
 import EyeOff from "./icons/EyeOff.vue";

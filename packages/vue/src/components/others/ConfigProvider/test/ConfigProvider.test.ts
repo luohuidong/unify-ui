@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { test, expect } from "vitest";
 import { h, defineComponent, inject } from "vue";
-import { UniConfigProvider } from "@/components";
+import { UniConfigProvider } from "@/index";
 import { configKey } from "../utils";
 
 test("locale and fallbackLocale", async () => {

@@ -1,5 +1,5 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
-import { UniSelect } from "@/components";
+import { UniSelect } from "@/index";
 
 import ShowCaseBasicUsage from "./BasicUsage.vue";
 import ShowCaseDisabled from "./Disabled.vue";

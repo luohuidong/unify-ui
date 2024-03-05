@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref } from "vue";
 
-import { UniCalendar } from "@/components";
+import { UniCalendar } from "@/index";
 
 const value = ref();
 </script>

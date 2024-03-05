@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref, watch } from "vue";
-import { UniSwitch } from "@/components";
+import { UniSwitch } from "@/index";
 
 const value = ref(false);
 

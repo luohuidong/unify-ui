@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from "vue";
-import { UniSelect, UniSelectOption } from "@/components";
+import { UniSelect, UniSelectOption } from "@/index";
 
 const options = [
   { label: "Apple", value: "apple" },

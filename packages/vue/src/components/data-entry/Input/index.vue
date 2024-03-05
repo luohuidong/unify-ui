@@ -10,7 +10,7 @@ export default defineComponent({
 import { computed, useSlots } from "vue";
 
 import type { ValidateStatus } from "@/types/form";
-import { useGetFormItemValidateStatus } from "@/components";
+import { useGetFormItemValidateStatus } from "@/index";
 
 const props = withDefaults(
   defineProps<{

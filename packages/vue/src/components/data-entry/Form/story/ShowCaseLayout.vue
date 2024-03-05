@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UniForm, UniFormItem, UniInput, UniButton, UniPassword, UniRadioGroup } from "@/components";
+import { UniForm, UniFormItem, UniInput, UniButton, UniPassword, UniRadioGroup } from "@/index";
 import { ref } from "vue";
 
 const model = ref({

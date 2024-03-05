@@ -10,7 +10,7 @@ export default defineComponent({
 import { ref } from "vue";
 import dayjs from "dayjs";
 
-import { UniCalendar, UniInput, UniPopup } from "@/components";
+import { UniCalendar, UniInput, UniPopup } from "@/index";
 
 defineProps<{
   modelValue: Date | undefined;

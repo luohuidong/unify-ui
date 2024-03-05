@@ -7,7 +7,7 @@ export default defineComponent({
 </script>
 
 <script setup lang="ts">
-import { UniPopup, UniEmpty } from "@/components";
+import { UniPopup, UniEmpty } from "@/index";
 import type { SelectProps, SelectEmits } from "./types";
 import { useProvideStore, useDocumentClick } from "./composables";
 

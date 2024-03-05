@@ -1,6 +1,6 @@
 import { mount } from "@vue/test-utils";
 import { test, expect } from "vitest";
-import { UniTag } from "@/components";
+import { UniTag } from "@/index";
 
 test("tag default slot", () => {
   const wrapper = mount(UniTag, {

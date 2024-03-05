@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { UniForm, UniFormItem, UniInput, UniButton, UniPassword } from "@/components";
+import { UniForm, UniFormItem, UniInput, UniButton, UniPassword } from "@/index";
 import { ref } from "vue";
 
 const model = ref({
@@ -27,19 +27,11 @@ function handleReset() {
 <template>
   <div class="container">
     <UniForm ref="formRef" v-model:model="model">
-      <UniFormItem
-        name="username"
-        :rules="[{ required: true, message: 'Username is required' }]"
-        label="Username"
-      >
+      <UniFormItem name="username" :rules="[{ required: true, message: 'Username is required' }]" label="Username">
         <UniInput v-model="model.username" />
       </UniFormItem>
 
-      <UniFormItem
-        name="password"
-        :rules="[{ required: true, message: 'Password is required' }]"
-        label="Password"
-      >
+      <UniFormItem name="password" :rules="[{ required: true, message: 'Password is required' }]" label="Password">
         <UniPassword v-model="model.password" />
       </UniFormItem>
 

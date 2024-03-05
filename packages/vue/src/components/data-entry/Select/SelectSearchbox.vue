@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { debounce } from "lodash-es";
 
-import { UniInput } from "@/components";
+import { UniInput } from "@/index";
 import { useStore } from "./composables";
 
 const { state, rootEmits, rootProps } = useStore();

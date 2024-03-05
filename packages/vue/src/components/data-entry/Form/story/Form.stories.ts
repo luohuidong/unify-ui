@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import { UniForm } from "@/components";
+import { UniForm } from "@/index";
 import ShowCaseBasicUsage from "./ShowCaseBasicUsage.vue";
 import ShowCaseCustomizedFormControl from "./ShowCaseCustomizedFormControl.vue";
 import ShowCaseLayout from "./ShowCaseLayout.vue";

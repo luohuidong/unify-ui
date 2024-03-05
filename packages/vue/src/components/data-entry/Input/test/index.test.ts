@@ -1,6 +1,6 @@
 import { test, expect } from "vitest";
 import { mount } from "@vue/test-utils";
-import { UniInput } from "@/components";
+import { UniInput } from "@/index";
 
 test("input modelValue", async () => {
   const wrapper = mount(UniInput, {

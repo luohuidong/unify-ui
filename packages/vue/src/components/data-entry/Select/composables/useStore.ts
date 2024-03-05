@@ -1,7 +1,7 @@
 import { ref, provide, inject, reactive, computed } from "vue";
 import type { InjectionKey } from "vue";
 import type { SelectProps, SelectEmits, Store, OptionValue, ModelValueMultiple } from "../types";
-import { useGetFormItemValidateStatus } from "@/components";
+import { useGetFormItemValidateStatus } from "@/index";
 
 const injectKey = Symbol("selectInjectKey") as InjectionKey<Store>;
 

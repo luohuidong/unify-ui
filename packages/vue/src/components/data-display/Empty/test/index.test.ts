@@ -1,7 +1,7 @@
 import { mount } from "@vue/test-utils";
 import { h } from "vue";
 import { test, expect } from "vitest";
-import { UniEmpty, UniConfigProvider } from "@/components";
+import { UniEmpty, UniConfigProvider } from "@/index";
 
 test("Internationalization", async () => {
   const wrapper = mount(UniConfigProvider, {

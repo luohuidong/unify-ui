@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from "@storybook/vue3";
 
-import { UniCheckbox } from "@/components";
+import { UniCheckbox } from "@/index";
 
 const meta = {
   title: "Data Entry/Checkbox",

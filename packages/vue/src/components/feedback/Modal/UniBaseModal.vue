@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useI18n } from "@/i18n";
 
-import { UniButton, UniScrim } from "@/components";
+import { UniButton, UniScrim } from "@/index";
 import { Close } from "@/icons/index";
 
 const { t } = useI18n();

@@ -8,7 +8,7 @@ export default defineComponent({
 
 <script setup lang="ts">
 import { computed } from "vue";
-import { UniTag } from "@/components";
+import { UniTag } from "@/index";
 import { useStore } from "./composables/useStore";
 
 import type { ModelValueMultiple, OptionValue } from "./types";

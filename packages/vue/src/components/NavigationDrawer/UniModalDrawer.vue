@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { onMounted, onUnmounted } from "vue";
 
-import { UniScrim } from '@/components'
+import { UniScrim } from "@/index";
 import BaseDrawer from "./UniBaseDrawer.vue";
 
 defineProps<{

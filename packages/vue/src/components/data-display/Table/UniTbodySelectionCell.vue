@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { computed } from "vue";
 
-import { UniCheckbox, UniRadio } from "@/components";
+import { UniCheckbox, UniRadio } from "@/index";
 import { useInject, useSelection } from "./composables";
 import type { Record } from "./types";
 
