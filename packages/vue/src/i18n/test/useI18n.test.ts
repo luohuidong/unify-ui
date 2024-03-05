@@ -1,7 +1,7 @@
 import { test, expect } from "vitest";
 import { mount } from "@vue/test-utils";
 import { defineComponent, h } from "vue";
-import { UniConfigProvider } from "@/components";
+import { UniConfigProvider } from "@/index";
 
 import { useI18n } from "../useI18n";
 
