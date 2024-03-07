@@ -29,7 +29,7 @@
     "@types/babel__template": "^7.4.4",
     "@types/babel__traverse": "^7.20.5",
     "@types/mdast": "^4.0.3",
-    "@types/node": "^20.11.24",
+    "@types/node": "^20.11.25",
     "@types/unist": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
@@ -38,8 +38,8 @@
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.2.5",
-    "typedoc": "^0.25.10",
-    "typescript": "^5.3.3",
+    "typedoc": "^0.25.11",
+    "typescript": "^5.4.2",
     "vite": "^5.1.5"
   },
   "dependencies": {

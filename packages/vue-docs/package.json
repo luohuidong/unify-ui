@@ -20,7 +20,7 @@
     "postcss-prefix-selector": "^1.16.0",
     "sass": "^1.71.1",
     "vite-plugin-vue-devtools": "^7.0.16",
-    "vitepress": "1.0.0-rc.44",
+    "vitepress": "1.0.0-rc.45",
     "vue": "^3.4.21"
   },
   "dependencies": {
