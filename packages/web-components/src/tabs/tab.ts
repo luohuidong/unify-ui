@@ -3,7 +3,7 @@ import { customElement, property } from 'lit/decorators.js';
 import { classMap } from 'lit/directives/class-map.js';
 
 @customElement('u-tab')
-export class UTab extends LitElement {
+class UTab extends LitElement {
   @property()
   label: string = '';
 
@@ -56,4 +56,10 @@ export class UTab extends LitElement {
       border-bottom: 2px solid var(--u-color-primary);
     }
   `;
+}
+
+declare global {
+  interface HTMLElementTagNameMap {
+    'u-tab': UTab;
+  }
 }
