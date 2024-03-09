@@ -9,7 +9,7 @@ interface Args {
 }
 
 const meta = {
-  title: 'General/Tabs',
+  title: 'Data Display/Tabs',
   component: 'u-tabs',
   tags: ['autodocs'],
 } satisfies Meta<Args>;

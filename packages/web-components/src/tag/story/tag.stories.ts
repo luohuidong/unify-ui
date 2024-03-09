@@ -9,7 +9,7 @@ interface Args {
 }
 
 const meta = {
-  title: 'General/Tag',
+  title: 'Data Display/Tag',
   component: 'u-tag',
   tags: ['autodocs'],
   argTypes: {
