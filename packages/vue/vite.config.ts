@@ -9,6 +9,7 @@ import ViteYaml from "@modyfi/vite-plugin-yaml";
 import packagejson from "./package.json";
 
 const peerdependencies = Object.keys(packagejson.peerDependencies);
+const dependencies = Object.keys(packagejson.dependencies);
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -44,7 +45,7 @@ export default defineConfig({
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled
       // into your library
-      external: peerdependencies,
+      external: [...peerdependencies, ...dependencies],
     },
   },
 });
