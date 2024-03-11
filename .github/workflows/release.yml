@@ -9,14 +9,26 @@ on:
 concurrency: ${{ github.workflow }}-${{ github.ref }}
 
 jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - uses: pnpm/action-setup@v3
+        with:
+          version: 8
+      - run: pnpm install
+      - run: ./scripts/build.sh
+      - run: pnpm test
+
   release:
     name: Release
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
         uses: actions/checkout@v4
-      - run: git config user.name "luohuidong"
-      - run: git config user.email "luohuidong01@126.com"
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -29,8 +41,15 @@ jobs:
         with:
           version: 8
 
-      - name: Publish packages
+      - name: Build Packages
         run: ./scripts/publish-package.sh
         shell: bash
+
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v1
+        with:
+          publish: pnpm -r publish
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
