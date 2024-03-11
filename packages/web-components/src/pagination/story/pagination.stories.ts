@@ -1,6 +1,7 @@
 import type { StoryObj, Meta } from '@storybook/web-components';
 import { html } from 'lit';
-import '../index.js';
+
+import './basic-usage.js';
 
 interface Args {
   total: number;
@@ -18,10 +19,5 @@ export default meta;
 type Story = StoryObj<Args>;
 
 export const BasicUsage: Story = {
-  args: {
-    total: 100,
-    pageSize: 20,
-    current: 1,
-  },
-  render: ({ total, pageSize, current }) => html`<u-pagination> </u-pagination>`,
+  render: () => html`<show-case-pagination-basic-usage></show-case-pagination-basic-usage>`,
 };

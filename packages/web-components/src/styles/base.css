@@ -73,6 +73,7 @@
 
   --u-color-primary: var(--u-indigo-600);
   --u-color-primary-disabled: var(--u-indigo-400);
+  --u-color-primary-hover: var(--u-indigo-500);
   --u-color-primary-font: var(--u-indigo-600);
 
   --u-color-info-font: var(--u-blue-600);
