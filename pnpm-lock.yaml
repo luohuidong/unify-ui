@@ -107,6 +107,10 @@ importers:
         version: 5.1.5(@types/node@20.11.25)(sass@1.71.1)
 
   packages/vue:
+    dependencies:
+      '@unify-ui/web-components':
+        specifier: workspace:^
+        version: link:../web-components
     devDependencies:
       '@changesets/cli':
         specifier: ^2.27.1
@@ -153,9 +157,6 @@ importers:
       '@typescript-eslint/parser':
         specifier: ^7.1.1
         version: 7.1.1(eslint@8.57.0)(typescript@5.4.2)
-      '@unify-ui/web-components':
-        specifier: workspace:^
-        version: link:../web-components
       '@vitejs/plugin-vue':
         specifier: ^5.0.4
         version: 5.0.4(vite@5.1.5)(vue@3.4.21)
