@@ -178,12 +178,6 @@ importers:
       autoprefixer:
         specifier: ^10.4.18
         version: 10.4.18(postcss@8.4.35)
-      commitizen:
-        specifier: ^4.3.0
-        version: 4.3.0(@types/node@20.11.25)(typescript@5.4.2)
-      cz-conventional-changelog:
-        specifier: ^3.3.0
-        version: 3.3.0(@types/node@20.11.25)(typescript@5.4.2)
       dayjs:
         specifier: ^1.11.10
         version: 1.11.10
@@ -306,9 +300,6 @@ importers:
       '@storybook/web-components-vite':
         specifier: ^7.6.17
         version: 7.6.17(lit@3.1.2)(react-dom@18.2.0)(react@18.2.0)(typescript@5.4.2)(vite@5.1.5)
-      cz-conventional-changelog:
-        specifier: ^3.3.0
-        version: 3.3.0(@types/node@20.11.25)(typescript@5.4.2)
       lit:
         specifier: ^3.1.2
         version: 3.1.2
@@ -326,7 +317,7 @@ importers:
         version: 5.4.2
       vite:
         specifier: ^5.1.5
-        version: 5.1.5(@types/node@20.11.25)(sass@1.71.1)
+        version: 5.1.5
 
 packages:
 
@@ -3674,7 +3665,7 @@ packages:
       magic-string: 0.30.8
       rollup: 3.29.4
       typescript: 5.4.2
-      vite: 5.1.5(@types/node@20.11.25)(sass@1.71.1)
+      vite: 5.1.5
     transitivePeerDependencies:
       - encoding
       - supports-color
@@ -11572,6 +11563,41 @@ packages:
       vite: 5.1.5(@types/node@20.11.25)(sass@1.71.1)
     transitivePeerDependencies:
       - supports-color
+    dev: true
+
+  /vite@5.1.5:
+    resolution: {integrity: sha512-BdN1xh0Of/oQafhU+FvopafUp6WaYenLU/NFoL5WyJL++GxkNfieKzBhM24H3HVsPQrlAqB7iJYTHabzaRed5Q==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    hasBin: true
+    peerDependencies:
+      '@types/node': ^18.0.0 || >=20.0.0
+      less: '*'
+      lightningcss: ^1.21.0
+      sass: '*'
+      stylus: '*'
+      sugarss: '*'
+      terser: ^5.4.0
+    peerDependenciesMeta:
+      '@types/node':
+        optional: true
+      less:
+        optional: true
+      lightningcss:
+        optional: true
+      sass:
+        optional: true
+      stylus:
+        optional: true
+      sugarss:
+        optional: true
+      terser:
+        optional: true
+    dependencies:
+      esbuild: 0.19.12
+      postcss: 8.4.35
+      rollup: 4.12.1
+    optionalDependencies:
+      fsevents: 2.3.3
     dev: true
 
   /vite@5.1.5(@types/node@20.11.25)(sass@1.71.1):
