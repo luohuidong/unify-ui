@@ -15,10 +15,7 @@
     "test:coverage": "vitest run --coverage",
     "storybook:dev": "storybook dev -p 6006 --no-open",
     "storybook:build": "storybook build",
-    "icons:generate": "node scripts/generate-icons/generate.cjs",
-    "cz": "cz",
-    "cs": "changeset",
-    "csv": "changeset version"
+    "icons:generate": "node scripts/generate-icons/generate.cjs"
   },
   "license": "MIT",
   "description": "Unify UI is a UI library for Vue.js 3.",
@@ -65,8 +62,6 @@
     "@vue/test-utils": "^2.4.4",
     "async-validator": "^4.2.5",
     "autoprefixer": "^10.4.18",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
     "dayjs": "^1.11.10",
     "ejs": "^3.1.9",
     "eslint": "^8.57.0",
