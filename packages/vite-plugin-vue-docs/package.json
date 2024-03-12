@@ -14,8 +14,6 @@
     "build": "tsc --project tsconfig.production.json",
     "build:doc": "typedoc --tsconfig tsconfig.production.json",
     "lint": "eslint",
-    "test": "node --enable-source-maps --test dist/",
-    "test:watch": "node --enable-source-maps --test --watch dist/",
     "cz": "cz"
   },
   "license": "MIT",
@@ -33,8 +31,6 @@
     "@types/unist": "^3.0.2",
     "@typescript-eslint/eslint-plugin": "^7.1.1",
     "@typescript-eslint/parser": "^7.1.1",
-    "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "prettier": "^3.2.5",
