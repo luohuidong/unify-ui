@@ -55,8 +55,10 @@ function handleSort(column: ColumnData) {
     :class="[
       $style['cell'],
       {
-        [commonStyle['cell--shadow-right']]: col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-        [commonStyle['cell--shadow-left']]: col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
+        [commonStyle['cell--shadow-right']]:
+          col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
+        [commonStyle['cell--shadow-left']]:
+          col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
         [$style['cell--sortable']]: col.sortable,
         [$style['cell--horizontal-sticky']]: col.fixed,
       },

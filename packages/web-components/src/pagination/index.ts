@@ -1,10 +1,10 @@
-import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { LitElement, css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-import './pagination-item.js';
-import './pagination-arrow.js';
+import "./pagination-item.js";
+import "./pagination-arrow.js";
 
-@customElement('u-pagination')
+@customElement("u-pagination")
 class UPagination extends LitElement {
   @property({ type: Number })
   total = 0;
@@ -19,7 +19,7 @@ class UPagination extends LitElement {
     if (current === this.current) return;
 
     this.dispatchEvent(
-      new CustomEvent('change', {
+      new CustomEvent("change", {
         detail: {
           current,
           pageSize: this.pageSize,
@@ -39,11 +39,19 @@ class UPagination extends LitElement {
 
     // maxPage > 7
     if (this.current < 5) {
-      return [1, 2, 3, 4, 5, '...', this.maxPage];
+      return [1, 2, 3, 4, 5, "...", this.maxPage];
     } else if (this.current > this.maxPage - 4) {
-      return [1, '...', this.maxPage - 4, this.maxPage - 3, this.maxPage - 2, this.maxPage - 1, this.maxPage];
+      return [
+        1,
+        "...",
+        this.maxPage - 4,
+        this.maxPage - 3,
+        this.maxPage - 2,
+        this.maxPage - 1,
+        this.maxPage,
+      ];
     } else {
-      return [1, '...', this.current - 1, this.current, this.current + 1, '...', this.maxPage];
+      return [1, "...", this.current - 1, this.current, this.current + 1, "...", this.maxPage];
     }
   }
 
@@ -68,7 +76,7 @@ class UPagination extends LitElement {
       ></u-pagination-arrow>
 
       ${this.items.map((page) =>
-        typeof page === 'number'
+        typeof page === "number"
           ? html`
               <u-pagination-item
                 .page=${page}
@@ -105,6 +113,6 @@ class UPagination extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'u-pagination': UPagination;
+    "u-pagination": UPagination;
   }
 }

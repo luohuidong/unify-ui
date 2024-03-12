@@ -1,9 +1,9 @@
-import { LitElement, html } from 'lit';
-import { customElement, state } from 'lit/decorators.js';
+import { LitElement, html } from "lit";
+import { customElement, state } from "lit/decorators.js";
 
-import '../index.js';
+import "../index.js";
 
-@customElement('show-case-pagination-basic-usage')
+@customElement("show-case-pagination-basic-usage")
 class ShowCaseBasicUsage extends LitElement {
   @state()
   total = 500;

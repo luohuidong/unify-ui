@@ -48,7 +48,12 @@ function handleDrop(e: DragEvent) {
 </script>
 
 <template>
-  <div :class="$style['drop-area']" @dragenter.stop.prevent @dragover.stop.prevent @drop.stop.prevent="handleDrop">
+  <div
+    :class="$style['drop-area']"
+    @dragenter.stop.prevent
+    @dragover.stop.prevent
+    @drop.stop.prevent="handleDrop"
+  >
     <slot>
       <PhotoIcon :class="$style['icon']" />
 

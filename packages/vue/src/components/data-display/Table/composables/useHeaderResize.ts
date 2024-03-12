@@ -2,7 +2,11 @@ import { ref } from "vue";
 import type { Ref } from "vue";
 import { useInject } from "./useInject";
 
-export function useHeaderResize(thRef: Ref<HTMLTableCellElement | undefined>, columnKey: string, minWidth: number) {
+export function useHeaderResize(
+  thRef: Ref<HTMLTableCellElement | undefined>,
+  columnKey: string,
+  minWidth: number
+) {
   let thOriginWidth = 0;
   let totalMovementX = 0;
   const dragging = ref(false);

@@ -26,7 +26,11 @@ const disabled = computed(() => {
 
 const isToday = computed(() => {
   const today = new Date();
-  return props.year === today.getFullYear() && props.month === today.getMonth() && props.date === today.getDate();
+  return (
+    props.year === today.getFullYear() &&
+    props.month === today.getMonth() &&
+    props.date === today.getDate()
+  );
 });
 
 const isSelected = computed(() => {
@@ -55,7 +59,10 @@ function handleClick() {
 
 <template>
   <button
-    :class="[$style.day, { [$style['day--not-current-month']]: !isCurrentMonth, [$style['day--disabled']]: disabled }]"
+    :class="[
+      $style.day,
+      { [$style['day--not-current-month']]: !isCurrentMonth, [$style['day--disabled']]: disabled },
+    ]"
     :data-testid="`${props.year}-${props.month + 1}-${props.date}`"
     @click="handleClick"
   >

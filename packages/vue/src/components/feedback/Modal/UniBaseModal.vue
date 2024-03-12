@@ -40,13 +40,19 @@ function handleCancelButtonClick() {
 
       <div :class="$style['content']">
         <slot>
-          <div v-if="supportingText" :class="$style['content__support-tips']">{{ supportingText }}</div>
+          <div v-if="supportingText" :class="$style['content__support-tips']">
+            {{ supportingText }}
+          </div>
         </slot>
       </div>
 
       <div :class="$style['actions']">
         <slot name="actions">
-          <UniButton type="secondary" :class="$style['cancel-button']" @click="handleCancelButtonClick">
+          <UniButton
+            type="secondary"
+            :class="$style['cancel-button']"
+            @click="handleCancelButtonClick"
+          >
             {{ cancelText || t("modal.cancel") }}
           </UniButton>
 

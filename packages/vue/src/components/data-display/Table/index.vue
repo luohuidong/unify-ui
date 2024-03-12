@@ -11,7 +11,13 @@ import { useSlots, provide, ref } from "vue";
 import { UniEmpty } from "@/index";
 
 import * as injectKeys from "./injectKeys";
-import { useGetColumnsInfo, useShowShadow, useState, useGetSlotKey, useWatchData } from "./composables";
+import {
+  useGetColumnsInfo,
+  useShowShadow,
+  useState,
+  useGetSlotKey,
+  useWatchData,
+} from "./composables";
 import type { Key, TableProps, TableEmits } from "./types";
 
 import UniColGroup from "./UniColGroup.vue";
@@ -56,7 +62,11 @@ useShowShadow({ containerRef, tableRef, columnsInfo, tableProps: props });
       <tbody>
         <!-- render the data -->
         <template v-if="props.data.length > 0">
-          <UniTbodyRow v-for="(record, index) in props.data" :key="record[props.rowKey]" :record="record">
+          <UniTbodyRow
+            v-for="(record, index) in props.data"
+            :key="record[props.rowKey]"
+            :record="record"
+          >
             <template #rowCell="{ columnKey }">
               <slot :name="columnKey" :record="record" :index="index"></slot>
             </template>

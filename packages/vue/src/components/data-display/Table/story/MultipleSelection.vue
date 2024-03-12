@@ -60,7 +60,11 @@ function handleSelection(params: { selected: boolean; rowKey: string | number; r
   handleChangeSelectionRows({ selected: params.selected, records: [params.record] });
 }
 
-function handleSelectAll(params: { selected: boolean; rowKeys: (string | number)[]; records: any[] }) {
+function handleSelectAll(params: {
+  selected: boolean;
+  rowKeys: (string | number)[];
+  records: any[];
+}) {
   handleChangeSelectionRows({ selected: params.selected, records: params.records });
 }
 
@@ -70,7 +74,9 @@ function handleClearSelection() {
 </script>
 
 <template>
-  <UniButton class="button" type="soft" @click="handleClearSelection"> Clear selectedRowKeys </UniButton>
+  <UniButton class="button" type="soft" @click="handleClearSelection">
+    Clear selectedRowKeys
+  </UniButton>
 
   <UniButton class="button" type="soft" @click="refreshData"> Refresh Data </UniButton>
 

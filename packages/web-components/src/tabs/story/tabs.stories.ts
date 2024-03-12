@@ -1,7 +1,7 @@
-import type { StoryObj, Meta } from '@storybook/web-components';
-import { html } from 'lit';
+import type { StoryObj, Meta } from "@storybook/web-components";
+import { html } from "lit";
 
-import './show-case-basic-usage.js';
+import "./show-case-basic-usage.js";
 
 interface Args {
   items: { label: string; value: string; icon?: string }[];
@@ -9,9 +9,9 @@ interface Args {
 }
 
 const meta = {
-  title: 'Data Display/Tabs',
-  component: 'u-tabs',
-  tags: ['autodocs'],
+  title: "Data Display/Tabs",
+  component: "u-tabs",
+  tags: ["autodocs"],
 } satisfies Meta<Args>;
 
 export default meta;

@@ -4,8 +4,12 @@ import { storeKeys } from "../injectKeys";
 import { RootProps, RootEmit } from "../types";
 
 export function useProvide(rootProps: RootProps, rootEmit: RootEmit) {
-  const selectedYear = ref(rootProps.modelValue ? rootProps.modelValue.getFullYear() : new Date().getFullYear());
-  const selectedMonth = ref(rootProps.modelValue ? rootProps.modelValue.getMonth() : new Date().getMonth());
+  const selectedYear = ref(
+    rootProps.modelValue ? rootProps.modelValue.getFullYear() : new Date().getFullYear()
+  );
+  const selectedMonth = ref(
+    rootProps.modelValue ? rootProps.modelValue.getMonth() : new Date().getMonth()
+  );
   const displayYearOptions = ref(false);
   const displayMonthOptions = ref(false);
 

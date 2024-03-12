@@ -1,8 +1,8 @@
-import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, html, css } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
 
-@customElement('u-pagination-item')
+@customElement("u-pagination-item")
 class UPaginationItem extends LitElement {
   @property({ type: Number })
   page = 0;
@@ -12,7 +12,7 @@ class UPaginationItem extends LitElement {
 
   private _dispatchChange(current: number) {
     this.dispatchEvent(
-      new CustomEvent('change', {
+      new CustomEvent("change", {
         detail: {
           current,
         },
@@ -23,12 +23,14 @@ class UPaginationItem extends LitElement {
   render() {
     const classes = {
       button: true,
-      'pagination-item--normal': true,
-      'pagination-item--active': this.active,
+      "pagination-item--normal": true,
+      "pagination-item--active": this.active,
     };
 
     return html`
-      <button class=${classMap(classes)} @click=${() => this._dispatchChange(this.page)}>${this.page}</button>
+      <button class=${classMap(classes)} @click=${() => this._dispatchChange(this.page)}>
+        ${this.page}
+      </button>
     `;
   }
 
@@ -62,6 +64,6 @@ class UPaginationItem extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'u-pagination-item': UPaginationItem;
+    "u-pagination-item": UPaginationItem;
   }
 }

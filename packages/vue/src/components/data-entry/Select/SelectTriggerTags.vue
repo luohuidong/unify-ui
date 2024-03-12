@@ -23,7 +23,13 @@ function handleClose(value: OptionValue) {
 
 <template>
   <div :class="$style.container">
-    <uni-tag v-for="value in datas" :key="value" :style="{ margin: 0 }" closable @close="handleClose(value)">
+    <uni-tag
+      v-for="value in datas"
+      :key="value"
+      :style="{ margin: 0 }"
+      closable
+      @close="handleClose(value)"
+    >
       {{ state.valueLabelMap.get(value) }}
     </uni-tag>
   </div>

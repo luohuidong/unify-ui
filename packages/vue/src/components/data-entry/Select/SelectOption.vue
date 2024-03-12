@@ -45,7 +45,8 @@ function handleItemClick(value: OptionValue) {
 }
 
 const hiddenOption = computed(
-  () => rootProps.localSearch && state.searchInputValue && !props.label.includes(state.searchInputValue)
+  () =>
+    rootProps.localSearch && state.searchInputValue && !props.label.includes(state.searchInputValue)
 );
 
 const isActive = computed(() => {
@@ -60,7 +61,10 @@ const isActive = computed(() => {
 <template>
   <li
     v-show="!hiddenOption"
-    :class="[$style['option'], { [$style['option--hover']]: !disabled, [$style['option--disabled']]: disabled }]"
+    :class="[
+      $style['option'],
+      { [$style['option--hover']]: !disabled, [$style['option--disabled']]: disabled },
+    ]"
     @click="handleItemClick(value)"
   >
     <slot name="option">

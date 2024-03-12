@@ -1,18 +1,18 @@
-import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
+import { LitElement, css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
 
-import './tab.js';
+import "./tab.js";
 
-@customElement('u-tabs')
+@customElement("u-tabs")
 class UTabs extends LitElement {
   @property({ type: Array })
   items: { label: string; value: string; icon?: string }[] = [];
 
   @property({ type: String })
-  activeTab: string = '';
+  activeTab: string = "";
 
   private _handleTabClick(e: CustomEvent<string>) {
-    this.dispatchEvent(new CustomEvent('tab-click', { detail: e.detail }));
+    this.dispatchEvent(new CustomEvent("tab-click", { detail: e.detail }));
   }
 
   render() {
@@ -44,6 +44,6 @@ class UTabs extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'u-tabs': UTabs;
+    "u-tabs": UTabs;
   }
 }

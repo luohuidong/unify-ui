@@ -1,23 +1,23 @@
-import type { StoryObj, Meta } from '@storybook/web-components';
-import { html } from 'lit';
-import '../index.js';
-import './show-case-closable-tag.js';
+import type { StoryObj, Meta } from "@storybook/web-components";
+import { html } from "lit";
+import "../index.js";
+import "./show-case-closable-tag.js";
 
 interface Args {
-  type: 'default' | 'success' | 'info' | 'warning' | 'error';
+  type: "default" | "success" | "info" | "warning" | "error";
   closable: boolean;
 }
 
 const meta = {
-  title: 'Data Display/Tag',
-  component: 'u-tag',
-  tags: ['autodocs'],
+  title: "Data Display/Tag",
+  component: "u-tag",
+  tags: ["autodocs"],
   argTypes: {
     type: {
-      options: ['default', 'success', 'info', 'warning', 'error'],
-      control: { type: 'radio' },
+      options: ["default", "success", "info", "warning", "error"],
+      control: { type: "radio" },
     },
-    closable: { control: 'boolean' },
+    closable: { control: "boolean" },
   },
 } satisfies Meta<Args>;
 
@@ -26,10 +26,12 @@ type Story = StoryObj<Args>;
 
 export const BasicUsage: Story = {
   args: {
-    type: 'default',
+    type: "default",
     closable: false,
   },
-  render: ({ type, closable }) => html` <u-tag type=${type} ?closable=${closable}> ${type} </u-tag> `,
+  render: ({ type, closable }) => html`
+    <u-tag type=${type} ?closable=${closable}> ${type} </u-tag>
+  `,
 };
 
 export const Preset: Story = {

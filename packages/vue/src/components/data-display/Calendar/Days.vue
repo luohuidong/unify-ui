@@ -9,20 +9,33 @@ export default defineComponent({
 <script setup lang="ts">
 import { computed } from "vue";
 
-import { useStore, useCurrentMonthInfo, useNextMonthInfo, usePreviousMonthInfo } from "./composables";
+import {
+  useStore,
+  useCurrentMonthInfo,
+  useNextMonthInfo,
+  usePreviousMonthInfo,
+} from "./composables";
 import DaysButton from "./DaysButton.vue";
 
 const store = useStore();
 const { selectedYear, selectedMonth } = store.state;
-const { dayOfCurrentMonthFirstDate, lastDateOfCurrentMonth } = useCurrentMonthInfo(selectedYear, selectedMonth);
-const { previousYear, previousMonth, lastDateOfPreviousMonth } = usePreviousMonthInfo(selectedYear, selectedMonth);
+const { dayOfCurrentMonthFirstDate, lastDateOfCurrentMonth } = useCurrentMonthInfo(
+  selectedYear,
+  selectedMonth
+);
+const { previousYear, previousMonth, lastDateOfPreviousMonth } = usePreviousMonthInfo(
+  selectedYear,
+  selectedMonth
+);
 const { nextYear, nextMonth } = useNextMonthInfo(selectedYear, selectedMonth);
 
 function getPreviousDate(index: number) {
   return lastDateOfPreviousMonth.value - (dayOfCurrentMonthFirstDate.value - index);
 }
 
-const totalNextMonthDates = computed(() => 6 * 7 - (dayOfCurrentMonthFirstDate.value + lastDateOfCurrentMonth.value));
+const totalNextMonthDates = computed(
+  () => 6 * 7 - (dayOfCurrentMonthFirstDate.value + lastDateOfCurrentMonth.value)
+);
 </script>
 
 <template>

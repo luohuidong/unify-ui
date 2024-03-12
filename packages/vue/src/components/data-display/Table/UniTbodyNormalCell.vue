@@ -21,8 +21,10 @@ const { tableProps, showShadow } = useInject();
     :class="[
       $style['cell'],
       {
-        [commonStyle['cell--shadow-right']]: col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
-        [commonStyle['cell--shadow-left']]: col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
+        [commonStyle['cell--shadow-right']]:
+          col.leftLastFixedColumn && showShadow.showLeftFixedColumnShadow,
+        [commonStyle['cell--shadow-left']]:
+          col.rightFirstFixedColumn && showShadow.showRightFixedColumnShadow,
         [$style['cell--text-ellipsis']]: col.ellipsis,
       },
       tableProps.tbodyCellClass,

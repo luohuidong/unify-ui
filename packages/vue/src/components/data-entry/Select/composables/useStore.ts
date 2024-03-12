@@ -9,7 +9,9 @@ export function useProvideStore(rootProps: SelectProps, rootEmits: SelectEmits) 
   const triggerRef = ref<HTMLSpanElement>();
   const optionsRef = ref<HTMLUListElement>();
 
-  const isErrorStatus = computed(() => rootProps.status === "error" || validateStatus?.value === "error");
+  const isErrorStatus = computed(
+    () => rootProps.status === "error" || validateStatus?.value === "error"
+  );
 
   const state: Store["state"] = reactive({
     popupVisible: false,

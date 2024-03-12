@@ -1,18 +1,18 @@
-import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import 'iconify-icon';
+import { LitElement, css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import "iconify-icon";
 
-@customElement('u-tag')
+@customElement("u-tag")
 class UTag extends LitElement {
   @property()
-  type?: 'default' | 'success' | 'info' | 'warning' | 'error' = 'default';
+  type?: "default" | "success" | "info" | "warning" | "error" = "default";
 
   @property({ type: Boolean })
   closable? = false;
 
   _dispatchClose(e: Event) {
     e.preventDefault();
-    this.dispatchEvent(new CustomEvent('close'));
+    this.dispatchEvent(new CustomEvent("close"));
   }
 
   render() {
@@ -86,6 +86,6 @@ class UTag extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'u-tag': UTag;
+    "u-tag": UTag;
   }
 }

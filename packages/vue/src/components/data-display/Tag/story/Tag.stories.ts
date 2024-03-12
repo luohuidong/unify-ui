@@ -37,7 +37,8 @@ export const Presets: Story = {
         presets,
       };
     },
-    template: '<Tag v-for="preset in presets" :key="preset" :type="preset" v-bind="args">{{ preset }}</Tag>',
+    template:
+      '<Tag v-for="preset in presets" :key="preset" :type="preset" v-bind="args">{{ preset }}</Tag>',
   }),
 };
 
