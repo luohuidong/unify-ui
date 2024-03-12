@@ -41,8 +41,11 @@ jobs:
         with:
           version: 8
 
+      - name: Install Dependencies
+        run: pnpm install
+
       - name: Build Packages
-        run: pnpm build
+        run: pnpm install
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
