@@ -1,5 +1,11 @@
 # @unify-ui/web-components
 
+## 0.4.0
+
+### Minor Changes
+
+- 6e669d6: add the u-pagination component
+
 ## 0.3.1
 
 ### Patch Changes

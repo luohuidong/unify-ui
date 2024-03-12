@@ -1,5 +1,12 @@
 # unify-ui
 
+## 0.14.34
+
+### Patch Changes
+
+- Updated dependencies [6e669d6]
+  - @unify-ui/web-components@0.4.0
+
 ## 0.14.33
 
 ### Patch Changes
