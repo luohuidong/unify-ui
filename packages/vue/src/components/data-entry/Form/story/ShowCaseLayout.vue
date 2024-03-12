@@ -38,11 +38,19 @@ const layout = ref<InstanceType<typeof UniForm>["$props"]["layout"]>("horizontal
     ></UniRadioGroup>
 
     <UniForm ref="formRef" v-model:model="model" :layout="layout" label-width="120px">
-      <UniFormItem name="username" :rules="[{ required: true, message: 'Username is required' }]" label="Username">
+      <UniFormItem
+        name="username"
+        :rules="[{ required: true, message: 'Username is required' }]"
+        label="Username"
+      >
         <UniInput v-model="model.username" />
       </UniFormItem>
 
-      <UniFormItem name="password" :rules="[{ required: true, message: 'Password is required' }]" label="Password">
+      <UniFormItem
+        name="password"
+        :rules="[{ required: true, message: 'Password is required' }]"
+        label="Password"
+      >
         <UniPassword v-model="model.password" />
       </UniFormItem>
 

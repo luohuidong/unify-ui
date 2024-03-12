@@ -94,7 +94,10 @@ const existAddOn = computed(() => {
       :class="[
         $style['add-on'],
         $style['add-on--leading'],
-        { [$style['add-on--disabled']]: disabled, [$style['add-on--error']]: statusValue === 'error' },
+        {
+          [$style['add-on--disabled']]: disabled,
+          [$style['add-on--error']]: statusValue === 'error',
+        },
       ]"
     >
       <slot name="leading-add-on"></slot>
@@ -151,7 +154,10 @@ const existAddOn = computed(() => {
       :class="[
         $style['add-on'],
         $style['add-on--trailing'],
-        { [$style['add-on--disabled']]: disabled, [$style['add-on--error']]: statusValue === 'error' },
+        {
+          [$style['add-on--disabled']]: disabled,
+          [$style['add-on--error']]: statusValue === 'error',
+        },
       ]"
     >
       <slot name="trailing-add-on"></slot>

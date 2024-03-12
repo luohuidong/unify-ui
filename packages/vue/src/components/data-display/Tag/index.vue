@@ -47,7 +47,12 @@ function handleClose() {
   >
     <slot></slot>
 
-    <Close v-if="closable" data-test="close-icon" :class="$style['close-icon']" @click.stop="handleClose"></Close>
+    <Close
+      v-if="closable"
+      data-test="close-icon"
+      :class="$style['close-icon']"
+      @click.stop="handleClose"
+    ></Close>
   </span>
 </template>
 

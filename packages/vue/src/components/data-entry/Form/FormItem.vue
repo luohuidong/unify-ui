@@ -43,7 +43,9 @@ onUnmounted(() => {
   }
 });
 
-const formItemInfo = computed(() => (props.name ? store?.state.formItems.get(props.name) : undefined));
+const formItemInfo = computed(() =>
+  props.name ? store?.state.formItems.get(props.name) : undefined
+);
 useProvideFormItemValidateStatus(formItemInfo);
 
 const isRequired = computed(() => props.rules.find((rule) => (rule as any).required));
@@ -56,10 +58,18 @@ const isHorizontal = computed(() => layout.value === "horizontal" || layout.valu
   <label
     :class="[
       $style['form-item'],
-      { [$style['form-item--vertical']]: layout === 'vertical', [$style['form-item--horizontal']]: isHorizontal },
+      {
+        [$style['form-item--vertical']]: layout === 'vertical',
+        [$style['form-item--horizontal']]: isHorizontal,
+      },
     ]"
   >
-    <div :class="{ [$style['form-item__label']]: true, [$style['form-item__label--horizontal']]: isHorizontal }">
+    <div
+      :class="{
+        [$style['form-item__label']]: true,
+        [$style['form-item__label--horizontal']]: isHorizontal,
+      }"
+    >
       <span v-if="isRequired" :class="$style['form-item__asterisk']">*</span>{{ label }}
     </div>
 

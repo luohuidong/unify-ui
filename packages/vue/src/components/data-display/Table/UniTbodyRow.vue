@@ -55,7 +55,10 @@ function toggleExpandRow() {
   </tr>
 
   <!-- expand row -->
-  <UniTbodyExpandRow v-if="state.showExpandRow && tableProps.rowExpand?.expandCondition(record)" :record="record">
+  <UniTbodyExpandRow
+    v-if="state.showExpandRow && tableProps.rowExpand?.expandCondition(record)"
+    :record="record"
+  >
     <slot name="rowExpand"></slot>
   </UniTbodyExpandRow>
 </template>

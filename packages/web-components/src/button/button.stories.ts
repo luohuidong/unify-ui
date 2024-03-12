@@ -1,33 +1,33 @@
-import type { StoryObj, Meta } from '@storybook/web-components';
-import { html } from 'lit';
-import './index';
+import type { StoryObj, Meta } from "@storybook/web-components";
+import { html } from "lit";
+import "./index";
 
 interface Args {
-  type: 'secondary' | 'primary' | 'soft';
-  size: 'xs' | 's' | 'm' | 'l' | 'xl';
+  type: "secondary" | "primary" | "soft";
+  size: "xs" | "s" | "m" | "l" | "xl";
   rounded: boolean;
-  htmlType: 'button' | 'submit' | 'reset';
+  htmlType: "button" | "submit" | "reset";
   disabled: boolean;
 }
 
 const meta = {
-  title: 'General/Button',
-  component: 'u-button',
-  tags: ['autodocs'],
+  title: "General/Button",
+  component: "u-button",
+  tags: ["autodocs"],
   argTypes: {
     type: {
-      options: ['soft', 'secondary', 'primary'],
-      control: { type: 'radio' },
+      options: ["soft", "secondary", "primary"],
+      control: { type: "radio" },
     },
     size: {
-      options: ['xs', 's', 'm', 'l', 'xl', 'm'],
-      control: { type: 'radio' },
+      options: ["xs", "s", "m", "l", "xl", "m"],
+      control: { type: "radio" },
     },
-    rounded: { control: 'boolean' },
-    disabled: { control: 'boolean' },
+    rounded: { control: "boolean" },
+    disabled: { control: "boolean" },
     htmlType: {
-      options: ['button', 'submit', 'reset'],
-      control: { type: 'radio' },
+      options: ["button", "submit", "reset"],
+      control: { type: "radio" },
     },
   },
 } satisfies Meta<Args>;
@@ -37,23 +37,28 @@ type Story = StoryObj<Args>;
 
 export const BasicUsage: Story = {
   args: {
-    type: 'soft',
-    size: 'm',
+    type: "soft",
+    size: "m",
     rounded: false,
     disabled: false,
-    htmlType: 'button',
+    htmlType: "button",
   },
-  render: ({ type, size, rounded, disabled, htmlType }) =>
-    html`
-      <u-button type=${type} size=${size} ?rounded=${rounded} ?disabled=${disabled} htmlType=${htmlType}>
-        Button
-      </u-button>
-    `,
+  render: ({ type, size, rounded, disabled, htmlType }) => html`
+    <u-button
+      type=${type}
+      size=${size}
+      ?rounded=${rounded}
+      ?disabled=${disabled}
+      htmlType=${htmlType}
+    >
+      Button
+    </u-button>
+  `,
 };
 
 export const Type: Story = {
   args: {
-    type: 'primary',
+    type: "primary",
   },
   render: () => html`
     <u-button type="soft"> Soft </u-button>
@@ -64,7 +69,7 @@ export const Type: Story = {
 
 export const ButtonSize: Story = {
   args: {
-    size: 'm',
+    size: "m",
   },
   render: () => html`
     <u-button size="xs">XS</u-button>

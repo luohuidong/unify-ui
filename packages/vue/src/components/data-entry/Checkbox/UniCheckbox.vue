@@ -35,7 +35,9 @@ function handleChange(e: Event) {
     emit("update:checked", checked);
     emit("change", checked);
 
-    props.value !== undefined && handleChangeGroupValue && handleChangeGroupValue(checked, props.value);
+    props.value !== undefined &&
+      handleChangeGroupValue &&
+      handleChangeGroupValue(checked, props.value);
   }
 }
 

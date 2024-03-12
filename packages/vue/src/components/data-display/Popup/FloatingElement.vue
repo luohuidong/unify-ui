@@ -25,7 +25,7 @@ const floatingArrowRef = inject(provideKeys.floatingArrowRefKey);
 
     <div
       v-show="rootPropsKey?.showArrow"
-      :ref="(e)=> floatingArrowRef?.setFloatingArrowRef(e as HTMLDivElement)"
+      :ref="(e) => floatingArrowRef?.setFloatingArrowRef(e as HTMLDivElement)"
       :class="$style.arrow"
     ></div>
   </div>
@@ -46,7 +46,10 @@ const floatingArrowRef = inject(provideKeys.floatingArrowRefKey);
   border-radius: 4px;
   font-size: 90%;
   z-index: zindex.$popover;
-  box-shadow: 0 6px 16px 0 rgba(0, 0, 0, 0.08), 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 3px 6px -4px rgba(0, 0, 0, 0.12),
+    0 9px 28px 8px rgba(0, 0, 0, 0.05);
 }
 
 .arrow {

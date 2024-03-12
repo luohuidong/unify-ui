@@ -19,10 +19,16 @@ const { rootProps, state } = useStore();
 
 <template>
   <input
-    :class="[$style['input'], { [$style['input--disabled']]: disabled, [$style['input--error']]: state.isErrorStatus }]"
+    :class="[
+      $style['input'],
+      { [$style['input--disabled']]: disabled, [$style['input--error']]: state.isErrorStatus },
+    ]"
     :placeholder="rootProps.placeholder"
     readonly
-    :value="rootProps.modelValue && state.valueLabelMap.get(rootProps.modelValue as NonNullable<ModelValueSingle>)"
+    :value="
+      rootProps.modelValue &&
+      state.valueLabelMap.get(rootProps.modelValue as NonNullable<ModelValueSingle>)
+    "
     :disabled="disabled"
   />
 </template>

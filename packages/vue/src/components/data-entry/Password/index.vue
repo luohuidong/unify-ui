@@ -57,7 +57,11 @@ function handleTriggerClick() {
   >
     <template #inline-trailing-add-on>
       <div v-if="!props.disabled" :class="$style['password-trigger-container']">
-        <EyeOn v-if="showPassword" :class="$style['password-trigger']" @click="handleTriggerClick" />
+        <EyeOn
+          v-if="showPassword"
+          :class="$style['password-trigger']"
+          @click="handleTriggerClick"
+        />
         <EyeOff v-else :class="$style['password-trigger']" @click="handleTriggerClick" />
       </div>
     </template>

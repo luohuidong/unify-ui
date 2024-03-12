@@ -32,7 +32,11 @@ async function handleConfirmDialogButton() {
       <div>
         <UniButton @click="visible = true">Open Modal</UniButton>
         <UniButton @click="handleConfirmDialogButton">Open ConfirmModal</UniButton>
-        <UniModal :visible="visible" @click:confirm-button="visible = false" @click:cancel-button="visible = false">
+        <UniModal
+          :visible="visible"
+          @click:confirm-button="visible = false"
+          @click:cancel-button="visible = false"
+        >
           balabala...
         </UniModal>
       </div>

@@ -11,7 +11,9 @@ function handleClose(tag: (typeof originPreset)[number]) {
 </script>
 
 <template>
-  <Tag v-for="preset of presets" :key="preset" :type="preset" closable @close="handleClose(preset)">{{ preset }}</Tag>
+  <Tag v-for="preset of presets" :key="preset" :type="preset" closable @close="handleClose(preset)">
+    {{ preset }}
+  </Tag>
 </template>
 
 <style lang="scss" module></style>

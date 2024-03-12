@@ -1,12 +1,12 @@
-import { LitElement, html, css } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
-import 'iconify-icon';
+import { LitElement, html, css } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
+import "iconify-icon";
 
-@customElement('u-pagination-arrow')
+@customElement("u-pagination-arrow")
 class UPaginationArrow extends LitElement {
   @property()
-  type: 'prev' | 'next' = 'prev';
+  type: "prev" | "next" = "prev";
 
   @property({ type: Boolean })
   disabled = false;
@@ -14,12 +14,12 @@ class UPaginationArrow extends LitElement {
   render() {
     const classes = {
       button: true,
-      'icon-container': true,
+      "icon-container": true,
     };
 
     return html`
       <button class=${classMap(classes)} .disabled=${this.disabled}>
-        ${this.type === 'prev'
+        ${this.type === "prev"
           ? html`<iconify-icon class="icon" icon="ep:arrow-left-bold"></iconify-icon>`
           : html`<iconify-icon class="icon" icon="ep:arrow-right-bold"></iconify-icon>`}
       </button>
@@ -60,6 +60,6 @@ class UPaginationArrow extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'u-pagination-arrow': UPaginationArrow;
+    "u-pagination-arrow": UPaginationArrow;
   }
 }

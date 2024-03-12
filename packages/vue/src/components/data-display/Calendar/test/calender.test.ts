@@ -20,8 +20,12 @@ test("modelValue should be updated", async () => {
   expect(wrapper.props("modelValue")).toEqual(new Date(2023, 7, 1));
 
   await wrapper.setProps({ modelValue: new Date(2023, 7, 2) });
-  expect(wrapper.find('time[datetime="2023-8-1"]').attributes("data-test-selected")).toContain("false");
-  expect(wrapper.find('time[datetime="2023-8-2"]').attributes("data-test-selected")).toContain("true");
+  expect(wrapper.find('time[datetime="2023-8-1"]').attributes("data-test-selected")).toContain(
+    "false"
+  );
+  expect(wrapper.find('time[datetime="2023-8-2"]').attributes("data-test-selected")).toContain(
+    "true"
+  );
 });
 
 test("switching between adjacent months", async () => {
@@ -91,10 +95,8 @@ test("select year", async () => {
 });
 
 test("useCurrentMonthInfo, current date: 2023-07", () => {
-  const { dayOfCurrentMonthFirstDate, dayOfCurrentMonthLastDate, lastDateOfCurrentMonth } = useCurrentMonthInfo(
-    ref(2023),
-    ref(6)
-  );
+  const { dayOfCurrentMonthFirstDate, dayOfCurrentMonthLastDate, lastDateOfCurrentMonth } =
+    useCurrentMonthInfo(ref(2023), ref(6));
 
   expect(dayOfCurrentMonthFirstDate.value).toEqual(6);
   expect(dayOfCurrentMonthLastDate.value).toEqual(1);

@@ -1,7 +1,7 @@
-import type { StoryObj, Meta } from '@storybook/web-components';
-import { html } from 'lit';
+import type { StoryObj, Meta } from "@storybook/web-components";
+import { html } from "lit";
 
-import './basic-usage.js';
+import "./basic-usage.js";
 
 interface Args {
   total: number;
@@ -10,9 +10,9 @@ interface Args {
 }
 
 const meta = {
-  title: 'Navigation/Pagination',
-  component: 'u-pagination',
-  tags: ['autodocs'],
+  title: "Navigation/Pagination",
+  component: "u-pagination",
+  tags: ["autodocs"],
 } satisfies Meta<Args>;
 
 export default meta;

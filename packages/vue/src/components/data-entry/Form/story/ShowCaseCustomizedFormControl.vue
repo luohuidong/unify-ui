@@ -25,7 +25,11 @@ function handleReset() {
 <template>
   <div class="container">
     <UniForm ref="formRef" v-model:model="model">
-      <UniFormItem name="username" :rules="[{ required: true, message: 'Username is required' }]" label="Username">
+      <UniFormItem
+        name="username"
+        :rules="[{ required: true, message: 'Username is required' }]"
+        label="Username"
+      >
         <template #default="slotProps">
           <input
             v-model="model.username"

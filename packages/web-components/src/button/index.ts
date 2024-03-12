@@ -1,16 +1,16 @@
-import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
 
-import { buttonSizeStyle, buttonTypeStyle } from './styles/index.js';
+import { buttonSizeStyle, buttonTypeStyle } from "./styles/index.js";
 
-@customElement('u-button')
+@customElement("u-button")
 class UButton extends LitElement {
   @property({ type: String })
-  type: 'secondary' | 'primary' | 'soft' = 'soft';
+  type: "secondary" | "primary" | "soft" = "soft";
 
   @property({ type: String })
-  size: 'xs' | 's' | 'm' | 'l' | 'xl' = 'm';
+  size: "xs" | "s" | "m" | "l" | "xl" = "m";
 
   @property({ type: Boolean })
   rounded = false;
@@ -19,7 +19,7 @@ class UButton extends LitElement {
   disabled = false;
 
   @property({ type: String })
-  htmlType: 'button' | 'submit' | 'reset' = 'button';
+  htmlType: "button" | "submit" | "reset" = "button";
 
   render() {
     const className = {
@@ -71,6 +71,6 @@ class UButton extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'u-button': UButton;
+    "u-button": UButton;
   }
 }

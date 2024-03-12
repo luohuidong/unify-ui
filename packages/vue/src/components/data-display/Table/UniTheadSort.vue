@@ -26,7 +26,8 @@ const { handleSortEmit } = useSortEmit();
           $style['toggle-icon'],
           {
             [$style['toggle-icon--active']]:
-              tableProps.sort?.columnKey === columnData.key && tableProps.sort.order === 'ascending',
+              tableProps.sort?.columnKey === columnData.key &&
+              tableProps.sort.order === 'ascending',
           },
         ]"
         @click.stop="handleSortEmit({ columnKey: columnData.key, order: 'ascending' })"
@@ -39,7 +40,8 @@ const { handleSortEmit } = useSortEmit();
           $style['toggle-icon'],
           {
             [$style['toggle-icon--active']]:
-              tableProps.sort?.columnKey === columnData.key && tableProps.sort.order === 'descending',
+              tableProps.sort?.columnKey === columnData.key &&
+              tableProps.sort.order === 'descending',
           },
         ]"
         @click.stop="handleSortEmit({ columnKey: columnData.key, order: 'descending' })"

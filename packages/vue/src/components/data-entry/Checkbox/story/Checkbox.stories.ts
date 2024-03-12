@@ -36,7 +36,8 @@ export const Checked: Story = {
     setup: () => {
       return { args };
     },
-    template: '<UniCheckbox  v-model:checked="args.checked" v-bind="args">UniCheckbox</UniCheckbox>',
+    template:
+      '<UniCheckbox  v-model:checked="args.checked" v-bind="args">UniCheckbox</UniCheckbox>',
   }),
   args: {
     ...BasicUsage.args,

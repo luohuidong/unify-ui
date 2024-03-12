@@ -1,30 +1,34 @@
-import { LitElement, css, html } from 'lit';
-import { customElement, property } from 'lit/decorators.js';
-import { classMap } from 'lit/directives/class-map.js';
+import { LitElement, css, html } from "lit";
+import { customElement, property } from "lit/decorators.js";
+import { classMap } from "lit/directives/class-map.js";
 
-@customElement('u-tab')
+@customElement("u-tab")
 class UTab extends LitElement {
   @property()
-  label: string = '';
+  label: string = "";
 
   @property()
-  value: string = '';
+  value: string = "";
 
   @property({ type: Boolean })
   isActive: boolean = false;
 
   private _handleTabClick(value: string) {
-    this.dispatchEvent(new CustomEvent<string>('tab-click', { detail: value }));
+    this.dispatchEvent(new CustomEvent<string>("tab-click", { detail: value }));
   }
 
   render() {
     const tabClassName = {
       tab: true,
-      'tab--hover': !this.isActive,
-      'tab--active': this.isActive,
+      "tab--hover": !this.isActive,
+      "tab--active": this.isActive,
     };
     return html`
-      <button class="tab tab--hover" class=${classMap(tabClassName)} @click=${() => this._handleTabClick(this.value)}>
+      <button
+        class="tab tab--hover"
+        class=${classMap(tabClassName)}
+        @click=${() => this._handleTabClick(this.value)}
+      >
         ${this.label}
       </button>
     `;
@@ -60,6 +64,6 @@ class UTab extends LitElement {
 
 declare global {
   interface HTMLElementTagNameMap {
-    'u-tab': UTab;
+    "u-tab": UTab;
   }
 }
