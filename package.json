@@ -8,12 +8,15 @@
     "cz": "cz",
     "cs": "changeset",
     "csv": "changeset version",
-    "test": "pnpm -r test"
+    "test": "pnpm -r test",
+    "format": "prettier --write packages/**/src",
+    "format:check": "prettier --check packages/**/src"
   },
   "license": "MIT",
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
     "commitizen": "^4.3.0",
-    "cz-conventional-changelog": "^3.3.0"
+    "cz-conventional-changelog": "^3.3.0",
+    "prettier": "3.2.5"
   }
 }
