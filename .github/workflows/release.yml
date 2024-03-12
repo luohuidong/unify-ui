@@ -42,8 +42,7 @@ jobs:
           version: 8
 
       - name: Build Packages
-        run: ./scripts/publish-package.sh
-        shell: bash
+        run: pnpm build
 
       - name: Create Release Pull Request or Publish to npm
         id: changesets
