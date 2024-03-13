@@ -1,9 +1,8 @@
-import type { Preview } from '@storybook/web-components'
-import '../src/styles/base.css'
+import type { Preview } from "@storybook/web-components";
+import "../src/styles/base.css";
 
 const preview: Preview = {
   parameters: {
-    actions: { argTypesRegex: '^on[A-Z].*' },
     controls: {
       matchers: {
         color: /(background|color)$/i,
@@ -11,6 +10,6 @@ const preview: Preview = {
       },
     },
   },
-}
+};
 
-export default preview
+export default preview;

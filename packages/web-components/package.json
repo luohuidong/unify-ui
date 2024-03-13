@@ -8,7 +8,7 @@
   "scripts": {
     "dev": "storybook dev -p 6006 --no-open",
     "build": "./scripts/build.sh",
-    "storybook:build": "storybook build"
+    "build-storybook": "storybook build"
   },
   "license": "MIT",
   "files": [
@@ -20,15 +20,16 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "@storybook/addon-essentials": "^7.6.17",
-    "@storybook/addon-links": "^7.6.17",
-    "@storybook/blocks": "^7.6.17",
-    "@storybook/web-components": "^7.6.17",
-    "@storybook/web-components-vite": "^7.6.17",
+    "@chromatic-com/storybook": "^1.2.18",
+    "@storybook/addon-essentials": "^8.0.0",
+    "@storybook/addon-links": "^8.0.0",
+    "@storybook/addon-mdx-gfm": "^8.0.0",
+    "@storybook/blocks": "^8.0.0",
+    "@storybook/test": "^8.0.0",
+    "@storybook/web-components": "^8.0.0",
+    "@storybook/web-components-vite": "^8.0.0",
     "lit": "^3.1.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "storybook": "^7.6.17",
+    "storybook": "^8.0.0",
     "typescript": "^5.4.2",
     "vite": "^5.1.5"
   }
