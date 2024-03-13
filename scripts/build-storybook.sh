@@ -2,4 +2,4 @@
 
 ./scripts/build.sh
 
-pnpm -r storybook:build
+pnpm -r build-storybook
