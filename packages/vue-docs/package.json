@@ -18,8 +18,8 @@
     "cz-conventional-changelog": "^3.3.0",
     "postcss": "^8.4.35",
     "postcss-prefix-selector": "^1.16.0",
-    "sass": "^1.71.1",
-    "vite-plugin-vue-devtools": "^7.0.16",
+    "sass": "^1.72.0",
+    "vite-plugin-vue-devtools": "^7.0.17",
     "vitepress": "1.0.0-rc.45",
     "vue": "^3.4.21"
   },
