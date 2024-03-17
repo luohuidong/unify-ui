@@ -22,6 +22,7 @@ export { default as UniTable } from "./components/data-display/Table/index.vue";
 export { default as UniEmpty } from "./components/data-display/Empty/index.vue";
 export { default as UniTag } from "./components/data-display/Tag/index.vue";
 export { default as UniCalendar } from "./components/data-display/Calendar/index.vue";
+export { default as UniPagination } from "./components/data-display/Pagination/index.vue";
 
 // Feedback Components
 export { UniModal, useUniConfirmModal } from "./components/feedback/Modal";
