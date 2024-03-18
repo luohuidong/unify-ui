@@ -48,6 +48,7 @@ export default defineConfig({
               { text: "Table", link: "/components/data-display/table/" },
               { text: "Tag", link: "/components/data-display/tag/" },
               { text: "Tooltip", link: "/components/data-display/tooltip/" },
+              { text: "Pagination", link: "/components/data-display/pagination/" },
             ],
           },
           {
