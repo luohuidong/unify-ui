@@ -20,7 +20,7 @@
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.1",
-    "@chromatic-com/storybook": "^1.2.20",
+    "@chromatic-com/storybook": "^1.2.22",
     "@storybook/addon-essentials": "^8.0.0",
     "@storybook/addon-links": "^8.0.0",
     "@storybook/addon-mdx-gfm": "^8.0.0",
