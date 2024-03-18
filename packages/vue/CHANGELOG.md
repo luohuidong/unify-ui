@@ -1,5 +1,11 @@
 # unify-ui
 
+## 0.15.0
+
+### Minor Changes
+
+- 4173100: Add the Pagination component
+
 ## 0.14.34
 
 ### Patch Changes
