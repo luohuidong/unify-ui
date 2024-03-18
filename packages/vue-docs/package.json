@@ -16,10 +16,10 @@
     "@faker-js/faker": "^8.4.1",
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
-    "postcss": "^8.4.35",
+    "postcss": "^8.4.36",
     "postcss-prefix-selector": "^1.16.0",
     "sass": "^1.72.0",
-    "vite-plugin-vue-devtools": "^7.0.17",
+    "vite-plugin-vue-devtools": "^7.0.18",
     "vitepress": "1.0.0-rc.45",
     "vue": "^3.4.21"
   },
