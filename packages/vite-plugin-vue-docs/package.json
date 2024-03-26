@@ -21,20 +21,20 @@
   "devDependencies": {
     "@babel/template": "^7.24.0",
     "@babel/types": "^7.24.0",
-    "@tsconfig/recommended": "^1.0.3",
+    "@tsconfig/recommended": "^1.0.4",
     "@types/babel__generator": "^7.6.8",
     "@types/babel__template": "^7.4.4",
     "@types/babel__traverse": "^7.20.5",
     "@types/mdast": "^4.0.3",
     "@types/node": "^20.11.30",
     "@types/unist": "^3.0.2",
-    "@typescript-eslint/eslint-plugin": "^7.3.1",
-    "@typescript-eslint/parser": "^7.3.1",
+    "@typescript-eslint/eslint-plugin": "^7.4.0",
+    "@typescript-eslint/parser": "^7.4.0",
     "eslint": "^8.57.0",
     "eslint-config-prettier": "^9.1.0",
     "typedoc": "^0.25.12",
     "typescript": "^5.4.3",
-    "vite": "^5.2.2"
+    "vite": "^5.2.6"
   },
   "dependencies": {
     "@babel/generator": "^7.24.1",

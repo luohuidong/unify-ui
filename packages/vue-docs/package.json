@@ -19,7 +19,7 @@
     "postcss": "^8.4.38",
     "postcss-prefix-selector": "^1.16.0",
     "sass": "^1.72.0",
-    "vite-plugin-vue-devtools": "^7.0.20",
+    "vite-plugin-vue-devtools": "^7.0.22",
     "vitepress": "1.0.1",
     "vue": "^3.4.21"
   },
