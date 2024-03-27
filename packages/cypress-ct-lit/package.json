@@ -1,0 +1,29 @@
+{
+  "name": "@unify-ui/cypress-ct-lit",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Lit Definition adapter for Cypress Component Testing",
+  "exports": {
+    "node": "./dist/definition.js",
+    "default": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "npm run build:definition && npm run build:mount",
+    "build:mount": "tsc --project tsconfig.mount.json",
+    "build:definition": "tsc --project tsconfig.definition.json"
+  },
+  "types": "dist/*.d.ts",
+  "files": [
+    "package.json",
+    "dist"
+  ],
+  "devDependencies": {
+    "cypress": "^13.7.1",
+    "lit": "^3.1.2",
+    "typescript": "^5.4.3",
+    "vite": "^5.2.6"
+  },
+  "dependencies": {
+    "@cypress/mount-utils": "^4.1.0"
+  }
+}
