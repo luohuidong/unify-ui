@@ -3,6 +3,7 @@
     /** Modules */
     "module": "Node16",
     "moduleResolution": "Node16",
+    "types": ["cypress"],
 
     /** Emit */
     "declaration": true,
@@ -19,7 +20,7 @@
     /** Completeness */
     "skipLibCheck": true,
 
-    /* Type Checking */
+    /** Type Checking */
     "noFallthroughCasesInSwitch": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,

@@ -9,12 +9,11 @@
     "dev": "storybook dev -p 6006 --no-open",
     "build": "./scripts/build.sh",
     "build-storybook": "storybook build",
-    "test": "vitest",
-    "wdio": "wdio run ./wdio.conf.ts"
+    "cypress-open": "cypress open"
   },
   "license": "MIT",
   "files": [
-    "lib"
+    "dist"
   ],
   "peerDependencies": {
     "iconify-icon": "^2.0.0",
@@ -30,19 +29,12 @@
     "@storybook/test": "^8.0.4",
     "@storybook/web-components": "^8.0.4",
     "@storybook/web-components-vite": "^8.0.4",
-    "@testing-library/webdriverio": "^3.2.1",
-    "@wdio/browser-runner": "^8.35.1",
-    "@wdio/cli": "^8.35.1",
-    "@wdio/globals": "^8.35.1",
-    "@wdio/spec-reporter": "^8.32.4",
-    "happy-dom": "^14.3.8",
+    "@types/mocha": "^10.0.6",
+    "@unify-ui/cypress-ct-lit": "workspace:^",
+    "cypress": "^13.7.1",
     "lit": "^3.1.2",
     "storybook": "^8.0.4",
-    "ts-node": "^10.9.2",
     "typescript": "^5.4.3",
-    "vite": "^5.2.6",
-    "vitest": "^1.4.0",
-    "wdio-vite-service": "^1.0.6",
-    "wdio-wait-for": "^3.0.11"
+    "vite": "^5.2.6"
   }
 }
