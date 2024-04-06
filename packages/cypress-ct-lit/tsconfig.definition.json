@@ -1,15 +1,10 @@
 {
+  "extends": "./tsconfig.json",
   "compilerOptions": {
     "target": "ES2015",
     "module": "CommonJS",
-    "moduleResolution": "node",
-    "declaration": true,
     "lib": ["ES6"],
-    "esModuleInterop": true,
-    "strict": true,
-    "types": ["cypress"],
-    "skipLibCheck": true,
-    "outDir": "dist"
+    "skipLibCheck": true
   },
   "include": ["src/definition.ts"]
 }
