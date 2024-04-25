@@ -17,11 +17,11 @@
     "commitizen": "^4.3.0",
     "cz-conventional-changelog": "^3.3.0",
     "postcss": "^8.4.38",
-    "postcss-prefix-selector": "^1.16.0",
-    "sass": "^1.72.0",
-    "vite-plugin-vue-devtools": "^7.0.22",
-    "vitepress": "1.0.1",
-    "vue": "^3.4.21"
+    "postcss-prefix-selector": "^1.16.1",
+    "sass": "^1.75.0",
+    "vite-plugin-vue-devtools": "^7.1.2",
+    "vitepress": "^1.1.3",
+    "vue": "^3.4.25"
   },
   "dependencies": {
     "@unify-ui/vite-plugin-vue-docs": "workspace:^",
