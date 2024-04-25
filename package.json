@@ -9,7 +9,7 @@
     "cs": "changeset",
     "csv": "changeset version",
     "test": "pnpm -r test",
-    "vitest": "vitest",
+    "vitest": "vitest run",
     "format": "prettier --write packages/**/src",
     "format:check": "prettier --check packages/**/src"
   },
