@@ -1,5 +1,13 @@
 # unify-ui
 
+## 0.15.1
+
+### Patch Changes
+
+- 4839c5a: modify npm scripts
+- Updated dependencies [4839c5a]
+  - @unify-ui/web-components@0.4.1
+
 ## 0.15.0
 
 ### Minor Changes
