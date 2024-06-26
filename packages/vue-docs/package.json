@@ -4,9 +4,9 @@
   "type": "module",
   "description": "",
   "scripts": {
-    "dev": "vitepress dev docs --host",
-    "build": "vitepress build docs",
-    "preview": "vitepress preview docs",
+    "dev:vitepress": "vitepress dev docs --host",
+    "build:vitepress": "vitepress build docs",
+    "preview:vitepress": "vitepress preview docs",
     "cz": "cz"
   },
   "keywords": [],

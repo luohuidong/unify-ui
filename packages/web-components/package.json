@@ -8,8 +8,8 @@
   "scripts": {
     "dev": "storybook dev -p 6006 --no-open",
     "build": "./scripts/build.sh",
-    "build-storybook": "storybook build",
-    "cypress-open": "cypress open"
+    "build:storybook": "storybook build",
+    "cypress:open": "cypress open"
   },
   "license": "MIT",
   "files": [

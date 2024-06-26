@@ -12,7 +12,7 @@
   "scripts": {
     "dev": "tsc --project tsconfig.development.json --watch",
     "build": "tsc --project tsconfig.production.json",
-    "build:doc": "typedoc --tsconfig tsconfig.production.json",
+    "build:typedoc": "typedoc --tsconfig tsconfig.production.json",
     "lint": "eslint"
   },
   "license": "MIT",

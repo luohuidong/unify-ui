@@ -2,9 +2,9 @@
   "name": "unify-ui",
   "private": true,
   "scripts": {
-    "build": "./scripts/build.sh",
-    "build:docs": "./scripts/build-docs.sh",
-    "build:storybook": "./scripts/build-storybook.sh",
+    "build": "pnpm -r build",
+    "build:vitepress": "pnpm build && pnpm -r build:vitepress",
+    "build:storybook": "pnpm build && pnpm -r build:storybook",
     "cz": "cz",
     "cs": "changeset",
     "csv": "changeset version",
