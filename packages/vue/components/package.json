@@ -21,10 +21,10 @@
   "keywords": [
     "Unify UI"
   ],
-  "homepage": "https://github.com/unify-ui/unify-ui",
+  "homepage": "https://github.com/luohuidong/unify-ui",
   "type": "module",
   "bugs": {
-    "url": "https://github.com/unify-ui/unify-ui/issues"
+    "url": "https://github.com/luohuidong/unify-ui/issues"
   },
   "files": [
     "dist",
@@ -36,7 +36,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/unify-ui/unify-ui.git"
+    "url": "https://github.com/luohuidong/unify-ui.git"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
   },
   "devDependencies": {
     "@changesets/cli": "^2.27.6",
