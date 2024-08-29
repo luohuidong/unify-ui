@@ -1,5 +1,11 @@
 # @unify-ui/web-components
 
+## 0.4.2
+
+### Patch Changes
+
+- 7d6f2de: export components
+
 ## 0.4.1
 
 ### Patch Changes
