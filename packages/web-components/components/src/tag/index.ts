@@ -3,7 +3,7 @@ import { customElement, property } from "lit/decorators.js";
 import "iconify-icon";
 
 @customElement("u-tag")
-class UTag extends LitElement {
+export class UTag extends LitElement {
   @property()
   type?: "default" | "success" | "info" | "warning" | "error" = "default";
 

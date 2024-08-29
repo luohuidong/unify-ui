@@ -5,7 +5,7 @@ import "./pagination-item.js";
 import "./pagination-arrow.js";
 
 @customElement("u-pagination")
-class UPagination extends LitElement {
+export class UPagination extends LitElement {
   @property({ type: Number })
   total = 0;
 

@@ -4,7 +4,7 @@ import { customElement, property } from "lit/decorators.js";
 import "./tab.js";
 
 @customElement("u-tabs")
-class UTabs extends LitElement {
+export class UTabs extends LitElement {
   @property({ type: Array })
   items: { label: string; value: string; icon?: string }[] = [];
 

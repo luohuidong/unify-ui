@@ -5,7 +5,7 @@ import { classMap } from "lit/directives/class-map.js";
 import { buttonSizeStyle, buttonTypeStyle } from "./styles/index.js";
 
 @customElement("u-button")
-class UButton extends LitElement {
+export class UButton extends LitElement {
   @property({ type: String })
   type: "secondary" | "primary" | "soft" = "soft";
 
